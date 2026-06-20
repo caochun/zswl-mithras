@@ -50,7 +50,6 @@ const ClientInfoListEditable = ({ creditReportId }) => {
   }
 
   const getClientOptions = async (clientName) => {
-    console.log('creditReportId: ', creditReportId)
     const res = await creditReportApi.getBaseClientInfo({ clientName, creditReportId })
     return res?.map((item) => ({ value: item.clientId, label: item.clientName })) || []
   }

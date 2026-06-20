@@ -47,7 +47,6 @@ class Store {
   }
   batchNo = ''
   onRowClick = ({ record }) => {
-    console.log('record: ', record)
     if (this.channel === 'PROC_BATCH') {
       this.batchId = record.id
       this.batchNo = record.batchNo

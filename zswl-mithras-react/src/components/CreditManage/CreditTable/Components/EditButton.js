@@ -69,7 +69,7 @@ const EditButton = ({ saveData, columns, disabled, record }) => {
       editModal.close()
       setLoading(false)
     } catch (err) {
-      console.log('err: ', err)
+      message.error('保存失败')
       setLoading(false)
     }
   }

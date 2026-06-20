@@ -334,8 +334,6 @@ const CreditInfo = observer(({ creditReportClientId, params }) => {
         />
         <h3 style={{ fontWeight: 600, margin: '12px 0 8px' }}>未结清信贷及授信信息概要</h3>
         {unsettledSummaryList.map((item, idx) => {
-          console.log('item: ', item)
-
           return (
             <Table
               rowKey={'id'}

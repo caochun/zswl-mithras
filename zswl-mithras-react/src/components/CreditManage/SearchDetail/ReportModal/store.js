@@ -33,7 +33,6 @@ class Store {
         }, {})
         return Object.values(newBodyList)
       })
-      console.log('payableLoans: ', payableLoans)
       this.unsettledSummaryList = payableLoans
       return {}
     },
