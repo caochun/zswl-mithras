@@ -1,20 +1,11 @@
-import { ConfigProvider, Skeleton } from 'antd'
+import { ConfigProvider } from 'antd'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
-import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react'
-import CheckCard from './index'
+import React, { useCallback, useContext, useMemo, useRef, useState } from 'react'
+import CheckCard from './CheckCard'
+import { CheckCardGroupContext } from './context'
 import { omit } from 'lodash'
 import useMergedState from '@/utils/hooks/useMergedState'
-
-export const CheckCardGroupConnext = createContext(null)
-
-export const CardLoading = ({ prefixCls }) => {
-  return (
-    <div className={classNames(`${prefixCls}-loading-content`)}>
-      <Skeleton loading active paragraph={{ rows: 4 }} title={false} />
-    </div>
-  )
-}
 
 /**
  * SubCheckCardGroup component.
@@ -193,7 +184,7 @@ const CheckCardGroup = (props) => {
   const classString = classNames(groupPrefixCls, className)
 
   return (
-    <CheckCardGroupConnext.Provider
+    <CheckCardGroupContext.Provider
       value={{
         toggleOption,
         bordered,
@@ -210,7 +201,7 @@ const CheckCardGroup = (props) => {
       <div className={classString} style={style} {...domProps}>
         {children}
       </div>
-    </CheckCardGroupConnext.Provider>
+    </CheckCardGroupContext.Provider>
   )
 }
 

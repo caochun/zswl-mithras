@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import React, { useRef } from 'react'
-import BpmnFlowChart from './index'
+import BpmnFlowChart from './BpmnFlowChart'
 import { Modal } from 'antd'
 
 const ModalOPenChart = ({ processInstanceId, visible, setVisible, callBack }) => {
