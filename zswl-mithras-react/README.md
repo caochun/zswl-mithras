@@ -130,7 +130,10 @@
 - `Cpm/BillManageEntries.js`
 - `Cpm/CollectionWriteOffEntries.js`
 - `Cpm/ContractCpmEntries.js`
-- `Cpm/MarginManagementEntries.js`
+- `Cpm/MarginManagementPageEntries.js`
+- `Cpm/MarginManagementPaymentEntries.js`
+- `Cpm/MarginManagementRefundEntries.js`
+- `Cpm/MarginManagementVerificationEntries.js`
 - `Cpm/PaymentApplicationDetailEntries.js`
 - `Cpm/PaymentApplicationListEntries.js`
 - `Cpm/PaymentApplicationMaterialsEntries.js`

@@ -1,1 +1,1 @@
-export { CpmMarginManagementRefundRecords as default } from '@/components/Cpm/MarginManagementEntries'
+export { CpmMarginManagementRefundRecords as default } from '@/components/Cpm/MarginManagementRefundEntries'
