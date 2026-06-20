@@ -428,8 +428,6 @@ const balanceSheetColumns = [
  */
 export const transformBalanceData = (data) => {
   if (!data) return []
-
-  console.log('data: ', data)
   return balanceSheetColumns.map((column, index) => ({
     rowNum: index + 1,
     id: `balanceSheet_${index + 1}`,

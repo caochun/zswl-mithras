@@ -312,7 +312,6 @@ export const transformBusinessSituationData = (data) => {
  * @returns {Promise} API调用结果
  */
 export const businessSituationModifyApi = ({ dataList, reportInstanceId }) => {
-  console.log('dataList: ', dataList)
   const params = {
     id: dataList[0].parentId,
     reportInstanceId,

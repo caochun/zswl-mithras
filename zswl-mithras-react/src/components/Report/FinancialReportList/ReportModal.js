@@ -41,8 +41,6 @@ const ReportModal = ({ store }) => {
   })
   const searchStore = store.approvalTable.getSearchStore()
   const form = searchStore.getFormStore()
-
-  console.log('form: ', form)
   const reportPeriodChange = (value) => {
     form.setFieldsValue({
       reportPeriod: null,
@@ -80,7 +78,6 @@ const ReportModal = ({ store }) => {
               <SearchBar.Item noStyle dependencies={['reportPeriodCategory']}>
                 {({ getFieldValue }) => {
                   const reportPeriodCategory = getFieldValue('reportPeriodCategory')
-                  console.log('reportPeriodCategory: ', reportPeriodCategory)
                   const reportPeriodEnum = reportPeriodMap[reportPeriodCategory] || []
                   return (
                     <SearchBar.Item name={'reportPeriod'} label="报表周期">

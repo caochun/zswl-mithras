@@ -113,7 +113,6 @@ class Store {
     downFile(url)
   }
   import = async (file) => {
-    console.log('file: ', file)
     // const { fileList } = DataUpload.classify(files)
     const { importSuccess, errorMessageList } = await financialReportApi.postReportImport({
       reportInstanceId: this.currentId,
