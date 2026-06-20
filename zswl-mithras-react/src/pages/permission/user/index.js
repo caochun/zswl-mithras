@@ -1,1 +1,1 @@
-export { PermissionUser as default } from '@/components/Permission/BifrostEntries'
+export { PermissionUser as default } from '@/components/Permission/UserEntries'

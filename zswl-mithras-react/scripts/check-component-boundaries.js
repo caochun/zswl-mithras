@@ -778,6 +778,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Overdue/OverdueEntries.js', 'Overdue/* narrow Entries.js'],
   ['PaymentApplyColumns/PaymentApplyColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
   ['PaymentFtpColumns/PaymentFtpColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
+  ['Permission/BifrostEntries.js', 'Permission/* narrow Entries.js'],
   ['Policy/PolicyEntries.js', 'InsurancePolicy/InsurancePolicyEntries.js'],
   ['Process/ComponentEntries.js', 'Process/* narrow Entries.js'],
   ['Process/ProcessEntries.js', 'Process/* narrow Entries.js'],

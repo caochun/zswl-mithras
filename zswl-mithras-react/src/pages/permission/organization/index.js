@@ -1,1 +1,1 @@
-export { PermissionOrganization as default } from '@/components/Permission/BifrostEntries'
+export { PermissionOrganization as default } from '@/components/Permission/BifrostPageEntries'
