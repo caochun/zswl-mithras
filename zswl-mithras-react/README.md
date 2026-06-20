@@ -63,6 +63,7 @@
 - `Budget/BusinessAgingTableEntries.js`
 - `Budget/ExchangeRateEntries.js`
 - `Budget/FinancialMonthlyManagementEntries.js`
+- `Budget/FlowCenterEntries.js`
 - `Budget/IncomeShareTableEntries.js`
 - `Budget/LprEntries.js`
 - `Budget/PricingBaseDataEntries.js`
@@ -233,7 +234,7 @@
 - `TrackEvent/TrackingEntries.js` 仅保留为历史兼容入口，新代码应使用 `TrackEvent/TrackEventEntries.js`。
 - `npm run check:boundaries` 会阻止业务代码重新引用上述历史兼容入口；兼容文件可以保留，但新增和迁移代码必须使用语义入口或窄入口。
 - 权限页 Bifrost iframe、用户管理页、字典/组织/角色 iframe 页、功能分组页和操作日志页已沉淀到 `src/components/Permission/BifrostEntries.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
-- 预算流水组织树选择器已回收到 `src/pages/budget/flowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
+- 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 金额输入已回收到 `src/components/Cpm/AmountNumber`，跨层使用应通过 `Cpm/CpmEntries.js`。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，项目页面跨层使用应通过 `Project/EstablishmentDetailEntries.js`。
 - Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应通过 `Dashboard/DashboardEntries.js`。
@@ -354,7 +355,7 @@
 - `financial/accountsReceivable`：应收账款接口历史落在财务目录；预算应收账款页面和组件优先使用 `src/api/budget/accountsReceivable` 下的语义入口。
 - `cpm/payment/contractPaymentFtp`：合同付款 FTP 接口历史落在付款目录；合同付款申请组件优先使用 `src/api/contract/payment/contractPaymentFtp` 语义入口。
 - `contract/payment/contractPaymentFtp.modifyContractPayment`：付款核销详情内修改付款 FTP 信息时使用 `src/api/cpm/payment/contractPaymentFtpApi` 付款语义入口，不直接绑定合同付款 API 文件。
-- `budget/flowCenter`：银行流水/付款流水中心接口历史落在预算目录；付款核销组件使用 `src/api/cpm/payment/writeOffFlowCenterApi` 语义入口，不再转发预算流水中心 API 文件。
+- `budget/flowCenter`：银行流水/付款流水中心接口历史落在预算目录；预算流水中心页面通过 `src/components/Budget/FlowCenterEntries.js` 暴露，`src/pages/budget/flowCenter/*` 只保留路由壳；付款核销组件使用 `src/api/cpm/payment/writeOffFlowCenterApi` 语义入口，不再转发预算流水中心 API 文件。
 - `afterLease/policyLedgerApi.getPaymentDetail`：付款详情接口历史挂在保单台账 API 中；付款核销详情组件优先使用 `src/api/cpm/payment/paymentDetailApi` 语义入口。
 - `lease/trackingApi`：跟踪事项接口历史落在租赁物目录；跟踪事项组件优先使用 `src/api/trackEvent/trackingApi` 语义入口。
 - `trackEvent/trackingApi.getTrackEventClose`：关闭跟踪事项是横向动作；项目评审会议纪要内触发时优先使用 `src/api/project/projReviewMeetingMinute` 下的项目语义方法，组件不直接穿透到跟踪事项域。
