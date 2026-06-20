@@ -14,7 +14,6 @@ const modalTitleStyle = {
 
 const Index = (props) => {
   const { id: mainId, canEdit, businessVersion, taskActivityId, taskStatus, startUserId,modelKey } = props
-  console.log('taskStatus',taskStatus,'taskActivityId',taskActivityId,'businessVersion',businessVersion)
   const isProjmanagerInProcess = taskActivityId === 'projManager'
   // 运营经理
   const isOperationmanagementagentInProcess = taskActivityId === 'operationManagement'

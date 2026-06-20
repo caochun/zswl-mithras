@@ -109,7 +109,6 @@ class Store {
     pageData?.tenant?.map((item) => {
       userNames.push(item.clientName)
     })
-    console.log(userNames)
     return [...new Set(userNames)]?.join(',')
   }
 }

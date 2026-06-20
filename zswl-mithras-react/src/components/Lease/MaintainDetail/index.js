@@ -17,7 +17,6 @@ const Index = ({
   params: { id },
   query: { businessVersion, canEdit, taskActivityId, taskStatus, startUserId, modelKey, type },
 }) => {
-  console.log(type === 'manage', type,'====type')
   const fileListRef = useRef()
   const backRef = useRef()
   const store = useMemo(() => {
@@ -60,7 +59,6 @@ const Index = ({
       history.push(`/process/query?search=${search}`)
     }
   }
-  console.log(baseInfoData,'=====')
   return (
     <Page store={store} params={{ id, fileListRef }} header={null}>
       <DetailLayout

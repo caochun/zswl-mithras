@@ -9,7 +9,6 @@ const Index = (props) => {
   // TODO: 租赁物确认函: 带入合同流程的不允许项目经理删除或上传，运营和法务节点可以
   const { id: mainId, canEdit, businessVersion, fileListRef, taskActivityId, taskStatus,modelKey } = props
   const isOperationmanagementagentInProcess = taskActivityId === 'operationManagement'
-  console.log('modelKey',modelKey,'taskStatus',taskStatus,'isOperationmanagementagentInProcess',isOperationmanagementagentInProcess)
   const ref = useRef()
 
   const columns = [
