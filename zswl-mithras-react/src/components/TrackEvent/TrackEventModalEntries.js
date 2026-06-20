@@ -1,1 +1,1 @@
-export { default as TrackEventModal } from './TrackModal'
+export { default as TrackEventModal } from './TrackModal/TrackEventModal'

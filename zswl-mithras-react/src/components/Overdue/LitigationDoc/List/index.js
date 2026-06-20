@@ -4,7 +4,7 @@ import store from './store'
 import { MatchOptionColumn } from '@/components/Format'
 import PageListDown from '@/components/PageListDown'
 import { FounderSelect } from '@/components/Select'
-import AddModal from '../../LitigationDocAddModal'
+import AddModal from '../../LitigationDocAddModal/OverdueLitigationDocAddModal'
 import { saveServer } from '@/utils'
 
 function Index({ path }) {

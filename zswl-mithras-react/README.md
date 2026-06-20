@@ -496,11 +496,15 @@
 - 租赁物审核确认动作通过 `src/components/Lease/ApprovalConfirmEntries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
 - OCR 识别页通过 `src/components/Ocr/RecognitionEntries.js` 暴露，真实实现命名为 `src/components/Ocr/Recognition/OcrRecognition.js`。
+- 逾期文书用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js`。
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
+- 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
 - 流程空白块和流程类型树分别通过 `src/components/Process/BlankBlockEntries.js`、`ProcessTypeTreeEntries.js` 暴露，真实实现命名为 `src/components/Process/BlankBlock/ProcessBlankBlock.js` 和 `src/components/Process/ProcessTypeTree/ProcessTypeTree.js`。
 - 项目债项评级抽屉通过 `src/components/Project/DebtEvaluationEntries.js` 暴露，真实实现命名为 `src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js`。
+- 项目评审会纪要弹窗通过 `src/components/Project/ProjectReviewMeetingModalEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js`。
 - 风险评分卡测算弹窗通过 `src/components/Risk/SourceCardCalcModalEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js`。
+- 跟踪事项抽屉通过 `src/components/TrackEvent/TrackEventModalEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/TrackModal/TrackEventModal.js`。
 - 白名单列表和详情分别通过 `src/components/WhiteList/ListEntries.js`、`DetailEntries.js` 暴露，真实实现命名为 `src/components/WhiteList/List/WhiteListList.js` 和 `src/components/WhiteList/Detail/WhiteListDetail.js`，列定义保留为白名单域内私有配置。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。

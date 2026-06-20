@@ -116,6 +116,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Ocr/Recognition/OcrRecognition.js',
   ],
   [
+    'src/components/Overdue/LitigationDocAddModal/index.js',
+    'src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js',
+  ],
+  [
     'src/components/PaymentFtpColumns/index.js',
     'src/components/PaymentFtpColumns/FtpAssessmentColumns.js',
   ],
@@ -128,6 +132,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Process/BlankBlock/ProcessBlankBlock.js',
   ],
   [
+    'src/components/Process/InfoModal/index.js',
+    'src/components/Process/InfoModal/ProcessInfoModal.js',
+  ],
+  [
     'src/components/Process/ProcessTypeTree/index.js',
     'src/components/Process/ProcessTypeTree/ProcessTypeTree.js',
   ],
@@ -136,8 +144,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js',
   ],
   [
+    'src/components/Project/ReviewMeetingModal/index.js',
+    'src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js',
+  ],
+  [
     'src/components/Risk/SourceCardCalcModal/index.js',
     'src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js',
+  ],
+  [
+    'src/components/TrackEvent/TrackModal/index.js',
+    'src/components/TrackEvent/TrackModal/TrackEventModal.js',
   ],
   [
     'src/components/ChangeLogDiff/index.js',

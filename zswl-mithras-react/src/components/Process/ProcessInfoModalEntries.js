@@ -1,1 +1,1 @@
-export { default as ProcessInfoModal } from './InfoModal'
+export { default as ProcessInfoModal } from './InfoModal/ProcessInfoModal'
