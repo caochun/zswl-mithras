@@ -1,1 +1,1 @@
-export { default as BlackGrayHitInfo } from './Info'
+export { default as BlackGrayHitInfo } from './Info/BlackGrayHitInfo'

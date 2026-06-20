@@ -76,6 +76,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js',
   ],
   [
+    'src/components/BlackGray/Info/index.js',
+    'src/components/BlackGray/Info/BlackGrayHitInfo.js',
+  ],
+  [
     'src/components/BusinessInfoCheck/index.js',
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],
@@ -98,6 +102,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/EvaluationAgency/index.js',
     'src/components/EvaluationAgency/AppraisalAgency.js',
+  ],
+  [
+    'src/components/ExternalEmbed/RzyPages/index.js',
+    'src/components/ExternalEmbed/RzyPages/RzyPages.js',
+  ],
+  [
+    'src/components/InsurancePolicy/Columns/index.js',
+    'src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js',
   ],
   [
     'src/components/InsurancePolicy/index.js',
@@ -146,6 +158,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Project/ReviewMeetingModal/index.js',
     'src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js',
+  ],
+  [
+    'src/components/Project/ReviewSnapshot/index.js',
+    'src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js',
   ],
   [
     'src/components/Risk/SourceCardCalcModal/index.js',

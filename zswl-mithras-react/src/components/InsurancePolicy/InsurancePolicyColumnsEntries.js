@@ -1,1 +1,1 @@
-export { default as InsurancePolicyColumns } from './Columns'
+export { default as InsurancePolicyColumns } from './Columns/InsurancePolicyColumns'

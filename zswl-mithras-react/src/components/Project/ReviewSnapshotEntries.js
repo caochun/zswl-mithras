@@ -1,1 +1,1 @@
-export { default as ProjectReviewSnapshot } from './ReviewSnapshot'
+export { default as ProjectReviewSnapshot } from './ReviewSnapshot/ProjectReviewSnapshot'

@@ -13,4 +13,4 @@ export {
   RzyVendorCustomerManage,
   RzyVendorElectronicContractSeal,
   RzyVendorProductDefinition,
-} from './RzyPages'
+} from './RzyPages/RzyPages'
