@@ -1,0 +1,549 @@
+{
+  "description": "Reviewed cross-domain component entry dependency edges. Additions must be intentional and documented.",
+  "edges": [
+    {
+      "sourceScope": "components/AfterLease",
+      "target": "BlackGray/BlackGrayHitEntries"
+    },
+    {
+      "sourceScope": "components/AfterLease",
+      "target": "Contract/BaseInfoEntries"
+    },
+    {
+      "sourceScope": "components/AfterLease",
+      "target": "Customer/ExternalPublicInfoEntries"
+    },
+    {
+      "sourceScope": "components/AfterLease",
+      "target": "InsurancePolicy/InsurancePolicyColumnsEntries"
+    },
+    {
+      "sourceScope": "components/AfterLease",
+      "target": "InsurancePolicy/InsurancePolicyEntries"
+    },
+    {
+      "sourceScope": "components/AfterLease",
+      "target": "Project/ReviewSnapshotEntries"
+    },
+    {
+      "sourceScope": "components/AfterLease",
+      "target": "TrackEvent/TrackEventModalEntries"
+    },
+    {
+      "sourceScope": "components/Archives",
+      "target": "Financial/SelectEntries"
+    },
+    {
+      "sourceScope": "components/BlackGray",
+      "target": "Process/ProcessTaskFlowChartEntries"
+    },
+    {
+      "sourceScope": "components/Budget",
+      "target": "AfterLease/RentCollectionDetailEntries"
+    },
+    {
+      "sourceScope": "components/Budget",
+      "target": "Financial/FinancingUrlEntries"
+    },
+    {
+      "sourceScope": "components/Budget",
+      "target": "Financial/SelectEntries"
+    },
+    {
+      "sourceScope": "components/Budget",
+      "target": "Kpi/BaseSetModalEntries"
+    },
+    {
+      "sourceScope": "components/Budget",
+      "target": "PaymentFtpColumns/FtpAssessmentColumnsEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
+      "target": "BusinessInfoCheck/BusinessInfoCheckEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
+      "target": "ChangeLogDiff/ChangeLogDiffEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
+      "target": "EvaluationAgency/AppraisalAgencyEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
+      "target": "PaymentFtpColumns/FtpAssessmentColumnsEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
+      "target": "Project/ProjectReviewMeetingModalEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
+      "target": "TrackEvent/TrackEventModalEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "BlackGray/BlackGrayHitEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "BusinessInfoCheck/BusinessInfoCheckEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "Contract/LeaseMaterialsEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "Credit/CreditReportSearchEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "EvaluationAgency/AppraisalAgencyEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "InsurancePolicy/InsurancePolicyEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "PaymentFtpColumns/FtpAssessmentColumnsEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "Project/ProjectReviewMeetingModalEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "TrackEvent/TrackEventModalEntries"
+    },
+    {
+      "sourceScope": "components/Credit",
+      "target": "ChangeLogDiff/ChangeLogDiffEntries"
+    },
+    {
+      "sourceScope": "components/Credit",
+      "target": "ClientMaterialTable/BusinessMaterialTableEntries"
+    },
+    {
+      "sourceScope": "components/Credit",
+      "target": "Project/ProjectReviewMeetingModalEntries"
+    },
+    {
+      "sourceScope": "components/CreditManage",
+      "target": "BusinessInfoCheck/BusinessInfoCheckEntries"
+    },
+    {
+      "sourceScope": "components/Customer",
+      "target": "BlackGray/BlackGrayHitEntries"
+    },
+    {
+      "sourceScope": "components/Customer",
+      "target": "ChangeLogDiff/ChangeLogDiffEntries"
+    },
+    {
+      "sourceScope": "components/Customer",
+      "target": "Credit/CreditReportSearchEntries"
+    },
+    {
+      "sourceScope": "components/Dashboard",
+      "target": "AfterLease/Level5ClassifyListEntries"
+    },
+    {
+      "sourceScope": "components/Dashboard",
+      "target": "InsurancePolicy/InsurancePolicyColumnsEntries"
+    },
+    {
+      "sourceScope": "components/Dashboard",
+      "target": "InsurancePolicy/InsurancePolicyEntries"
+    },
+    {
+      "sourceScope": "components/Dashboard",
+      "target": "LifeCycle/CustomerEntries"
+    },
+    {
+      "sourceScope": "components/Dashboard",
+      "target": "Risk/PublicMonitorColumnsEntries"
+    },
+    {
+      "sourceScope": "components/Dashboard",
+      "target": "Risk/PublicMonitorListEntries"
+    },
+    {
+      "sourceScope": "components/Financial",
+      "target": "ChangeLogDiff/ChangeLogDiffEntries"
+    },
+    {
+      "sourceScope": "components/Kpi",
+      "target": "Process/ProcessInfoModalEntries"
+    },
+    {
+      "sourceScope": "components/Lease",
+      "target": "EvaluationAgency/AppraisalAgencyEntries"
+    },
+    {
+      "sourceScope": "components/Lease",
+      "target": "Project/ProjectReviewMeetingModalEntries"
+    },
+    {
+      "sourceScope": "components/LifeCycle",
+      "target": "AfterLease/RentCollectionDetailEntries"
+    },
+    {
+      "sourceScope": "components/LifeCycle",
+      "target": "AfterLease/RentCollectionListRenderEntries"
+    },
+    {
+      "sourceScope": "components/LifeCycle",
+      "target": "Risk/PublicMonitorListEntries"
+    },
+    {
+      "sourceScope": "components/LifeCycle",
+      "target": "Risk/SourceCardCalcModalEntries"
+    },
+    {
+      "sourceScope": "components/Overdue",
+      "target": "BlackGray/BlackGrayHitEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/AdjustDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/CheckPlanCreateEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/CheckPlanDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/CheckPlanExternalEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/CheckPlanPrepareEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/CheckPlanTemplateEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/Level5ClassifyDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/Level5ClassifyListEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/PolicyManageRemindEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "AfterLease/RentCollectionProcessEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Budget/AccountsReceivableEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Budget/ExchangeRateEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Budget/PricingBusinessDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Budget/PricingFtpInterestPriceChangeEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Budget/ProfitDistributionEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "BudgetManagement/AssessmentEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "BudgetManagement/PlacementPlanDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "BudgetManagement/PlacementPlanWeekDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "BusinessInfoCheck/BusinessInfoCheckEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "ClientMaterialTable/BusinessMaterialTableEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ApplicationDetailPageEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ChangeDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ConfigEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ContractMaterialListEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ContractProtocolEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ContractStartRentMaterialEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ContractTextEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/CreateReceiptDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/LeaseMaterialsEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/MarginRefundDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/ProcessPrepareDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/SettlementDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/StartRentCheckEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Contract/StartRentDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Cpm/PaymentApplicationDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Cpm/PaymentApplicationMaterialsEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Cpm/PaymentApplicationPublicCheckEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Cpm/PaymentApplicationPublicInfoEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Cpm/PaymentWriteOffEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Credit/EstablishDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Credit/ReviewDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "CreditManage/CreditManageEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Customer/ApplyPermissionEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Customer/CustomerRatingDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Customer/CustomerRatingUploadEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Customer/DebtRatingDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Customer/HandoverEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Customer/MaintainDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "FilingMaterials/AfterApplyEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "FilingMaterials/ApplyEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "FilingMaterials/FundApplyEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "FilingMaterials/OtherApplyEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Financial/DirectDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Financial/FinancingCarryInterestEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Financial/FundProcessEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Financial/PaymentBatchApprovalEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Financial/PaymentDetailPageEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Kpi/PmAssessDetailContentEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Kpi/ProjectAllotDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Lease/ApprovalConfirmEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Lease/MaintainDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Overdue/CollectionModalEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Overdue/LitigationDocEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/EstablishmentDetailPageEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/FinancialReportStatisticsEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/FormListItemEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/PriceDetailPageEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/ReviewDetailMaterialEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/ReviewMaterialTableEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/ReviewProcessDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Project/ReviewProcessMeetingEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Report/FinancialReportApprovalEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Risk/OverdueEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Risk/PublicMonitorColumnsEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "Risk/PublicMonitorDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "TrackEvent/TrackEventDetailEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "WhiteList/DetailEntries"
+    },
+    {
+      "sourceScope": "components/Project",
+      "target": "BlackGray/BlackGrayHitEntries"
+    },
+    {
+      "sourceScope": "components/Project",
+      "target": "ChangeLogDiff/ChangeLogDiffEntries"
+    },
+    {
+      "sourceScope": "components/Project",
+      "target": "ClientMaterialTable/BusinessMaterialTableEntries"
+    },
+    {
+      "sourceScope": "components/Project",
+      "target": "Credit/CreditReportSearchEntries"
+    },
+    {
+      "sourceScope": "components/Project",
+      "target": "Customer/DebtRatingListEntries"
+    },
+    {
+      "sourceScope": "components/Project",
+      "target": "TrackEvent/TrackEventModalEntries"
+    },
+    {
+      "sourceScope": "components/Project",
+      "target": "TrackEvent/TrackEventTaskEntries"
+    },
+    {
+      "sourceScope": "pages/index.js",
+      "target": "App/RootRedirectEntries"
+    }
+  ]
+}

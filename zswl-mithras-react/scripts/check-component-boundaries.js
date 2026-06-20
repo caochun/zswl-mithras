@@ -6,8 +6,16 @@ const srcDir = path.join(root, 'src')
 const readmePath = path.join(root, 'README.md')
 const { findUnusedComponentCandidates } = require('./report-unused-component-candidates')
 const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
+const {
+  analyzeComponentEntryDeps,
+  findUnlistedEdges,
+} = require('./report-component-entry-deps')
 const { createDomainAliases } = require('./domain-report-config')
 const scanDirs = [srcDir]
+const componentEntryDepsBaselinePath = path.join(
+  __dirname,
+  'component-entry-deps-baseline.json'
+)
 const allFilePattern = /./
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
@@ -1491,6 +1499,28 @@ for (const edge of [...businessEmbeddingEdges, ...pageAggregationReviewEdges]) {
   violations.push({
     file: [...edge.files].sort().join(', '),
     specifier: `${edge.sourceScope} -> ${edge.targetScope} requires semantic review`,
+  })
+}
+
+const componentEntryDepsBaseline = fs.existsSync(componentEntryDepsBaselinePath)
+  ? JSON.parse(fs.readFileSync(componentEntryDepsBaselinePath, 'utf8'))
+  : null
+const unlistedComponentEntryEdges = findUnlistedEdges(
+  analyzeComponentEntryDeps().edges,
+  componentEntryDepsBaseline
+)
+
+if (!componentEntryDepsBaseline) {
+  violations.push({
+    file: path.relative(root, componentEntryDepsBaselinePath),
+    specifier: 'missing component entry dependency baseline',
+  })
+}
+
+for (const edge of unlistedComponentEntryEdges) {
+  violations.push({
+    file: edge.files.join(', '),
+    specifier: `${edge.sourceScope} -> ${edge.target} unlisted cross-domain component entry dependency`,
   })
 }
 
