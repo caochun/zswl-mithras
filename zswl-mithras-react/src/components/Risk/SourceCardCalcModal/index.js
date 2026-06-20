@@ -61,7 +61,6 @@ function Index({ modalStore, id, modalStatus, cardData, tryData, year }, ref) {
         request: async (params) => {
           const areaId = params.areaId
           const cardId = id
-          console.log('modalStatus: ', modalStatus)
           if (modalStatus) {
             let newCardData = {
               ...cardData,

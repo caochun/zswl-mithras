@@ -25,7 +25,6 @@ class Store {
   })
   warningList = new TableStore({
     request: (params) => {
-      console.log(params, 'params')
       return Api.postWarnlist({ id: params?.id, chiName: this.enterpriseName, ...params })
     },
   })

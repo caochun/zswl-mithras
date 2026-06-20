@@ -49,7 +49,6 @@ class Store {
   })
   uploadModal = new ModalStore({
     onFinish: async (values) => {
-      console.log('values: ', values)
       const { fileList } = DataUpload.classify(values.file)
 
       const params = {
