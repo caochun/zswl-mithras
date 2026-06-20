@@ -880,6 +880,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/FundList/FinancialFundList.js',
   ],
   [
+    'src/components/Financial/FundDetail/index.js',
+    'src/components/Financial/FundDetail/FinancialFundDetail.js',
+  ],
+  [
     'src/components/Financial/FundDetail/ActualTable/index.js',
     'src/components/Financial/FundDetail/ActualTable/FinancialFundDetailActualTable.js',
   ],
