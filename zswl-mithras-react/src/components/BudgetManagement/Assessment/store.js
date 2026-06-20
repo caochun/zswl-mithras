@@ -32,12 +32,10 @@ class Store {
 
   createModal = new ModalStore({
     onFinish: async (values) => {
-      console.log('table')
       const day = dayjs(values.yearAndMonth)
       let list = this.table.list.filter((item, i) => {
         return item.examineYear === +day.format('YYYY') && item.examineMonth === +day.format('MM')
       })
-      console.log('list', list)
       if (list.length > 0) {
         Modal.confirm({
           title: `系统提示`,

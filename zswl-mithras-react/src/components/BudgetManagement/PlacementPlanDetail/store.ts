@@ -26,9 +26,7 @@ class Store {
           processDetail = await processDetailApi.getProcessDetail({
             processInstanceId: res.processInstanceId,
           })
-        } catch (error) {
-          console.log(error)
-        }
+        } catch (error) {}
       }
       return {
         ...processDetail,
@@ -202,7 +200,7 @@ class Store {
         fundPlanPayAmount: record.fundPlanPayAmount ? highPrecisionMultiply(String(record.fundPlanPayAmount).replace(/,/g, ''), 100000000).split('.')[0] : '',
       })
     } catch (error) {
-      console.log(error)
+      message.error('更新失败')
       return
     }
     message.success('更新成功')

@@ -370,7 +370,6 @@ const DetailModal = observer(({ modal, tableRefetch, canEdit }) => {
   const cashFlowTable = useMemo(() => {
     return new TableStore({
       request: async (params) => {
-        console.log('params: ', params, detail.id)
         if (!params.id && !detail.id) return []
         const res = await deliveryPlanDetailApi.postDetailCashFlow({
           id: detail.id,
