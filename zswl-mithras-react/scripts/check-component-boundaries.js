@@ -296,8 +296,32 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/BaseSetModalDetail/XiangMuTiJiang/KpiBaseSetXiangMuTiJiang.js',
   ],
   [
+    'src/components/Kpi/BaseSetModalDetail/YeWuDept/index.js',
+    'src/components/Kpi/BaseSetModalDetail/YeWuDept/KpiBaseSetYeWuDept.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/ZhiDengXiShu/index.js',
+    'src/components/Kpi/BaseSetModalDetail/ZhiDengXiShu/KpiBaseSetZhiDengXiShu.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/ZhongHouTaiDept/index.js',
+    'src/components/Kpi/BaseSetModalDetail/ZhongHouTaiDept/KpiBaseSetZhongHouTaiDept.js',
+  ],
+  [
     'src/components/Kpi/BeautyTable/index.js',
     'src/components/Kpi/BeautyTable/KpiBeautyTable.js',
+  ],
+  [
+    'src/components/Kpi/ProjectAllot/BaseInfo/index.js',
+    'src/components/Kpi/ProjectAllot/BaseInfo/KpiProjectAllotBaseInfo.js',
+  ],
+  [
+    'src/components/Kpi/ProjectAllot/BeforeAllocateInfoModal/index.js',
+    'src/components/Kpi/ProjectAllot/BeforeAllocateInfoModal/KpiProjectAllotBeforeAllocateInfoModal.js',
+  ],
+  [
+    'src/components/Kpi/ProjectAllot/ExtarInfo/index.js',
+    'src/components/Kpi/ProjectAllot/ExtarInfo/KpiProjectAllotExtarInfo.js',
   ],
   [
     'src/components/Lease/ApprovalConfirm/index.js',
@@ -310,6 +334,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Ocr/Recognition/index.js',
     'src/components/Ocr/Recognition/OcrRecognition.js',
+  ],
+  [
+    'src/components/Overdue/CollectionModal/index.js',
+    'src/components/Overdue/CollectionModal/OverdueCollectionModal.js',
   ],
   [
     'src/components/Overdue/LitigationDocAddModal/index.js',
@@ -342,6 +370,18 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Process/ProcessTypeTree/index.js',
     'src/components/Process/ProcessTypeTree/ProcessTypeTree.js',
+  ],
+  [
+    'src/components/Process/RouteDetail/index.js',
+    'src/components/Process/RouteDetail/ProcessRouteDetail.js',
+  ],
+  [
+    'src/components/Process/RouteSnapshoot/index.js',
+    'src/components/Process/RouteSnapshoot/ProcessRouteSnapshoot.js',
+  ],
+  [
+    'src/components/Process/ToSnapShoot/index.js',
+    'src/components/Process/ToSnapShoot/ProcessToSnapShoot.js',
   ],
   [
     'src/components/Project/DebtEvaluation/index.js',

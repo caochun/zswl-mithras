@@ -1,1 +1,1 @@
-export { default as KpiBaseSetYeWuDept } from './BaseSetModalDetail/YeWuDept'
+export { default as KpiBaseSetYeWuDept } from './BaseSetModalDetail/YeWuDept/KpiBaseSetYeWuDept'

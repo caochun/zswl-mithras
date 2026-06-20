@@ -5,7 +5,7 @@ import Store from './store'
 import BaseInfo from './BaseInfo'
 import BaseInfoTable from './BaseInfoTable'
 import CollectionRecord from './CollectionRecord'
-import { CollectionModal } from '../../CollectionModal'
+import { CollectionModal } from '../../CollectionModal/OverdueCollectionModal'
 
 const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = 'true' } }) => {
   const store = useMemo(() => {

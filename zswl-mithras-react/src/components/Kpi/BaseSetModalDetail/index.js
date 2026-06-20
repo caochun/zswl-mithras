@@ -7,10 +7,10 @@ import BaBeiJiTi from './BaBeiJiTi/KpiBaseSetBaBeiJiTi'
 import BuMenLiLun from './BuMenLiLun/KpiBaseSetBuMenLiLun'
 import GongShiLiLun from './GongShiLiLun/KpiBaseSetGongShiLiLun'
 import JinRongShiChangDept from './JinRongShiChangDept/KpiBaseSetJinRongShiChangDept'
-import ZhongHouTaiDept from './ZhongHouTaiDept'
+import ZhongHouTaiDept from './ZhongHouTaiDept/KpiBaseSetZhongHouTaiDept'
 import JinRongShiChangTiJiang from './JinRongShiChangTiJiang'
-import YeWuDept from './YeWuDept'
-import ZhiDengXiShu from './ZhiDengXiShu'
+import YeWuDept from './YeWuDept/KpiBaseSetYeWuDept'
+import ZhiDengXiShu from './ZhiDengXiShu/KpiBaseSetZhiDengXiShu'
 import XiangMuTiJiang from './XiangMuTiJiang/KpiBaseSetXiangMuTiJiang'
 
 const Index = ({ store }) => {

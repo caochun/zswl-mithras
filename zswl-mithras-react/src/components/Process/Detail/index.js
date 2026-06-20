@@ -10,7 +10,7 @@ import { ProjectReviewMeetingMinute as MinutesOfReviewMeeting } from '@/componen
 import FlowChart from './ZTabs/FlowChart'
 import RelevantFiles from './ZTabs/RelevantFiles'
 import { FlowDataProvider } from '@/utils/domains/process/ProcessFlowContext'
-import ToSnapShoot from '../ToSnapShoot'
+import ToSnapShoot from '../ToSnapShoot/ProcessToSnapShoot'
 import Store from './store'
 import styles from './index.less'
 import { isRiskManager } from '@/utils/auth'
