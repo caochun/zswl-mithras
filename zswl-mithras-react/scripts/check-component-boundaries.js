@@ -804,6 +804,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Kpi/ProjectAllotListEntries.js', 'Kpi/ProjectAllot*Entries.js'],
   ['Lease/MaintainEntries.js', 'Lease/Maintain*Entries.js'],
   ['LifeCycle/LifeCycleEntries.js', 'LifeCycle/*Entries.js'],
+  ['Ocr/OcrEntries.js', 'Ocr/*Entries.js'],
   ['Overdue/OverdueEntries.js', 'Overdue/* narrow Entries.js'],
   ['PaymentApplyColumns/PaymentApplyColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
   ['PaymentFtpColumns/PaymentFtpColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],

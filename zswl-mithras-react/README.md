@@ -280,7 +280,8 @@
 - `LifeCycle/CustomerEntries.js`
 - `LifeCycle/ProjectEntries.js`
 - `Message/NotificationEntries.js`
-- `Ocr/OcrEntries.js`
+- `Ocr/ListEntries.js`
+- `Ocr/RecognitionEntries.js`
 - `Overdue/CollectionEntries.js`
 - `Overdue/CollectionModalEntries.js`
 - `Overdue/LitigationDocEntries.js`
@@ -584,7 +585,7 @@
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理；dashboard 工作台保存/查询用户配置使用 `src/api/dashboard/userCustomConfigApi`，通用表格列配置工具保留 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
-- `ocr/list`、`ocr/recognition`：OCR 发票/车证列表、比对和上传识别实现已收敛到 `src/components/Ocr`，路由页只引用稳定组件入口；发票/车证 API 仍保留在 OCR 生成入口，后续若拆分租赁物语义 API 需另行评估。
+- `ocr/list`、`ocr/recognition`：OCR 发票/车证列表、比对和上传识别实现已收敛到 `src/components/Ocr`，列表和识别页分别通过 `src/components/Ocr/ListEntries.js`、`RecognitionEntries.js` 暴露，上传弹窗保留为 OCR 内部组件；发票/车证 API 仍保留在 OCR 生成入口，后续若拆分租赁物语义 API 需另行评估。
 - `cvicse`、`student`：当前代码树中已不存在；后续若恢复这些外部系统或实验路由，需先确认菜单、权限和外部链接来源。
 - `demo`：本地实验/脚手架目录，含注释示例和硬编码调试地址；不作为业务域边界判断输入。
 

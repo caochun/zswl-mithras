@@ -1,1 +1,1 @@
-export { OcrList as default } from '@/components/Ocr/OcrEntries'
+export { OcrList as default } from '@/components/Ocr/ListEntries'

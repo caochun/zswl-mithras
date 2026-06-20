@@ -256,6 +256,8 @@ const componentEntryScopeAliases = new Map([
   ['Lease/MaintainListEntries', 'LeaseMaintainList'],
   ['LifeCycle/CustomerEntries', 'LifeCycleCustomer'],
   ['LifeCycle/ProjectEntries', 'LifeCycleProject'],
+  ['Ocr/ListEntries', 'OcrList'],
+  ['Ocr/RecognitionEntries', 'OcrRecognition'],
   ['Overdue/CollectionEntries', 'OverdueCollection'],
   ['Overdue/CollectionModalEntries', 'OverdueCollectionModal'],
   ['Overdue/LitigationDocEntries', 'OverdueLitigationDoc'],
