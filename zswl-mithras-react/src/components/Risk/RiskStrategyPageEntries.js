@@ -1,1 +1,1 @@
-export { default as RiskStrategy } from './RiskStrategy'
+export { default as RiskStrategy } from './RiskStrategy/RiskStrategy'

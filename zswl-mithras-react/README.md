@@ -420,14 +420,14 @@
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`Chart/tooltip`。
 - 风险指标报送顶层 Tabs 页、控制指标、金控指标和目标指标分别通过 `src/components/Risk/MetricValuePageEntries.js`、`MetricValueControlEntries.js`、`MetricValueJinKonEntries.js`、`MetricValueTargetEntries.js` 暴露，顶层页真实实现命名为 `RiskMetricValue.js`，`src/pages/risk/metricValue/*` 只保留路由壳。
 - 风险评分卡列表页、详情页和试算弹窗分别通过 `src/components/Risk/SourceCardListEntries.js`、`SourceCardDetailEntries.js`、`SourceCardCalcModalEntries.js` 暴露，`src/pages/risk/sourceCard/*` 只保留路由壳和历史兼容入口。
-- 风控策略顶层页、指标管理、集中度管理和关联交易监测分别通过 `src/components/Risk/RiskStrategyPageEntries.js`、`RiskStrategyIndicatorEntries.js`、`RiskStrategyConcentrationEntries.js`、`RiskStrategyRelateMonitorEntries.js` 暴露，`src/pages/risk/riskStrategy/*` 只保留路由壳。
+- 风控策略顶层页、指标管理、集中度管理和关联交易监测分别通过 `src/components/Risk/RiskStrategyPageEntries.js`、`RiskStrategyIndicatorEntries.js`、`RiskStrategyConcentrationEntries.js`、`RiskStrategyRelateMonitorEntries.js` 暴露，顶层页真实实现命名为 `RiskStrategy.js`，`src/pages/risk/riskStrategy/*` 只保留路由壳。
 - 租赁物维护列表页和详情页分别通过 `src/components/Lease/MaintainListEntries.js`、`MaintainDetailEntries.js` 暴露，列表真实实现命名为 `src/components/Lease/Maintain/LeaseMaintainList.js`，流程详情复用详情窄入口，`src/pages/lease/maintain/*` 只保留路由壳。
 - 应收账款列表页和详情页均通过 `src/components/Budget/AccountsReceivableEntries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js` 和 `BudgetAccountsReceivableDetail.js`，`src/pages/budget/accountsReceivable/*` 只保留路由壳。
 - 收入分摊表列表页和详情页均通过 `src/components/Budget/IncomeShareTableEntries.js` 暴露，`src/pages/budget/incomeShareTable/*` 只保留路由壳。
 - 预算银行账户维护页通过 `src/components/Budget/BankAccountEntries.js` 暴露，`src/pages/budget/bankAccount/*` 只保留路由壳。
 - 预算业务账龄表列表页和详情页通过 `src/components/Budget/BusinessAgingTableEntries.js` 暴露，列表真实实现命名为 `BudgetBusinessAgingTable.js`，`src/pages/budget/businessAgingTable/*` 只保留路由壳。
 - 预算历史路径下的财务报表导入实际归入风险指标财报域，通过 `src/components/Risk/FinanceSheetFileEntries.js` 暴露，`src/pages/budget/financeSheet/*` 只保留路由壳。
-- 预算财务月结管理页通过 `src/components/Budget/FinancialMonthlyManagementEntries.js` 暴露，`src/pages/budget/financialMonthlyManagement/*` 只保留路由壳。
+- 预算财务月结管理页通过 `src/components/Budget/FinancialMonthlyManagementEntries.js` 暴露，真实实现命名为 `BudgetFinancialMonthlyManagement.js`，`src/pages/budget/financialMonthlyManagement/*` 只保留路由壳。
 - 预算拨备数据查询页通过 `src/components/Budget/ProvisioningDataEntries.js` 暴露，`src/pages/budget/provisioning/dataSearch/*` 只保留路由壳。
 - 预算拨备减值列表页和详情页通过 `src/components/Budget/ProvisioningImpairmentEntries.js` 暴露，`src/pages/budget/provisioning/impairment/*` 只保留路由壳。
 - 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningParamsConfigEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳；预算管理拨备预测复用的拨备弹窗和列配置通过 `src/components/Budget/ProvisioningSharedEntries.js` 暴露。
@@ -526,7 +526,7 @@
 - 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
-- KPI 基础设置列表、参数弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
+- KPI 基础设置列表、参数弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算顶层页/合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
 - 生命周期客户列表页和客户详情页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js` 和 `src/components/LifeCycle/CustomerDetail/LifeCycleCustomerDetail.js`。
 - 租赁物审核确认动作和租赁物维护详情通过 `src/components/Lease/*Entries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js` 和 `src/components/Lease/MaintainDetail/LeaseMaintainDetail.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
@@ -553,7 +553,7 @@
 - 项目立项、定价和评审日志页分别通过 `src/components/Project/EstablishmentDetailLogEntries.js`、`PriceDetailLogEntries.js`、`ReviewDetailLogEntries.js` 暴露，真实实现命名为 `ProjectEstablishmentDetailLog.js`、`ProjectPriceDetailLog.js` 和 `ProjectReviewDetailLog.js`，不再依赖目录 `index.js`。
 - 风险云指标列表和详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/RiskCloudMetricValue.js` 和 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
 - 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
-- 风险公开监控详情、财报指标表、财报文件、定时指标、目标指标、集控指标、集中度指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskFinanceSheetFileList.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskMetricJinKon.js`、`RiskMetricControl.js`、`RiskOverdueListSearch.js`、`RiskStrategy/IndicatorManage/RiskStrategyIndicatorManage.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
+- 风险公开监控列表/详情、财报指标表、财报文件、定时指标、目标指标、集控指标、集中度指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitor/RiskPublicMonitor.js`、`PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskFinanceSheetFileList.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskMetricJinKon.js`、`RiskMetricControl.js`、`RiskOverdueListSearch.js`、`RiskStrategy/RiskStrategy.js`、`RiskStrategy/IndicatorManage/RiskStrategyIndicatorManage.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
 - 风险评分卡列表和详情通过 `src/components/Risk/SourceCardListEntries.js`、`SourceCardDetailEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCard/List/RiskSourceCardList.js` 和 `SourceCard/Detail/RiskSourceCardDetail.js`。
 - 风险评分卡测算弹窗通过 `src/components/Risk/SourceCardCalcModalEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js`。
 - 跟踪事项抽屉通过 `src/components/TrackEvent/TrackEventModalEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/TrackModal/TrackEventModal.js`。

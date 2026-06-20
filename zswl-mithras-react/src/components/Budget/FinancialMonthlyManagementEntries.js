@@ -1,1 +1,1 @@
-export { default as BudgetFinancialMonthlyManagement } from './FinancialMonthlyManagement'
+export { default as BudgetFinancialMonthlyManagement } from './FinancialMonthlyManagement/BudgetFinancialMonthlyManagement'

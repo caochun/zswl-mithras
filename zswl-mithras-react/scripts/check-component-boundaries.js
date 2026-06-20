@@ -356,6 +356,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/ExchangeRate/BudgetExchangeRate.js',
   ],
   [
+    'src/components/Budget/FinancialMonthlyManagement/index.js',
+    'src/components/Budget/FinancialMonthlyManagement/BudgetFinancialMonthlyManagement.js',
+  ],
+  [
     'src/components/Budget/PricingFtpInterest/PriceDetail/index.js',
     'src/components/Budget/PricingFtpInterest/PriceDetail/BudgetPricingFtpInterestPriceDetail.js',
   ],
@@ -912,6 +916,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/BaseSet/ParameterModal/PutPrizeFactor/KpiBaseSetPutPrizeFactor.js',
   ],
   [
+    'src/components/Kpi/Estimation/index.js',
+    'src/components/Kpi/Estimation/KpiEstimation.js',
+  ],
+  [
     'src/components/Kpi/Estimation/contract/index.js',
     'src/components/Kpi/Estimation/contract/KpiEstimationContract.js',
   ],
@@ -1144,6 +1152,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js',
   ],
   [
+    'src/components/Risk/PublicMonitor/index.js',
+    'src/components/Risk/PublicMonitor/RiskPublicMonitor.js',
+  ],
+  [
     'src/components/Risk/FinanceSheet/index.js',
     'src/components/Risk/FinanceSheet/RiskFinanceSheet.js',
   ],
@@ -1322,6 +1334,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/MonitorEarly/index.js',
     'src/components/Risk/MonitorEarly/RiskMonitorEarly.js',
+  ],
+  [
+    'src/components/Risk/RiskStrategy/index.js',
+    'src/components/Risk/RiskStrategy/RiskStrategy.js',
   ],
   [
     'src/components/Risk/RiskStrategy/IndicatorManage/Detail/index.js',
