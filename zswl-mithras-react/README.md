@@ -446,7 +446,7 @@
 - 预算管理参数配置（历史定价基础配置路径）页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，真实实现命名为 `BudgetManagementParameterConfiguration.js`，`src/pages/budgetManagement/parameterConfiguration` 只保留路由壳。
 - 预算管理投放计划列表页、详情页和周报详情页分别通过 `src/components/BudgetManagement/PlacementPlanListEntries.js`、`PlacementPlanDetailEntries.js`、`PlacementPlanWeekDetailEntries.js` 暴露，投放计划和周报详情真实实现命名为 `BudgetManagementPlacementPlan.js` 和 `BudgetManagementPlacementPlanWeekDetail.js`，`src/pages/budgetManagement/placementPlan/*` 只保留路由壳。
 - 预算管理成本计划列表页和详情页通过 `src/components/BudgetManagement/PlanCostEntries.js` 暴露，`src/pages/budgetManagement/plan/cost/*` 只保留路由壳。
-- 预算管理利润计划列表页、详情页和业务明细页分别通过 `src/components/BudgetManagement/PlanProfitListEntries.js`、`PlanProfitDetailEntries.js`、`PlanProfitBusinessDetailEntries.js` 暴露，`src/pages/budgetManagement/plan/profit/*` 只保留路由壳。
+- 预算管理利润计划列表页、详情页和业务明细页分别通过 `src/components/BudgetManagement/PlanProfitListEntries.js`、`PlanProfitDetailEntries.js`、`PlanProfitBusinessDetailEntries.js` 暴露，利润计划详情真实实现命名为 `BudgetManagementPlanProfitDetail.js`，`src/pages/budgetManagement/plan/profit/*` 只保留路由壳。
 - 预算管理拨备预测列表页、详情页和配置详情页分别通过 `src/components/BudgetManagement/ProvisionForecastListEntries.js`、`ProvisionForecastDetailEntries.js`、`ProvisionForecastConfigDetailEntries.js` 暴露，`src/pages/budgetManagement/provisionForecast/*` 只保留路由壳。
 - 金融产权列表页通过 `src/components/Financial/PropertyEntries.js` 暴露，`src/pages/financial/property` 只保留路由壳。
 - 直融产品列表页通过 `src/components/Financial/DirectListEntries.js` 暴露，`src/pages/financial/direct/index.js` 只保留路由壳；直融详情继续通过 `src/components/Financial/DirectDetailEntries.js` 暴露。
@@ -492,7 +492,7 @@
 - 租后、放款和其他资料归集申请通过 `src/components/FilingMaterials/*Entries.js` 暴露，真实实现使用资料归集域语义文件名，不再依赖目录 `index.js`。
 - 预算 LPR、FTP 收益、FTP 收益详情、融资成本弹窗、计提减值列和计提参数列通过 `src/components/Budget/*Entries.js` 暴露，真实实现使用预算域语义文件名，不再依赖目录 `index.js`。
 - 预算收入分成、定价基础设置、定价参数编辑表、FTP 计息、FTP 计息详情、FTP 计息变更、计提数据查询、计提减值列表和详情、计提参数配置列表和详情、计提数据导入弹窗通过 `src/components/Budget/*Entries.js` 暴露，域内复用也指向预算域语义文件名，不再依赖目录 `index.js`。
-- 预算管理成本计划、利润计划业务明细、利润计划列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。
+- 预算管理成本计划、利润计划详情/业务明细/列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。
 - 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
 - 黑灰名单突破申请、入库申请、入库外部入口、出库申请和仓库查询分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js`。
@@ -505,7 +505,7 @@
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
 - 预算域的应收款、银行账户、汇率和 FTP 利率价格详情页分别通过 `src/components/Budget/*Entries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js`、`BudgetBankAccount.js`、`BudgetExchangeRate.js` 和 `BudgetPricingFtpInterestPriceDetail.js`，不再依赖目录 `index.js`。
 - 预算管理考核页、参数配置、投放计划和拨备预测详情页分别通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js`、`BudgetManagementParameterConfiguration.js`、`BudgetManagementPlacementPlan.js` 和 `BudgetManagementProvisionForecastDetail.js`，不再依赖目录 `index.js`。
-- 合同列表、合同签约列表/详情、合同申请日志、合同文本、合同资料、保证金退款通知、合同起租详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
+- 合同列表、合同签约列表/详情、合同申请日志、合同文本、合同资料、保证金退款通知、合同起租详情、结清详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 合同新增回执详情通过 `src/components/Contract/CreateReceiptDetailEntries.js` 暴露，真实实现命名为 `src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。

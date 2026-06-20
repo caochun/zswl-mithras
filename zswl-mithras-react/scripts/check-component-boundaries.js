@@ -76,6 +76,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/Adjust/List/AfterLeaseAdjustList.js',
   ],
   [
+    'src/components/AfterLease/AdjustDetail/index.js',
+    'src/components/AfterLease/AdjustDetail/AfterLeaseAdjustDetail.js',
+  ],
+  [
     'src/components/AfterLease/CheckPlan/List/Tab/CheckList/index.js',
     'src/components/AfterLease/CheckPlan/List/Tab/CheckList/AfterLeaseCheckPlanCheckList.js',
   ],
@@ -336,6 +340,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BudgetManagement/PlanProfit/BusinessDetail/BudgetManagementPlanProfitBusinessDetail.js',
   ],
   [
+    'src/components/BudgetManagement/PlanProfit/Detail/index.js',
+    'src/components/BudgetManagement/PlanProfit/Detail/BudgetManagementPlanProfitDetail.js',
+  ],
+  [
     'src/components/BudgetManagement/PlanProfit/List/index.js',
     'src/components/BudgetManagement/PlanProfit/List/BudgetManagementPlanProfitList.js',
   ],
@@ -434,6 +442,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Contract/SettlementProtocol/index.js',
     'src/components/Contract/SettlementProtocol/ContractSettlementProtocol.js',
+  ],
+  [
+    'src/components/Contract/SettlementDetail/index.js',
+    'src/components/Contract/SettlementDetail/ContractSettlementDetail.js',
   ],
   [
     'src/components/Contract/StartRentMaterials/index.js',
