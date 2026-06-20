@@ -53,6 +53,34 @@ const removedLegacyUtilityFiles = new Map([
 ])
 const removedLegacyApiPathPrefixes = [
   {
+    pathPrefix: 'src/api/afterLease/assessmentWhitelistApi',
+    replacement: 'src/api/whiteList/assessmentWhitelistApi',
+  },
+  {
+    pathPrefix: 'src/api/approval/processModifyRemarkApi',
+    replacement: 'src/api/<domain>/approvalRemarkApi or src/api/common/approvalRemarkApi',
+  },
+  {
+    pathPrefix: 'src/api/baseData/bankAccountApi',
+    replacement: 'src/api/budget/bankAccountApi',
+  },
+  {
+    pathPrefix: 'src/api/baseData/ftpMaterialsFile',
+    replacement: 'src/api/budget/pricing/ftpMaterialsFile',
+  },
+  {
+    pathPrefix: 'src/api/baseData/ftpQuarterlyGuidance',
+    replacement: 'src/api/budget/pricing/ftpQuarterlyGuidance',
+  },
+  {
+    pathPrefix: 'src/api/baseData/pricing/baseSet/ftpBaseSet',
+    replacement: 'src/api/budget/pricing/baseSet/ftpBaseSet',
+  },
+  {
+    pathPrefix: 'src/api/blackList',
+    replacement: 'src/api/blackGray',
+  },
+  {
     pathPrefix: 'src/api/common/customerOverview',
     replacement: 'src/api/dashboard/customerOverview or src/api/customerView/customerOverviewApi',
   },
@@ -73,8 +101,44 @@ const removedLegacyApiPathPrefixes = [
     replacement: 'src/api/layout/irrGenerationApi',
   },
   {
+    pathPrefix: 'src/api/common/interface/irrGenerationApi',
+    replacement: 'src/api/layout/irrGenerationApi',
+  },
+  {
     pathPrefix: 'src/api/common/workbenchApi',
     replacement: 'src/api/dashboard/userCustomConfigApi or src/api/dashboard/feikongSsoApi',
+  },
+  {
+    pathPrefix: 'src/api/cpm/payment/contractPaymentFtp',
+    replacement: 'src/api/contract/payment/contractPaymentFtp',
+  },
+  {
+    pathPrefix: 'src/api/fillingMaterials',
+    replacement: 'src/api/filingMaterials',
+  },
+  {
+    pathPrefix: 'src/api/financial/accountsReceivable',
+    replacement: 'src/api/budget/accountsReceivable',
+  },
+  {
+    pathPrefix: 'src/api/financialReport',
+    replacement: 'src/api/report',
+  },
+  {
+    pathPrefix: 'src/api/groupCredit/common',
+    replacement: 'src/api/common/selectApi',
+  },
+  {
+    pathPrefix: 'src/api/groupCredit/projectApprovalBaseinfo',
+    replacement: 'src/api/credit/groupCreditEstablishApi',
+  },
+  {
+    pathPrefix: 'src/api/groupCredit/projectApprovalReport',
+    replacement: 'src/api/credit/groupCreditEstablishReportApi',
+  },
+  {
+    pathPrefix: 'src/api/groupCredit/projectApprovalVersion',
+    replacement: 'src/api/credit/groupCreditEstablishVersionApi',
   },
   {
     pathPrefix: 'src/api/header/projProfitTool',
@@ -83,6 +147,38 @@ const removedLegacyApiPathPrefixes = [
   {
     pathPrefix: 'src/api/kpi/projProfit',
     replacement: 'src/api/budget/projectProfit* or src/api/layout/projProfitToolApi',
+  },
+  {
+    pathPrefix: 'src/api/lease/evaluationAgencyApi',
+    replacement: 'src/api/evaluationAgency/evaluationAgencyApi',
+  },
+  {
+    pathPrefix: 'src/api/lease/trackingApi',
+    replacement: 'src/api/trackEvent/trackingApi',
+  },
+  {
+    pathPrefix: 'src/api/liquidity',
+    replacement: 'src/api/financial/liquidity',
+  },
+  {
+    pathPrefix: 'src/api/manageReport',
+    replacement: 'src/api/report',
+  },
+  {
+    pathPrefix: 'src/api/newFtp',
+    replacement: 'src/api/budget/pricing/ftp',
+  },
+  {
+    pathPrefix: 'src/api/postRentalInspection',
+    replacement: 'src/api/afterLease',
+  },
+  {
+    pathPrefix: 'src/api/pricing',
+    replacement: 'src/api/budget/pricing',
+  },
+  {
+    pathPrefix: 'src/api/riskControl',
+    replacement: 'src/api/risk',
   },
   {
     pathPrefix: 'src/api/workbench',
@@ -808,6 +904,14 @@ function hasDebugger(source) {
   return /\bdebugger\b/.test(source)
 }
 
+function matchesSourcePathPrefix(relativeFilePath, pathPrefix) {
+  return (
+    relativeFilePath === pathPrefix ||
+    relativeFilePath.startsWith(`${pathPrefix}/`) ||
+    sourceExtensions.some((extension) => relativeFilePath === `${pathPrefix}${extension}`)
+  )
+}
+
 function isPublicComponentSourceFile(relativeFilePath) {
   const [, componentRoot] =
     relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)[\\/].*\.(?:js|jsx|ts|tsx)$/) ||
@@ -905,8 +1009,7 @@ for (const filePath of sourceFiles) {
   }
 
   const removedLegacyApiPath = removedLegacyApiPathPrefixes.find(
-    ({ pathPrefix }) =>
-      relativeFilePath === pathPrefix || relativeFilePath.startsWith(`${pathPrefix}/`)
+    ({ pathPrefix }) => matchesSourcePathPrefix(relativeFilePath, pathPrefix)
   )
   if (removedLegacyApiPath) {
     violations.push({
