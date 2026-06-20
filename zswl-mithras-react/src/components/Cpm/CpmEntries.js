@@ -13,3 +13,8 @@ export { default as CpmContractCpmCashFlowTable } from './ContractCpm/CashFlowTa
 export { default as CpmContractCpmContractDownPayment } from './ContractCpm/ContractDownPayment'
 export { default as CpmCollectionWriteOff } from './CollectionWriteOff'
 export { default as CpmCollectionWriteOffDetail } from './CollectionWriteOff/detail/[id$]'
+export { default as CpmMarginManagement } from './MarginManagement'
+export { default as CpmMarginManagementDetail } from './MarginManagement/detail/[id$]'
+export { default as CpmMarginManagementPaymentRecords } from './MarginManagement/PaymentRecords'
+export { default as CpmMarginManagementRefundRecords } from './MarginManagement/RefundRecords'
+export { default as CpmMarginManagementVerificationRecords } from './MarginManagement/VerificationRecords'
