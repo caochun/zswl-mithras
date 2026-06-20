@@ -1,1 +1,1 @@
-export { AfterLeaseCheckPlanStrategyCreateModal as default } from '@/components/AfterLease/CheckPlanListEntries'
+export { AfterLeaseCheckPlanStrategyCreateModal as default } from '@/components/AfterLease/CheckPlanStrategyEntries'

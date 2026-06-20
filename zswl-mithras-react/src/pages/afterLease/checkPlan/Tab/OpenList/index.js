@@ -1,1 +1,1 @@
-export { AfterLeaseCheckPlanOpenList as default } from '@/components/AfterLease/CheckPlanListEntries'
+export { AfterLeaseCheckPlanOpenList as default } from '@/components/AfterLease/CheckPlanOpenListEntries'
