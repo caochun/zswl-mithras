@@ -332,6 +332,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BudgetManagement/Assessment/BudgetManagementAssessment.js',
   ],
   [
+    'src/components/BudgetManagement/AssessmentDetail/index.js',
+    'src/components/BudgetManagement/AssessmentDetail/BudgetManagementAssessmentDetail.js',
+  ],
+  [
+    'src/components/BudgetManagement/PlacementPlanWeekDetail/index.js',
+    'src/components/BudgetManagement/PlacementPlanWeekDetail/BudgetManagementPlacementPlanWeekDetail.js',
+  ],
+  [
     'src/components/BudgetManagement/ProvisionForecast/Detail/index.js',
     'src/components/BudgetManagement/ProvisionForecast/Detail/BudgetManagementProvisionForecastDetail.js',
   ],
@@ -434,6 +442,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Customer/CustomerRatColumns/index.js',
     'src/components/Customer/CustomerRatColumns/CustomerRatingColumns.js',
+  ],
+  [
+    'src/components/Customer/CustomerRat/index.js',
+    'src/components/Customer/CustomerRat/CustomerRatingList.js',
   ],
   [
     'src/components/Customer/DebtRat/index.js',
@@ -708,6 +720,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/BaseSet/CopyItemModal/KpiBaseSetCopyItemModal.js',
   ],
   [
+    'src/components/Kpi/BaseSet/ParameterModal/index.js',
+    'src/components/Kpi/BaseSet/ParameterModal/KpiBaseSetParameterModal.js',
+  ],
+  [
     'src/components/Kpi/BaseSet/ParameterModal/BasePrizeRate/index.js',
     'src/components/Kpi/BaseSet/ParameterModal/BasePrizeRate/KpiBaseSetBasePrizeRate.js',
   ],
@@ -722,6 +738,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Kpi/BaseSet/ParameterModal/PutPrizeFactor/index.js',
     'src/components/Kpi/BaseSet/ParameterModal/PutPrizeFactor/KpiBaseSetPutPrizeFactor.js',
+  ],
+  [
+    'src/components/Kpi/Estimation/contract/index.js',
+    'src/components/Kpi/Estimation/contract/KpiEstimationContract.js',
   ],
   [
     'src/components/Kpi/BaseSetModalDetail/BaBeiJiTi/index.js',

@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import { cloneElement } from 'react'
-import Contract from './contract'
+import Contract from './contract/KpiEstimationContract'
 import ProjectManagerPrize from './projectManagerPrize/KpiEstimationProjectManagerPrize'
 import ProjectManagerProfit from './projectManagerProfit/KpiEstimationProjectManagerProfit'
 import DepartmentalPool from './departmentalPool/KpiEstimationDepartmentalPool'

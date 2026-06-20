@@ -1,1 +1,1 @@
-export { default as BudgetManagementPlacementPlanWeekDetail } from './PlacementPlanWeekDetail'
+export { default as BudgetManagementPlacementPlanWeekDetail } from './PlacementPlanWeekDetail/BudgetManagementPlacementPlanWeekDetail'
