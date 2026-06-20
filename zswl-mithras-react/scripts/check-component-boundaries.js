@@ -1428,6 +1428,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js',
   ],
   [
+    'src/components/Project/ReviewMeetingMinute/index.js',
+    'src/components/Project/ReviewMeetingMinute/ProjectReviewMeetingMinute.js',
+  ],
+  [
     'src/components/Project/ReviewSnapshot/index.js',
     'src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js',
   ],

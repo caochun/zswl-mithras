@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import MinutesOfReviewMeeting from '../ReviewMeetingMinute'
+import MinutesOfReviewMeeting from '../ReviewMeetingMinute/ProjectReviewMeetingMinute'
 import { ModalStore, Modal, Button } from '@zswl/components'
 import Api from '@/api/project/projReviewMeetingMinute'
 import { message } from 'antd'

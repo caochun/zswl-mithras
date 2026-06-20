@@ -1,1 +1,1 @@
-export { default as ProjectReviewMeetingMinute } from './ReviewMeetingMinute'
+export { default as ProjectReviewMeetingMinute } from './ReviewMeetingMinute/ProjectReviewMeetingMinute'
