@@ -488,6 +488,7 @@
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
 - 基础数据文件模板页通过 `src/components/BaseData/FileTemplateEntries.js` 暴露，真实实现命名为 `src/components/BaseData/FileTemplate/BaseDataFileTemplate.js`。
+- 租后、放款和其他资料归集申请通过 `src/components/FilingMaterials/*Entries.js` 暴露，真实实现使用资料归集域语义文件名，不再依赖目录 `index.js`。
 - 预算 LPR、FTP 收益、FTP 收益详情、融资成本弹窗、计提减值列和计提参数列通过 `src/components/Budget/*Entries.js` 暴露，真实实现使用预算域语义文件名，不再依赖目录 `index.js`。
 - 预算收入分成、定价基础设置、定价参数编辑表、FTP 计息、FTP 计息详情、FTP 计息变更、计提数据查询、计提减值列表和详情、计提参数配置列表和详情、计提数据导入弹窗通过 `src/components/Budget/*Entries.js` 暴露，域内复用也指向预算域语义文件名，不再依赖目录 `index.js`。
 - 预算管理成本计划、利润计划业务明细、利润计划列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。

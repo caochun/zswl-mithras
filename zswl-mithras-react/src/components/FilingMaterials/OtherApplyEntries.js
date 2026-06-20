@@ -1,1 +1,1 @@
-export { default as FilingMaterialsOtherApply } from './OtherFilingMaterialsApply'
+export { default as FilingMaterialsOtherApply } from './OtherFilingMaterialsApply/FilingMaterialsOtherApply'

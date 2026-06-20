@@ -480,6 +480,18 @@ const removedLegacyComponentFiles = new Map([
     'src/components/ExternalEmbed/RzyPages/RzyPages.js',
   ],
   [
+    'src/components/FilingMaterials/AfterFilingMaterialsApply/index.js',
+    'src/components/FilingMaterials/AfterFilingMaterialsApply/FilingMaterialsAfterApply.js',
+  ],
+  [
+    'src/components/FilingMaterials/FundFilingMaterialsApply/index.js',
+    'src/components/FilingMaterials/FundFilingMaterialsApply/FilingMaterialsFundApply.js',
+  ],
+  [
+    'src/components/FilingMaterials/OtherFilingMaterialsApply/index.js',
+    'src/components/FilingMaterials/OtherFilingMaterialsApply/FilingMaterialsOtherApply.js',
+  ],
+  [
     'src/components/Financial/FundList/ChangeModal/index.js',
     'src/components/Financial/FundList/ChangeModal/FinancialFundListChangeModal.js',
   ],
