@@ -120,12 +120,32 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BlackGray/Info/BlackGrayHitInfo.js',
   ],
   [
+    'src/components/BlackGray/BreakThrough/Application/index.js',
+    'src/components/BlackGray/BreakThrough/Application/BlackGrayBreakThroughApplication.js',
+  ],
+  [
+    'src/components/BlackGray/EnterDatabase/Application/index.js',
+    'src/components/BlackGray/EnterDatabase/Application/BlackGrayEnterDatabaseApplication.js',
+  ],
+  [
+    'src/components/BlackGray/EnterDatabase/External/index.js',
+    'src/components/BlackGray/EnterDatabase/External/BlackGrayEnterDatabaseExternal.js',
+  ],
+  [
     'src/components/BlackGray/EnterDatabase/Upload/index.js',
     'src/components/BlackGray/EnterDatabase/Upload/BlackGrayEnterDatabaseUpload.js',
   ],
   [
+    'src/components/BlackGray/Outbound/Application/index.js',
+    'src/components/BlackGray/Outbound/Application/BlackGrayOutboundApplication.js',
+  ],
+  [
     'src/components/BlackGray/Outbound/Search/index.js',
     'src/components/BlackGray/Outbound/Search/BlackGrayOutboundSearch.js',
+  ],
+  [
+    'src/components/BlackGray/Warehouse/Search/index.js',
+    'src/components/BlackGray/Warehouse/Search/BlackGrayWarehouseSearch.js',
   ],
   [
     'src/components/BlackGray/Warehouse/SubTask/index.js',
