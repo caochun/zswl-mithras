@@ -1,1 +1,1 @@
-export { default as BusinessMaterialTable } from '.'
+export { default as BusinessMaterialTable } from './BusinessMaterialTable'
