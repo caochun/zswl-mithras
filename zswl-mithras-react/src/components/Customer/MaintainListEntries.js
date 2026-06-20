@@ -1,1 +1,1 @@
-export { default as CustomerMaintain } from './Maintain'
+export { default as CustomerMaintain } from './Maintain/CustomerMaintain'

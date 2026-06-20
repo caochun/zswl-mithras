@@ -438,7 +438,7 @@
 - 预算定价 FTP 收益率列表页和详情页通过 `src/components/Budget/PricingFtpYieldEntries.js` 暴露，`src/pages/budget/pricing/ftpYield/*` 只保留路由壳。
 - 预算 LPR 维护页通过 `src/components/Budget/LprEntries.js` 暴露，`src/pages/budget/lpr/*` 只保留路由壳。
 - 预算项目利润列表页和详情页分别通过 `src/components/Budget/ProjectProfitListEntries.js`、`ProjectProfitDetailEntries.js` 暴露，列表真实实现命名为 `BudgetProjectProfit.js`，列配置保留在预算项目利润组件内部，`src/pages/budget/projProfit/*` 只保留路由壳。
-- 预算印花税维护页通过 `src/components/Budget/StampDutyEntries.js` 暴露，`src/pages/budget/stampDuty/*` 只保留路由壳。
+- 预算印花税维护页通过 `src/components/Budget/StampDutyEntries.js` 暴露，真实实现命名为 `BudgetStampDuty.js`，`src/pages/budget/stampDuty/*` 只保留路由壳。
 - KPI 项目分配列表页、历史页、项目分配列表子组件、分配明细和表单片段分别通过 `src/components/Kpi/ProjectAllotPageEntries.js`、`ProjectAllotHistoryEntries.js`、`ProjectAllotProjectAllocateListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
 - 预算考核列表页和详情页通过 `src/components/BudgetManagement/AssessmentEntries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js` 和 `BudgetManagementAssessmentDetail.js`，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
 - 预算管理业绩目标是历史菜单路径，实际归入 KPI 业绩目标组件域；列表页和详情页通过 `src/components/Kpi/BusinessGoalEntries.js` 暴露，`src/pages/budgetManagement/businessGoal/*` 只保留路由壳。
@@ -451,7 +451,7 @@
 - 金融产权列表页通过 `src/components/Financial/PropertyEntries.js` 暴露，`src/pages/financial/property` 只保留路由壳。
 - 直融产品列表页通过 `src/components/Financial/DirectListEntries.js` 暴露，`src/pages/financial/direct/index.js` 只保留路由壳；直融详情继续通过 `src/components/Financial/DirectDetailEntries.js` 暴露。
 - 金融机构管理页通过 `src/components/Financial/OrgEntries.js` 暴露，`src/pages/financial/org/*` 只保留路由壳。
-- 财务应付利息列表页和详情页通过 `src/components/Financial/PayableInterestEntries.js` 暴露，`src/pages/financial/payableInterest/*` 只保留路由壳。
+- 财务应付利息列表页和详情页通过 `src/components/Financial/PayableInterestEntries.js` 暴露，列表真实实现命名为 `FinancialPayableInterest.js`，`src/pages/financial/payableInterest/*` 只保留路由壳。
 - 财务还本付息列表页、批量审批、变更日志和差异详情分别通过 `src/components/Financial/PaymentListPageEntries.js`、`PaymentBatchApprovalEntries.js` 和 `PaymentLogEntries.js` 暴露，付款批量审批和变更日志真实实现使用财务域语义文件名，`src/pages/financial/payment/*` 中对应子路由只保留路由壳。
 - 融资管理列表页、创建弹窗、变更弹窗、融资生效、变更日志、差异详情和历史组件子路由通过 `src/components/Financial/FundListMainEntries.js`、`FundListCreateModalEntries.js`、`FundListChangeModalEntries.js`、`FundActualTableEntries.js`、`FundGuaranteeEntries.js`、`FundOrgEntries.js`、`FundYearRateEntries.js`、`FundEffectEntries.js`、`FundDetailPageEntries.js`、`FundDetailActualTableEntries.js`、`FundDetailEstimateTableEntries.js`、`FundDetailSchemeEntries.js`、`FundDetailAccountEntries.js`、`FundDetailAssetEntries.js`、`FundDetailLogEntries.js` 暴露，质押明细真实实现命名为 `FinancialFundDetailPledge.js`，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
 - 金融授信额度列表页和详情页通过 `src/components/Financial/CreditEntries.js` 暴露，`src/pages/financial/credit/*` 只保留路由壳。
@@ -498,7 +498,7 @@
 - 黑灰名单突破申请、入库申请、入库外部入口、出库申请和仓库查询分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js`。
 - 黑灰名单参数规则页通过 `src/components/BlackGray/ParameterEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Warehouse/Rule/BlackGrayWarehouseRule.js`。
 - 档案详情和档案模板任务页分别通过 `src/components/Archives/ManageEntries.js`、`TaskEntries.js` 暴露，真实实现命名为 `src/components/Archives/Manage/detail/ArchivesManageDetail.js` 和 `src/components/Archives/Task/ArchivesTask.js`。
-- 黑灰名单突破审批、入库历史、出库审批、入库上传、出库查询和仓库子任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现命名为 `BlackGrayBreakThroughApproval.js`、`BlackGrayEnterDatabaseHistory.js`、`BlackGrayOutboundApproval.js`、`BlackGrayEnterDatabaseUpload.js`、`BlackGrayOutboundSearch.js` 和 `BlackGrayWarehouseSubTask.js`，不再依赖目录 `index.js`。
+- 黑灰名单突破审批、入库历史、出库审批、入库上传、出库查询、仓库审批和仓库子任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现命名为 `BlackGrayBreakThroughApproval.js`、`BlackGrayEnterDatabaseHistory.js`、`BlackGrayOutboundApproval.js`、`BlackGrayEnterDatabaseUpload.js`、`BlackGrayOutboundSearch.js`、`BlackGrayWarehouseApproval.js` 和 `BlackGrayWarehouseSubTask.js`，不再依赖目录 `index.js`。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。
@@ -534,7 +534,7 @@
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
 - 权限分组和权限日志通过 `src/components/Permission/*Entries.js` 暴露，真实实现命名为 `PermissionGroup.js` 和 `PermissionLog.js`，不再依赖目录 `index.js`。
-- 管理报表主页、内部历史页和运营待办报表通过 `src/components/Report/*Entries.js` 暴露，真实实现命名为 `src/components/Report/Management/Management/ReportManagement.js`、`src/components/Report/Management/InternalHistory/ReportInternalHistory.js` 和 `src/components/Report/Operation/YunYingDaiBan/ReportOperationPending.js`。
+- 管理报表主页、内部历史页、运营分析、合同时效监控和运营待办报表通过 `src/components/Report/*Entries.js` 暴露，真实实现命名为 `src/components/Report/Management/Management/ReportManagement.js`、`src/components/Report/Management/InternalHistory/ReportInternalHistory.js`、`src/components/Report/Operation/YeWuYunYingFenXi/ReportOperationAnalysis.js`、`src/components/Report/Operation/HeTongShiXiaoJianKong/ReportOperationContractMonitor.js` 和 `src/components/Report/Operation/YunYingDaiBan/ReportOperationPending.js`。
 - 财务报表待办/完成列表通过 `src/components/Report/FinancialReportWaitEntries.js` 和 `FinancialReportFinishedEntries.js` 暴露，真实列表实现命名为 `src/components/Report/FinancialReportList/ReportFinancialReportList.js`。
 - 财务报表审批详情通过 `src/components/Report/FinancialReportApprovalEntries.js` 暴露，真实实现命名为 `src/components/Report/FinancialReportApproval/ReportFinancialReportApproval.js`。
 - 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
@@ -595,7 +595,7 @@
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`。
 - `login`：登录和初次登录改密历史路由壳，页面实现已收敛到 `src/components/Permission/AuthEntries.js`，API 语义归属权限认证。
 - `customer/customerRat`：客户评级列表历史路由壳，列表实现和列配置已收敛到 `src/components/Customer/CustomerRatingListEntries.js`。
-- `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露。
+- `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露，列表真实实现命名为 `CustomerMaintain.js`。
 - `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。
 - `preview`：PDF、报表预览。
 - `visitorManage`：拜访管理历史路由壳，当前入口收敛到 `src/components/VisitorManage/VisitorManageEntries.js`，页面实现命名为 `src/components/VisitorManage/VisitorManagePage.js`。

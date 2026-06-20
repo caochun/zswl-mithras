@@ -4,7 +4,7 @@ import { getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { COMMON_COLUMNS } from '../../../OperationColumns'
 import { initQueryDate, initYearQueryDate } from '@/utils/domains/report/ReportUtils'
-import { reportTitle } from '../index'
+import { reportTitle } from '../ReportOperationAnalysis'
 import { saveServer } from '@/utils'
 
 const Index = ({ store }) => {

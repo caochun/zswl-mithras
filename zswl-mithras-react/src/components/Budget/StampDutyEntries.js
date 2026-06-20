@@ -1,1 +1,1 @@
-export { default as BudgetStampDuty } from './StampDuty'
+export { default as BudgetStampDuty } from './StampDuty/BudgetStampDuty'

@@ -316,6 +316,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/ProjectProfit/BudgetProjectProfit.js',
   ],
   [
+    'src/components/Budget/StampDuty/index.js',
+    'src/components/Budget/StampDuty/BudgetStampDuty.js',
+  ],
+  [
     'src/components/BudgetManagement/PlanCost/Detail/index.js',
     'src/components/BudgetManagement/PlanCost/Detail/BudgetManagementPlanCostDetail.js',
   ],
@@ -366,6 +370,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/BlackGray/BreakThrough/Approval/index.js',
     'src/components/BlackGray/BreakThrough/Approval/BlackGrayBreakThroughApproval.js',
+  ],
+  [
+    'src/components/BlackGray/Warehouse/Approval/index.js',
+    'src/components/BlackGray/Warehouse/Approval/BlackGrayWarehouseApproval.js',
   ],
   [
     'src/components/BlackGray/EnterDatabase/History/index.js',
@@ -458,6 +466,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Customer/ApplyPermission/index.js',
     'src/components/Customer/ApplyPermission/CustomerApplyPermission.js',
+  ],
+  [
+    'src/components/Customer/Maintain/index.js',
+    'src/components/Customer/Maintain/CustomerMaintain.js',
   ],
   [
     'src/components/Credit/CreditSearchModal/index.js',
@@ -686,6 +698,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Financial/FundYearRate/index.js',
     'src/components/Financial/FundYearRate/FinancialFundYearRate.js',
+  ],
+  [
+    'src/components/Financial/PayableInterest/index.js',
+    'src/components/Financial/PayableInterest/FinancialPayableInterest.js',
   ],
   [
     'src/components/Financial/Liquidity/FundDailyReport/index.js',
@@ -934,6 +950,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Report/Management/Management/index.js',
     'src/components/Report/Management/Management/ReportManagement.js',
+  ],
+  [
+    'src/components/Report/Operation/HeTongShiXiaoJianKong/index.js',
+    'src/components/Report/Operation/HeTongShiXiaoJianKong/ReportOperationContractMonitor.js',
+  ],
+  [
+    'src/components/Report/Operation/YeWuYunYingFenXi/index.js',
+    'src/components/Report/Operation/YeWuYunYingFenXi/ReportOperationAnalysis.js',
   ],
   [
     'src/components/Report/Operation/YunYingDaiBan/index.js',
