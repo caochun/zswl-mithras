@@ -263,7 +263,9 @@
 - `Process/QueryEntries.js`
 - `Process/ReceiveEntries.js`
 - `Project/DebtEvaluationEntries.js`
-- `Project/EstablishmentDetailEntries.js`
+- `Project/EstablishmentDetailLogEntries.js`
+- `Project/EstablishmentDetailPageEntries.js`
+- `Project/EstablishmentDetailQuotationEntries.js`
 - `Project/EstablishmentEntries.js`
 - `Project/FinancialReportStatisticsEntries.js`
 - `Project/FormListItemEntries.js`

@@ -1,4 +1,4 @@
-import { ProjectEstablishmentDetail } from '@/components/Project/EstablishmentDetailEntries'
+import { ProjectEstablishmentDetail } from '@/components/Project/EstablishmentDetailPageEntries'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '@/api/process/detail/flowDetailApi'

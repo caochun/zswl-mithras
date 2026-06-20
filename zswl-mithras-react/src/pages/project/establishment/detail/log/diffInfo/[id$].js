@@ -1,1 +1,1 @@
-export { ProjectEstablishmentDetailLogDiff as default } from '@/components/Project/EstablishmentDetailEntries'
+export { ProjectEstablishmentDetailLogDiff as default } from '@/components/Project/EstablishmentDetailLogEntries'

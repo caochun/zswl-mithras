@@ -1,5 +1,0 @@
-export { default as ProjectEstablishmentDetail } from './EstablishmentDetail'
-export { default as ProjectEstablishmentDetailBaseInfo } from './EstablishmentDetail/BaseInfo'
-export { default as ProjectEstablishmentDetailLog } from './EstablishmentDetail/Log'
-export { default as ProjectEstablishmentDetailLogDiff } from './EstablishmentDetail/LogDiff'
-export { default as ProjectEstablishmentDetailQuotationScheme } from './EstablishmentDetail/QuotationScheme'
