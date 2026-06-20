@@ -763,6 +763,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['BlackGray/WarehouseMainTaskEntries.js', 'BlackGray/WarehouseMainTask*Entries.js'],
   ['Budget/PricingBusinessEntries.js', 'Budget/PricingBusiness*Entries.js'],
   ['Budget/PricingFtpInterestEntries.js', 'Budget/PricingFtpInterest*Entries.js'],
+  ['Budget/ProjectProfitEntries.js', 'Budget/ProjectProfit*Entries.js'],
   ['Budget/ProvisioningEntries.js', 'Budget/Provisioning*Entries.js'],
   ['BudgetManagement/BudgetManagementEntries.js', 'BudgetManagement/* narrow Entries.js'],
   ['BudgetManagement/PlacementPlanEntries.js', 'BudgetManagement/PlacementPlan*Entries.js'],

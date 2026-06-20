@@ -112,6 +112,8 @@ const componentEntryScopeAliases = new Map([
   ['Budget/PricingFtpInterestPriceChangeEntries', 'BudgetFtpInterestPriceChange'],
   ['Budget/PricingFtpInterestPriceDetailEntries', 'BudgetPricingFtpInterestPriceDetail'],
   ['Budget/ProfitDistributionEntries', 'BudgetProfitDistribution'],
+  ['Budget/ProjectProfitDetailEntries', 'BudgetProjectProfitDetail'],
+  ['Budget/ProjectProfitListEntries', 'BudgetProjectProfitList'],
   ['Budget/ProvisioningDataEntries', 'BudgetProvisioningData'],
   ['Budget/ProvisioningImpairmentEntries', 'BudgetProvisioningImpairment'],
   ['Budget/ProvisioningParamsConfigEntries', 'BudgetProvisioningParamsConfig'],
