@@ -485,6 +485,7 @@
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
+- 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
 - 黑灰名单入库上传、出库查询和仓库子任务分别通过 `src/components/BlackGray/EnterDatabaseUploadEntries.js`、`OutboundSearchEntries.js`、`WarehouseSubTaskEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/EnterDatabase/Upload/BlackGrayEnterDatabaseUpload.js`、`src/components/BlackGray/Outbound/Search/BlackGrayOutboundSearch.js` 和 `src/components/BlackGray/Warehouse/SubTask/BlackGrayWarehouseSubTask.js`。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
@@ -506,11 +507,13 @@
 - 逾期文书用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js`。
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
+- 管理报表内部历史页通过 `src/components/Report/ManagementEntries.js` 暴露，真实实现命名为 `src/components/Report/Management/InternalHistory/ReportInternalHistory.js`。
 - 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
 - 流程空白块和流程类型树分别通过 `src/components/Process/BlankBlockEntries.js`、`ProcessTypeTreeEntries.js` 暴露，真实实现命名为 `src/components/Process/BlankBlock/ProcessBlankBlock.js` 和 `src/components/Process/ProcessTypeTree/ProcessTypeTree.js`。
 - 项目债项评级抽屉通过 `src/components/Project/DebtEvaluationEntries.js` 暴露，真实实现命名为 `src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js`。
 - 项目评审会纪要弹窗通过 `src/components/Project/ProjectReviewMeetingModalEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js`。
 - 项目评审快照通过 `src/components/Project/ReviewSnapshotEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js`。
+- 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
 - 风险评分卡测算弹窗通过 `src/components/Risk/SourceCardCalcModalEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js`。
 - 跟踪事项抽屉通过 `src/components/TrackEvent/TrackEventModalEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/TrackModal/TrackEventModal.js`。
 - 白名单列表和详情分别通过 `src/components/WhiteList/ListEntries.js`、`DetailEntries.js` 暴露，真实实现命名为 `src/components/WhiteList/List/WhiteListList.js` 和 `src/components/WhiteList/Detail/WhiteListDetail.js`，列定义保留为白名单域内私有配置。

@@ -76,6 +76,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js',
   ],
   [
+    'src/components/Chart/BarChart/index.js',
+    'src/components/Chart/BarChart/BarChart.js',
+  ],
+  [
+    'src/components/Chart/LineChart/index.js',
+    'src/components/Chart/LineChart/LineChart.js',
+  ],
+  [
     'src/components/BlackGray/Info/index.js',
     'src/components/BlackGray/Info/BlackGrayHitInfo.js',
   ],
@@ -170,6 +178,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Preview/PdfPreview/index.js',
     'src/components/Preview/PdfPreview/PdfPreview.js',
+  ],
+  [
+    'src/components/Report/Management/InternalHistory/index.js',
+    'src/components/Report/Management/InternalHistory/ReportInternalHistory.js',
+  ],
+  [
+    'src/components/Risk/PublicMonitorColumns/index.js',
+    'src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js',
   ],
   [
     'src/components/Process/BlankBlock/index.js',

@@ -1,1 +1,1 @@
-export { default as RiskPublicMonitorColumns } from './PublicMonitorColumns'
+export { default as RiskPublicMonitorColumns } from './PublicMonitorColumns/RiskPublicMonitorColumns'
