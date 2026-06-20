@@ -3,7 +3,7 @@ import { observer, getQuery, history } from '@zswl/admin'
 import { Page, Button, Form, Modal } from '@zswl/components'
 import { Input, InputNumber } from 'antd'
 import DetailLayout from '@/components/DetailLayout'
-import BaseInfo from '../BaseInfo'
+import BaseInfo from '../BaseInfo/ContractBaseInfo'
 import GaiSuanZuJin from './GaiSuanZuJin'
 import ShiJiZuJin from './ShiJiZuJin'
 import ChengZuRen from './ChengZuRen' // 租赁、转租赁场景 - ZL、ZZ
