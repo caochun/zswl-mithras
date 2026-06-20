@@ -2,7 +2,7 @@ import { AmountEditable, InputColumn, AmountColumn, TextAreaEditable } from '@/c
 import { formatPercent, amountFormat } from '@/utils'
 import { Form } from '@zswl/components'
 import mathjs from '@/utils/math'
-import YearRate from '../FundYearRate'
+import YearRate from '../FundYearRate/FinancialFundYearRate'
 
 export const SETTLE_COLUMNS = [
   InputColumn({

@@ -1,7 +1,7 @@
 import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import ChangeLogLayout from '../../../../ChangeLogLayout'
-import ActualTable from '../../../../FundDetail/ActualTable'
+import ActualTable from '../../../../FundDetail/ActualTable/FinancialFundDetailActualTable'
 import BaseInfo from '../../../../FundDetail/BaseInfo'
 import EstimateTable from '../../../../FundDetail/EstimateTable'
 import Pledge from '../../../../FundDetail/Pledge'

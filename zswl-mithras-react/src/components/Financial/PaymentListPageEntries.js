@@ -1,1 +1,1 @@
-export { default as FinancialPaymentList } from './PaymentList'
+export { default as FinancialPaymentList } from './PaymentList/FinancialPaymentList'

@@ -1,1 +1,1 @@
-export { default as FinancialLiquidityFundDailyReport } from './Liquidity/FundDailyReport'
+export { default as FinancialLiquidityFundDailyReport } from './Liquidity/FundDailyReport/FinancialLiquidityFundDailyReport'

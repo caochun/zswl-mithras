@@ -1,1 +1,1 @@
-export { default as FinancialFundFormOrg } from './FundForm/FormOrg'
+export { default as FinancialFundFormOrg } from './FundForm/FormOrg/FinancialFundFormOrg'

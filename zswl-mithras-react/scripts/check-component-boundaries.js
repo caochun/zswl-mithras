@@ -360,6 +360,38 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js',
   ],
   [
+    'src/components/Financial/FundDetail/ActualTable/index.js',
+    'src/components/Financial/FundDetail/ActualTable/FinancialFundDetailActualTable.js',
+  ],
+  [
+    'src/components/Financial/FundDetail/OtherAccount/index.js',
+    'src/components/Financial/FundDetail/OtherAccount/FinancialFundDetailOtherAccount.js',
+  ],
+  [
+    'src/components/Financial/FundForm/FormGuarantee/index.js',
+    'src/components/Financial/FundForm/FormGuarantee/FinancialFundFormGuarantee.js',
+  ],
+  [
+    'src/components/Financial/FundForm/FormOrg/index.js',
+    'src/components/Financial/FundForm/FormOrg/FinancialFundFormOrg.js',
+  ],
+  [
+    'src/components/Financial/FundGuaranteeScheme/index.js',
+    'src/components/Financial/FundGuaranteeScheme/FinancialFundGuaranteeScheme.js',
+  ],
+  [
+    'src/components/Financial/FundYearRate/index.js',
+    'src/components/Financial/FundYearRate/FinancialFundYearRate.js',
+  ],
+  [
+    'src/components/Financial/Liquidity/FundDailyReport/index.js',
+    'src/components/Financial/Liquidity/FundDailyReport/FinancialLiquidityFundDailyReport.js',
+  ],
+  [
+    'src/components/Financial/PaymentList/index.js',
+    'src/components/Financial/PaymentList/FinancialPaymentList.js',
+  ],
+  [
     'src/components/Financial/FinancingCarryInterestFlow/index.js',
     'src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js',
   ],

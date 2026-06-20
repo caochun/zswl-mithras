@@ -507,6 +507,7 @@
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js`。
 - 融资列表创建和变更弹窗分别通过 `src/components/Financial/FundListCreateModalEntries.js`、`FundListChangeModalEntries.js` 暴露，真实实现命名为 `src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js` 和 `src/components/Financial/FundList/ChangeModal/FinancialFundListChangeModal.js`。
+- 融资明细实收表、其他账号、保证信息、担保方案、融资机构、年化利率、资金日报和付款列表通过 `src/components/Financial/*Entries.js` 暴露，域内复用也指向财务域语义文件名，不再依赖目录 `index.js`。
 - 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。

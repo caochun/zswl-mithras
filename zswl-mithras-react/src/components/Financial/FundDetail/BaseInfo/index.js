@@ -3,10 +3,10 @@ import ALL_COLUMNS from '../../FundColumns'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useRef } from 'react'
-import FormOrg from '../../FundForm/FormOrg'
+import FormOrg from '../../FundForm/FormOrg/FinancialFundFormOrg'
 import { MatchOptionColumn } from '@/components/Format'
 import { App } from '@zswl/components'
-import FormGuarantee from '../../FundForm/FormGuarantee'
+import FormGuarantee from '../../FundForm/FormGuarantee/FinancialFundFormGuarantee'
 
 function Index({ detail, saveData, isLog, canEdit = true, initEdit, isOtherChange }) {
   const ref = useRef()
