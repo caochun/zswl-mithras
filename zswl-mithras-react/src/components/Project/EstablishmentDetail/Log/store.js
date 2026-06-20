@@ -19,7 +19,6 @@ class Store {
   })
   //变更日志详情
   toDifferentInfo = (id, bizType) => {
-    console.log(id, 'idid')
     history.push(`/project/establishment/detail/log/diffInfo/${id}?bizType=${bizType}`)
   }
 }

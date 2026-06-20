@@ -76,7 +76,6 @@ const Index = ({ id, detail, canEdit = true, rootStore: store, isFormAdjust }, r
     zrTypes,
     factoringTypes,
   } = pageDetail
-  console.log('pageDetail: ', pageDetail)
 
   const commonProps = {
     detail: {

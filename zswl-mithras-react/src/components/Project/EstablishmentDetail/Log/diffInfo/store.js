@@ -173,7 +173,6 @@ class Store {
     }
   }
   getBoajiaData = (values, type) => {
-    console.log({ values })
     if (type === 'old') {
       return {
         ...values,

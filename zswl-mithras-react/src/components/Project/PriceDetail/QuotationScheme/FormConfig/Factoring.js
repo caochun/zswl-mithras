@@ -380,7 +380,6 @@ const Factoring = ({ showValue, form, detail, compareChangeList = [], isLog }) =
                   const rentalCalcTypeEnum = IS_FLAT_RATE
                     ? options.repayCalcType.filter((item) => item.label !== '等额本金')
                     : options.repayCalcType
-                  console.log({ rentalCalcTypeEnum })
                   return (
                     <Form.Item name="rentalCalcType">
                       <Select options={rentalCalcTypeEnum} placeholder="请选择还款方式" />

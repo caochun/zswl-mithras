@@ -55,7 +55,6 @@ class Store {
   createModal = new ModalStore({
     onFinish: async (values) => {
       const { code, data, msg } = await Api.postProject(values)
-      console.log(code)
       if (code === 200) {
         this.createModal.close()
         this.table.search()

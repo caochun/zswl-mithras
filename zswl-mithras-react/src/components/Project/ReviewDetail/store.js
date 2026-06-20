@@ -38,7 +38,6 @@ class Store {
         ])
           .then((res) => res)
           .catch((e) => {
-            console.log(e)
             return [{}, {}]
           })
       }
@@ -79,7 +78,6 @@ class Store {
           return this.tempDtempDetail
         }
       } catch (e) {
-        console.log(e)
       }
     },
   })
@@ -269,7 +267,6 @@ class Store {
       this.approvalLoading = false
       message.success('提交成功')
     } catch (e) {
-      console.log(e)
       this.approvalLoading = false
     }
   }
@@ -289,7 +286,6 @@ class Store {
       await Api.messageNotice(data)
       message.info('通知成功！')
     } catch (e) {
-      console.log(e)
     }
   }
   debtDrawer = new DrawerStore()

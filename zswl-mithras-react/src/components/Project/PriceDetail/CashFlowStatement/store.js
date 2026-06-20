@@ -44,7 +44,6 @@ class Store {
         const api = isCreate ? Api.postMeetMinuteCompare : Api.reviewCashflowCompare
 
         const res = await api({ id: this.projPricingId, processInstanceId, businessVersion })
-        console.log('format(res): ', format(res))
         return isCreate ? format(res) : res || []
       }
       const res = await Api.postCashFlowList({

@@ -35,9 +35,6 @@ const FormListItem = ({
     const store = new Store()
     // 解构出方法
     const { onCustomers } = store
-    console.log('form', form)
-
-    console.log('id', ids, detail)
     const data = await onCustomers(businessKey, ids)
     if (data) {
       let dataList = getFieldValue(fieldKey)

@@ -19,7 +19,6 @@ const Index = ({ form,  detail, taskActivityId,showValue,store ,projReviewType,p
           ...searchParams,
           ...params,
         },functionCode)
-        console.log("res",res)
         // if (!res||res.length === 0) {
         //   form.setFieldsValue({ VotingResultsOfReviewMeetingLock: true })
         // }else {
@@ -29,7 +28,6 @@ const Index = ({ form,  detail, taskActivityId,showValue,store ,projReviewType,p
       },
     })
   }, [params])
-  console.log('table',table)
   const importFiles = async (file) => {
     const { fileList } = DataUpload.classify(file)
     let functionCode = projReviewType === 'PROJ_REVIEW_BASE'? 'projReviewQuotationProposalCashflowplanUpload': 'groupCreditReviewQuotationProposalCashflowplanUpload'

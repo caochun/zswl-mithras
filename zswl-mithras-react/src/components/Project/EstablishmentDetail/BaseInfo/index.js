@@ -249,7 +249,6 @@ const BasicInformation = ({
     store.postProjectBaseInfoModify(formData, () => {
       page.init()
       setBaseInfoShowValue(true)
-      console.log('getProjectDataDetail: ', getProjectDataDetail)
       getProjectDataDetail(id)
     })
   }

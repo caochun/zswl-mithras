@@ -37,7 +37,6 @@ const QuotationScheme = (
   const { projectQSDetail, postProjectQSModify, getProjectQSDetail } = store
   const [detailShowData, setDetailShowData] = useState({})
   const isFormApproval = getQuery('typeId') == 'approval'
-  console.log('更新', isFormApproval)
   const { modelKey } = rootStore?.page.getParams()
   const isCreate = modelKey === 'ProjReviewPricingApprovalFlow'
   const CurrentDom = useMemo(() => {
