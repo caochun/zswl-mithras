@@ -23,7 +23,7 @@
 
 跨业务域复用组件时，调用方应优先依赖被调用领域暴露的稳定入口，而不是直接引用对方内部目录。
 
-- 推荐：`@/components/Contract/ApplicationDetailEntries`
+- 推荐：`@/components/Contract/ApplicationDetailPageEntries`
 - 推荐：`@/components/Project/ReviewDetailPageEntries`
 - 推荐：`@/components/Credit/ReviewDetailEntries`
 - 避免：`@/components/Contract/Detail/BaoJia`
@@ -115,7 +115,8 @@
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
 - `ClientMaterialTable/BusinessMaterialTableEntries.js`
-- `Contract/ApplicationDetailEntries.js`
+- `Contract/ApplicationDetailLogEntries.js`
+- `Contract/ApplicationDetailPageEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/ConfigEntries.js`
 - `Contract/ContractMaterialListEntries.js`

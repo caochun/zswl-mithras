@@ -1,1 +1,1 @@
-export { ContractApplicationLogDiff as default } from '@/components/Contract/ApplicationDetailEntries'
+export { ContractApplicationLogDiff as default } from '@/components/Contract/ApplicationDetailLogEntries'

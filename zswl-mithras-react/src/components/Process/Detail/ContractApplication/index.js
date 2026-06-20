@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, cloneElement } from 'react'
 import { observer } from '@zswl/admin'
 import {
   ContractApplicationDetail,
-} from '@/components/Contract/ApplicationDetailEntries'
+} from '@/components/Contract/ApplicationDetailPageEntries'
 import {
   ContractChangeDetail as LPRchange,
   ContractCreateReceiptDetail as KSJJcreateReceipt,
