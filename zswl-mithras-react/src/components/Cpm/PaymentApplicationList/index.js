@@ -6,7 +6,7 @@ import IconFont from '@/components/Icon'
 import { amountFormat, saveServer } from '@/utils'
 import AmountRange from '@/components/AmountRange'
 import { ClientSelect } from '@/components/Select'
-import AddModal from './AddModal'
+import AddModal from './AddModal/CpmPaymentApplicationAddModal'
 
 const { Item } = SearchBar
 

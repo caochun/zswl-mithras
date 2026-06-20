@@ -1,1 +1,1 @@
-export { default as FinancialFundListChangeModal } from './FundList/ChangeModal'
+export { default as FinancialFundListChangeModal } from './FundList/ChangeModal/FinancialFundListChangeModal'

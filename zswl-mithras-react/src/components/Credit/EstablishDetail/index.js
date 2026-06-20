@@ -9,7 +9,7 @@ import Report from './Report'
 import { ApprovalAction as Approval } from '@/components/Actions'
 import { ApprovalDetail } from '@/components/Table'
 import DetailLayout from '@/components/DetailLayout'
-import CreditModal from '../CreditSearchModal'
+import CreditModal from '../CreditSearchModal/CreditReportSearchModal'
 
 const Index = ({
   params: { id },

@@ -9,7 +9,7 @@ import DataStore from './store'
 import { ApprovalAction as Approval } from '@/components/Actions'
 import { ApprovalDetail } from '@/components/Table'
 import DetailLayout from '@/components/DetailLayout'
-import CreditModal from '../CreditSearchModal'
+import CreditModal from '../CreditSearchModal/CreditReportSearchModal'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectReviewMeetingModalEntries'
 
 const { Link } = Anchor

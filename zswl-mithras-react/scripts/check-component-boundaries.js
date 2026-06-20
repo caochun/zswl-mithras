@@ -100,12 +100,32 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js',
   ],
   [
+    'src/components/Credit/CreditSearchModal/index.js',
+    'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
+  ],
+  [
+    'src/components/Cpm/PaymentApplication/PublicCheckModal/index.js',
+    'src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js',
+  ],
+  [
+    'src/components/Cpm/PaymentApplicationList/AddModal/index.js',
+    'src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js',
+  ],
+  [
     'src/components/EvaluationAgency/index.js',
     'src/components/EvaluationAgency/AppraisalAgency.js',
   ],
   [
     'src/components/ExternalEmbed/RzyPages/index.js',
     'src/components/ExternalEmbed/RzyPages/RzyPages.js',
+  ],
+  [
+    'src/components/Financial/FundList/ChangeModal/index.js',
+    'src/components/Financial/FundList/ChangeModal/FinancialFundListChangeModal.js',
+  ],
+  [
+    'src/components/Financial/FundList/CreateModal/index.js',
+    'src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js',
   ],
   [
     'src/components/InsurancePolicy/Columns/index.js',

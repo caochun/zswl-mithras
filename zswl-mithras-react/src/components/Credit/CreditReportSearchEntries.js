@@ -1,1 +1,1 @@
-export { default as CreditReportSearchModal } from './CreditSearchModal'
+export { default as CreditReportSearchModal } from './CreditSearchModal/CreditReportSearchModal'
