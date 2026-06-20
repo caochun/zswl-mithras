@@ -23,7 +23,6 @@ const FormUpload = (props) => {
       onChange(currentData)
     },
     beforeUpload: (file, fileLists) => {
-      console.log('file: ', file, fileLists)
       // console.log(file)
       try {
         const tempFile = [...fileList]
@@ -31,7 +30,6 @@ const FormUpload = (props) => {
         onChange(tempFile)
         setFileList(tempFile)
       } catch (e) {
-        console.log(e)
       }
 
       return false

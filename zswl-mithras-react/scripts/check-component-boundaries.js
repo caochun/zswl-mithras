@@ -709,6 +709,15 @@ function hasRuntimeConsoleLog(source) {
     .some((line) => !line.trimStart().startsWith('//') && line.includes('console.log('))
 }
 
+function isPublicComponentSourceFile(relativeFilePath) {
+  const [, componentRoot] =
+    relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)[\\/].*\.(?:js|jsx|ts|tsx)$/) ||
+    relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)\.(?:js|jsx|ts|tsx)$/) ||
+    []
+
+  return publicComponentRootImports.has(componentRoot)
+}
+
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 const styleFiles = scanDirs.flatMap((dir) => walkMatchingFiles(dir, styleFilePattern))
@@ -743,10 +752,14 @@ for (const filePath of sourceFiles) {
     })
   }
 
-  if (utilitySourceFilePattern.test(relativeFilePath) && hasRuntimeConsoleLog(source)) {
+  if (
+    (utilitySourceFilePattern.test(relativeFilePath) ||
+      isPublicComponentSourceFile(relativeFilePath)) &&
+    hasRuntimeConsoleLog(source)
+  ) {
     violations.push({
       file: relativeFilePath,
-      specifier: 'runtime console.log in src/utils',
+      specifier: 'runtime console.log in shared frontend foundation',
     })
   }
 

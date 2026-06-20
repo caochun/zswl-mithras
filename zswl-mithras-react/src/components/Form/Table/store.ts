@@ -25,7 +25,6 @@ class Store {
   handleOk = async (record, index) => {
     const { values } = await this.table.submit()
     const recordId = record.id
-    console.log('values: ', values, record)
     // 剔除 values 中的 record.id 字段
     const newObject = _.omit(values, [recordId])
     const newData = {
