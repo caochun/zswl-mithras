@@ -32,6 +32,25 @@ const rootApiFilePattern = /^src[\\/]api[\\/][^\\/]+\.(?:js|jsx|ts|tsx)$/
 const relativeApiImportPattern =
   /^\.{1,2}(?:\/[^'"]*)?\/api(?:\.(?:js|jsx|ts|tsx)|\/index(?:\.(?:js|jsx|ts|tsx))?)?$/
 const utilitySourceFilePattern = /^src[\\/]utils[\\/].*\.(?:js|jsx|ts|tsx)$/
+const removedLegacyUtilityFiles = new Map([
+  ['src/utils/afterLease.js', 'src/utils/domains/afterLease/AfterLeaseUtils.js'],
+  ['src/utils/budgetManagement.js', 'src/utils/domains/budget/ProvisionForecastUtils.js'],
+  ['src/utils/customer.js', 'src/utils/domains/customer/CustomerUtils.js'],
+  ['src/utils/customerRat.js', 'src/utils/domains/customer/CustomerRatUtils.js'],
+  ['src/utils/dashboard.js', 'src/utils/domains/dashboard/DashboardUtils*.js'],
+  ['src/utils/dashboardColumns.js', 'src/utils/domains/dashboard/DashboardUtilsColumns.js'],
+  ['src/utils/dashboardFilterKeys.js', 'src/utils/domains/dashboard/DashboardUtilsFilterKeys.js'],
+  ['src/utils/dashboardOperation.js', 'src/utils/domains/dashboard/DashboardUtilsOperation.js'],
+  ['src/utils/kpi.js', 'src/utils/domains/kpi/KpiUtils.js'],
+  ['src/utils/paymentApplication.js', 'src/utils/domains/cpm/PaymentApplicationUtils.js'],
+  ['src/utils/processFlow.js', 'src/utils/domains/process/ProcessFlowContext.js'],
+  ['src/utils/report.js', 'src/utils/domains/report/ReportUtils.js'],
+  ['src/utils/risk.js', 'src/utils/domains/risk/RiskUtils.js'],
+  ['src/utils/rzyConfig.js', 'src/utils/domains/rzy/RzyConfig.js'],
+  ['src/utils/options/financialReport.js', 'src/utils/domains/report/* when report options are needed'],
+  ['src/utils/options/ftp.js', 'src/utils/domains/budget/* when FTP pricing options are needed'],
+  ['src/utils/hooks/useGetStatus.js', 'src/utils/domains/blackGray/BlackGrayStatusUtils.js'],
+])
 
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
@@ -154,6 +173,18 @@ const legacyUtilityPrefixRules = [
   {
     legacyPrefix: '@/utils/dashboard',
     replacementPrefix: '@/utils/domains/dashboard/DashboardUtils*',
+  },
+  {
+    legacyPrefix: '@/utils/dashboardColumns',
+    replacementPrefix: '@/utils/domains/dashboard/DashboardUtilsColumns',
+  },
+  {
+    legacyPrefix: '@/utils/dashboardFilterKeys',
+    replacementPrefix: '@/utils/domains/dashboard/DashboardUtilsFilterKeys',
+  },
+  {
+    legacyPrefix: '@/utils/dashboardOperation',
+    replacementPrefix: '@/utils/domains/dashboard/DashboardUtilsOperation',
   },
   {
     legacyPrefix: '@/utils/kpi',
@@ -825,6 +856,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'mock/demo/example source file',
+    })
+  }
+
+  if (removedLegacyUtilityFiles.has(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: `removed legacy utility file (use ${removedLegacyUtilityFiles.get(relativeFilePath)})`,
     })
   }
 
