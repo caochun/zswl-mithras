@@ -109,7 +109,6 @@ class Store {
   }
 
   handleRoleChange = (e, record) => {
-    console.log(e, record)
   }
 
   // 列表编辑态索引

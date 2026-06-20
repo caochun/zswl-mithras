@@ -60,7 +60,6 @@ const ImageRender = ({ currentData, form, editable, table, homePage, setHomePage
         {
           name: '删除',
           onClick: () => {
-            console.log('record: ', record)
             table.deleteRow(record.id)
           },
         },

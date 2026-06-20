@@ -106,7 +106,6 @@ class Store {
     }
   }
   onCheck = async (checkedKeys) => {
-    console.log('checkedKeys: ', checkedKeys)
     const menuId = _.last(checkedKeys?.[0]?.split('-'))
     this.getGroupList(menuId)
   }
