@@ -4,11 +4,10 @@ import { Space } from 'antd'
 import { observer } from '@zswl/admin'
 import IconFont from '@/components/Icon'
 import CreateModal from './CreateModal'
-import RenderColumn from '@/components/RenderColumn'
 import { BankAccount } from '@/components/Form'
 import Store from './store'
 import styles from './index.less'
-import { MatchOptionColumn } from '@/components/Format'
+import { MatchOptionColumn, RenderColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 
 const Index = ({ financingId, isFormApproval, businessVersion, canEdit = true, detail }) => {

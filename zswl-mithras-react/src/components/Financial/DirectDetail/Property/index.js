@@ -3,14 +3,13 @@ import { Button, Table } from '@zswl/components'
 import { Space, Checkbox } from 'antd'
 import { observer } from '@zswl/admin'
 import IconFont from '@/components/Icon'
-import RenderColumn from '@/components/RenderColumn'
 import { BankAccount } from '@/components/Form'
 import { JumpContractDetail, JumpProjDetail } from './Jump'
 import Store from './store'
 import Api from '@/api/financial/directFinancingDetail'
 import styles from './index.less'
 import { saveServer } from '@/utils'
-import { InputColumn, AmountColumn } from '@/components/Format'
+import { InputColumn, AmountColumn, RenderColumn } from '@/components/Format'
 
 const Index = ({
   id: financingId,

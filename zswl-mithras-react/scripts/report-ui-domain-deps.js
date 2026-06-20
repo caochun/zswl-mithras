@@ -351,7 +351,6 @@ const publicComponentRoots = new Set([
   'PageListDown',
   'ReadOnly',
   'RegionCascader',
-  'RenderColumn',
   'Select',
   'StarDom',
   'Table',

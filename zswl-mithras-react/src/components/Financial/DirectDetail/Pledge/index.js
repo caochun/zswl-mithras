@@ -1,7 +1,6 @@
 import { BankAccount } from '@/components/Form'
-import { InputColumn } from '@/components/Format'
+import { InputColumn, RenderColumn } from '@/components/Format'
 import IconFont from '@/components/Icon'
-import RenderColumn from '@/components/RenderColumn'
 import { saveServer } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Button, Table } from '@zswl/components'

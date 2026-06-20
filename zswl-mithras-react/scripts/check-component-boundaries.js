@@ -1919,7 +1919,6 @@ const publicComponentRootImports = new Set([
   'PageListDown',
   'ReadOnly',
   'RegionCascader',
-  'RenderColumn',
   'Select',
   'StarDom',
   'Table',

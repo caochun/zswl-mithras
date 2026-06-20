@@ -1,10 +1,10 @@
+import { RenderColumn } from '@/components/Format'
 import { Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { Tooltip } from 'antd'
 import { hasValue } from '@/utils'
 import mathjs from '@/utils/math'
 import styles from './index.less'
-import RenderColumn from '@/components/RenderColumn'
 import { saveServer } from '@/utils'
 
 function Index({ detail, isLog }) {

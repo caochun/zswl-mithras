@@ -3,12 +3,11 @@ import { useEffect, forwardRef, useImperativeHandle, useMemo } from 'react'
 import { Table, Button, Form } from '@zswl/components'
 import { Space, DatePicker } from 'antd'
 import DataUpload from '@/components/DataUpload'
-import RenderColumn from '@/components/RenderColumn'
 import moment from 'moment'
 import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import styles from './index.less'
 import Store from './store'
-import { MatchOptionColumn } from '@/components/Format'
+import { MatchOptionColumn, RenderColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 
 const { Item } = Form

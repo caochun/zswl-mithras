@@ -1,6 +1,6 @@
+import { RenderColumn } from '@/components/Format'
 import { Table } from '@zswl/components'
 import { observer, getQuery } from '@zswl/admin'
-import RenderColumn from '@/components/RenderColumn'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
