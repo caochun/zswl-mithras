@@ -137,7 +137,6 @@ const DetailTable = observer(
       store?.deleteRow(id)
     }
     const importData = async (values) => {
-      console.log('values: ', values)
       await onImport(values)
       store.search()
     }

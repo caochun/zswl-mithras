@@ -96,7 +96,6 @@ const Index = (props, ref) => {
       }
     }
     if (!params.mainId) {
-      console.log('params: ', params)
       message.info('请先保存表单')
       return
     }

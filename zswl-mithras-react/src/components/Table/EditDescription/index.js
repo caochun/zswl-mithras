@@ -45,7 +45,6 @@ const EditDescriptionInner = observer(
               el.scrollLeft = left
             }),
         })
-        console.log('表单校验不通过', e)
         throw new Error('表单校验不通过')
       }
     }

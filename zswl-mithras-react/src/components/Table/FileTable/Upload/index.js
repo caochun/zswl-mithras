@@ -17,7 +17,6 @@ function UploadModal({
 }) {
   const initialValues = modalStore.getInitialValues() ?? {}
   const upload = async (params) => {
-    console.log('params: ', params)
     const { fileType, file, config } = params
     const { code, msg } = await uploadApi(
       {
@@ -52,7 +51,6 @@ function UploadModal({
             fileType,
             config,
           })
-          console.log('code: ', code)
           return code ? false : Upload.LIST_IGNORE
         } catch (error) {
           return Upload.LIST_IGNORE

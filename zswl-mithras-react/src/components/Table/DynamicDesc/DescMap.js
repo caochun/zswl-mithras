@@ -153,7 +153,6 @@ function Index({ contentList, editable, required = false, groupName }, ref) {
       const values = await form.validateFields()
       cb(values)
     } catch (err) {
-      console.log(err)
     }
   }
   const dataSource = useMemo(() => {
