@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Select } from '@zswl/components'
 import { isRiskManager } from '@/utils'
 
-const Index = ({ defaultValue, onChange }) => {
+const ProjectViewDataRangeSelect = ({ defaultValue, onChange }) => {
   if (!isRiskManager()) return null
   return (
     <div>
@@ -16,4 +16,4 @@ const Index = ({ defaultValue, onChange }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectViewDataRangeSelect)

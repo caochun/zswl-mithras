@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { saveServer } from '@/utils'
 
 // 评审通过未创建合同
-const Index = ({ group, extraQueryParams }) => {
+const ProjectStageReviewNoContractTable = ({ group, extraQueryParams }) => {
   const [sumData, setSumData] = useState({})
   let names = [
     '客户名称',
@@ -90,4 +90,4 @@ const Index = ({ group, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectStageReviewNoContractTable)

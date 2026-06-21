@@ -3,7 +3,7 @@ import { Drawer } from '@zswl/components'
 import { getNameColumns } from '../Config'
 import { useMemo, cloneElement } from 'react'
 
-const Index = ({ store, extraQueryParams }) => {
+const ProjectInfoDrawer = ({ store, extraQueryParams }) => {
   const { curInfoData } = store
   const { group, groupCode } = curInfoData
   const drawerComponent = getNameColumns(groupCode)
@@ -26,4 +26,4 @@ const Index = ({ store, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectInfoDrawer)

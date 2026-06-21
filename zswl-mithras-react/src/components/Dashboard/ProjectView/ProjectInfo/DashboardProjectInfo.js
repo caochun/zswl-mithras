@@ -3,12 +3,12 @@ import { getQuery, observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../CardPanelFieldsFilter'
 import StagePanel from '../../StagePanel'
 import { columnsFilterKey } from './Config'
-import InfoDrawer from './InfoDrawer/ProjectInfoDrawer'
+import ProjectInfoDrawer from './InfoDrawer/ProjectInfoDrawer'
 import Store from './Store'
 import styles from './index.less'
-import SelectDataRange from '../SelectDataRange'
+import ProjectViewDataRangeSelect from '../SelectDataRange'
 
-const Index = () => {
+const DashboardProjectInfo = () => {
   const { openModal } = getQuery()
 
   const openDrawer = (data) => {
@@ -27,10 +27,10 @@ const Index = () => {
         columnsFilterKey={columnsFilterKey}
         queryParams={store.queryParams}
         extra={
-          <SelectDataRange
+          <ProjectViewDataRangeSelect
             onChange={store.setQueryParams}
             defaultValue={store.queryParams.permissionType}
-          ></SelectDataRange>
+          ></ProjectViewDataRangeSelect>
         }
       >
         {(data) => {
@@ -56,9 +56,9 @@ const Index = () => {
           )
         }}
       </CardPanelFieldsFilter>
-      <InfoDrawer store={store} extraQueryParams={store.queryParams} />
+      <ProjectInfoDrawer store={store} extraQueryParams={store.queryParams} />
     </>
   )
 }
 
-export default observer(Index)
+export default observer(DashboardProjectInfo)

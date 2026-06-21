@@ -1,4 +1,4 @@
-import { getQuery, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Table } from '@zswl/components'
 import { getTableColumns, getSearchColumns } from '@/utils'
 import { All_COLUMNS } from './Column'
@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { saveServer } from '@/utils'
 
 // 本月应收租金
-const Index = ({ group, extraQueryParams }) => {
+const ProjectInfoRentThisMonthTable = ({ group, extraQueryParams }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(All_COLUMNS)
   const searchItem = getSearchColumns(All_COLUMNS, [
@@ -58,4 +58,4 @@ const Index = ({ group, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectInfoRentThisMonthTable)

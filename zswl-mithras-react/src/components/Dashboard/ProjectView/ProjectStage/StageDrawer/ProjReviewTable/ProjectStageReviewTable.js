@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { saveServer } from '@/utils'
 
 // 评审
-const Index = ({ group, extraQueryParams }) => {
+const ProjectStageReviewTable = ({ group, extraQueryParams }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(All_COLUMNS)
   const searchItem = getSearchColumns(All_COLUMNS, [
@@ -60,4 +60,4 @@ const Index = ({ group, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectStageReviewTable)

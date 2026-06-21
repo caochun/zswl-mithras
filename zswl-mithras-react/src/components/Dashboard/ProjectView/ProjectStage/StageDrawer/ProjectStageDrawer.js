@@ -4,7 +4,7 @@ import { cloneElement } from 'react'
 import { getNameColumns } from '../Config'
 import { useMemo } from 'react'
 
-const Index = ({ store, extraQueryParams }) => {
+const ProjectStageDrawer = ({ store, extraQueryParams }) => {
   const { curStageData } = store
   const { groupCode, group } = curStageData
 
@@ -28,4 +28,4 @@ const Index = ({ store, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectStageDrawer)

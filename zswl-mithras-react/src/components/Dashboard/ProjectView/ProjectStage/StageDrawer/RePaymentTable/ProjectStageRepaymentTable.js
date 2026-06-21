@@ -1,4 +1,4 @@
-import { Amount, AmountRange } from '@/components/Format'
+import { AmountRange } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Table, SearchBar } from '@zswl/components'
 import { getTableColumns, getSearchColumns } from '@/utils'
@@ -13,7 +13,7 @@ import { saveServer } from '@/utils'
 const { Item } = SearchBar
 
 // 还款
-const Index = ({ group, extraQueryParams }) => {
+const ProjectStageRepaymentTable = ({ group, extraQueryParams }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(All_COLUMNS)
   const searchItem = getSearchColumns(All_COLUMNS, ['合同编号', '项目名称'])
@@ -74,4 +74,4 @@ const Index = ({ group, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectStageRepaymentTable)

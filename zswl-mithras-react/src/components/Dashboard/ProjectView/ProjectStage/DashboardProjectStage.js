@@ -2,13 +2,13 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../CardPanelFieldsFilter'
 import StagePanel from '../../StagePanel'
-import StageDrawer from './StageDrawer/ProjectStageDrawer'
+import ProjectStageDrawer from './StageDrawer/ProjectStageDrawer'
 import { columnsFilterKey } from './Config'
 import Store from './Store'
 import styles from './index.less'
-import SelectDataRange from '../SelectDataRange'
+import ProjectViewDataRangeSelect from '../SelectDataRange'
 
-const Index = ({ title, innerModule }) => {
+const DashboardProjectStage = ({ title, innerModule }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -17,10 +17,10 @@ const Index = ({ title, innerModule }) => {
     <>
       <CardPanelFieldsFilter
         extra={
-          <SelectDataRange
+          <ProjectViewDataRangeSelect
             onChange={store.setQueryParams}
             defaultValue={store.queryParams.permissionType}
-          ></SelectDataRange>
+          ></ProjectViewDataRangeSelect>
         }
         innerModule={innerModule}
         title={title || '项目阶段'}
@@ -60,9 +60,9 @@ const Index = ({ title, innerModule }) => {
           )
         }}
       </CardPanelFieldsFilter>
-      <StageDrawer store={store} extraQueryParams={store.queryParams}></StageDrawer>
+      <ProjectStageDrawer store={store} extraQueryParams={store.queryParams}></ProjectStageDrawer>
     </>
   )
 }
 
-export default observer(Index)
+export default observer(DashboardProjectStage)
