@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import SupervisePie from './SupervisePie'
 import SuperviseTable from './SuperviseTable'
 
-const Index = ({ store }) => {
+const FinancialLiquidityDailyInfoModal = ({ store }) => {
   const { date, data } = store.dailyChartsModal.getInitialValues() ?? {}
   const tableData = data?.list ?? []
   return (
@@ -30,4 +30,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquidityDailyInfoModal)

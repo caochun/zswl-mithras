@@ -5,7 +5,7 @@ import styles from './index.less'
 import { hasValue, amountFormat } from '@/utils'
 import { pieColors } from '../../utils'
 
-const Index = ({ pieData }) => {
+const FinancialLiquiditySupervisePie = ({ pieData }) => {
   var total = pieData.reduce(function (sum, item) {
     return sum + (item.depositedAmount - 0)
   }, 0)
@@ -93,4 +93,4 @@ const Index = ({ pieData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquiditySupervisePie)

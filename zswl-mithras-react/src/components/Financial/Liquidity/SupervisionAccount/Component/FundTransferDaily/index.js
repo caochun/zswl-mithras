@@ -6,7 +6,7 @@ import SupervisePie from '../SupervisePie'
 import SuperviseTable from '../SuperviseTable'
 import DepositDetailModal from './DepositDetailModal'
 
-const Index = () => {
+const FinancialLiquidityFundTransferDaily = () => {
   const [data, setData] = useState({})
 
   const getCurrentDaily = async () => {
@@ -38,4 +38,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default FinancialLiquidityFundTransferDaily

@@ -37,7 +37,7 @@ const transferColumns = [
   },
 ]
 
-const Index = ({ pieData }) => {
+const FinancialLiquiditySuperviseTable = ({ pieData }) => {
   return (
     <div>
       <Table         columnsFilter={'Component_SuperviseTable_1'}
@@ -46,4 +46,4 @@ const Index = ({ pieData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquiditySuperviseTable)

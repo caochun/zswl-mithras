@@ -8,7 +8,7 @@ import fundTransferApi from '@/api/financial/fundTransfer'
 import { Space } from 'antd'
 import { amountFormat } from '@/utils'
 
-const Index = ({ store }) => {
+const FinancialLiquidityBankInfoModal = ({ store }) => {
   const { data = {}, record = {} } = store.bankInfoModal.getInitialValues() ?? {}
   const { accountBank, accountNumber, accountId } = record ?? {}
 
@@ -87,4 +87,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquidityBankInfoModal)

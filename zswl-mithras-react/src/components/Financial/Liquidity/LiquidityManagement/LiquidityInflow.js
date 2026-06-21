@@ -15,7 +15,7 @@ const defaultTimes = {
   expireDateTo: moment().add(7, 'day'),
 }
 const FORMAT_NUMBER = 10000 * 10000
-const Index = ({ queryTime }) => {
+const FinancialLiquidityInflow = ({ queryTime }) => {
   const [time, setTime] = useState(defaultTimes)
   const [repayTime, setRepayTime] = useState(defaultTimes)
   const incomeTable = Table.useStore({
@@ -157,4 +157,4 @@ const Index = ({ queryTime }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquidityInflow)
