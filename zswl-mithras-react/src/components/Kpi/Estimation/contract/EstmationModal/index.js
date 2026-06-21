@@ -3,7 +3,7 @@ import { Modal, Form } from '@zswl/components'
 import { DatePicker } from 'antd'
 import moment from 'moment'
 
-const Index = ({ store }) => {
+const KpiEstimationContractModal = ({ store }) => {
   const disabledDate = (current) => {
     return false
     // 首次初始化时间点
@@ -25,4 +25,4 @@ const Index = ({ store }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(KpiEstimationContractModal)

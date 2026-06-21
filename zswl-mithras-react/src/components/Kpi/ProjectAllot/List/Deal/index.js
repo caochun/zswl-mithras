@@ -30,7 +30,7 @@ const nameColumns = [
   '分润比',
 ]
 
-const Index = ({ store, pathname }) => {
+const KpiProjectAllotDealList = ({ store, pathname }) => {
   const columns = getTableColumns(ALL_COLUMNS({ source: 'deal', pathname }), nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS(), formNameColumns)
   // store.dealTable.setParams(store.commonParams)
@@ -90,4 +90,4 @@ const Index = ({ store, pathname }) => {
     />
   )
 }
-export default observer(Index)
+export default observer(KpiProjectAllotDealList)

@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import ALL_COLUMNS from '../Column'
 import { getDescColumns } from '@/utils'
 
-const Index = ({ canEdit, editRef, store }) => {
+const KpiProjectAllotBaseInfo = ({ canEdit, editRef, store }) => {
   const nameColumns = [
     '合同编号',
     '项目名称',
@@ -41,4 +41,4 @@ const Index = ({ canEdit, editRef, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiProjectAllotBaseInfo)

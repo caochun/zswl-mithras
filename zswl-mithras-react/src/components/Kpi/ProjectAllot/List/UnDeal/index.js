@@ -30,7 +30,7 @@ const nameColumns = [
   '分润比',
 ]
 
-const Index = ({ store, pathname }) => {
+const KpiProjectAllotUnDealList = ({ store, pathname }) => {
   const columns = getTableColumns(ALL_COLUMNS({ source: 'unDeal', pathname }), nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS(), formNameColumns)
   // store.unDealTable.setParams(store.commonParams)
@@ -59,4 +59,4 @@ const Index = ({ store, pathname }) => {
     />
   )
 }
-export default observer(Index)
+export default observer(KpiProjectAllotUnDealList)

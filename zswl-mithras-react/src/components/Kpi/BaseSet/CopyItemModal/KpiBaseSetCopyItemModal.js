@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { DatePicker, Input } from 'antd'
 import moment from 'moment'
 
-const Index = ({ store }) => {
+const KpiBaseSetCopyItemModal = ({ store }) => {
   const { effectMonth } = store.copyItemModal.getInitialValues() ?? {}
 
   return (
@@ -25,4 +25,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetCopyItemModal)

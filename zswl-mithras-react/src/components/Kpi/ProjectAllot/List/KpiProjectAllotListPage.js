@@ -5,7 +5,7 @@ import Deal from './Deal'
 import UnDeal from './UnDeal'
 import store from './store'
 
-const Index = ({ pathname }) => {
+const KpiProjectAllotListPage = ({ pathname }) => {
   const { activeKey, setActiveKey } = store
   const commonProps = {
     store,
@@ -34,4 +34,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(KpiProjectAllotListPage)

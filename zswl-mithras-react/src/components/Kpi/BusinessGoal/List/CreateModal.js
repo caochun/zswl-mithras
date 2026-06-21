@@ -3,7 +3,7 @@ import { Modal, Form, Select } from '@zswl/components'
 import { DatePicker } from 'antd'
 const { Item } = Form
 
-const Index = ({ store }) => {
+const KpiBusinessGoalCreateModal = ({ store }) => {
   return (
     <Modal title={'创建'} width={400} store={store.createModal}>
       <Form labelCol={{ span: 6 }}>
@@ -18,4 +18,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBusinessGoalCreateModal)
