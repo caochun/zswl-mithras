@@ -88,7 +88,7 @@ const downloadListColumns = [
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getSearchColumns(ALL_COLUMNS, formNameColumns)
 
-function Index({ query }) {
+function ArchivesFinancialManagement({ query }) {
   useEffect(() => {
     // 设置导出列配置（排除操作列）
     store.setExportColumns(columns.filter((col) => col.dataIndex !== 'operation'))
@@ -136,4 +136,4 @@ function Index({ query }) {
   )
 }
 
-export default observer(Index)
+export default observer(ArchivesFinancialManagement)

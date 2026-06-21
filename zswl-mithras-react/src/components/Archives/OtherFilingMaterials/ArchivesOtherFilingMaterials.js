@@ -37,7 +37,7 @@ const formNameColumns = [
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index({ query }) {
+function ArchivesOtherFilingMaterials({ query }) {
   return (
     <Page>
       <div className={styles.customerWrap}>
@@ -80,4 +80,4 @@ function Index({ query }) {
   )
 }
 
-export default observer(Index)
+export default observer(ArchivesOtherFilingMaterials)

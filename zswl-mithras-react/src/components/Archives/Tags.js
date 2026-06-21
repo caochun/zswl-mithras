@@ -1,7 +1,7 @@
 import { Tag, Tooltip } from 'antd'
 import { App } from '@zswl/components'
 
-function Index({ value }) {
+function ArchivesTags({ value }) {
   if (value) {
     const content = value?.map((item) => (
       <Tag key={item} color={'blue'}>
@@ -17,4 +17,4 @@ function Index({ value }) {
   return null
 }
 
-export default Index
+export default ArchivesTags

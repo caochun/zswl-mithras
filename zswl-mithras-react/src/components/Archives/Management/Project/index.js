@@ -55,7 +55,7 @@ const formNameColumns = [
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getSearchColumns(ALL_COLUMNS, formNameColumns)
 
-function Index() {
+function ArchivesProjectManagement() {
   useEffect(() => {
     // 设置导出列配置
     store.setExportColumns(columns)
@@ -89,4 +89,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ArchivesProjectManagement)

@@ -9,7 +9,7 @@ import projectStore from './Project/store'
 
 const DEFAULT_TAB = 'FINANCIAL'
 
-const Index = ({ pathname }) => {
+const ArchivesManagement = ({ pathname }) => {
   const currentTab = getQuery('tab') || DEFAULT_TAB
   const [isCheckingPermission, setIsCheckingPermission] = useState(true)
 
@@ -97,4 +97,4 @@ const Index = ({ pathname }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ArchivesManagement)

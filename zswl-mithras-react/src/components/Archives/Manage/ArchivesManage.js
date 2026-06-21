@@ -116,7 +116,7 @@ const formNameColumns = [
 ]
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
-function Index({ query }) {
+function ArchivesManage({ query }) {
   const { expandedRowKeys, data } = store
   const { rows } = store.table.getSelected()
   return (
@@ -167,4 +167,4 @@ function Index({ query }) {
   )
 }
 
-export default observer(Index)
+export default observer(ArchivesManage)

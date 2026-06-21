@@ -1,7 +1,7 @@
 import { FileTable } from '@/components/Table'
 import documentManagementLedgerApi from '@/api/archives/documentManagementLedger'
 
-const Index = (props) => {
+const ArchivesManagementDetailData = (props) => {
   const { id: mainId, canEdit, enumType = [] } = props
 
   const columns = [
@@ -50,4 +50,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default ArchivesManagementDetailData

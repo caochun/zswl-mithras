@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import Data from './Data'
 import Store from './store'
 
-const Index = ({ params: { id }, query: { businessVersion, modelKey } }) => {
+const ArchivesOtherFilingMaterialsDetail = ({ params: { id }, query: { businessVersion, modelKey } }) => {
   const store = useMemo(() => {
     return new Store({ id })
   }, [id])
@@ -40,4 +40,4 @@ const Index = ({ params: { id }, query: { businessVersion, modelKey } }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ArchivesOtherFilingMaterialsDetail)

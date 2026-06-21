@@ -3,7 +3,7 @@ import { Page } from '@zswl/components'
 import { useEffect, useMemo } from 'react'
 import Data from './Data'
 import Store from './store'
-const Index = ({ params: { id } }) => {
+const ArchivesManagementDetail = ({ params: { id } }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -23,4 +23,4 @@ const Index = ({ params: { id } }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(ArchivesManagementDetail)

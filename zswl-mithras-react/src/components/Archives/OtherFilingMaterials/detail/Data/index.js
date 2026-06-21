@@ -4,7 +4,7 @@ import otherFilingMaterialsApi from '@/api/archives/otherFilingMaterials'
 
 const MODULE_TYPE = 'OTHER_FILING'
 
-const Index = (props) => {
+const ArchivesOtherFilingMaterialsData = (props) => {
   const { id: mainId, canEdit, enumType = [], materialsDesc } = props
   const columns = [
     { title: '资料清单', dataIndex: 'name' },
@@ -69,4 +69,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default ArchivesOtherFilingMaterialsData
