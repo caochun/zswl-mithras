@@ -1,8 +1,8 @@
 import { Button } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { forwardRef, useImperativeHandle, useMemo } from 'react'
-import CompareInfo from './CompareInfo'
-import TipsConfirm from './TipsConfirm'
+import CompareInfo from './CompareInfo/BusinessInfoCheckCompareInfo'
+import TipsConfirm from './TipsConfirm/BusinessInfoCheckTipsConfirm'
 import Store from './store'
 
 const Index = (
