@@ -2747,6 +2747,13 @@ for (const filePath of sourceTreeFiles) {
       specifier: 'component log diff forwarding shell (export the real diff implementation from *Entries.js)',
     })
   }
+
+  if (relativeFilePath === 'src/components/AfterLease/RentCollection/CheckCard/index.js') {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'check card forwarding shell (import CheckCard.js directly)',
+    })
+  }
 }
 
 for (const dirPath of [

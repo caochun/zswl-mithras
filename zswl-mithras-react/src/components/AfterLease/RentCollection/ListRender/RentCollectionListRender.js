@@ -6,7 +6,7 @@ import Term from '../Components/Term'
 import TermDetail from '../TermDetail/AfterLeaseRentCollectionTermDetail'
 import styles from '../index.less'
 import { useEffect, useMemo, useState } from 'react'
-import CheckCard from '../CheckCard'
+import CheckCard from '../CheckCard/CheckCard'
 
 const ListRender = ({ dataSource, penaltyInterest, groupChange, groupValue }) => {
   const store = {
