@@ -7,7 +7,7 @@ import Api from '@/api/afterLease/level5Classify'
 import { Space, message } from 'antd'
 import { Button } from '@zswl/components'
 
-function Index({ businessVersion, store, isFormApproval, modelKey, taskStatus }) {
+function AfterLeaseLevel5ClassifyFileList({ businessVersion, store, isFormApproval, modelKey, taskStatus }) {
   const ref = useRef()
   const { assetClassifyId } = store
   const [version, setVersion] = useState('')
@@ -116,4 +116,4 @@ function Index({ businessVersion, store, isFormApproval, modelKey, taskStatus })
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyFileList)

@@ -1,12 +1,10 @@
 import { observer } from '@zswl/admin'
-import { Form, Modal, Select } from '@zswl/components'
+import { Modal } from '@zswl/components'
 import { Button, Space } from 'antd'
 import { isAssetJon } from '@/utils'
 import { NoEnumFileTable } from '@/components/Table'
 
-const { Item } = Form
-
-function Index({ store, canEdit = true }) {
+function AfterLeaseLevel5ClassifyProcessDataModal({ store, canEdit = true }) {
   const { nodeItemRecord, assetClassifyId } = store
   const params = {
     mainId: assetClassifyId,
@@ -62,4 +60,4 @@ function Index({ store, canEdit = true }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyProcessDataModal)

@@ -10,7 +10,7 @@ import styles from './index.less'
 
 const { Step } = Steps
 
-const Index = ({ store }) => {
+const AfterLeaseLevel5ClassifyProcess = ({ store }) => {
   const {
     processData,
     processDataLoading,
@@ -134,4 +134,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyProcess)

@@ -3,7 +3,7 @@ import Api from '@/api/afterLease/level5Classify'
 import { amountFormat, getKeyOptionsLabelMapPlus, formatPercent, hasValue } from '@/utils'
 import { EditTable } from '@/components/Table'
 
-const Index = ({ id }) => {
+const AfterLeaseLevel5ClassifyListInnerTable = ({ id }) => {
   const getList = async (params) => {
     const list = await Api.postWithdrawalRatio({
       ...params,
@@ -77,4 +77,4 @@ const Index = ({ id }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyListInnerTable)

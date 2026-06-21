@@ -1,12 +1,9 @@
 import { observer } from '@zswl/admin'
-import { Form, Modal, Select } from '@zswl/components'
+import { Modal } from '@zswl/components'
 import { Button, Space } from 'antd'
 import styles from './index.less'
-import { useEffect, useState } from 'react'
 
-const { Item } = Form
-
-function Index({ store, canEdit = true }) {
+function AfterLeaseLevel5ClassifyProcessFirstPartModal({ store, canEdit = true }) {
   const {
     addClientNames = [],
     deleteClientNames = [],
@@ -77,4 +74,4 @@ function Index({ store, canEdit = true }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyProcessFirstPartModal)

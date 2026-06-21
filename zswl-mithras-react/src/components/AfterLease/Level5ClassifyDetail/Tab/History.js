@@ -8,7 +8,7 @@ import { levelColor } from '../../Level5ClassifyConfig'
 import styles from '../index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const AfterLeaseLevel5ClassifyDetailHistory = ({ store }) => {
   const { optionsType } = App.getData()
 
   const getStatusColor = (value) => {
@@ -76,4 +76,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyDetailHistory)

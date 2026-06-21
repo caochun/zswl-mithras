@@ -19,7 +19,7 @@ import styles from './index.less'
 
 const { Item } = SearchBar
 
-const Index = ({ store, modelKey, curTaskActivityIds, query = {} }) => {
+const AfterLeaseLevel5ClassifyList = ({ store, modelKey, curTaskActivityIds, query = {} }) => {
   const { isFormApproval } = store.page.getParams()
 
   const { optionsType } = App.getData()
@@ -279,4 +279,4 @@ const Index = ({ store, modelKey, curTaskActivityIds, query = {} }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyList)

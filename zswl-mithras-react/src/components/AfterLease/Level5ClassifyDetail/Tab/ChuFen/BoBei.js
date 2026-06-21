@@ -12,7 +12,7 @@ import {
 import { EditTable } from '@/components/Table'
 import { useMemo } from 'react'
 
-const Index = ({ canEdit = true, id }) => {
+const AfterLeaseLevel5ClassifyDetailChuFenBoBei = ({ canEdit = true, id }) => {
   const { modelKey, curTaskActivityIds } = getQuery()
 
   const getList = async (params) => {
@@ -132,4 +132,4 @@ const Index = ({ canEdit = true, id }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyDetailChuFenBoBei)

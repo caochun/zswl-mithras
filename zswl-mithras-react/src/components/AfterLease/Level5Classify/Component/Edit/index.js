@@ -4,7 +4,7 @@ import { Input } from 'antd'
 
 const { Item } = Form
 
-function Index({ store }) {
+function AfterLeaseLevel5ClassifyEdit({ store }) {
   const [form] = Form.useForm()
 
   return (
@@ -25,4 +25,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyEdit)

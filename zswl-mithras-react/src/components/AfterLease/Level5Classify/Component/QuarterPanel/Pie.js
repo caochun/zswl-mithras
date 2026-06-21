@@ -39,7 +39,7 @@ const getOptions = ({ data, total }) => {
   }
 }
 
-const Index = ({ domId, selectQuarater, quarater, data }) => {
+const AfterLeaseLevel5ClassifyQuarterPanelPie = ({ domId, selectQuarater, quarater, data }) => {
   const quaraterText = quaraterMap.filter((item) => item.value === quarater)[0]?.text
   const total = data.reduce((prev, cur) => prev + cur?.value, 0)
 
@@ -86,4 +86,4 @@ const Index = ({ domId, selectQuarater, quarater, data }) => {
   )
 }
 
-export default Index
+export default AfterLeaseLevel5ClassifyQuarterPanelPie

@@ -7,7 +7,7 @@ import { Radio } from 'antd'
 import { App } from '@zswl/components'
 import _ from 'lodash'
 
-const Index = ({ canEdit = true, id }) => {
+const AfterLeaseLevel5ClassifyDetailChuFenRiskFactor = ({ canEdit = true, id }) => {
   const [groupMap, setGroupMap] = useState({})
 
   const getList = useCallback(
@@ -116,4 +116,4 @@ const Index = ({ canEdit = true, id }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyDetailChuFenRiskFactor)

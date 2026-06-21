@@ -10,7 +10,7 @@ import { NoEnumFileTable } from '@/components/Table'
 import BoBei from './BoBei'
 import RiskFactor from './RiskFactor'
 
-function Index({ store, detail = {}, canEdit = true, businessVersion }) {
+function AfterLeaseLevel5ClassifyDetailChuFen({ store, detail = {}, canEdit = true, businessVersion }) {
   const { id: mainId } = store.page.getParams()
   const { suggestFlag } = store.page.getData()
   const hasPermission = canEdit && isAssetJon()
@@ -71,4 +71,4 @@ function Index({ store, detail = {}, canEdit = true, businessVersion }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyDetailChuFen)

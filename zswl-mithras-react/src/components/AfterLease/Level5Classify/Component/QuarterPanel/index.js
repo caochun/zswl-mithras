@@ -7,7 +7,7 @@ import styles from './index.less'
 
 const yearFormat = 'yyyy'
 
-const Index = ({ store }) => {
+const AfterLeaseLevel5ClassifyQuarterPanel = ({ store }) => {
   const { quarter, year, changeQuarter, changeYear, quarterSelectData, quarterSelectLoading } =
     store
   const [selectQuarater, setSelectQuarater] = useState(quarter)
@@ -67,4 +67,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyQuarterPanel)

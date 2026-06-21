@@ -7,7 +7,7 @@ import styles from './index.less'
 
 const columns = getDescColumns(ALL_COLUMNS, ALL_COLUMNS)
 
-function Index({ store, detail, saveData, isLog, canEdit = true }) {
+function AfterLeaseLevel5ClassifyDetailBaseInfo({ store, detail, saveData, isLog, canEdit = true }) {
   const { isFormApproval } = store.page.getParams()
   const { nodeStatue } = store.page.getData()
 
@@ -36,4 +36,4 @@ function Index({ store, detail, saveData, isLog, canEdit = true }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyDetailBaseInfo)
