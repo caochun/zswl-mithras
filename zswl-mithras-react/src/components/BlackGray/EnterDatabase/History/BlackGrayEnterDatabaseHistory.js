@@ -1,4 +1,4 @@
-import { Button, Page, Select, Table } from '@zswl/components'
+import { Page, Select, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
 import ALL_COLUMNS from '../../Columns'
@@ -9,7 +9,7 @@ import { Checkbox } from 'antd'
 import recordTableApi from '@/api/blackGray/recordTableApi'
 import { saveServer } from '@/utils'
 
-function Index({ path }) {
+function BlackGrayEnterDatabaseHistory({ path }) {
   const columns = useMemo(() => {
     const nameColumns = [
       '企业名称',
@@ -68,4 +68,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayEnterDatabaseHistory)

@@ -8,7 +8,7 @@ import Select from 'antd/es/select'
 import { useGetStatus } from '@/utils/domains/blackGray/BlackGrayStatusUtils'
 import { saveServer } from '@/utils'
 
-function Index({ path }) {
+function BlackGrayEnterDatabaseApplication({ path }) {
   const { completed } = useGetStatus()
   const columns = useMemo(() => {
     const nameColumns = [
@@ -65,4 +65,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayEnterDatabaseApplication)

@@ -49,7 +49,7 @@ const ReportList = () => {
   )
 }
 
-const Index = ({ props: { sub }, path }) => {
+const BlackGrayOutboundSearch = ({ props: { sub }, path }) => {
   return (
     <Page>
       <ReportList path={path} />
@@ -57,4 +57,4 @@ const Index = ({ props: { sub }, path }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayOutboundSearch)

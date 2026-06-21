@@ -60,7 +60,7 @@ const CustomTable = ({ params }) => {
   )
 }
 
-const Index = () => {
+const BlackGrayEnterDatabaseUpload = () => {
   const [activeKey, setActiveKey] = useState('BLACK_LIST')
   const tabItems = [
     {
@@ -81,4 +81,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayEnterDatabaseUpload)
