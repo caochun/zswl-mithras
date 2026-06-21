@@ -3,7 +3,7 @@ import { AmountFormat } from '@/components/Format'
 import { useEffect } from 'react'
 import { Spin } from 'antd'
 import IconFont from '@/components/Icon'
-import ApprovalDrawer from '../ApprovalDrawer/ContractApprovalAgingDrawer'
+import ContractApprovalAgingDrawer from '../ApprovalDrawer/ContractApprovalAgingDrawer'
 import styles from './index.less'
 
 const sourceMap = {
@@ -14,7 +14,7 @@ const sourceMap = {
   processAverage: '全流程平均时效(工作日)',
 }
 
-const Index = ({ store }) => {
+const ContractApprovalAgingCard = ({ store }) => {
   const { approvalStatistics, approvalStatisticsLoading } = store
 
   useEffect(() => {
@@ -44,9 +44,9 @@ const Index = ({ store }) => {
           })}
         </div>
       </Spin>
-      <ApprovalDrawer store={store}></ApprovalDrawer>
+      <ContractApprovalAgingDrawer store={store}></ContractApprovalAgingDrawer>
     </div>
   )
 }
 
-export default observer(Index)
+export default observer(ContractApprovalAgingCard)

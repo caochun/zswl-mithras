@@ -3,14 +3,14 @@ import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import { Form } from '@zswl/components'
 import { DatePicker } from 'antd'
-import ApprovalCard from './ApprovalCard/ContractApprovalAgingCard'
-import ReturnCard from './ReturnCard/ContractReturnStatisticsCard'
+import ContractApprovalAgingCard from './ApprovalCard/ContractApprovalAgingCard'
+import ContractReturnStatisticsCard from './ReturnCard/ContractReturnStatisticsCard'
 import Store from './Store'
 
 const { RangePicker } = DatePicker
 const { Item } = Form
 
-const Index = () => {
+const WorkbenchContractAging = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -34,12 +34,12 @@ const Index = () => {
           </Form>
         }
       >
-        <ApprovalCard store={store}></ApprovalCard>
+        <ContractApprovalAgingCard store={store}></ContractApprovalAgingCard>
         <div style={{ height: 20 }}></div>
-        <ReturnCard store={store}></ReturnCard>
+        <ContractReturnStatisticsCard store={store}></ContractReturnStatisticsCard>
       </CardPanelFieldsFilter>
     </>
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchContractAging)

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import IconFont from '@/components/Icon'
 import { Spin } from 'antd'
 import { hasValue } from '@/utils'
-import ReturnDrawer from '../ReturnDrawer/ContractReturnStatisticsDrawer'
+import ContractReturnStatisticsDrawer from '../ReturnDrawer/ContractReturnStatisticsDrawer'
 import styles from './index.less'
 
 const sourceMap = {
@@ -15,7 +15,7 @@ const sourceMap = {
   returnAverage: '平均退回次数',
 }
 
-const Index = ({ store }) => {
+const ContractReturnStatisticsCard = ({ store }) => {
   const { returnStatistics, returnStatisticsLoading } = store
 
   useEffect(() => {
@@ -46,9 +46,9 @@ const Index = ({ store }) => {
           })}
         </div>
       </Spin>
-      <ReturnDrawer store={store}></ReturnDrawer>
+      <ContractReturnStatisticsDrawer store={store}></ContractReturnStatisticsDrawer>
     </div>
   )
 }
 
-export default observer(Index)
+export default observer(ContractReturnStatisticsCard)

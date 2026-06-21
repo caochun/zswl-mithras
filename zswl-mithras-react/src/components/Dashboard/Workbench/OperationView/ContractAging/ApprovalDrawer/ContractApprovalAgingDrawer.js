@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 const group = '运营审批时效'
 
-const Index = ({ store }) => {
+const ContractApprovalAgingDrawer = ({ store }) => {
   const { approvalDrawer, approvalDrawerTable: table } = store
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
@@ -93,4 +93,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApprovalAgingDrawer)

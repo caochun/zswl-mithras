@@ -8,7 +8,7 @@ import { saveServer } from '@/utils'
 
 const group = '合同退回统计'
 
-const Index = ({ store }) => {
+const ContractReturnStatisticsDrawer = ({ store }) => {
   const { returnDrawer, returnDrawerTable: table } = store
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
@@ -55,4 +55,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractReturnStatisticsDrawer)
