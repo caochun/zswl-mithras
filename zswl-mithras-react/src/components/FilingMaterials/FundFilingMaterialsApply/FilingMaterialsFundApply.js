@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { useEffect, useMemo } from 'react'
 import Data from './Data'
 import Store from './store'
-const Index = ({ params: { id }, query: { canEditFlags } }) => {
+const FilingMaterialsFundApply = ({ params: { id }, query: { canEditFlags } }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -20,4 +20,4 @@ const Index = ({ params: { id }, query: { canEditFlags } }) => {
 
   return <Data id={id} canEdit={canEdit} enumType={FUND_FILING} />
 }
-export default observer(Index)
+export default observer(FilingMaterialsFundApply)

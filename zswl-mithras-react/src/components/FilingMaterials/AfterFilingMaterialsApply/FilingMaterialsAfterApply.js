@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react'
 import Data from './Data'
 import Store from './store'
 
-const Index = ({ id, taskActivityId }) => {
+const FilingMaterialsAfterApply = ({ id, taskActivityId }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -30,4 +30,4 @@ const Index = ({ id, taskActivityId }) => {
   return <Data id={id} canEdit={canEditFlag} enumType={AFTER_LEASING_FILING} />
 }
 
-export default observer(Index)
+export default observer(FilingMaterialsAfterApply)

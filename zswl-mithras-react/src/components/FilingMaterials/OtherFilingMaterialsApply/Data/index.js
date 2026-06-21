@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Api from '@/api/filingMaterials/otherFilingMaterialsDetail'
 const MODULE_TYPE = 'OTHER_FILING'
 
-const Index = (props) => {
+const FilingMaterialsOtherApplyData = (props) => {
   const { id: mainId, canEdit, enumType = [], showDataList, store } = props
 
   const [materialsType, setMaterialsType] = useState('')
@@ -97,4 +97,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default FilingMaterialsOtherApplyData

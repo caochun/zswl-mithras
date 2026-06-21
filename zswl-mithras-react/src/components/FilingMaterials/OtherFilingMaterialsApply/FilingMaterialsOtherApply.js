@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react'
 import Data from './Data'
 import Store from './store'
 
-const Index = ({ id, curTaskActivityIds, taskActivityId }) => {
+const FilingMaterialsOtherApply = ({ id, curTaskActivityIds, taskActivityId }) => {
   const store = useMemo(() => {
     return new Store({ id })
   }, [id])
@@ -45,4 +45,4 @@ const Index = ({ id, curTaskActivityIds, taskActivityId }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FilingMaterialsOtherApply)

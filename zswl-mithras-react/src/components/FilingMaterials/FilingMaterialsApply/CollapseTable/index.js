@@ -11,7 +11,7 @@ import { useFilingMaterialContext } from '../Context'
 import Api from '@/api/filingMaterials/filingMaterialsApplyApi'
 import { tableEnum } from '../enum'
 
-const Index = ({
+const FilingMaterialsCollapseTable = ({
   id,
   dataSource,
   collapseName,
@@ -244,4 +244,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(FilingMaterialsCollapseTable)

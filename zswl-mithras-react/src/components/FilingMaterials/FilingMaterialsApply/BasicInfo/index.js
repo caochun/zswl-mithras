@@ -3,7 +3,7 @@ import CollapseTable from '../CollapseTable'
 import BasicCollapseTable from '../BasicCollapseTable'
 import { REFERENCE_MATERIALS, OPERATIONAL_REVIEW } from '../enum'
 
-const Index = ({ id, data, canEdit = false }) => {
+const FilingMaterialsBasicInfo = ({ id, data, canEdit = false }) => {
   const renderBasicTable = () => {
     return (
       <BasicCollapseTable
@@ -51,4 +51,4 @@ const Index = ({ id, data, canEdit = false }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FilingMaterialsBasicInfo)

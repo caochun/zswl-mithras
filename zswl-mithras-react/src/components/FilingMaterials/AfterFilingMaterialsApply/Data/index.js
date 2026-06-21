@@ -1,7 +1,7 @@
 import { FileTable } from '@/components/Table'
 import Api from '@/api/filingMaterials/afterFilingMaterialsApplyApi'
 
-const Index = (props) => {
+const FilingMaterialsAfterApplyData = (props) => {
   const { id: mainId, canEdit, enumType = [] } = props
 
   const columns = [
@@ -70,4 +70,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default FilingMaterialsAfterApplyData

@@ -7,7 +7,7 @@ import BasicInfo from './BasicInfo'
 import InternalOperationInfo from './InternalOperationInfo'
 import { FilingMaterialProvider } from './Context'
 
-const Index = ({ params }) => {
+const FilingMaterialsApply = ({ params }) => {
   const { id, startUserId, taskActivityId, curTaskActivityIds, startUserName, processStatus, processInstanceId } = params
   const store = useMemo(() => new Store(), [id])
   const { activeTab, currentTabData, tabs, loading, enumType, curTaskDefKey } = store
@@ -82,4 +82,4 @@ const Index = ({ params }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FilingMaterialsApply)

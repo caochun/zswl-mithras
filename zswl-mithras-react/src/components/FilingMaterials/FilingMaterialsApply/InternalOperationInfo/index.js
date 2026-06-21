@@ -4,7 +4,7 @@ import BasicCollapseTable from '../BasicCollapseTable'
 import { REFERENCE_MATERIALS, OPERATIONAL_REVIEW, tableEnum, TEMPLATE_LIST } from '../enum'
 import { useFilingMaterialContext } from '../Context'
 
-const Index = ({ id, data, store }) => {
+const FilingMaterialsInternalOperationInfo = ({ id, data, store }) => {
   const { activeTab } = useFilingMaterialContext()
   const renderBasicTable = () => {
     return (
@@ -52,4 +52,4 @@ const Index = ({ id, data, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FilingMaterialsInternalOperationInfo)

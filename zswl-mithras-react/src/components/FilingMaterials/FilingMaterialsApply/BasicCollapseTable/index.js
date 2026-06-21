@@ -10,7 +10,7 @@ import { useFilingMaterialContext } from '../Context'
 import Api from '@/api/filingMaterials/filingMaterialsApplyApi'
 import { tableEnum } from '../enum'
 
-const Index = ({ id, canEdit, dataSource, name, businessType, moduleCode, canBatchDownload, canDownload, enableSelect, basic, folded }) => {
+const FilingMaterialsBasicCollapseTable = ({ id, canEdit, dataSource, name, businessType, moduleCode, canBatchDownload, canDownload, enableSelect, basic, folded }) => {
   const columns = [
     { title: '资料清单', dataIndex: 'name' },
     { title: '上传人', dataIndex: 'createByName' },
@@ -203,4 +203,4 @@ const Index = ({ id, canEdit, dataSource, name, businessType, moduleCode, canBat
   )
 }
 
-export default observer(Index)
+export default observer(FilingMaterialsBasicCollapseTable)
