@@ -1892,7 +1892,7 @@ const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const componentEntryReExportOnlyPattern =
   /^\s*(?:export\s+\{[^}]+\}\s+from\s+['"][^'"]+['"]\s*;?\s*)+$/
-const componentEntryReExportPattern = /export\s+\{[^}]+\}\s+from\s+['"][^'"]+['"]/g
+const componentEntryReExportPattern = /export\s+\{[^}]+\}\s+from\s+['"]([^'"]+)['"]/g
 const componentEntryAbsoluteComponentImportPattern = /from\s+['"]@\/components\//
 const componentEntryNamedReExportPattern =
   /export\s+\{([\s\S]*?)\}\s+from\s+['"][^'"]+['"]/g
@@ -2429,6 +2429,15 @@ const routeDomainAliases = createDomainAliases()
 
 function normalizeEntryPath(filePath) {
   return path.relative(path.join(srcDir, 'components'), filePath).split(path.sep).join('/')
+}
+
+function normalizeComponentEntryReExportTarget(entryPath, specifier) {
+  if (!specifier.startsWith('.')) {
+    return null
+  }
+
+  const targetPath = path.posix.normalize(path.posix.join(path.posix.dirname(entryPath), specifier))
+  return targetPath.endsWith('.js') ? targetPath : `${targetPath}.js`
 }
 
 function toDocumentedEntryPath(specifier) {
@@ -3065,6 +3074,7 @@ const allowedWideComponentEntries = new Set([
 
 for (const filePath of componentEntryFiles) {
   const relativeFilePath = path.relative(root, filePath)
+  const entryPath = normalizeEntryPath(filePath)
   const source = fs.readFileSync(filePath, 'utf8')
   if (!componentEntryReExportOnlyPattern.test(source)) {
     violations.push({
@@ -3080,8 +3090,22 @@ for (const filePath of componentEntryFiles) {
     })
   }
 
+  let reExportMatch
+  while ((reExportMatch = componentEntryReExportPattern.exec(source))) {
+    const targetEntryPath = normalizeComponentEntryReExportTarget(entryPath, reExportMatch[1])
+    if (
+      targetEntryPath &&
+      /(?:Entries|entries)\.js$/.test(targetEntryPath) &&
+      targetEntryPath.split('/')[0] !== entryPath.split('/')[0]
+    ) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: 'component entry files must not alias another domain entry',
+      })
+    }
+  }
+
   const reExportCount = extractNamedReExports(source).length
-  const entryPath = normalizeEntryPath(filePath)
   if (reExportCount > 2 && !allowedWideComponentEntries.has(entryPath)) {
     violations.push({
       file: relativeFilePath,
