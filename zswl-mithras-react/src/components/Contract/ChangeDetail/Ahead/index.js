@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { Block, Button, Page } from '@zswl/components'
 import Store from './Store'
 
-function Index({ contractId, businessVersion, canEdit, taskActivityId }) {
+function ContractChangeAheadDetail({ contractId, businessVersion, canEdit, taskActivityId }) {
   const isStartUserModify = taskActivityId === 'userTask_startUserModify'
   const store = useMemo(() => {
     return new Store({})
@@ -77,4 +77,4 @@ function Index({ contractId, businessVersion, canEdit, taskActivityId }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractChangeAheadDetail)

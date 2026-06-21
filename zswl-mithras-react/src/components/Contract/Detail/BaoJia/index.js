@@ -6,7 +6,7 @@ import Factoring from './FormConfig/Factoring'
 import Store from './store'
 import { Skeleton } from 'antd'
 
-const Index = ({
+const ContractQuoteDetail = ({
   contractId,
   detail,
   canEditFlag = true,
@@ -76,4 +76,4 @@ const Index = ({
   return Dom[bizType]
 }
 
-export default observer(Index)
+export default observer(ContractQuoteDetail)

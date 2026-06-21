@@ -19,7 +19,7 @@ const phaseOptions = [
   },
 ]
 
-function Index(props) {
+function ContractStructureInterest(props) {
   const { listName, addText = '', value } = props
   return (
     <Form.List name={listName} initialValue={value ?? []}>
@@ -85,7 +85,7 @@ const FormListItem = ({ fields, add, remove, addText }) => {
   )
 }
 
-Index.Detail = ({ value }) => {
+ContractStructureInterest.Detail = ({ value }) => {
   return (
     <div style={{ display: 'block', width: '100%' }}>
       {value?.map((v, index) => {
@@ -101,4 +101,4 @@ Index.Detail = ({ value }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(ContractStructureInterest)
