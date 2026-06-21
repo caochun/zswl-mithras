@@ -15,7 +15,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index({ query }) {
+function ProcessQuery({ query }) {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -319,4 +319,4 @@ function Index({ query }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessQuery)

@@ -11,7 +11,7 @@ import Finish from './Finish'
 import { useEffect } from 'react'
 
 const { TabPane } = Tabs
-function Index() {
+function ProcessApplication() {
   const { processData, loading } = store
   const onChange = (key) => {
     store.myProcessCount()
@@ -47,4 +47,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessApplication)

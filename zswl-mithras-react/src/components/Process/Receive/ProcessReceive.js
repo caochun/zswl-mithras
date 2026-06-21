@@ -8,7 +8,7 @@ import Pending from './Pending'
 import SendDuplicate from './SendDuplicate'
 import { useEffect, useState } from 'react'
 const { TabPane } = Tabs
-function Index() {
+function ProcessReceive() {
   const { receiveData, loading } = store
   const [curTab, setCurTab] = useState('pending')
   const { enterpriseName, tag } = getQuery()
@@ -41,4 +41,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessReceive)

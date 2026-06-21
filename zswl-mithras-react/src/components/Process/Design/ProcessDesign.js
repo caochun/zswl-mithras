@@ -5,7 +5,7 @@ import styles from './index.less'
 import { useEffect, useMemo } from 'react'
 import { saveServer } from '@/utils'
 
-function Index() {
+function ProcessDesign() {
   const store = useMemo(() => new Store(), [])
   useEffect(() => {
     return () => {
@@ -126,4 +126,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessDesign)

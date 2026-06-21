@@ -8,7 +8,7 @@ import { FinancialDirectDetail as FinancialDirect } from '@/components/Financial
 import FinancingRepayPlanConfirmFlow from '../../FinancingRepayPlanConfirmFlow'
 import { FilingMaterialsFundApply as FundFilingMaterialsApply } from '@/components/FilingMaterials/FundApplyEntries'
 import { FinancialFinancingCarryInterestFlow as FinancingCarryInterestFlow } from '@/components/Financial/FinancingCarryInterestEntries'
-const Index = (props) => {
+const ProcessDetailFinancialFund = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curAssigneeIds } = props
   const renderContractType = useMemo(() => {
     if (
@@ -82,4 +82,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailFinancialFund)

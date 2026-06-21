@@ -5,7 +5,7 @@ import { Input } from 'antd'
 const { Item } = Form
 const { TextArea } = Input
 
-function Index({ store }) {
+function ProcessQueryFastHandle({ store }) {
   return (
     <Modal
       title={store.fastHandleData?.typeText}
@@ -22,4 +22,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessQueryFastHandle)

@@ -4,7 +4,7 @@ import { Table } from '@zswl/components'
 import store from './store'
 import { saveServer } from '@/utils'
 
-function Index({ processInstanceId }) {
+function ProcessApprovalHistory({ processInstanceId }) {
   useEffect(() => {
     if (processInstanceId) {
       store.table.search({ processInstanceId })
@@ -62,4 +62,4 @@ function Index({ processInstanceId }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessApprovalHistory)

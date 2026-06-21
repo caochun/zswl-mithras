@@ -23,7 +23,7 @@ import { useMemo } from 'react'
 import ExchangeRateFlow from './Component/ExchangeRateFlow'
 import Store from './Store'
 
-const Index = ({ id }) => {
+const ProcessPrepareDetail = ({ id }) => {
   const store = useMemo(() => new Store(), [id])
   const detail = store.page.getData()
 
@@ -104,4 +104,4 @@ const Index = ({ id }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessPrepareDetail)

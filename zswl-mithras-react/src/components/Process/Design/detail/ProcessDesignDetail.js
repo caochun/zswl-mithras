@@ -1,13 +1,12 @@
-import { history, observer, toJS } from '@zswl/admin'
-import { useEffect, useState, useMemo } from 'react'
+import { history, observer } from '@zswl/admin'
+import { useEffect, useMemo } from 'react'
 import Store from './store'
 import { App, Page } from '@zswl/components'
-import { message, Spin } from 'antd'
+import { message } from 'antd'
 import Api from '@/api/process/flowModelApi'
 import { baseURL } from '@/utils'
-function Index({ params: { id } }) {
+function ProcessDesignDetail({ params: { id } }) {
   const store = useMemo(() => new Store(), [])
-  const [loading, setLoading] = useState(false)
   useEffect(() => {
     return () => {
       App.resetStore(store)
@@ -23,7 +22,6 @@ function Index({ params: { id } }) {
     }
   }, [])
   const init = () => {
-    //setLoading(true)
     const myFrame = document.getElementById('myFrame')
 
     myFrame.onload = async () => {
@@ -38,7 +36,6 @@ function Index({ params: { id } }) {
         baseURL: baseURL(),
       }
       myFrame.contentWindow.postMessage(parentData, '*')
-      setLoading(false)
     }
   }
   const save = () => {
@@ -58,7 +55,6 @@ function Index({ params: { id } }) {
   }
   return (
     <>
-      {/* <Spin spinning={loading}> */}
       <Page store={store}>
         <div>
           <iframe
@@ -71,9 +67,8 @@ function Index({ params: { id } }) {
           />
         </div>
       </Page>
-      {/* </Spin> */}
     </>
   )
 }
 
-export default observer(Index)
+export default observer(ProcessDesignDetail)

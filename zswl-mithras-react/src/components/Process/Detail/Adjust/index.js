@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { AfterLeaseAdjustDetail as Adjust } from '@/components/AfterLease/AdjustDetailEntries'
 
-const Index = (props) => {
+const ProcessDetailAdjust = (props) => {
   const { canEditFlag, subModule, id, businessVersion } = props
   const renderContractType = useMemo(() => {
     return (
@@ -19,4 +19,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailAdjust)
