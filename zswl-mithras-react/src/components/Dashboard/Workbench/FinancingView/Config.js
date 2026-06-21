@@ -1,16 +1,16 @@
 import BellRed from '../../assets/icon_bell_red.svg'
 import BellYellow from '../../assets/icon_bell_yellow.svg'
-import RepayInterest from './ListDrawer/RepayInterest/FinancingRepayInterestTable'
-import FundCase from './ListDrawer/FundCase/FinancingLoanTable'
-import CreditCase from './ListDrawer/CreditCase/FinancingCreditTable'
-import FundCost from './ListDrawer/FundCost/FinancingFundCostTable'
+import FinancingRepayInterestTable from './ListDrawer/RepayInterest/FinancingRepayInterestTable'
+import FinancingLoanTable from './ListDrawer/FundCase/FinancingLoanTable'
+import FinancingCreditTable from './ListDrawer/CreditCase/FinancingCreditTable'
+import FinancingFundCostTable from './ListDrawer/FundCost/FinancingFundCostTable'
 
 export const initFieldsConfig = [
   {
     group: '还本付息',
     groupCode: 'FUND_FINANCE_REPAY',
     borderColor: '#ff4b59',
-    component: <RepayInterest />,
+    component: <FinancingRepayInterestTable />,
     // tipContent: '统计还款日期在本月的数据',
     fields: [
       { name: '本月计划应还', dataIndex: 'repayTotalAmount' },
@@ -23,7 +23,7 @@ export const initFieldsConfig = [
     group: '融资情况(存量)',
     groupCode: 'FUND_FINANCE_LOAN',
     borderColor: '#256ef9',
-    component: <FundCase />,
+    component: <FinancingLoanTable />,
     // tipContent: '统计当前日期仍在起息的直融、间融合同数据；加权利率为借款合同利率的加权',
     fields: [
       { name: '合计数', dataIndex: 'quantity' },
@@ -36,7 +36,7 @@ export const initFieldsConfig = [
     group: '融资情况（本年新增）',
     groupCode: 'FUND_FINANCE_LOAN_THIS_YEAR',
     borderColor: '#1dcd9a',
-    component: <FundCase />,
+    component: <FinancingLoanTable />,
     // tipContent:
     //   '统计起息日为当年且当前日期仍在起息的直融、间融合同数据；加权利率为借款合同利率的加权',
     fields: [
@@ -59,7 +59,7 @@ export const initFieldsConfig = [
     group: '融资情况（本月新增）',
     groupCode: 'FUND_FINANCE_LOAN_THIS_MONTH',
     borderColor: '#9f2521',
-    component: <FundCase />,
+    component: <FinancingLoanTable />,
     // tipContent:
     //   '统计起息日为当月且当前日期仍在起息的直融、间融合同数据；加权利率为借款合同利率的加权',
     fields: [
@@ -82,7 +82,7 @@ export const initFieldsConfig = [
     group: '授信情况',
     groupCode: 'FUND_FINANCE_CREDIT',
     borderColor: '#ff8b45',
-    component: <CreditCase />,
+    component: <FinancingCreditTable />,
     // tipContent: '统计当前所有授信数据',
     fields: [
       { name: '合计数', dataIndex: 'quantity' },
@@ -94,7 +94,7 @@ export const initFieldsConfig = [
     group: '资金成本',
     groupCode: 'FOND_FINANCE_COST_FOUNDS',
     borderColor: '#339fbe',
-    component: <FundCost />,
+    component: <FinancingFundCostTable />,
     // tipContent: (
     //   <div>
     //     <div>综合资金成本：综合资金成本的加权平均成本</div>

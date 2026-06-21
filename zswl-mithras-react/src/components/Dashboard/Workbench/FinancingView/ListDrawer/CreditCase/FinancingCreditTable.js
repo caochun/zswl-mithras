@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { saveServer } from '@/utils'
 
 // 授信情况
-const Index = ({ groupCode, curCardData }) => {
+const FinancingCreditTable = ({ groupCode, curCardData }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, ['授信编号', '融资机构'])
@@ -43,4 +43,4 @@ const Index = ({ groupCode, curCardData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancingCreditTable)

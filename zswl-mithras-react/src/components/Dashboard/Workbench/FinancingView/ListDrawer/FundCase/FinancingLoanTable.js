@@ -21,7 +21,7 @@ const mapParams = {
 }
 
 // 融资情况
-const Index = ({ groupCode, curCardData }) => {
+const FinancingLoanTable = ({ groupCode, curCardData }) => {
   const [sumData, setSumData] = useState({})
   const getTableColumns = (groupCode) => {
     const columns = [...ALL_COLUMNS]
@@ -104,4 +104,4 @@ const Index = ({ groupCode, curCardData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancingLoanTable)

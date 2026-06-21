@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 import { saveServer } from '@/utils'
 
 // 资金成本
-const Index = ({ groupCode, curCardData }) => {
+const FinancingFundCostTable = ({ groupCode, curCardData }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, ['融资编号', '融资机构/产品名称', '融资类别'])
@@ -60,4 +60,4 @@ const Index = ({ groupCode, curCardData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancingFundCostTable)

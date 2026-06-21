@@ -4,13 +4,13 @@ import Title from '../../Title'
 import CardPanelFieldsFilter from '../../CardPanelFieldsFilter'
 import StagePanel from '../../StagePanel'
 import { columnsFilterKey, getItemConfigByGroupCode } from './Config'
-import ListDrawer from './ListDrawer/FinancingViewListDrawer'
+import FinancingViewListDrawer from './ListDrawer/FinancingViewListDrawer'
 import Store from './Store'
 import styles from './index.less'
 import { DatePicker, Tooltip } from 'antd'
 import IconFont from '@/components/Icon'
 
-const Index = ({ title, iconType }) => {
+const WorkbenchFinancingView = ({ title, iconType }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -81,9 +81,9 @@ const Index = ({ title, iconType }) => {
           )
         }}
       </CardPanelFieldsFilter>
-      <ListDrawer store={store}></ListDrawer>
+      <FinancingViewListDrawer store={store}></FinancingViewListDrawer>
     </div>
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchFinancingView)

@@ -11,7 +11,7 @@ import styles from './index.less'
 import { saveServer } from '@/utils'
 
 // 还本付息
-const Index = ({ groupCode, curCardData }) => {
+const FinancingRepayInterestTable = ({ groupCode, curCardData }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(ALL_COLUMNS, [
     '融资编号',
@@ -90,4 +90,4 @@ const Index = ({ groupCode, curCardData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancingRepayInterestTable)
