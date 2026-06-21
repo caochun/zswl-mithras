@@ -11,7 +11,7 @@ import Api from '@/api/financial/fundApi'
 
 const { Item } = Form
 
-function Index({ store, financingId }) {
+function FinancialPaymentCreateModal({ store, financingId }) {
   const { curItem } = store
   const [form] = Form.useForm()
   const [bizDeptId, setBizDeptId] = useState()
@@ -194,4 +194,4 @@ function Index({ store, financingId }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentCreateModal)

@@ -15,7 +15,7 @@ const nameColumns = [
   '备注',
 ]
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
-const Index = ({ id: receiptRepayId, businessVersion, canEdit, detail, isFormApproval }) => {
+const FinancialPaymentMarginDetail = ({ id: receiptRepayId, businessVersion, canEdit, detail, isFormApproval }) => {
   const getList = async (params) => {
     if (detail) return Promise.resolve({ list: detail })
     const listFunc = isFormApproval
@@ -50,4 +50,4 @@ const Index = ({ id: receiptRepayId, businessVersion, canEdit, detail, isFormApp
     />
   )
 }
-export default observer(Index)
+export default observer(FinancialPaymentMarginDetail)

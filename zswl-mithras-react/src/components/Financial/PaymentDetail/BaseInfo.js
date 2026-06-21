@@ -23,7 +23,7 @@ const nameColumns = [
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ detail, saveData, isLog, canEdit = true, newProject, isDirect }) {
+function FinancialPaymentDetailBaseInfo({ detail, saveData, isLog, canEdit = true, newProject, isDirect }) {
   const initEdit = newProject === 'true'
   return (
     <EditTable
@@ -37,4 +37,4 @@ function Index({ detail, saveData, isLog, canEdit = true, newProject, isDirect }
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentDetailBaseInfo)

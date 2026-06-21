@@ -13,7 +13,7 @@ const getDetail = async (pledgeId) => {
   const res = await Api.postPledgeDetail({ pledgeId })
   return res
 }
-function Index({ path, id, businessVersion, detail, isFormApproval }) {
+function FinancialPaymentPledgeDetail({ path, id, businessVersion, detail, isFormApproval }) {
   const openModal = useMemo(
     () =>
       new ModalStore({
@@ -99,7 +99,7 @@ function Index({ path, id, businessVersion, detail, isFormApproval }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentPledgeDetail)
 function formatData(res) {
   return res.map(
     ({ pledgeCode, id: itemId, projName, projReviewId, contractCode, contractId, ...item }) => {

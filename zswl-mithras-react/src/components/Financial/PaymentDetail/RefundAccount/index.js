@@ -11,7 +11,7 @@ import { hasPermission } from '@/utils'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ id: receiptRepayId, isFormApproval, businessVersion, canEdit = true, detail }) => {
+const FinancialPaymentRefundAccount = ({ id: receiptRepayId, isFormApproval, businessVersion, canEdit = true, detail }) => {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -103,4 +103,4 @@ const Index = ({ id: receiptRepayId, isFormApproval, businessVersion, canEdit = 
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentRefundAccount)

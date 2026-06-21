@@ -6,7 +6,7 @@ import { message } from 'antd'
 import { AmountColumn, InputColumn, MatchOptionColumn, TextAreaColumn } from '@/components/Format'
 import { getCompareValue } from '@/utils'
 
-function Index({ id, isFormApproval, canEdit }) {
+function FinancialPaymentDirectBaseInfo({ id, isFormApproval, canEdit }) {
   const [editable, setEditable] = useState(false)
   const store = Descriptions.useStore({
     request: async () => {
@@ -107,4 +107,4 @@ function Index({ id, isFormApproval, canEdit }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentDirectBaseInfo)

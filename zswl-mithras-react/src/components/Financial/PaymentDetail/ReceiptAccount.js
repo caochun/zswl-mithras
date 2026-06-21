@@ -6,7 +6,7 @@ import fundReceiptAccountApi from '@/api/financial/fundReceiptAccountApi'
 
 const nameColumns = ['客户名称', '账户名称', '银行账号', '开户行']
 const columns = getTableColumns(ALL_COLUMNS, nameColumns) //
-const Index = ({ id: receiptRepayId, businessVersion, canEdit, detail, isFormApproval }) => {
+const FinancialPaymentReceiptAccount = ({ id: receiptRepayId, businessVersion, canEdit, detail, isFormApproval }) => {
   const version = isFormApproval ? businessVersion : undefined
   const getList = async (params) => {
     if (detail) return Promise.resolve({ list: detail })
@@ -48,4 +48,4 @@ const Index = ({ id: receiptRepayId, businessVersion, canEdit, detail, isFormApp
     />
   )
 }
-export default observer(Index)
+export default observer(FinancialPaymentReceiptAccount)

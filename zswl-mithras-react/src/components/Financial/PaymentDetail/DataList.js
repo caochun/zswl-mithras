@@ -2,7 +2,7 @@ import { FileTable } from '@/components/Table'
 import { getQuery, observer } from '@zswl/admin'
 import fundReceiptRepayBaseInfoApi from '@/api/financial/fundReceiptRepayBaseInfoApi'
 
-const Index = (props) => {
+const FinancialPaymentDetailDataList = (props) => {
   const { id: mainId, canEdit = true, businessVersion } = props
 
   const columns = [
@@ -36,4 +36,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentDetailDataList)

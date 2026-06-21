@@ -9,7 +9,7 @@ import Api from '@/api/financial/fundApi'
 
 const { Item } = Form
 
-function Index({ store, receiptRepayId }) {
+function FinancialPaymentRefundAccountCreateModal({ store, receiptRepayId }) {
   const [form] = Form.useForm()
 
   const { projList, getProjList } = store
@@ -109,4 +109,4 @@ function Index({ store, receiptRepayId }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentRefundAccountCreateModal)

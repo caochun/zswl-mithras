@@ -6,7 +6,7 @@ import fundReceiptRepayBorrowingApi from '@/api/financial/fundReceiptRepayBorrow
 
 const nameColumns = ['现金流编号', '期项', '本金（元）', '核销状态', '实际贷款时间', '备注']
 const columns = getTableColumns(ALL_COLUMNS, nameColumns) //
-const Index = ({
+const FinancialPaymentDetailLoanIn = ({
   id: receiptRepayId,
   businessVersion,
   canEdit,
@@ -38,4 +38,4 @@ const Index = ({
     />
   )
 }
-export default observer(Index)
+export default observer(FinancialPaymentDetailLoanIn)

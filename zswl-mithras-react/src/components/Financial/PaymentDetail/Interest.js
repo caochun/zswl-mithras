@@ -16,7 +16,7 @@ const nameColumns = [
   '备注',
 ]
 const columns = getTableColumns(ALL_COLUMNS, nameColumns) //
-const Index = ({ id: receiptRepayId, businessVersion, canEdit, isFormApproval, detail }) => {
+const FinancialPaymentDetailInterest = ({ id: receiptRepayId, businessVersion, canEdit, isFormApproval, detail }) => {
   const [init, setInit] = useState(true)
   const getList = useCallback(
     async (params) => {
@@ -58,4 +58,4 @@ const Index = ({ id: receiptRepayId, businessVersion, canEdit, isFormApproval, d
     />
   )
 }
-export default observer(Index)
+export default observer(FinancialPaymentDetailInterest)
