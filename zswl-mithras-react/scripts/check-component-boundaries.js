@@ -2733,10 +2733,18 @@ for (const filePath of pageFiles) {
 }
 
 for (const filePath of sourceTreeFiles) {
+  const relativeFilePath = path.relative(root, filePath)
   if (fs.statSync(filePath).size === 0) {
     violations.push({
-      file: path.relative(root, filePath),
+      file: relativeFilePath,
       specifier: 'empty source tree file',
+    })
+  }
+
+  if (/^src[\\/]components[\\/].*[\\/]LogDiff\.js$/.test(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component log diff forwarding shell (export the real diff implementation from *Entries.js)',
     })
   }
 }

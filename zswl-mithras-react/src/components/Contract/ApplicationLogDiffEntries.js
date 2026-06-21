@@ -1,1 +1,1 @@
-export { default as ContractApplicationLogDiff } from './ApplicationDetail/LogDiff'
+export { default as ContractApplicationLogDiff } from './ApplicationDetail/Log/diffInfo'
