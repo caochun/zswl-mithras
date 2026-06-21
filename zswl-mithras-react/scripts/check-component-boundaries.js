@@ -2754,6 +2754,13 @@ for (const filePath of sourceTreeFiles) {
       specifier: 'check card forwarding shell (import CheckCard.js directly)',
     })
   }
+
+  if (relativeFilePath === 'src/components/Ocr/asyncPool.js') {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'OCR async pool forwarding shell (use @/utils/requestQueue directly)',
+    })
+  }
 }
 
 for (const dirPath of [

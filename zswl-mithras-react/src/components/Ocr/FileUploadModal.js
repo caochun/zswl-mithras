@@ -1,6 +1,6 @@
 import { Button, Modal, Tabs, Form, Select } from '@zswl/components'
 import { Alert, DatePicker, Image, Input, Radio, Upload, message } from 'antd'
-import asyncPool from './asyncPool'
+import requestQueue from '@/utils/requestQueue'
 import ocrInvoiceApi from '@/api/ocr/ocrInvoiceApi'
 import { getQuery, history, observer } from '@zswl/admin'
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
@@ -180,7 +180,7 @@ const DraggerUpload = forwardRef(({ type, uploadType, leaseholdId }, ref) => {
     // await Promise.all(files)
 
     const maxConcurrentRequests = 5
-    const requestManager = asyncPool(maxConcurrentRequests)
+    const requestManager = requestQueue(maxConcurrentRequests)
 
     for (let i = 0; i < files.length; i++) {
       requestManager.enqueue(async () => await uploadFunc(files[i]))
