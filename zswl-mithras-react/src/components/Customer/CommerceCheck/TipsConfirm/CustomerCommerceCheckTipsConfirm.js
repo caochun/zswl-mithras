@@ -20,7 +20,6 @@ const Index = ({ store }) => {
             查看详情
           </Button>
           <Button onClick={store.tipsConfirmModal.close}>取消</Button>
-          {store.submitFn && <Button onClick={store.submitFn}>提交</Button>}
         </Space>
       }
     >

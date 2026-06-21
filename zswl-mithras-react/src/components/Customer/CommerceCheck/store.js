@@ -1,15 +1,10 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, TableStore } from '@zswl/components'
 import Api from '@/api/customer/commerceCheckApi'
-import { message } from 'antd'
 
 class Store {
-  constructor({ clientId, flowId, modelKey, taskActivityId, taskStatus }) {
+  constructor({ clientId }) {
     this.clientId = clientId
-    this.flowId = flowId
-    this.modelKey = modelKey
-    this.taskActivityId = taskActivityId
-    this.taskStatus = taskStatus
     makeAutoObservable(this)
   }
 
@@ -24,27 +19,7 @@ class Store {
   tipsConfirmContent = ''
 
   // 详细弹窗
-  compareModal = new ModalStore({
-    onFinish: async (values) => {
-      if (this.canEditOpinion()) {
-        const result = values.content.find(
-          (item) =>
-            item.nodeName === this.taskActivityId &&
-            item.moduleName === this.modelKey &&
-            item.flowId === this.flowId
-        )
-        await Api.clientBusinessOpinionAdd({
-          flowId: this.flowId,
-          moduleName: this.modelKey,
-          nodeName: this.taskActivityId,
-          contractId: this.contractId,
-          opinion: result?.opinion,
-        })
-        message.success('操作成功')
-      }
-      this.compareModal.close()
-    },
-  })
+  compareModal = new ModalStore({})
 
   // 工商信息Table
   tableStore = new TableStore({
@@ -79,8 +54,6 @@ class Store {
     return res
   }
 
-  // 付款申请提交的方法
-  submitFn = null
   // 工商信息校验
   checkCompare = async () => {
     const res = await Api.corpCommerceValid({
