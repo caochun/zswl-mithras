@@ -1,10 +1,10 @@
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
-import { Descriptions, Table } from '@zswl/components'
+import { Descriptions } from '@zswl/components'
 import ALl_COLUMNS from '../Columns'
 import { EnterTable } from './BreakDetail'
 
-const Index = ({ detail }) => {
+const BlackGrayEnterDesc = ({ detail }) => {
   const columns = getDescColumns(
     ALl_COLUMNS,
     [
@@ -39,4 +39,4 @@ const Index = ({ detail }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(BlackGrayEnterDesc)

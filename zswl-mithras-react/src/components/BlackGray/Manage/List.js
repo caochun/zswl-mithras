@@ -8,7 +8,7 @@ import { DeleteAction, WithdrawAction } from '../Actions'
 import manualOutboundFormApi from '@/api/blackGray/manualOutboundFormApi'
 import { saveServer } from '@/utils'
 
-function Index({ path, store, type = 'outbound' }) {
+function BlackGrayManageList({ path, store, type = 'outbound' }) {
   const { application } = useGetStatus()
   const columns = useMemo(() => {
     const nameColumns = [
@@ -80,4 +80,4 @@ function Index({ path, store, type = 'outbound' }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayManageList)

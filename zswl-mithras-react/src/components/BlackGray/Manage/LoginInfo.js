@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { App, Descriptions, Table } from '@zswl/components'
+import { App, Table } from '@zswl/components'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { saveServer } from '@/utils'
@@ -17,8 +17,8 @@ export const Date = () => {
   }, [])
   return date
 }
-const Index = ({ showTitle = true }) => {
-  const { userName, orgRolesName, account } = App.useData().user
+const BlackGrayLoginInfo = ({ showTitle = true }) => {
+  const { userName, orgRolesName } = App.useData().user
 
   return (
     <>
@@ -46,4 +46,4 @@ const Index = ({ showTitle = true }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayLoginInfo)

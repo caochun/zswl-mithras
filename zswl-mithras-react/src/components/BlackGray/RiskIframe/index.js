@@ -72,7 +72,7 @@ function paramsToString(params) {
 
   return search.join('&')
 }
-const Index = ({ path, query }) => {
+const BlackGrayRiskIframe = ({ path, query }) => {
   const store = useMemo(() => new Store(), [])
   const { csrfToken, _salt_, _qjt_ac_ } = store.page.getData()
   const newQuery = {
@@ -104,4 +104,4 @@ const Index = ({ path, query }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayRiskIframe)

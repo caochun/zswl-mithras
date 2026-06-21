@@ -8,11 +8,10 @@ import {
   Select,
   Table,
   TableStore,
-  Upload,
 } from '@zswl/components'
-import { Card, Cascader, Col, DatePicker, InputNumber, Radio, Row, Space, TreeSelect } from 'antd'
+import { Col, DatePicker, InputNumber, Row, Space } from 'antd'
 import { getTableColumns, options } from '@/utils'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import ALl_COLUMNS from '../Columns'
 import queryExternalDataApi from '@/api/blackGray/queryExternalDataApi'
 import { QuestionCircleOutlined } from '@ant-design/icons'
@@ -30,8 +29,8 @@ const ColItem = ({ children, ...rest }) => {
 }
 const columns = getTableColumns(ALl_COLUMNS, ['企业名称'])
 
-const Index = ({ store, detail, applyReasonOptions = [] }) => {
-  const { businessList, getBusiness, enterpriseName } = store
+const BlackGrayEnterForm = ({ store, detail, applyReasonOptions = [] }) => {
+  const { enterpriseName } = store
 
   const modal = useMemo(
     () =>
@@ -202,4 +201,4 @@ const Index = ({ store, detail, applyReasonOptions = [] }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayEnterForm)

@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
-import { App, Form, Input, Select, Table, Upload } from '@zswl/components'
-import { Col, Row, TreeSelect } from 'antd'
+import { Form, Input, Select } from '@zswl/components'
+import { Col, Row } from 'antd'
 import { EnterTable } from './BreakDetail'
 import { NoEnumFileTable } from '@/components/Table'
 
@@ -12,7 +12,7 @@ const ColItem = ({ children, ...rest }) => {
   )
 }
 
-const Index = ({ initialValues, store, type = 'break' }) => {
+const BlackGrayBreakForm = ({ initialValues, store, type = 'break' }) => {
   const { businessList, form, tableData } = store
   const { id: mainId, recordId } = store.page.getParams()
   const isOutbound = type === 'outbound'
@@ -87,4 +87,4 @@ const Index = ({ initialValues, store, type = 'break' }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayBreakForm)
