@@ -1,4 +1,4 @@
-import MultipleFieldBlock from '../MultipleFieldBlock'
+import MultipleFieldBlock from '../MultipleFieldBlock/ProjectOperationMetricGroup'
 import IconFont from '@/components/Icon'
 import { stepConfig } from '../utils'
 import styles from './index.less'

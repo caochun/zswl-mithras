@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer, Table } from '@zswl/components'
-import MultipleFieldBlock from '../MultipleFieldBlock'
+import MultipleFieldBlock from '../MultipleFieldBlock/ProjectOperationMetricGroup'
 import { saveServer } from '@/utils'
 
 const Index = ({ store }) => {

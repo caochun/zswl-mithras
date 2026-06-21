@@ -1,6 +1,6 @@
 import { AmountFormat } from '@/components/Format'
 import { observer } from '@zswl/admin'
-import FieldBlock from '../FieldBlock'
+import FieldBlock from '../FieldBlock/ProjectOperationMetricField'
 import styles from './index.less'
 import { hasValue } from '@/utils'
 
