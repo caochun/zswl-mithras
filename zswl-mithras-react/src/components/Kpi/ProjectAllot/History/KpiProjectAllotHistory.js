@@ -4,7 +4,7 @@ import ProjectAllocateList from '../ProjectAllocateList/KpiProjectAllotProjectAl
 import moment from 'moment'
 import { saveServer } from '@/utils'
 
-const Index = ({ params: { id: projectDistributionId } }) => {
+const KpiProjectAllotHistory = ({ params: { id: projectDistributionId } }) => {
   const table = new TableStore({
     request: async (params) => {
       const result = await allotApi.postProjectdistributionHistory({
@@ -47,4 +47,4 @@ const Index = ({ params: { id: projectDistributionId } }) => {
   )
 }
 
-export default Index
+export default KpiProjectAllotHistory

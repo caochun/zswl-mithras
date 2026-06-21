@@ -18,7 +18,7 @@ const editableRender = (canEdit) => {
     : false
 }
 
-const Index = ({ typeInfo }) => {
+const KpiBaseSetBasePrizeRate = ({ typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -112,4 +112,4 @@ const Index = ({ typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetBasePrizeRate)

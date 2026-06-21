@@ -5,7 +5,7 @@ import { Space, message } from 'antd'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-const Index = (props) => {
+const KpiModalEditTable = (props) => {
   const { store, columns, saveApi, tableApi, typeInfo, ...rest } = props
   const [editable, setEditable] = useState(typeInfo.isEdit)
 
@@ -68,4 +68,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiModalEditTable)

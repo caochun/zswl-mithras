@@ -8,7 +8,7 @@ import Api from '@/api/kpi/pmAssess'
 import { TABLE_TITLE_DATA, render, editable } from './utils'
 import styles from './index.less'
 
-function Index({ businessKey, businessVersion, canEditFlags = 'true' }) {
+function KpiPmAssessDetailContent({ businessKey, businessVersion, canEditFlags = 'true' }) {
   const canEdit = canEditFlags === 'true'
   const [editIndex, setEditIndex] = useState(-1)
 
@@ -191,4 +191,4 @@ function Index({ businessKey, businessVersion, canEditFlags = 'true' }) {
   )
 }
 
-export default observer(Index)
+export default observer(KpiPmAssessDetailContent)
