@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Select, Form, DatePicker } from '@zswl/components'
 import { useEffect } from 'react'
-import FileTable from './FileTable'
+import FileTable from './FileTable/ProcessCompleteOperationFileTable'
 import { useFlowData, fileKeyEnum } from '@/utils/domains/process/ProcessFlowContext'
 import store from './store'
 import styles from './index.less'

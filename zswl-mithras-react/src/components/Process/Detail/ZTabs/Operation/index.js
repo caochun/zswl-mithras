@@ -4,7 +4,7 @@ import { Table } from '@zswl/components'
 import styles from './index.less'
 import { observer, ErrorBoundary } from '@zswl/admin'
 import Operator from './Components/Operator'
-import CompleteOperation from './Components/CompleteOperation'
+import CompleteOperation from './Components/CompleteOperation/ProcessCompleteOperation'
 import ApprovalHistory from '../../../ApprovalHistory/ProcessApprovalHistory'
 import FlowChart from '../FlowChart/ProcessFlowChart'
 import { DetailLayout } from '@/components/Layout'
@@ -14,7 +14,7 @@ import {
   fileKeyEnum,
   complementListExtra,
 } from '@/utils/domains/process/ProcessFlowContext'
-import AbstractDesc from './Components/AbstractDesc'
+import AbstractDesc from './Components/AbstractDesc/ProcessOperationAbstractDesc'
 import { saveServer } from '@/utils'
 
 const CustomTitle = ({ title }) => {
