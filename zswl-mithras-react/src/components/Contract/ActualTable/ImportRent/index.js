@@ -5,7 +5,7 @@ import { DatePicker } from 'antd'
 
 const { Item } = Form
 
-function Index({ bizTypeRentTitle, store }) {
+function ContractActualTableImportRent({ bizTypeRentTitle, store }) {
   const [form] = Form.useForm()
   const { contractStatus, scopeData } = store
 
@@ -37,4 +37,4 @@ function Index({ bizTypeRentTitle, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractActualTableImportRent)

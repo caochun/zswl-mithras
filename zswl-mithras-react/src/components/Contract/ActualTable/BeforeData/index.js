@@ -7,7 +7,7 @@ import { bizTypeMapText } from '../../bizTypeConfig'
 import styles from '../index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ bizType, baseStore }) => {
+const ContractActualTableBeforeData = ({ bizType, baseStore }) => {
   const { showDrawer, setShowDrawer, beforeDetailList, changeList, handleMenuClick } = baseStore
 
   return (
@@ -178,4 +178,4 @@ const Index = ({ bizType, baseStore }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractActualTableBeforeData)

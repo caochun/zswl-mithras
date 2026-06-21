@@ -8,7 +8,7 @@ import { downFile } from '@/utils'
 
 const MODULE_TYPE = 'CONTARCT_DEPOSIT'
 
-const Index = forwardRef(({ id, canEdit = true, businessVersion, type, processInstanceId }, ref) => {
+const ContractMarginRefundMaterialsList = forwardRef(({ id, canEdit = true, businessVersion, type, processInstanceId }, ref) => {
   const tableRef = useRef()
   const params = {
     mainId: id,
@@ -57,4 +57,4 @@ const Index = forwardRef(({ id, canEdit = true, businessVersion, type, processIn
     </div>
   )
 })
-export default observer(Index)
+export default observer(ContractMarginRefundMaterialsList)

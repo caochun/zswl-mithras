@@ -5,7 +5,7 @@ import ZText from './ZText'
 import styles from './style.less'
 import math from '@/utils/math'
 import { use } from 'echarts'
-const Index = ({ detail, store, canEdit, setEditing }) => {
+const ContractMarginRefundScheme = ({ detail, store, canEdit, setEditing }) => {
     const [form] = Form.useForm()
     const [edit,setEdit] = useState(false)
     const [data,setDate] = useState(null)
@@ -129,4 +129,4 @@ const Index = ({ detail, store, canEdit, setEditing }) => {
     )
 }
 
-export default Index
+export default ContractMarginRefundScheme

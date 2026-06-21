@@ -79,7 +79,7 @@ const ALL_COLUMNS = [
     },
   },
 ];
-const Index = ({ retreatInfoId, contractId, clientName, canEdit, setRentListSize }) => {
+const ContractMarginRefundRentDeduction = ({ retreatInfoId, contractId, clientName, canEdit, setRentListSize }) => {
   const formRef = useRef(null)
   const store = useMemo(() => {
     return new Store(contractId)
@@ -223,4 +223,4 @@ const Index = ({ retreatInfoId, contractId, clientName, canEdit, setRentListSize
   )
 }
 
-export default observer(Index)
+export default observer(ContractMarginRefundRentDeduction)

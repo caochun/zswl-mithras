@@ -13,7 +13,7 @@ const renderTax = ({ label, value, unit = '' }) => {
   )
 }
 
-const Index = ({ store, currentTableData ,showTips}) => {
+const ContractActualTableActualTax = ({ store, currentTableData ,showTips}) => {
   const { getActualTaxByReceiptId } = store
 
 
@@ -56,4 +56,4 @@ const Index = ({ store, currentTableData ,showTips}) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractActualTableActualTax)
