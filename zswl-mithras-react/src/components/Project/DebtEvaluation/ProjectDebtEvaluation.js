@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { useState } from 'react'
 import { CustomerDebtRat as DebtRat } from '@/components/Customer/DebtRatingListEntries'
 
-const Index = () => {
+const ProjectDebtEvaluation = () => {
   const [open, setOpen] = useState(false)
 
   const showDrawer = () => {
@@ -27,4 +27,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectDebtEvaluation)

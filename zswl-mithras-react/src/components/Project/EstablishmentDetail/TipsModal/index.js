@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Button, Modal } from '@zswl/components'
 import styles from './index.less'
 
-function Index({ store, ...rest }) {
+function ProjectEstablishmentRiskTipsModal({ store, ...rest }) {
   const { metricNames = [] } = store.getInitialValues() || {}
   return (
     <Modal title="风险策略助手提示" store={store} {...rest}>
@@ -19,4 +19,4 @@ function Index({ store, ...rest }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectEstablishmentRiskTipsModal)

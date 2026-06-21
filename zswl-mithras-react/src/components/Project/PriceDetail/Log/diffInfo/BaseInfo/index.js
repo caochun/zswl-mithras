@@ -6,7 +6,7 @@ import {
   PriceTurnLeaseBaseInfo,
 } from '../../../BaseInfo/ProjectPriceBaseInfo'
 
-const Index = ({ bizType, detail, isLog }) => {
+const ProjectPriceLogBaseInfoDiff = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {
     if (!bizType) {
       return <div style={{ height: '200px' }}></div>
@@ -28,4 +28,4 @@ const Index = ({ bizType, detail, isLog }) => {
 
   return <div>{CurrentDom}</div>
 }
-export default Index
+export default ProjectPriceLogBaseInfoDiff

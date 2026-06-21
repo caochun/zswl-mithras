@@ -2,7 +2,7 @@ import { CustomerDebtRat as DebtRat } from '@/components/Customer/DebtRatingList
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
 
-const Index = ({ store, params, detail }) => {
+const ProjectReviewDebtDrawer = ({ store, params, detail }) => {
   return (
     <Drawer store={store} width={1000} extra={null}>
       <DebtRat tableParams={params} detail={detail} afterClose={store.close} />
@@ -10,4 +10,4 @@ const Index = ({ store, params, detail }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewDebtDrawer)

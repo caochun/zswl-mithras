@@ -5,7 +5,7 @@ import {
   PriceLeaseQuotationScheme,
 } from '../../../QuotationScheme/ProjectPriceQuotationScheme'
 
-const Index = ({ bizType, detail, showValue, isLog }) => {
+const ProjectPriceLogQuotationDiff = ({ bizType, detail, showValue, isLog }) => {
   const CurrentDom = useMemo(() => {
     if (!bizType) {
       return <div style={{ height: '200px' }}></div>
@@ -21,4 +21,4 @@ const Index = ({ bizType, detail, showValue, isLog }) => {
 
   return <div>{CurrentDom}</div>
 }
-export default Index
+export default ProjectPriceLogQuotationDiff

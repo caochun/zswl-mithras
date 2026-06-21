@@ -6,7 +6,7 @@ import {
   ReviewTurnLeaseBaseInfo,
 } from '../../../BaseInfo/ProjectReviewBaseInfo'
 
-const Index = ({ bizType, detail, isLog }) => {
+const ProjectReviewLogBaseInfoDiff = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {
     if (!bizType) {
       return <div style={{ height: '200px' }}></div>
@@ -28,4 +28,4 @@ const Index = ({ bizType, detail, isLog }) => {
 
   return <div>{CurrentDom}</div>
 }
-export default Index
+export default ProjectReviewLogBaseInfoDiff
