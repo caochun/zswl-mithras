@@ -112,7 +112,7 @@ const BatchModal = observer(({ modal, store }) => {
     </Modal>
   )
 })
-const Index = ({ value, onChange, store }) => {
+const BlackGrayWarehouseMainTaskSubmitRadio = ({ value, onChange, store }) => {
   const batchModalStore = useMemo(() => new ModalStore(), [])
   const [isLoading, setIsLoading] = useState(false)
   const importTpl = async (file) => {
@@ -158,4 +158,4 @@ const Index = ({ value, onChange, store }) => {
     </Space>
   )
 }
-export default observer(Index)
+export default observer(BlackGrayWarehouseMainTaskSubmitRadio)

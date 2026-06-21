@@ -26,7 +26,7 @@ const nameColumns = [
 ]
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ path, store }) {
+function BlackGrayWarehouseMainTaskMainTable({ path, store }) {
   const { rows } = store.table.getSelected()
   const { type } = getQuery()
   const { taskNum } = store.page.getData()
@@ -81,4 +81,4 @@ function Index({ path, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWarehouseMainTaskMainTable)

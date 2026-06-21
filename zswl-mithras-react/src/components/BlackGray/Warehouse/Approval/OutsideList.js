@@ -9,7 +9,7 @@ import { WithdrawAction } from '../../Actions'
 import { saveServer } from '@/utils'
 
 const source = 'EXTERNAL_APPROVAL'
-function Index({ path }) {
+function BlackGrayWarehouseApprovalOutsideList({ path }) {
   const { approval } = useGetStatus()
   const store = useMemo(() => new Store({ source }), [])
 
@@ -74,4 +74,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWarehouseApprovalOutsideList)

@@ -9,7 +9,7 @@ import { WithdrawAction } from '../../Actions'
 import { saveServer } from '@/utils'
 
 const source = 'INTERNAL_APPROVAL'
-function Index({ path }) {
+function BlackGrayWarehouseApprovalInsideList({ path }) {
   const { approval } = useGetStatus()
   const store = useMemo(() => new Store({ source }), [])
   const columns = useMemo(() => {
@@ -74,4 +74,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWarehouseApprovalInsideList)
