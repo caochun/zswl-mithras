@@ -43,6 +43,8 @@ const componentDefaultForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"][^'"]+['"]\s*;?\s*$/
 const pageRouteShellPattern =
   /^export\s+\{[\s\S]*\}\s+from\s+['"]@\/components\/[^/'"]+\/[^/'"]*(?:Entries|entries)(?:\.js)?['"]\s*;?\s*$/
+const pageRouteShellTargetPattern =
+  /^export\s+\{[\s\S]*\}\s+from\s+['"](@\/components\/[^/'"]+\/[^/'"]*(?:Entries|entries)(?:\.js)?)['"]\s*;?\s*$/
 const uiLocalApiFilePattern =
   /^src[\\/](?:components|pages|layout)[\\/].*[\\/]api\.(?:js|jsx|ts|tsx)$/
 const rootApiFilePattern = /^src[\\/]api[\\/][^\\/]+\.(?:js|jsx|ts|tsx)$/
@@ -3019,6 +3021,16 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (/^src[\\/]pages[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath)) {
+    const [, routeShellTarget] = source.trim().match(pageRouteShellTargetPattern) || []
+    if (routeShellTarget && !resolveSourceImport(filePath, routeShellTarget)) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `page route shell target does not exist: ${routeShellTarget}`,
+      })
+    }
+  }
+
   if (relativeFilePath === 'src/components/Select/financial.js') {
     violations.push({
       file: relativeFilePath,
@@ -3092,6 +3104,13 @@ for (const filePath of componentEntryFiles) {
 
   let reExportMatch
   while ((reExportMatch = componentEntryReExportPattern.exec(source))) {
+    if (!resolveSourceImport(filePath, reExportMatch[1])) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `component entry re-export target does not exist: ${reExportMatch[1]}`,
+      })
+    }
+
     const targetEntryPath = normalizeComponentEntryReExportTarget(entryPath, reExportMatch[1])
     if (
       targetEntryPath &&
