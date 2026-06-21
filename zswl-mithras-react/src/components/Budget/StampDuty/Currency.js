@@ -36,7 +36,7 @@ const convertToOuterValue = (innerVal) => {
     const parsedNum = parser(innerVal);
     return numeral(parsedNum).multiply(RATE).value();
 };
-  const Index = ({
+  const StampDutyCurrencyInput = ({
   value,
   onChange,
   className,
@@ -88,4 +88,4 @@ const convertToOuterValue = (innerVal) => {
     );
 };
 
-export default Index;
+export default StampDutyCurrencyInput;

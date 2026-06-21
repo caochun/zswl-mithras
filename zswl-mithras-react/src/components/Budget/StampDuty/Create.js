@@ -9,7 +9,7 @@ import CreateStore from './createStore'
 import styles from './index.less'
 
 const { Item } = Form
-function Index({ open, setOpen, refresh }) {
+function BudgetStampDutyCreate({ open, setOpen, refresh }) {
   const store = useMemo(() => new CreateStore(), [])
   const [formRef] = Form.useForm()
   const [nameState, setNameState] = useState('')
@@ -270,4 +270,4 @@ function Index({ open, setOpen, refresh }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetStampDutyCreate)

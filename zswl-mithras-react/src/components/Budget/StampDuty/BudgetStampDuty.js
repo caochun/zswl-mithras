@@ -12,7 +12,7 @@ import DataStore from './store'
 
 const { Item } = SearchBar
 
-function Index() {
+function BudgetStampDuty() {
   const store = useMemo(() => new DataStore(), [])
   const [open, setOpen] = useState(false)
   const [modalK, setModalK] = useState('000')
@@ -206,4 +206,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetStampDuty)
