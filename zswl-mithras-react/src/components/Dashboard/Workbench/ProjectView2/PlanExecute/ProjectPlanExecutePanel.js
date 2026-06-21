@@ -2,12 +2,12 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import DashboardRadioTabs from '../../../RadioTabs'
-import CompanyTotal from './CompanyTotal'
-import DeptTotal from './DeptTotal'
+import ProjectPlanExecuteCompanyTotal from './CompanyTotal/ProjectPlanExecuteCompanyTotal'
+import ProjectPlanExecuteDepartmentTotal from './DeptTotal/ProjectPlanExecuteDepartmentTotal'
 import Store from './Store'
-import InvestmentDrawer from './InvestmentDrawer'
+import ProjectPlanExecuteDrawer from './InvestmentDrawer/ProjectPlanExecuteDrawer'
 
-const Index = () => {
+const ProjectPlanExecutePanel = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -16,9 +16,9 @@ const Index = () => {
   const tabItem = useMemo(() => {
     return (
       <div>
-        <CompanyTotal store={store}></CompanyTotal>
+        <ProjectPlanExecuteCompanyTotal store={store}></ProjectPlanExecuteCompanyTotal>
         <div style={{ height: 20 }}></div>
-        <DeptTotal store={store}></DeptTotal>
+        <ProjectPlanExecuteDepartmentTotal store={store}></ProjectPlanExecuteDepartmentTotal>
       </div>
     )
   }, [store])
@@ -43,9 +43,9 @@ const Index = () => {
           ]}
         ></DashboardRadioTabs>
       </CardPanelFieldsFilter>
-      <InvestmentDrawer store={store}></InvestmentDrawer>
+      <ProjectPlanExecuteDrawer store={store}></ProjectPlanExecuteDrawer>
     </>
   )
 }
 
-export default observer(Index)
+export default observer(ProjectPlanExecutePanel)

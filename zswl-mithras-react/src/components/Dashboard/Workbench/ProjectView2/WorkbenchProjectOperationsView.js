@@ -1,21 +1,20 @@
 import { observer } from '@zswl/admin'
 import Title from '../../Title'
-import PlanExecute from './PlanExecute'
-import Investment from './Investment'
+import ProjectPlanExecutePanel from './PlanExecute/ProjectPlanExecutePanel'
+import ProjectInvestmentPanel from './Investment/ProjectInvestmentPanel'
 import RentRecovery from './RentRecovery'
-import { isFundDept } from '@/utils'
+import { getUserInfo, isFundDept } from '@/utils'
 import ProjectInfo from '../../ProjectView/ProjectInfo/DashboardProjectInfo'
-import { getUserInfo } from '@/utils'
 
-const Index = ({ title, iconType }) => {
+const WorkbenchProjectOperationsView = ({ title, iconType }) => {
   const is_wujie = getUserInfo().id === 49
 
   return (
     <div>
       <Title title={title} iconType={iconType}></Title>
-      <Investment />
+      <ProjectInvestmentPanel />
       <div style={{ height: 20 }}></div>
-      <PlanExecute />
+      <ProjectPlanExecutePanel />
       <div style={{ height: 20 }}></div>
       <RentRecovery />
       {isFundDept() && !is_wujie && (
@@ -28,4 +27,4 @@ const Index = ({ title, iconType }) => {
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchProjectOperationsView)

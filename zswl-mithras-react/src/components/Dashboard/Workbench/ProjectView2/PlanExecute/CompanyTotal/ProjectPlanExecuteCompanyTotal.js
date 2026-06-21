@@ -10,7 +10,7 @@ const sourceMap = {
   finishRate: '达成率',
 }
 
-const Index = ({ store }) => {
+const ProjectPlanExecuteCompanyTotal = ({ store }) => {
   const { companyData, activityKey, investmentDrawer } = store
   useEffect(() => {
     store.getCompanyData()
@@ -42,4 +42,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectPlanExecuteCompanyTotal)

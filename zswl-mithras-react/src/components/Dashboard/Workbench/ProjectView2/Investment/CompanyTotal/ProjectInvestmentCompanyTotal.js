@@ -11,7 +11,7 @@ const sourceMap = {
   averageContractInterestRate: '加权合同利率',
 }
 
-const Index = ({ store }) => {
+const ProjectInvestmentCompanyTotal = ({ store }) => {
   const { companyData, activityKey, investmentDrawer } = store
   useEffect(() => {
     store.getCompanyData()
@@ -43,4 +43,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectInvestmentCompanyTotal)

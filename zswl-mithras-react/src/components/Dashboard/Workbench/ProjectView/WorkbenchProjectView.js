@@ -2,11 +2,11 @@ import { observer } from '@zswl/admin'
 import Title from '../../Title'
 import ProjectInfo from '../../ProjectView/ProjectInfo/DashboardProjectInfo'
 import ProjectStage from '../../ProjectView/ProjectStage/DashboardProjectStage'
-import ProjectView2 from '../ProjectView2'
+import WorkbenchProjectOperationsView from '../ProjectView2/WorkbenchProjectOperationsView'
 import { getUserInfo, isBaseinessDept } from '@/utils'
 import AfterLease from './AfterLease/ProjectAfterLeasePanel'
 
-const Index = ({ title, iconType }) => {
+const WorkbenchProjectView = ({ title, iconType }) => {
   const is_wujie = getUserInfo().id === 49
 
   return (
@@ -18,9 +18,9 @@ const Index = ({ title, iconType }) => {
       <div style={{ height: 20 }}></div>
       {isBaseinessDept() ? <AfterLease /> : null}
       <div style={{ height: 20 }}></div>
-      {is_wujie ? <ProjectView2 /> : null}
+      {is_wujie ? <WorkbenchProjectOperationsView /> : null}
     </div>
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchProjectView)

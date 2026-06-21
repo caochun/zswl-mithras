@@ -8,7 +8,7 @@ import TableSummary from '../../../../TableSummary'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const ProjectPlanExecuteDrawer = ({ store }) => {
   const [sumData, setSumData] = useState({})
   const { activityKey } = store
   const columns = getTableColumns(ALL_COLUMNS)
@@ -52,7 +52,7 @@ const Index = ({ store }) => {
           )
         }}
         columnsFilter={`项目视图_计划执行情况_公司合计`}
-        onFilter={(key,val) => saveServer('项目视图_计划执行情况_公司合计',val)}
+        onFilter={(key, val) => saveServer('项目视图_计划执行情况_公司合计', val)}
         scroll={{ x: true }}
         store={table}
         searchbar={{
@@ -64,4 +64,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectPlanExecuteDrawer)

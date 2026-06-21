@@ -5,7 +5,7 @@ import { AmountColumn } from '@/components/Format'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const ProjectInvestmentDepartmentTotal = ({ store }) => {
   const { activityKey, deptTableStore } = store
   useEffect(() => {
     deptTableStore.search()
@@ -15,7 +15,7 @@ const Index = ({ store }) => {
       <div className={styles.title}>各部门统计</div>
       <Table
         columnsFilter={'Investment_DeptTotal_1'}
-        onFilter={(key,val) => saveServer('Investment_DeptTotal_1',val)}
+        onFilter={(key, val) => saveServer('Investment_DeptTotal_1', val)}
         scroll={{ x: true }}
         store={deptTableStore}
         columns={[
@@ -65,4 +65,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectInvestmentDepartmentTotal)

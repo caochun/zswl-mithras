@@ -3,7 +3,7 @@ import { history, observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import UnifiedToDo from './UnifiedToDo'
 import ProjectView from './ProjectView/WorkbenchProjectView'
-import ProjectView2 from './ProjectView2'
+import WorkbenchProjectOperationsView from './ProjectView2/WorkbenchProjectOperationsView'
 import CustomerView from './CustomerView/WorkbenchCustomerView'
 import CustomerView2 from './CustomerView2/WorkbenchCustomerAfterLeaseView'
 import MyAchievement from './MyAchievement/WorkbenchMyAchievement'
@@ -109,7 +109,7 @@ const DashboardWorkbench = () => {
     {
       label: '项目视图2', // 财务部、资金部
       rename: '项目视图',
-      component: <ProjectView2 />,
+      component: <WorkbenchProjectOperationsView />,
       key: 'ProjectView2',
       iconType: 'icon-xiangmushitu',
     },
