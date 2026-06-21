@@ -150,7 +150,7 @@ const Contract = () => {
                                 processStatus={paymentProcessStatus}
                                 processType={paymentProcessType}
                                 currentNode={paymentCurrentNode}
-                                isSmell
+                                useColumnHoverLayout
                               />
                             </Col>
                             <Col span={16}>

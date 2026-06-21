@@ -7,7 +7,7 @@ const BaseModule = ({
   processStatus,
   processType,
   currentNode,
-  isSmell = false,
+  useColumnHoverLayout = false,
   style,
   ...props
 }) => {
@@ -48,7 +48,7 @@ const BaseModule = ({
               [styles.hoveringRefuse]: processStatus === '审批拒绝' || processStatus === '退回',
               [styles.hoveringUnder]: processStatus === '审批中',
               [styles.hoveringNoSubmit]: processStatus === '未提交',
-              [styles.columnType]: isSmell,
+              [styles.columnType]: useColumnHoverLayout,
             })}
           >
             <div

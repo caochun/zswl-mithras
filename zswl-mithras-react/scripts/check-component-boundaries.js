@@ -2880,6 +2880,16 @@ for (const filePath of sourceFiles) {
   }
 
   if (
+    relativeFilePath.startsWith('src/components/LifeCycle/') &&
+    /\bisSmell\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'life cycle hover layout typo residue (use useColumnHoverLayout naming)',
+    })
+  }
+
+  if (
     /^(?:src[\\/]api[\\/]cpm[\\/]|src[\\/]utils[\\/]domains[\\/]cpm[\\/]|src[\\/]components[\\/](?:Cpm|Process)[\\/])/.test(relativeFilePath) &&
     /\bvalidateAgreen\b/.test(source)
   ) {

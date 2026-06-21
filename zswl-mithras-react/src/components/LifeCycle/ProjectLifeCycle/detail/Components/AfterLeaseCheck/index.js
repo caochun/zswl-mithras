@@ -46,7 +46,7 @@ const AfterLeaseCheck = () => {
                           <div className={styles.itemContent}>{planTime}</div>
                         </div>
                       }
-                      isSmell
+                      useColumnHoverLayout
                       key={index}
                       style={{ marginRight: 16 }}
                       processStatus={processStatus}
@@ -70,7 +70,7 @@ const AfterLeaseCheck = () => {
                       onClick={() => {
                         queryId && history.push(`/afterLease/checkPlan/externalDetail/${queryId}`)
                       }}
-                      isSmell
+                      useColumnHoverLayout
                       content={
                         <div className={styles.item}>
                           <div className={styles.itemTitle}>{queryMonth || '-'}</div>
