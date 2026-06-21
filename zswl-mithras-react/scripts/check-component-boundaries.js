@@ -3297,6 +3297,16 @@ for (const filePath of styleFiles) {
       specifier: `removed legacy style file (use ${removedLegacyStyleFiles.get(relativeFilePath)})`,
     })
   }
+
+  if (
+    /^src[\\/]components[\\/].*\.css$/.test(relativeFilePath) &&
+    fs.existsSync(filePath.replace(/\.css$/, '.less'))
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'duplicate component CSS artifact (use the sibling .less file)',
+    })
+  }
 }
 
 if (violations.length > 0) {
