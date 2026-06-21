@@ -53,7 +53,7 @@ const formNameColumns = [
 ]
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
-function Index() {
+function AfterLeasePolicyManageList() {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -89,4 +89,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeasePolicyManageList)

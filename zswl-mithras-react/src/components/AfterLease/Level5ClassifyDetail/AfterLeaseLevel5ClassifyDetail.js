@@ -8,7 +8,7 @@ import History from './Tab/History'
 import Store from './store'
 import styles from './index.less'
 
-const Index = ({
+const AfterLeaseLevel5ClassifyDetail = ({
   params: { id },
   query: { businessVersion, canEditFlags = 'true', modelKey, curTaskActivityIds },
 }) => {
@@ -68,4 +68,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5ClassifyDetail)

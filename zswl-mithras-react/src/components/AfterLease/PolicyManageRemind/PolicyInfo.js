@@ -18,10 +18,10 @@ const nameColumns = [
   },
 ]
 
-function Index({ detail }) {
+function AfterLeasePolicyManageRemindPolicyInfo({ detail }) {
   const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
   return <EditDescription detail={detail} canEdit={false} columns={columns} title="原保单信息" />
 }
 
-export default observer(Index)
+export default observer(AfterLeasePolicyManageRemindPolicyInfo)

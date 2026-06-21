@@ -14,7 +14,7 @@ const lastQuarterMoment = moment().add(-1, 'Q')
 const quarter = lastQuarterMoment.quarter()
 const year = lastQuarterMoment.format('yyyy')
 
-const Index = ({ params = {}, query = {} }) => {
+const AfterLeaseLevel5Classify = ({ params = {}, query = {} }) => {
   const { id } = params
   const { businessVersion, modelKey, curTaskActivityIds, taskStatus, canEditFlags = 'true' } = query
   const isFormApproval = getQuery('typeId') == 'approval'
@@ -60,4 +60,4 @@ const Index = ({ params = {}, query = {} }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLevel5Classify)

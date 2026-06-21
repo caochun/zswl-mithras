@@ -8,7 +8,7 @@ import BaseInfo from './BaseInfo'
 import { DetailLayout } from '@/components/Layout'
 import Store from './store'
 
-const Index = ({ params: { id }, query: { canEditFlags = 'true', businessVersion } }) => {
+const AfterLeaseCheckPlanCreate = ({ params: { id }, query: { canEditFlags = 'true', businessVersion } }) => {
   // 是否审批流页面
   const isFormApproval = getQuery('typeId') == 'approval'
   const isNew = getQuery('isNew')
@@ -60,4 +60,4 @@ const Index = ({ params: { id }, query: { canEditFlags = 'true', businessVersion
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanCreate)

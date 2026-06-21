@@ -6,7 +6,7 @@ import styles from '../index.less'
 import Store from './store'
 import { saveServer } from '@/utils'
 
-const Index = ({ planId, canEditFlag, businessVersion }) => {
+const AfterLeaseCheckPlanDetailReport = ({ planId, canEditFlag, businessVersion }) => {
   const store = useMemo(() => {
     return new Store({ planId })
   }, [planId])
@@ -77,4 +77,4 @@ const Index = ({ planId, canEditFlag, businessVersion }) => {
   )
 }
 
-export default Index
+export default AfterLeaseCheckPlanDetailReport

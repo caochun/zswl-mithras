@@ -15,7 +15,7 @@ import styles from './index.less'
 import { QuarterMap } from '@/utils/domains/afterLease/AfterLeaseUtils'
 import { DetailLayout } from '@/components/Layout'
 
-const Index = ({ params = {}, query: { canEditFlags = 'true', businessVersion } }) => {
+const AfterLeaseCheckPlanDetail = ({ params = {}, query: { canEditFlags = 'true', businessVersion } }) => {
   // 是否审批流页面
   const isFormApproval = getQuery('typeId') == 'approval'
   const { id } = params
@@ -73,4 +73,4 @@ const Index = ({ params = {}, query: { canEditFlags = 'true', businessVersion } 
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanDetail)

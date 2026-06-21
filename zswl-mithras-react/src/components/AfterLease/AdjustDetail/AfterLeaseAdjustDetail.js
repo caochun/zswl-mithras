@@ -8,7 +8,7 @@ import Store from './store'
 import { useEffect, useMemo } from 'react'
 import { DetailLayout } from '@/components/Layout'
 
-const Index = ({ params: { id }, query: { canEditFlags = 'true', isCreate, businessVersion } }) => {
+const AfterLeaseAdjustDetail = ({ params: { id }, query: { canEditFlags = 'true', isCreate, businessVersion } }) => {
   // 是否审批流页面
   const isFormApproval = getQuery('typeId') == 'approval'
 
@@ -74,4 +74,4 @@ const Index = ({ params: { id }, query: { canEditFlags = 'true', isCreate, busin
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseAdjustDetail)

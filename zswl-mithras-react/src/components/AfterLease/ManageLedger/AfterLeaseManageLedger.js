@@ -31,7 +31,7 @@ const formNameColumns = ['业务部门', '当前状态', '是否逾期']
 const { Item } = SearchBar
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
-function Index() {
+function AfterLeaseManageLedger() {
   const { optionsType } = App.getData()
   const store = useMemo(() => {
     return new Store({})
@@ -106,4 +106,4 @@ const MyDatePicker = ({ value, onChange, placeholder, style }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseManageLedger)

@@ -8,7 +8,7 @@ import CreateModal from './CreateModal/AfterLeaseAdjustCreateModal'
 import Store from './store'
 
 const { Item } = SearchBar
-function Index() {
+function AfterLeaseAdjustList() {
   const { optionsType } = App.getData()
   const store = useMemo(() => {
     return new Store({})
@@ -194,4 +194,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseAdjustList)

@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { FileTable } from '@/components/Table'
 
-const Index = ({ id, detail }) => {
+const AfterLeasePolicyManageDetailMaterialList = ({ id, detail }) => {
   const columns = [
     { title: '保险单号', dataIndex: 'name', rename: '资料' },
     { title: '上传人', dataIndex: 'createByName' },
@@ -27,4 +27,4 @@ const Index = ({ id, detail }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeasePolicyManageDetailMaterialList)

@@ -6,7 +6,7 @@ import CheckList from './Tab/CheckList/AfterLeaseCheckPlanCheckList'
 import OpenList from './Tab/OpenList/AfterLeaseCheckPlanOpenList'
 import Strategy from './Tab/Strategy/AfterLeaseCheckPlanStrategyPage'
 
-function Index({ query: { tab } }) {
+function AfterLeaseCheckPlanList({ query: { tab } }) {
   const [curTab, setCurTab] = useState('1')
   const hasStrategy = Access.validate('afterleaseCheckplanAssetstrategy')
 
@@ -28,4 +28,4 @@ function Index({ query: { tab } }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanList)

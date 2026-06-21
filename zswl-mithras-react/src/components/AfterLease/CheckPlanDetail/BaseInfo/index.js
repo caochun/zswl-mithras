@@ -3,7 +3,7 @@ import { getKeyOptionsLabelMapPlus } from '@/utils'
 import { useMemo } from 'react'
 import styles from '../index.less'
 
-const Index = ({ detail, planTypeText }) => {
+const AfterLeaseCheckPlanDetailBaseInfo = ({ detail, planTypeText }) => {
   const { checkEndDate, checkStartDate, finishCount, totalCount, planStatus } = detail
   const baseInfoList = useMemo(() => {
     return [
@@ -49,4 +49,4 @@ const Index = ({ detail, planTypeText }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanDetailBaseInfo)

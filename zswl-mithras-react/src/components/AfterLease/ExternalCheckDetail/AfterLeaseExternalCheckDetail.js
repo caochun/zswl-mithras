@@ -8,7 +8,7 @@ import Store from './store'
 import styles from './index.less'
 import { CustomerExternalPublicInfo as Public } from '@/components/Customer/ExternalPublicInfoEntries'
 
-const Index = ({ params = {}, query: { canEditFlags = 'true', businessVersion } }) => {
+const AfterLeaseExternalCheckDetail = ({ params = {}, query: { canEditFlags = 'true', businessVersion } }) => {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -100,4 +100,4 @@ const Index = ({ params = {}, query: { canEditFlags = 'true', businessVersion } 
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseExternalCheckDetail)

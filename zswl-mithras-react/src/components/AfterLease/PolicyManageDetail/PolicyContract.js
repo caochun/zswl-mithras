@@ -28,7 +28,7 @@ const titleStyle = {
   fontSize: '16px',
 }
 
-const Index = ({ detail: policyDetail }) => {
+const AfterLeasePolicyManageDetailPolicyContract = ({ detail: policyDetail }) => {
   const [expandKeys, setExpandKeys] = useState([])
 
   const columns = getTableColumns(ALL_COLUMNS, nameColumns)
@@ -106,4 +106,4 @@ const Index = ({ detail: policyDetail }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeasePolicyManageDetailPolicyContract)

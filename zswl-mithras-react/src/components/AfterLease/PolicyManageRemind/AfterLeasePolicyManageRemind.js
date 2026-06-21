@@ -6,7 +6,7 @@ import ContractInfo from '../PolicyManageShared/ContractInfo'
 import { InsurancePolicy } from '@/components/InsurancePolicy/InsurancePolicyEntries'
 import Api from '@/api/afterLease/policyLedgerApi'
 
-const Index = ({ id, taskActivityId }) => {
+const AfterLeasePolicyManageRemind = ({ id, taskActivityId }) => {
   const anchorList = [{ label: '原保单信息' }, { label: '续保保单' }, { label: '合同信息' }]
   const pageParams = { id, dataSource: 'policy' }
 
@@ -35,4 +35,4 @@ const Index = ({ id, taskActivityId }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeasePolicyManageRemind)

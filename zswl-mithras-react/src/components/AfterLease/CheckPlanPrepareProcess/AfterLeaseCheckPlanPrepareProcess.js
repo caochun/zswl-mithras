@@ -10,7 +10,7 @@ import moment from 'moment'
 import { timeFormat } from '@/utils'
 import Api from '@/api/afterLease/checkPlan'
 
-const Index = ({ params: { id, commonId, businessData }, refresh }) => {
+const AfterLeaseCheckPlanPrepareProcess = ({ params: { id, commonId, businessData }, refresh }) => {
   const [showRiskManage, setShowRiskManage] = useState(true)
   const { optionsType } = App.getData()
   const page = Page.useStore(
@@ -203,4 +203,4 @@ const Index = ({ params: { id, commonId, businessData }, refresh }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanPrepareProcess)
