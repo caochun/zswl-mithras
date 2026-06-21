@@ -6,7 +6,7 @@ import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions
 import Api from '@/api/baseData/leaseholdProperty'
 import { saveServer } from '@/utils'
 
-const Index = ({ pathname }) => {
+const BaseDataLeaseholdProperty = ({ pathname }) => {
   const $table = new TableStore({
     request: async (params) => {
       const data = await Api.list({
@@ -73,4 +73,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BaseDataLeaseholdProperty)

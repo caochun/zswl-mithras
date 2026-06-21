@@ -28,7 +28,7 @@ const EditSelect = (props) => {
   )
 }
 
-function Index() {
+function BaseDataFileTemplate() {
   const store = useMemo(() => new Store(), [])
   const { editIndex } = store
   const [templateName, setTemplateName] = useState(null)
@@ -264,4 +264,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(BaseDataFileTemplate)
