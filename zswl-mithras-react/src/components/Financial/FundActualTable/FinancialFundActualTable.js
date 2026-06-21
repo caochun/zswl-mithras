@@ -12,7 +12,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = Form
 
-function Index(
+function FinancialFundActualTable(
   {
     scene,
     sourceData,
@@ -181,4 +181,4 @@ function Index(
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(FinancialFundActualTable))

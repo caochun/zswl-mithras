@@ -33,7 +33,7 @@ const nameColumns = [
   '创建人',
 ]
 
-function Index() {
+function FinancialOrg() {
   const [options, setOptions] = useState([])
   const canDelete = store.table.selectedRowKeys.length > 0
   const handleSearch = useCallback(
@@ -102,4 +102,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialOrg)

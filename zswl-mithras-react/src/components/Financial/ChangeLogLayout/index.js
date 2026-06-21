@@ -6,7 +6,7 @@ import { compareTableData } from '@/utils'
 
 const { Panel } = Collapse
 
-function Index({ compareApi, changeList }) {
+function FinancialChangeLogLayout({ compareApi, changeList }) {
   const [compareData, setCompareData] = useState({})
   const getCompareDetail = () => {
     compareApi?.().then((res) => {
@@ -85,4 +85,4 @@ function Index({ compareApi, changeList }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialChangeLogLayout)

@@ -12,7 +12,7 @@ import { ExportAction } from '@/components/Actions'
 import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import { saveServer } from '@/utils'
 import directFinancingApi from '@/api/financial/directFinancingDetail'
-function Index({ path }) {
+function FinancialDirectList({ path }) {
   const [sumData, setSumData] = useState({})
   const [isClear, setClear] = useState(false)
   const getListSum = async (params) => {
@@ -246,4 +246,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectList)

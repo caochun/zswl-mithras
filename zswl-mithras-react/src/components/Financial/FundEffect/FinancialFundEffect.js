@@ -32,7 +32,7 @@ const nameColumns = [
 
 const columns = getDescColumns(nameColumns, nameColumns)
 
-function Index({ params: { id } }) {
+function FinancialFundEffect({ params: { id } }) {
   const isFormApproval = getQuery('typeId') == 'approval'
 
   const [detail, setDetail] = useState({})
@@ -84,4 +84,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundEffect)

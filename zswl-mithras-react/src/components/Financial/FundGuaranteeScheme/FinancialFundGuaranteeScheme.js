@@ -10,7 +10,7 @@ import { FormAmount } from '@/components/Form'
 import useForceUpdate from '@/utils/hooks/useForceUpdate'
 import styles from './index.less'
 
-function Index(props) {
+function FinancialFundGuaranteeScheme(props) {
   const { listName, addText = '请添加担保方', value, financingAmount, financingMonth } = props
   const form = Form.useFormInstance()
 
@@ -168,7 +168,7 @@ const FormListItem = ({ fields, required, fieldKey, financingAmount, financingMo
   )
 }
 
-Index.Detail = ({ value }) => {
+FinancialFundGuaranteeScheme.Detail = ({ value }) => {
   const toDetail = (id) => {
     history.push(`/financial/guarantee/detail/${id}`)
   }
@@ -196,4 +196,4 @@ Index.Detail = ({ value }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(FinancialFundGuaranteeScheme)

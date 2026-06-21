@@ -35,7 +35,7 @@ const formNameColumns = [
   '是否筛选本月应还金额大于0的数据',
 ]
 const formColumns = getSearchColumns(ALL_COLUMNS, formNameColumns)
-function Index({ path }) {
+function FinancialPaymentList({ path }) {
   const columns = useMemo(() => {
     const nameColumns = [
       {
@@ -99,4 +99,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentList)

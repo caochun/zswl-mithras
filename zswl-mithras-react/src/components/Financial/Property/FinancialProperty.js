@@ -9,7 +9,7 @@ import { getFormColumns, saveServer } from '@/utils'
 const formNameColumns = ['融资编号', '合同编号']
 const columns = ALL_COLUMNS
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
-function Index() {
+function FinancialProperty() {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -39,4 +39,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialProperty)

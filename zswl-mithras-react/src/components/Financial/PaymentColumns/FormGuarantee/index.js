@@ -9,7 +9,7 @@ import Api from '@/api/financial/orgManage'
 import { useEffect, useMemo, useState } from 'react'
 import { FormAmount } from '@/components/Form'
 
-function Index(props) {
+function FinancialPaymentColumnsFormGuarantee(props) {
   const { listName, addText = '请添加担保方', value } = props
   const [init, setInit] = useState(true)
 
@@ -170,7 +170,7 @@ const FormListItem = ({ fields, add, remove, addText, required, fieldKey }) => {
   )
 }
 
-Index.Detail = ({ value }) => {
+FinancialPaymentColumnsFormGuarantee.Detail = ({ value }) => {
   const toDetail = (id) => {
     history.push(`/financial/guarantee/detail/${id}`)
   }
@@ -194,4 +194,4 @@ Index.Detail = ({ value }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(FinancialPaymentColumnsFormGuarantee)
