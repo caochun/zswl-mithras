@@ -232,7 +232,7 @@ const VisitorSummary = () => {
   )
 }
 
-const Index = () => {
+const VisitorManagePage = () => {
   return (
     <Page>
       <Tabs
@@ -253,4 +253,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default VisitorManagePage

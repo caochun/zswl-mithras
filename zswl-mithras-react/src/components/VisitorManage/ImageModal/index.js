@@ -7,7 +7,7 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import { downFile } from '@/utils'
 import Api from '@/api/visitorManage/visitorManageApi'
 
-const Index = ({ store }) => {
+const VisitorManageImageModal = ({ store }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef(null)
 
@@ -117,4 +117,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(VisitorManageImageModal)
