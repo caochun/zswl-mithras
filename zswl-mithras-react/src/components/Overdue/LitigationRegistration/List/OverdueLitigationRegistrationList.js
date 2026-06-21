@@ -9,7 +9,7 @@ import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import AddModal from './AddModal'
 import { saveServer } from '@/utils'
 
-function Index({ path }) {
+function OverdueLitigationRegistrationList({ path }) {
   const columns = useMemo(() => {
     return getTableColumns(
       ALL_COLUMNS,
@@ -54,4 +54,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueLitigationRegistrationList)

@@ -4,7 +4,7 @@ import { MatchOptionColumn, TextAreaColumn } from '@/components/Format'
 import { ExportAction as Export } from '@/components/Actions'
 import { saveServer } from '@/utils'
 
-function Index({ path, store }) {
+function OverdueCollectionRecord({ path, store }) {
   const { rows, keys } = store.table.getSelected() ?? {}
 
   const columns = [
@@ -63,4 +63,4 @@ function Index({ path, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueCollectionRecord)

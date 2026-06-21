@@ -7,7 +7,7 @@ const nameColumns = ['客户名称', '风险敞口', '逾期租金', '逾期罚�
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ dataSource, saveData, canEdit = true, newProject }) {
+function OverdueCollectionBaseInfo({ dataSource, saveData, canEdit = true, newProject }) {
   const initEdit = newProject === 'true'
   return (
     <EditDescription
@@ -20,4 +20,4 @@ function Index({ dataSource, saveData, canEdit = true, newProject }) {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueCollectionBaseInfo)

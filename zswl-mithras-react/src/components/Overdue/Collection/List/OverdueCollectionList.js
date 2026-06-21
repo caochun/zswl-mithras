@@ -6,7 +6,7 @@ import { getTableColumns, saveServer } from '@/utils'
 import ALL_COLUMNS from '../Column'
 import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 
-function Index({ path }) {
+function OverdueCollectionList({ path }) {
   const columns = useMemo(() => {
     return getTableColumns(
       ALL_COLUMNS,
@@ -58,4 +58,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueCollectionList)

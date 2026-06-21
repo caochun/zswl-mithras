@@ -59,7 +59,7 @@ const ProgressModal = observer(({ store }) => {
   )
 })
 
-const Index = observer(({ path, store }) => {
+const OverdueLitigationProgressTheCase = observer(({ path, store }) => {
   const columns = useMemo(() => {
     const nameColumns = ['诉讼阶段', '诉讼状态', '记录人', '记录时间']
     return getTableColumns(ALL_COLUMNS, nameColumns)
@@ -89,4 +89,4 @@ const Index = observer(({ path, store }) => {
   )
 })
 
-export default Index
+export default OverdueLitigationProgressTheCase

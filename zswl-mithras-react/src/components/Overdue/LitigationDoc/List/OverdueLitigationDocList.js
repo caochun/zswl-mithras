@@ -7,7 +7,7 @@ import { FounderSelect } from '@/components/Select'
 import AddModal from '../../LitigationDocAddModal/OverdueLitigationDocAddModal'
 import { saveServer } from '@/utils'
 
-function Index({ path }) {
+function OverdueLitigationDocList({ path }) {
   const columns = [
     {
       title: '用印编号',
@@ -101,4 +101,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueLitigationDocList)

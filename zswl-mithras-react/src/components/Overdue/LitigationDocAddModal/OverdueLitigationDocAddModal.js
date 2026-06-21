@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 const { Item } = Form
 const moduleType = 'DOC_PRINTING'
-const Index = ({ modal, modalProps = {}, canEdit = true }) => {
+const OverdueLitigationDocAddModal = ({ modal, modalProps = {}, canEdit = true }) => {
   const [form] = Form.useForm()
   const [newId, setNewId] = useState(undefined)
   const initialValues = modal.getInitialValues() ?? {}
@@ -103,4 +103,4 @@ const Index = ({ modal, modalProps = {}, canEdit = true }) => {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueLitigationDocAddModal)

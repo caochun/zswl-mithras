@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = Form
 
-const Index = ({ store }) => {
+const OverdueLitigationRegistrationAddModal = ({ store }) => {
   const table = useMemo(() => new TableStore({}), [])
   const [form] = Form.useForm()
   const columns = [
@@ -53,4 +53,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueLitigationRegistrationAddModal)

@@ -1,7 +1,7 @@
 import { FileTable } from '@/components/Table'
 import { useMemo } from 'react'
 
-const Index = (props) => {
+const OverdueLitigationDataList = (props) => {
   const { mainId, canEdit = true, businessVersion } = props
 
   const columns = [
@@ -28,4 +28,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default OverdueLitigationDataList

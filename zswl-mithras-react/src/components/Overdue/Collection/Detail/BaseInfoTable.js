@@ -4,7 +4,7 @@ import ALL_COLUMNS from '../Column'
 import { ExportAction as Export } from '@/components/Actions'
 import { Table } from '@zswl/components'
 
-function Index({ path, store }) {
+function OverdueCollectionBaseInfoTable({ path, store }) {
   const columns = getTableColumns(ALL_COLUMNS, [
     {
       title: '合同编号',
@@ -40,4 +40,4 @@ function Index({ path, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueCollectionBaseInfoTable)

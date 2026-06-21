@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { Form } from '@zswl/components'
 import { Row } from 'antd'
 
-const Index = () => {
+const OverdueLitigationTrialInformation = () => {
   return (
     <div>
       <h2>审判信息</h2>
@@ -60,4 +60,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueLitigationTrialInformation)
