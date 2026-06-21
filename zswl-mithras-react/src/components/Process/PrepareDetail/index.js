@@ -2,11 +2,9 @@ import {
   AfterLeaseCheckPlanPrepareProcess as PrepareAfterLeaseGeneralCheck,
   AfterLeaseCheckPlanTemplate as PrepareAfterLeaseCheckReportTemplate,
 } from '@/components/AfterLease/CheckPlanPrepareEntries'
-import {
-  ContractDepositRefundNotification as PrepareContractDepositRefundNotification,
-  ContractSettlementDetail as PrepareContractEarlySettlement,
-  ContractStartRentDetail as PrepareContractStartRent,
-} from '@/components/Contract/ProcessPrepareDetailEntries'
+import { ContractDepositRefundNotification as PrepareContractDepositRefundNotification } from '@/components/Contract/DepositRefundNotificationEntries'
+import { ContractSettlementDetail as PrepareContractEarlySettlement } from '@/components/Contract/SettlementDetailEntries'
+import { ContractStartRentDetail as PrepareContractStartRent } from '@/components/Contract/StartRentDetailEntries'
 import { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/ProfitDistributionEntries'
 import { CustomerRatDetail as PrepareCustomerRating } from '@/components/Customer/CustomerRatingDetailEntries'
 import { FilingMaterialsApply as PrepareFilingMaterialsApply } from '@/components/FilingMaterials/ApplyEntries'

@@ -351,7 +351,7 @@
     },
     {
       "sourceScope": "components/Process",
-      "target": "Contract/ProcessPrepareDetailEntries"
+      "target": "Contract/DepositRefundNotificationEntries"
     },
     {
       "sourceScope": "components/Process",

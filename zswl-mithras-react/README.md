@@ -157,10 +157,10 @@
 - `Contract/ContractStartRentMaterialEntries.js`
 - `Contract/ContractTextEntries.js`
 - `Contract/CreateReceiptDetailEntries.js`
+- `Contract/DepositRefundNotificationEntries.js`
 - `Contract/LeaseMaterialsEntries.js`
 - `Contract/ListEntries.js`
 - `Contract/MarginRefundDetailEntries.js`
-- `Contract/ProcessPrepareDetailEntries.js`
 - `Contract/SettlementDetailEntries.js`
 - `Contract/SignEntries.js`
 - `Contract/StartRentDetailEntries.js`
@@ -534,7 +534,7 @@
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
 - 预算域的应收款、银行账户、汇率和 FTP 利率价格详情页分别通过 `src/components/Budget/*Entries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js`、`BudgetBankAccount.js`、`BudgetExchangeRate.js` 和 `BudgetPricingFtpInterestPriceDetail.js`，不再依赖目录 `index.js`。
 - 预算管理考核页、参数配置、投放计划和拨备预测详情页分别通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js`、`BudgetManagementParameterConfig.tsx` / `BudgetManagementParameterConfiguration.js`、`BudgetManagementPlacementPlan.js` 和 `BudgetManagementProvisionForecastDetail.js`，不再依赖目录 `index.js`。
-- 合同列表、合同签约列表/详情、合同申请详情/日志、合同文本、合同资料、保证金退款通知、保证金退抵详情、合同起租详情、合同变更详情、结清详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，合同申请详情真实实现命名为 `src/components/Contract/ApplicationDetail/ContractApplicationDetail.js`，其它真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
+- 合同列表、合同签约列表/详情、合同申请详情/日志、合同文本、合同资料、保证金退款通知、保证金退抵详情、合同起租详情、合同变更详情、结清详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，流程准备详情复用也指向具体合同语义入口，不再使用混合型 `ProcessPrepareDetailEntries.js`；合同申请详情真实实现命名为 `src/components/Contract/ApplicationDetail/ContractApplicationDetail.js`，其它真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 合同新增回执详情通过 `src/components/Contract/CreateReceiptDetailEntries.js` 暴露，真实实现命名为 `src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。
