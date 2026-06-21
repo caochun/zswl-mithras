@@ -4,7 +4,7 @@ import store from './store'
 import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 import { VersionTable } from '@/components/Table'
 
-function Index({ params: { id } }) {
+function BudgetPricingBusinessDetailLog({ params: { id } }) {
   const columns = [
     { title: '版本号', dataIndex: 'version' },
     // { title: '指导名称', dataIndex: 'guidanceName' },
@@ -24,4 +24,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessDetailLog)

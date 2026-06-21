@@ -5,7 +5,7 @@ import { Input } from 'antd'
 import { useMemo } from 'react'
 import moment from 'moment'
 
-function Index({ detail, columnProps, canEdit = false, month }) {
+function BudgetPricingBusinessFtpFormatTable({ detail, columnProps, canEdit = false, month }) {
   const { month: queryMonth } = getQuery()
   const titleMoment = useMemo(() => {
     return moment(month ?? queryMonth).format('yyyy年 MM 月')
@@ -99,4 +99,4 @@ function Index({ detail, columnProps, canEdit = false, month }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessFtpFormatTable)

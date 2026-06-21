@@ -9,7 +9,7 @@ import TextAreaEditable from './components/TextAreaEditable'
 import { FTPContext } from './BudgetPricingBusinessDetail'
 import _ from 'lodash'
 
-function Index({ canEdit = false, descChange, setSubmitDisabled }) {
+function BudgetPricingBusinessQuarterPricingExt({ canEdit = false, descChange, setSubmitDisabled }) {
   const isFormApproval = !canEdit
   const FTPValues = useContext(FTPContext)
   const { mainId, businessVersion } = FTPValues
@@ -93,4 +93,4 @@ function Index({ canEdit = false, descChange, setSubmitDisabled }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessQuarterPricingExt)

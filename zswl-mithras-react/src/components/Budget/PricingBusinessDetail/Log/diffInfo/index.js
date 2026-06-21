@@ -60,7 +60,7 @@ const QuarterColumn = [
     ],
   },
 ]
-function Index({ changeList = [], params: { id } }) {
+function BudgetPricingBusinessDetailLogDiff({ changeList = [], params: { id } }) {
   const { form } = store
   const compareData = store.page.getData()
 
@@ -303,4 +303,4 @@ function Index({ changeList = [], params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessDetailLogDiff)

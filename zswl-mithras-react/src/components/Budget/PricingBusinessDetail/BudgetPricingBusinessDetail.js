@@ -16,7 +16,7 @@ import { DetailLayout } from '@/components/Layout'
 
 export const FTPContext = React.createContext({})
 
-const Index = ({
+const BudgetPricingBusinessDetail = ({
   params: { id },
   query: { newProject, canEditFlags = 'true', businessVersion },
 }) => {
@@ -178,4 +178,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessDetail)

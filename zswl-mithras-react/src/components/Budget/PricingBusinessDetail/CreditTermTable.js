@@ -23,7 +23,7 @@ const PercentageRender = (val) => {
   return <FiledFormat title={newValue} isChange={val?.isChange} />
 }
 
-function Index({ detail, mainId, canEdit, businessVersion, setSubmitDisabled, isV3 }, ref) {
+function BudgetPricingBusinessCreditTermTable({ detail, mainId, canEdit, businessVersion, setSubmitDisabled, isV3 }, ref) {
   const isFormApproval = !canEdit
 
   const creditTermStore = useMemo(() => {
@@ -312,4 +312,4 @@ function Index({ detail, mainId, canEdit, businessVersion, setSubmitDisabled, is
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(BudgetPricingBusinessCreditTermTable))

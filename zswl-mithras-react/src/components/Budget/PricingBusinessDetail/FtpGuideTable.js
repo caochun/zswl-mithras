@@ -13,7 +13,7 @@ const bottomCell = (record, index) => {
   }
 }
 
-function Index({ table, canEdit = false, detail, setSubmitDisabled, isV3, publicDetail }) {
+function BudgetPricingBusinessFtpGuideTable({ table, canEdit = false, detail, setSubmitDisabled, isV3, publicDetail }) {
   const amountChange = _.debounce(async (val, params) => {
     const { dataSource, dataIndex, notAmount } = params
     if (dataSource[dataIndex] === val * 10000) {
@@ -372,4 +372,4 @@ function Index({ table, canEdit = false, detail, setSubmitDisabled, isV3, public
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessFtpGuideTable)

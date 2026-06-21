@@ -11,7 +11,7 @@ import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 import newFtpMonthlyGuidanceExtApi from '@/api/budget/pricing/ftp/newFtpMonthlyGuidanceExtApi'
 import QuarterPricingExt from './QuarterPricingExt'
 
-function Index({ mainId, businessVersion, descChange, canEdit, setSubmitDisabled, isV3 }) {
+function BudgetPricingBusinessQuarter({ mainId, businessVersion, descChange, canEdit, setSubmitDisabled, isV3 }) {
   const amountChange = _.debounce(async (val, params) => {
     const { dataSource, dataIndex, notAmount } = params
     if (dataSource[dataIndex] === val * 10000) {
@@ -308,4 +308,4 @@ function Index({ mainId, businessVersion, descChange, canEdit, setSubmitDisabled
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessQuarter)

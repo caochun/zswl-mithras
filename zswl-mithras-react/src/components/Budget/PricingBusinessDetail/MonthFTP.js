@@ -56,7 +56,7 @@ export const MonthlyDeduction = forwardRef(
   }
 )
 
-function Index({ businessVersion, setSubmitDisabled, mainId, descChange, canEdit, detail, isV3 }) {
+function BudgetPricingBusinessMonthFtp({ businessVersion, setSubmitDisabled, mainId, descChange, canEdit, detail, isV3 }) {
   const month = detail?.month
   const options = useMemo(
     () =>
@@ -122,4 +122,4 @@ function Index({ businessVersion, setSubmitDisabled, mainId, descChange, canEdit
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessMonthFtp)
