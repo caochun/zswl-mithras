@@ -6,7 +6,7 @@ import Store from './store'
 import styles from './index.less'
 import { FileTable } from '@/components/Table'
 
-const Index = ({ id }) => {
+const ContractLeaseMaterials = ({ id }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -55,4 +55,4 @@ const Index = ({ id }) => {
   return null
 }
 
-export default observer(Index)
+export default observer(ContractLeaseMaterials)

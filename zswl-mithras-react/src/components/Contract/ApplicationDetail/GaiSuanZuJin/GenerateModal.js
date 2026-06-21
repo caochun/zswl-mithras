@@ -4,7 +4,7 @@ import { DatePicker } from 'antd'
 
 const { Item } = Form
 
-function Index({ store }) {
+function ContractRecalculateRentGenerateModal({ store }) {
   const [form] = Form.useForm()
 
   return (
@@ -22,4 +22,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractRecalculateRentGenerateModal)

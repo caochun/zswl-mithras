@@ -3,7 +3,7 @@ import ALL_COLUMNS from './Column'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit }) {
+function ContractSettlementNormalDesc({ detail, saveData, isLog, canEdit = true, initEdit }) {
   const nameColumns = [
     '到期未付租金(元)',
     '违约金(元)',
@@ -31,4 +31,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractSettlementNormalDesc)

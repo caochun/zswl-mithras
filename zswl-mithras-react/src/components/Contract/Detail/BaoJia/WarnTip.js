@@ -1,7 +1,7 @@
 import { Tooltip } from 'antd'
 import IconFont from '@/components/Icon'
 
-const Index = ({ title }) => {
+const ContractQuotationWarnTip = ({ title }) => {
   return (
     <span style={{ marginLeft: 5 }}>
       <Tooltip title={title}>
@@ -14,4 +14,4 @@ const Index = ({ title }) => {
   )
 }
 
-export default Index
+export default ContractQuotationWarnTip

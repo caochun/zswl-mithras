@@ -3,7 +3,7 @@ import { Form, Input, InputNumber, Descriptions, Button } from 'antd'
 import { formatPercent, amountFormat } from '@/utils'
 import Api from '@/api/contract/component/DepositRefundNotification/api'
 import styles from './index.less'
-const Index = ({ id }) => {
+const ContractDepositRefundNotification = ({ id }) => {
     const [form] = Form.useForm()
     useEffect(async() => {
         const res = await Api.depostInfo(id)
@@ -86,4 +86,4 @@ const Index = ({ id }) => {
         </Form>
     )
 }
-export default Index
+export default ContractDepositRefundNotification

@@ -12,7 +12,7 @@ const iconStyle = {
   color: 'blue',
 }
 
-function Index({ $createModal, paymemntList, bizType }) {
+function ContractReceiptImportRentModal({ $createModal, paymemntList, bizType }) {
   const [form] = Form.useForm()
 
   return (
@@ -63,4 +63,4 @@ function Index({ $createModal, paymemntList, bizType }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractReceiptImportRentModal)

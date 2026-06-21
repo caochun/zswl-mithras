@@ -6,7 +6,7 @@ import moment from 'moment'
 import { message } from 'antd'
 import { useRef } from 'react'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit }) {
+function ContractSettlementInadvanceDesc({ detail, saveData, isLog, canEdit = true, initEdit }) {
   const editRef = useRef()
   const nameColumns = [
     {
@@ -61,4 +61,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractSettlementInadvanceDesc)
