@@ -33,7 +33,7 @@ const colors = [
   '#A6D22A',
 ]
 
-const Index = ({ store }) => {
+const ConversionRatesBarChart = ({ store }) => {
   const { loading, chartsBarData, chartsLineData } = store
   const { max, min, interval } = getInterval([...chartsBarData, ...chartsLineData], 5)
 
@@ -132,4 +132,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ConversionRatesBarChart)

@@ -6,15 +6,15 @@ import RadioTabs from '../../RadioTabs'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import { DatePicker } from 'antd'
 import { Form, SearchBar, Select, App, Button } from '@zswl/components'
-import ListDrawer from './ListDrawer/CapacityAnalysisListDrawer'
-import DepartCharts from './DepartCharts/CapacityAnalysisDepartmentChart'
-import PersonCharts from './PersonCharts/CapacityAnalysisPersonChart'
+import CapacityAnalysisListDrawer from './ListDrawer/CapacityAnalysisListDrawer'
+import CapacityAnalysisDepartmentChart from './DepartCharts/CapacityAnalysisDepartmentChart'
+import CapacityAnalysisPersonChart from './PersonCharts/CapacityAnalysisPersonChart'
 import Store from './Store'
 
 const { Item } = SearchBar
 const { RangePicker } = DatePicker
 
-const Index = () => {
+const DashboardOperationCapacityAnalysis = () => {
   const { optionsType } = App.getData()
 
   const store = useMemo(() => {
@@ -30,10 +30,10 @@ const Index = () => {
       children: (
         <>
           <h4>部门产能分析</h4>
-          <DepartCharts store={store} />
+          <CapacityAnalysisDepartmentChart store={store} />
           <div style={{ height: 20 }}></div>
           <h4>人均产能分析</h4>
-          <PersonCharts store={store} />
+          <CapacityAnalysisPersonChart store={store} />
         </>
       ),
     }
@@ -78,9 +78,9 @@ const Index = () => {
           }
         ></RadioTabs>
       </CardPanelFieldsFilter>
-      <ListDrawer store={store}></ListDrawer>
+      <CapacityAnalysisListDrawer store={store}></CapacityAnalysisListDrawer>
     </>
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOperationCapacityAnalysis)

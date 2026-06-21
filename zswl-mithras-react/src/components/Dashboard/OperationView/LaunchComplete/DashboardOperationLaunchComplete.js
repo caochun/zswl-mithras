@@ -5,14 +5,14 @@ import RadioTabs from '../../RadioTabs'
 import { DatePicker } from 'antd'
 import { Form, SearchBar, App, Button } from '@zswl/components'
 import { UnorderedListOutlined } from '@ant-design/icons'
-import ListDrawer from './ListDrawer/LaunchCompleteListDrawer'
-import BarCharts from './BarCharts/LaunchCompleteBarChart'
+import LaunchCompleteListDrawer from './ListDrawer/LaunchCompleteListDrawer'
+import LaunchCompleteBarChart from './BarCharts/LaunchCompleteBarChart'
 import Store from './Store'
 
 const { Item } = SearchBar
 const { RangePicker } = DatePicker
 
-const Index = ({ initialQuery, innerModule }) => {
+const DashboardOperationLaunchComplete = ({ initialQuery, innerModule }) => {
   const [form] = Form.useForm()
   const { optionsType } = App.getData()
 
@@ -26,7 +26,7 @@ const Index = ({ initialQuery, innerModule }) => {
     return {
       label: label,
       key: value,
-      children: <BarCharts store={store} />,
+      children: <LaunchCompleteBarChart store={store} />,
     }
   })
 
@@ -78,9 +78,9 @@ const Index = ({ initialQuery, innerModule }) => {
           }
         ></RadioTabs>
       </CardPanelFieldsFilter>
-      <ListDrawer store={store}></ListDrawer>
+      <LaunchCompleteListDrawer store={store}></LaunchCompleteListDrawer>
     </>
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOperationLaunchComplete)

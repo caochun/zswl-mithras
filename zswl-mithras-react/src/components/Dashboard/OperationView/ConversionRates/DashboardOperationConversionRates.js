@@ -5,14 +5,14 @@ import { UnorderedListOutlined } from '@ant-design/icons'
 import RadioTabs from '../../RadioTabs'
 import { DatePicker } from 'antd'
 import { Form, SearchBar, App, Button } from '@zswl/components'
-import ListDrawer from './ListDrawer/ConversionRatesListDrawer'
-import BarCharts from './BarCharts/ConversionRatesBarChart'
+import ConversionRatesListDrawer from './ListDrawer/ConversionRatesListDrawer'
+import ConversionRatesBarChart from './BarCharts/ConversionRatesBarChart'
 import Store from './Store'
 
 const { Item } = SearchBar
 const { RangePicker } = DatePicker
 
-const Index = ({ initialQuery, title }) => {
+const DashboardOperationConversionRates = ({ initialQuery, title }) => {
   const [form] = Form.useForm()
   const { optionsType } = App.getData()
 
@@ -28,7 +28,7 @@ const Index = ({ initialQuery, title }) => {
       key: value,
       children: (
         <>
-          <BarCharts store={store} />
+          <ConversionRatesBarChart store={store} />
         </>
       ),
     }
@@ -81,9 +81,9 @@ const Index = ({ initialQuery, title }) => {
           }
         ></RadioTabs>
       </CardPanelFieldsFilter>
-      <ListDrawer store={store}></ListDrawer>
+      <ConversionRatesListDrawer store={store}></ConversionRatesListDrawer>
     </>
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOperationConversionRates)

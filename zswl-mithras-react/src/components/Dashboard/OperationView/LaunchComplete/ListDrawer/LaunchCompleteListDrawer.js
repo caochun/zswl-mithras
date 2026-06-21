@@ -11,8 +11,8 @@ import { saveServer } from '@/utils'
 
 const groupName = '投放完成情况详情'
 
-const Index = ({ store }) => {
-  const { listDrawer, queryDate, listDrawerTable: table, sumData, averageData } = store
+const LaunchCompleteListDrawer = ({ store }) => {
+  const { listDrawer, listDrawerTable: table, sumData, averageData } = store
 
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(COMMON_COLUMNS, ['时间区间', '业务组类别', '业务部门'])
@@ -64,4 +64,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(LaunchCompleteListDrawer)

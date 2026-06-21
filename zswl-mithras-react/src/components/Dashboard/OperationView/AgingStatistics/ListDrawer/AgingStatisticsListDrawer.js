@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer, Table } from '@zswl/components'
-import { getTableColumns, getSearchColumns } from '@/utils'
+import { getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { operationViewColumnsFilterKey as columnsFilterKey } from '@/utils/domains/dashboard/DashboardUtilsFilterKeys'
 import { COMMON_COLUMNS } from '../../../OperationViewColumns'
@@ -11,8 +11,8 @@ import { saveServer } from '@/utils'
 
 const group = '统计详情'
 
-const Index = ({ store }) => {
-  const { queryDate, listDrawer, sumData, averageData, listDrawerTable: table } = store
+const AgingStatisticsListDrawer = ({ store }) => {
+  const { listDrawer, sumData, averageData, listDrawerTable: table } = store
 
   const columns = ALL_COLUMNS
   const searchItem = getSearchColumns(COMMON_COLUMNS, ['时间区间', '业务组类别', '业务部门'])
@@ -70,4 +70,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AgingStatisticsListDrawer)

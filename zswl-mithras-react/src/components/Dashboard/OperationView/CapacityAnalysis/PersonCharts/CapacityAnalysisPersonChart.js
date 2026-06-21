@@ -3,7 +3,7 @@ import { MultiBar } from '@zswl/charts'
 import { getChartsTooltip } from '@/utils/domains/dashboard/DashboardUtils'
 import { formatDepartName } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 
-const Index = ({ store }) => {
+const CapacityAnalysisPersonChart = ({ store }) => {
   const { loading, personChartsData } = store
 
   return (
@@ -75,4 +75,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CapacityAnalysisPersonChart)

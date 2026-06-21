@@ -2,19 +2,17 @@ import { observer } from '@zswl/admin'
 import { Drawer, Table } from '@zswl/components'
 import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
-import { useState, useEffect } from 'react'
 import { operationViewColumnsFilterKey as columnsFilterKey } from '@/utils/domains/dashboard/DashboardUtilsFilterKeys'
 import ExportBtn from '../../../Export'
 import TableSummary from '../../../TableSummary'
 import { COMMON_COLUMNS } from '../../../OperationViewColumns'
-import Api from '@/api/dashboard/operationView/capacityAnalysisApi'
 import { initQueryDate, initProjStage } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 import { saveServer } from '@/utils'
 
 const groupName = '产能分析详情'
 
-const Index = ({ store }) => {
-  const { queryDate, listDrawer, listDrawerTable: table, sumData, averageData } = store
+const CapacityAnalysisListDrawer = ({ store }) => {
+  const { listDrawer, listDrawerTable: table, sumData, averageData } = store
 
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(COMMON_COLUMNS, [
@@ -71,4 +69,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CapacityAnalysisListDrawer)

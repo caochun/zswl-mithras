@@ -5,14 +5,14 @@ import { UnorderedListOutlined } from '@ant-design/icons'
 import RadioTabs from '../../RadioTabs'
 import { DatePicker } from 'antd'
 import { Form, SearchBar, App, Button } from '@zswl/components'
-import ListDrawer from './ListDrawer/AgingStatisticsListDrawer'
-import BarCharts from './BarCharts/AgingStatisticsBarChart'
+import AgingStatisticsListDrawer from './ListDrawer/AgingStatisticsListDrawer'
+import AgingStatisticsBarChart from './BarCharts/AgingStatisticsBarChart'
 import Store from './Store'
 
 const { Item } = SearchBar
 const { RangePicker } = DatePicker
 
-const Index = ({ title = '时效统计' }) => {
+const DashboardOperationAgingStatistics = ({ title = '时效统计' }) => {
   const { optionsType } = App.getData()
 
   const store = useMemo(() => {
@@ -27,7 +27,7 @@ const Index = ({ title = '时效统计' }) => {
       key: value,
       children: (
         <>
-          <BarCharts store={store} />
+          <AgingStatisticsBarChart store={store} />
         </>
       ),
     }
@@ -68,9 +68,9 @@ const Index = ({ title = '时效统计' }) => {
           }
         ></RadioTabs>
       </CardPanelFieldsFilter>
-      <ListDrawer store={store}></ListDrawer>
+      <AgingStatisticsListDrawer store={store}></AgingStatisticsListDrawer>
     </>
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOperationAgingStatistics)

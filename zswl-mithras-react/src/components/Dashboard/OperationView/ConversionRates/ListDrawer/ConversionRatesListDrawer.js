@@ -1,21 +1,18 @@
 import { observer } from '@zswl/admin'
 import { Drawer, Table } from '@zswl/components'
-import { getTableColumns, getSearchColumns } from '@/utils'
-import { useEffect } from 'react'
+import { getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { operationViewColumnsFilterKey as columnsFilterKey } from '@/utils/domains/dashboard/DashboardUtilsFilterKeys'
 import { COMMON_COLUMNS } from '../../../OperationViewColumns'
 import ExportBtn from '../../../Export'
 import TableSummary from '../../../TableSummary'
 import { initQueryDate } from '@/utils/domains/dashboard/DashboardUtilsOperation'
-import { useState } from 'react'
-import Api from '@/api/dashboard/operationView/conversionRatesApi'
 import { saveServer } from '@/utils'
 
 const group = '转化率情况详情'
 
-const Index = ({ store }) => {
-  const { queryDate, listDrawer, averageData, sumData, listDrawerTable: table } = store
+const ConversionRatesListDrawer = ({ store }) => {
+  const { listDrawer, averageData, sumData, listDrawerTable: table } = store
 
   const columns = ALL_COLUMNS
   const searchItem = getSearchColumns(COMMON_COLUMNS, ['时间区间', '业务组类别', '业务部门'])
@@ -68,4 +65,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ConversionRatesListDrawer)
