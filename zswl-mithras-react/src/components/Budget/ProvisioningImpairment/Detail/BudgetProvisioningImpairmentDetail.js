@@ -31,7 +31,7 @@ const nameColumns = [
   '备注',
 ]
 
-const Index = ({ params: { id } }) => {
+const BudgetProvisioningImpairmentDetail = ({ params: { id } }) => {
   const store = useMemo(() => new Store({ id }), [id])
   const modalStore = useMemo(() => new ModalStore({ afterSubmit: () => store.$table.search() }), [])
   const { editIndex } = store
@@ -114,4 +114,4 @@ const Index = ({ params: { id } }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BudgetProvisioningImpairmentDetail)

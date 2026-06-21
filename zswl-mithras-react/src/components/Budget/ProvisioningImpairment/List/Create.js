@@ -5,7 +5,7 @@ import store from './store'
 
 const { Item } = Form
 
-const Index = () => {
+const BudgetProvisioningImpairmentCreate = () => {
   return (
     <Modal title={'创建'} store={store.createModal} okText={'确定'} destroyOnClose width={400}>
       <Form preserve={false}>
@@ -17,4 +17,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetProvisioningImpairmentCreate)

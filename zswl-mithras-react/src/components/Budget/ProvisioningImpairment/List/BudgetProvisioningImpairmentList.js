@@ -8,7 +8,7 @@ import store from './store'
 const nameColumns = ['月份', '状态', '创建日期', '创建人']
 const formNameColumns = ['月份']
 
-const Index = ({ pathname }) => {
+const BudgetProvisioningImpairmentList = ({ pathname }) => {
   const columns = getTableColumns(ALL_COLUMNS({ pathname }), nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS(), formNameColumns)
 
@@ -39,4 +39,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BudgetProvisioningImpairmentList)
