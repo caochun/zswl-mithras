@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import Desc from './Desc'
 import styles from '../index.less'
 
-const Index = ({ canEditFlag, store }) => {
+const AfterLeaseAdjustRepaymentPlan = ({ canEditFlag, store }) => {
   const [form] = Form.useForm()
   const [detailShowData, setDetailShowData] = useState({})
   const { page, showValue, setShowValue, onSave } = store
@@ -92,4 +92,4 @@ const Index = ({ canEditFlag, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseAdjustRepaymentPlan)

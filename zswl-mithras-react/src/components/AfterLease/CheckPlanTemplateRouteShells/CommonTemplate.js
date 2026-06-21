@@ -2,7 +2,7 @@ import Template from '../CheckPlanTemplate/AfterLeaseCheckPlanTemplate'
 import { Page } from '@zswl/components'
 
 // 一般检查、为了解决面包屑问题
-const Index = ({ params: id }) => {
+const AfterLeaseCommonCheckPlanTemplateShell = ({ params: id }) => {
   return (
     <Page>
       <Template params={id}></Template>
@@ -10,4 +10,4 @@ const Index = ({ params: id }) => {
   )
 }
 
-export default Index
+export default AfterLeaseCommonCheckPlanTemplateShell

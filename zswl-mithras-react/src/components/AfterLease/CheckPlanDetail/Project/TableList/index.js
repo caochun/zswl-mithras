@@ -9,7 +9,7 @@ import EditCheckTime from './EditCheckTime'
 import EditCheckWay from './EditCheckWay'
 import api from '@/api/afterLease/checkPlanDetailApi'
 
-const Index = ({
+const AfterLeaseCheckPlanProjectTableList = ({
   dataSource,
   canEditFlag,
   detail,
@@ -214,4 +214,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanProjectTableList)
