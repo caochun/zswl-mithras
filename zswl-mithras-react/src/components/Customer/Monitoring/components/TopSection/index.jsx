@@ -19,16 +19,16 @@ const CardItem = ({ icon, value, label, todayNew, todayClose }) => (
     <div className={styles.cardLeft}>
       <div className={styles.topImg}>{icon}</div>
       <div className={styles.wrepperRight}>
-        <div className={styles.cardRightBock}>{value}</div>
+        <div className={styles.cardRightBlock}>{value}</div>
         <div className={styles.zb}>{label}</div>
       </div>
     </div>
     <div className={styles.cardRight}>
-      <div className={styles.cardRightBock}>
+      <div className={styles.cardRightBlock}>
         <div className={styles.zb}>{todayNew}</div>
         <div>今日新增</div>
       </div>
-      <div className={`${styles.cardRightBock} ${styles.bootm}`}>
+      <div className={`${styles.cardRightBlock} ${styles.bootm}`}>
         <div className={styles.zb}>{todayClose}</div>
         <div>今日关闭</div>
       </div>
@@ -38,7 +38,7 @@ const CardItem = ({ icon, value, label, todayNew, todayClose }) => (
 
 const TopSection = ({ statistics }) => {
   return (
-    <div className={styles.haderLeft}>
+    <div className={styles.headerLeft}>
       <div className={styles.top}>
         <StatsItem icon={<Clients />} value={statistics?.monitorClientCount} label="监控客户数" />
       </div>

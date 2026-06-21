@@ -187,7 +187,7 @@ const VisualizationTwoD = ({ pie, fxsl }) => {
     ],
   }
   return (
-    <div className={styles.haderRight}>
+    <div className={styles.headerRight}>
       <div className={styles.charts}>
         <div className={styles.chartCard}>
           <div className={styles.chartTitle}>风险数量变化</div>

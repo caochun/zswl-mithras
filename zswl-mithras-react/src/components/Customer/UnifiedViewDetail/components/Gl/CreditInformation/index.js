@@ -6,7 +6,7 @@ export default function CreditInformation({ store, id }) {
   return (
     <div id={id}>
       <div className={styles['title']}>授信信息</div>
-      <div className={styles.hader}>
+      <div className={styles.header}>
         <CreditSummary store={store}></CreditSummary>
         <CreditClassification store={store} />
       </div>

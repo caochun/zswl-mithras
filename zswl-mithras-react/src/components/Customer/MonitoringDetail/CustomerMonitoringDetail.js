@@ -111,7 +111,6 @@ const CustomerDetail = ({ path, params: { id }, query, pathname }) => {
                   <div style={{ fontSize: 12 }}>未完成/全部预警</div>
                 </div>
               </div>
-              {/* <div className={styles.toopl}>注:处理中舆情、预警/历史全部舆情、预警</div> */}
             </div>
             {/* <div className={styles.card}>
             <CustomCard
@@ -124,7 +123,7 @@ const CustomerDetail = ({ path, params: { id }, query, pathname }) => {
           </div>
         </div>
         <div className={styles['company-tabs']}>
-          <div className={styles.bomCustomer}>
+          <div className={styles.bottomCustomer}>
             <div className={styles.title}>客户详情</div>
             <Bootm
               id={id}
