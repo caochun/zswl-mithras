@@ -10,7 +10,7 @@ import { hasPermission } from '@/utils'
 import { saveServer } from '@/utils'
 import DupModal from './DupModal'
 
-const Index = ({ id, canEdit = true, businessVersion, isFormApproval, baseStore = {}, projCode, taskActivityId, disable = false }) => {
+const LeaseMaintainLeaseList = ({ id, canEdit = true, businessVersion, isFormApproval, baseStore = {}, projCode, taskActivityId, disable = false }) => {
   const yunyingCode = ['userTask_operationManagementReview', 'yyglbDeptLeader', 'operationManagement'].includes(taskActivityId)
   const { leaseTypeStr } = baseStore
   const store = useMemo(() => {
@@ -101,4 +101,4 @@ const Index = ({ id, canEdit = true, businessVersion, isFormApproval, baseStore 
   )
 }
 
-export default observer(Index)
+export default observer(LeaseMaintainLeaseList)

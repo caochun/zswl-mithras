@@ -40,7 +40,7 @@ const formNameColumns = [
   '项目协办',
 ]
 
-function Index({ path }) {
+function LeaseMaintainList({ path }) {
   const columns = getTableColumns(ALL_COLUMNS, nameColumns(path))
   const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
@@ -78,4 +78,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(LeaseMaintainList)

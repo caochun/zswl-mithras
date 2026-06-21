@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import Api from '@/api/lease/maintainApi'
 import { hasPermission } from '@/utils'
 
-function Index({ id, canEdit = true, isLog }) {
+function LeaseMaintainCheck({ id, canEdit = true, isLog }) {
   const [detail, setDetail] = useState({})
 
   const getData = async () => {
@@ -48,4 +48,4 @@ function Index({ id, canEdit = true, isLog }) {
   )
 }
 
-export default observer(Index)
+export default observer(LeaseMaintainCheck)

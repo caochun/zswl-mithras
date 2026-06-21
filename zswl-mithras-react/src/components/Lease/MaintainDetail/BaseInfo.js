@@ -19,8 +19,8 @@ const nameColumns = [
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ detail }) {
+function LeaseMaintainBaseInfo({ detail }) {
   return <EditDescription title="项目信息" detail={detail} canEdit={false} columns={columns} />
 }
 
-export default observer(Index)
+export default observer(LeaseMaintainBaseInfo)

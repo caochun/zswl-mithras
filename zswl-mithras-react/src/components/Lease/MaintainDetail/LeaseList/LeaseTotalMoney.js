@@ -9,7 +9,7 @@ const mathjs = create(all)
 const { Item } = Form
 const initFormat = 10000
 
-const Index = ({ value, canEdit, onBlur }) => {
+const LeaseTotalMoney = ({ value, canEdit, onBlur }) => {
   const [form] = Form.useForm()
 
   const handleBlur = () => {
@@ -53,4 +53,4 @@ const Index = ({ value, canEdit, onBlur }) => {
   )
 }
 
-export default Index
+export default LeaseTotalMoney

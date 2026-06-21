@@ -12,7 +12,7 @@ const modalTitleStyle = {
   cursor: 'pointer',
 }
 
-const Index = (props) => {
+const LeaseMaintainDataFileList = (props) => {
   const { id: mainId, canEdit, businessVersion, taskActivityId, taskStatus, startUserId,modelKey } = props
   const isProjmanagerInProcess = taskActivityId === 'projManager'
   // 运营经理
@@ -195,4 +195,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(LeaseMaintainDataFileList))

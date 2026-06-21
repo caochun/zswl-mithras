@@ -13,7 +13,7 @@ import { AppraisalAgency } from '@/components/EvaluationAgency/AppraisalAgencyEn
 import { jumpZhongDeng } from '@/utils'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectReviewMeetingModalEntries'
 
-const Index = ({
+const LeaseMaintainDetail = ({
   params: { id },
   query: { businessVersion, canEdit, taskActivityId, taskStatus, startUserId, modelKey, type },
 }) => {
@@ -103,4 +103,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(LeaseMaintainDetail)

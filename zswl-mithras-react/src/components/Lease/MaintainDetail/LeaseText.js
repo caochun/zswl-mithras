@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import Api from '@/api/lease/maintainApi'
 import { getUserInfo } from '@/utils'
 
-const Index = (props) => {
+const LeaseMaintainText = (props) => {
   // 租赁物清单: 流程中项目经理、运营和法务可删除和上传
   // TODO: 租赁物确认函: 带入合同流程的不允许项目经理删除或上传，运营和法务节点可以
   const { id: mainId, canEdit, businessVersion, fileListRef, taskActivityId, taskStatus,modelKey } = props
@@ -62,4 +62,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(LeaseMaintainText))

@@ -6,7 +6,7 @@ import { App } from '@zswl/components'
 import Api from '@/api/lease/maintainApi'
 import { hasPermission } from '@/utils'
 
-function Index({ id, canEdit = true, baseStore = {} }) {
+function LeaseMaintainInfo({ id, canEdit = true, baseStore = {} }) {
   const { leaseItemManagerOwnershipFileType, leaseItemManagerLeaseItemViewType } =
     App.getData().optionsType
 
@@ -97,4 +97,4 @@ function Index({ id, canEdit = true, baseStore = {} }) {
   )
 }
 
-export default observer(Index)
+export default observer(LeaseMaintainInfo)

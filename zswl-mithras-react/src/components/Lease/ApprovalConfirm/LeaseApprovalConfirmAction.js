@@ -4,7 +4,7 @@ import leaseApi from '@/api/lease/maintainApi'
 import processDetailApi from '@/api/lease/processDetailApi'
 import vatInvoiceApi from '@/api/lease/vatInvoiceApi'
 
-function Index({ onClick, params, isEffect, children, beforeClick, text, ...rest }) {
+function LeaseApprovalConfirmAction({ onClick, params, isEffect, children, beforeClick, text, ...rest }) {
   const checkProcessStatus = async () => {
     const { relevanceFlowId } = await leaseApi.postCheckLeaseDetail(params)
     if (!relevanceFlowId) {
@@ -72,4 +72,4 @@ function Index({ onClick, params, isEffect, children, beforeClick, text, ...rest
   )
 }
 
-export default observer(Index)
+export default observer(LeaseApprovalConfirmAction)
