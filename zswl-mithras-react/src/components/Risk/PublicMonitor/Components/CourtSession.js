@@ -4,7 +4,7 @@ import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '../../PublicMonitorColumns/RiskPublicMonitorColumns'
 import { getDescColumns } from '@/utils'
 
-const Index = ({ store }) => {
+const RiskPublicMonitorCourtSession = ({ store }) => {
   const { courtSessionModal, courtSessionDetail } = store
 
   const nameColumns = [
@@ -46,4 +46,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskPublicMonitorCourtSession)

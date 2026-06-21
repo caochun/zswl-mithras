@@ -4,7 +4,7 @@ import { Form, Modal } from '@zswl/components'
 import { Input } from 'antd'
 
 const { Item } = Form
-const Index = ({ store }) => {
+const RiskPublicMonitorAddModal = ({ store }) => {
   const { $addModal } = store
   const [form] = Form.useForm()
   const handleChange = (val, option) => {
@@ -36,4 +36,4 @@ const Index = ({ store }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(RiskPublicMonitorAddModal)

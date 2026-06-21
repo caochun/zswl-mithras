@@ -46,7 +46,7 @@ const formNameColumns = [
   '预警信号',
 ]
 
-function Index(
+function RiskPublicMonitor(
   {
     showPageStyle = true,
     canEdit = true,
@@ -190,4 +190,4 @@ function Index(
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(RiskPublicMonitor))

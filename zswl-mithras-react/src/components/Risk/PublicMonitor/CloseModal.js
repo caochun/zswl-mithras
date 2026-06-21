@@ -10,7 +10,7 @@ const params = {
   moduleType: 'RISK_OPINION',
 }
 
-const Index = ({ store }) => {
+const RiskPublicMonitorCloseModal = ({ store }) => {
   const { $closeModal } = store
   const { handleStatus, id } = $closeModal?.getInitialValues() ?? {}
   const [form] = Form.useForm()
@@ -42,4 +42,4 @@ const Index = ({ store }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(RiskPublicMonitorCloseModal)
