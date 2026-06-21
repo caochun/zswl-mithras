@@ -228,7 +228,8 @@
 - `Dashboard/SsoEntries.js`
 - `Dashboard/WorkbenchEntries.js`
 - `EvaluationAgency/AppraisalAgencyEntries.js`
-- `ExternalEmbed/ExternalEmbedEntries.js`
+- `ExternalEmbed/DashBulletinBoardEntries.js`
+- `ExternalEmbed/JfBulletinBoardEntries.js`
 - `ExternalEmbed/RzyEntries.js`
 - `FilingMaterials/AfterApplyEntries.js`
 - `FilingMaterials/ApplyEntries.js`
@@ -642,7 +643,7 @@
 - `preview`：PDF、报表预览。
 - `visitorManage`：拜访管理历史路由壳，当前入口收敛到 `src/components/VisitorManage/VisitorManageEntries.js`，页面实现命名为 `src/components/VisitorManage/VisitorManagePage.js`。
 - `financialReport`：财务报表待办/审批/完成列表历史路由壳，当前待办和完成列表分别通过 `src/components/Report/FinancialReportWaitEntries.js`、`src/components/Report/FinancialReportFinishedEntries.js` 暴露，审批详情入口使用 `src/components/Report/FinancialReportApprovalEntries.js`。
-- `implant`：外部系统嵌入历史路由壳，当前 iframe 桥接实现已收敛到 `src/components/ExternalEmbed/ExternalEmbedEntries.js`。
+- `implant`：外部系统嵌入历史路由壳，当前公告板 iframe 桥接实现分别通过 `src/components/ExternalEmbed/DashBulletinBoardEntries.js`、`JfBulletinBoardEntries.js` 暴露。
 - `rzy`：厂商管理外部系统历史路由壳，当前 iframe 展示实现已收敛到 `src/components/ExternalEmbed/RzyEntries.js`，菜单和链接配置保留在 `src/utils/domains/rzy/RzyConfig.js`。
 
 当前历史或兼容壳目录：

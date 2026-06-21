@@ -1,1 +1,1 @@
-export { DashBulletinBoard as default } from '@/components/ExternalEmbed/ExternalEmbedEntries'
+export { DashBulletinBoard as default } from '@/components/ExternalEmbed/DashBulletinBoardEntries'

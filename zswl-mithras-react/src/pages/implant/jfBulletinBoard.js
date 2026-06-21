@@ -1,1 +1,1 @@
-export { JfBulletinBoard as default } from '@/components/ExternalEmbed/ExternalEmbedEntries'
+export { JfBulletinBoard as default } from '@/components/ExternalEmbed/JfBulletinBoardEntries'
