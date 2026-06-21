@@ -6,7 +6,7 @@ import { Tag, Space } from 'antd'
 import { hasValue } from '@/utils'
 import { saveServer } from '@/utils'
 
-function Index({ store }) {
+function CpmPaymentApplicationTransactionInfo({ store }) {
   const { lesseeypeEnum = [], clientRole = [] } = App.getData().optionsType
 
   const goProcess = (record) => {
@@ -66,4 +66,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentApplicationTransactionInfo)

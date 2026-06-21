@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
 
-function Index({ id }) {
+function CpmPaymentApplicationLeaseCheck({ id }) {
   const [detail, setDetail] = useState({})
 
   const getData = async () => {
@@ -34,4 +34,4 @@ function Index({ id }) {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentApplicationLeaseCheck)

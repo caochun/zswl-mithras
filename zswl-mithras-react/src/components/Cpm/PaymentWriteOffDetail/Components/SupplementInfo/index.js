@@ -1,7 +1,7 @@
 
 import { observer } from '@zswl/admin'
 
-function Index({ detail }) {
+function CpmPaymentWriteOffSupplementInfo({ detail }) {
   return (
     <EditDescription
       style={{ marginTop: 20 }}
@@ -24,4 +24,4 @@ function Index({ detail }) {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentWriteOffSupplementInfo)

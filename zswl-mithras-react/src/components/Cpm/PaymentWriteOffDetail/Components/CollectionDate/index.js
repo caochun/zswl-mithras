@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 const { Item } = Form
 
-const Index = (props) => {
+const CpmPaymentWriteOffCollectionDate = (props) => {
   const [sameStartDate, setSameStartDate] = useState(true)
   const { store } = props
 
@@ -50,4 +50,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentWriteOffCollectionDate)

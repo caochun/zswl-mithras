@@ -10,7 +10,7 @@ import AddModal from './AddModal/CpmPaymentApplicationAddModal'
 
 const { Item } = SearchBar
 
-function Index() {
+function CpmPaymentApplicationList() {
   const { options, getKeyOptionsLabelMap } = store
 
   const columns = useMemo(() => {
@@ -193,4 +193,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentApplicationList)

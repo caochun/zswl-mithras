@@ -3,7 +3,7 @@ import { Descriptions } from 'antd'
 import { amountFormat } from '@/utils'
 import styles from './index.less'
 
-function Index({
+function CpmMarginInfo({
   planMarginDate,
   planMarginAmount,
   marginAmount,
@@ -70,4 +70,4 @@ function Index({
   )
 }
 
-export default Index
+export default CpmMarginInfo

@@ -4,7 +4,7 @@ import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useRef, useEffect, useState } from 'react'
 
-function Index({ detail, saveData, canEdit = false }) {
+function CpmPaymentWriteOffPaymentApplyInfo({ detail, saveData, canEdit = false }) {
   const isZhiZu = detail.leaseTypeCode === 'zhi_zu'
   const columns = getDescColumns(ALL_COLUMNS({ isZhiZu }))
   // 出纳节点
@@ -27,4 +27,4 @@ function Index({ detail, saveData, canEdit = false }) {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentWriteOffPaymentApplyInfo)

@@ -4,7 +4,7 @@ import { Input, InputNumber, DatePicker } from 'antd'
 import { Modal, Form } from '@zswl/components'
 import store from './store'
 
-function Index() {
+function CpmMarginRefundDeductionModal() {
   const [form] = Form.useForm()
 
   return (
@@ -35,4 +35,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CpmMarginRefundDeductionModal)

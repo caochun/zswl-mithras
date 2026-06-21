@@ -3,7 +3,7 @@ import { FileTable, NoEnumFileTable } from '@/components/Table'
 
 const MODULE_TYPE = 'PAYMENT'
 
-const Index = ({ mainId, businessVersion, canEdit }) => {
+const CpmPaymentWriteOffReport = ({ mainId, businessVersion, canEdit }) => {
   const params = {
     mainId,
     moduleType: MODULE_TYPE,
@@ -33,4 +33,4 @@ const Index = ({ mainId, businessVersion, canEdit }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(CpmPaymentWriteOffReport)

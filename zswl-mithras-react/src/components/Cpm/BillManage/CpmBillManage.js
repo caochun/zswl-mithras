@@ -7,7 +7,7 @@ import moment from 'moment'
 import Edit from './Edit'
 import { saveServer } from '@/utils'
 
-const Index = ({ store, curBillParams = {}, canEdit = true }) => {
+const CpmBillManage = ({ store, curBillParams = {}, canEdit = true }) => {
   const IS_PAYMENT = curBillParams?.billType === 'PAYMENT'
   const deleteApi = async (data) => {
     Modal.confirm({
@@ -128,4 +128,4 @@ const Index = ({ store, curBillParams = {}, canEdit = true }) => {
   )
 }
 
-export default Index
+export default CpmBillManage

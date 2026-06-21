@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 // moneySymbol = '¥',
 const DefaultPrecisionCont = 2
 
-const Index = (props) => {
+const CpmAmountNumber = (props) => {
   const {
     precision = 2,
     moneySymbol = '',
@@ -95,4 +95,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default CpmAmountNumber

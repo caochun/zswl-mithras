@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Descriptions } from 'antd'
 import styles from './index.less'
 
-function Index({ contractInfo = {} }) {
+function CpmMarginBelongContract({ contractInfo = {} }) {
   const { contractCode, projName, clientName, contractType, bizDept, projSponsorUserName } =
     contractInfo
   return (
@@ -44,4 +44,4 @@ function Index({ contractInfo = {} }) {
   )
 }
 
-export default Index
+export default CpmMarginBelongContract

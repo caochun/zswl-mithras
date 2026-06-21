@@ -8,7 +8,7 @@ import Api from '@/api/cpm/payment/paymentWriteOffDetailApi'
 import { DatePicker } from 'antd'
 import moment from 'moment';
 
-function Index({ detail, canEdit = true, paymentId }) {
+function CpmPaymentWriteOffCollectionConfirm({ detail, canEdit = true, paymentId }) {
   const isZhiZu = detail.leaseTypeCode === 'zhi_zu'
   const [date,setDate] = useState('')
   // 财务节点
@@ -106,4 +106,4 @@ const ZDatePicker = ({ value, onChange, setDate, ...props}) => {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentWriteOffCollectionConfirm)

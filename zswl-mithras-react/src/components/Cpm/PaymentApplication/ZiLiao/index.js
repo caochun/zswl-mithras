@@ -4,7 +4,7 @@ import { FileTable } from '@/components/Table'
 
 const MODULE_TYPE = 'PAYMENT'
 
-const Index = ({ mainId, businessVersion, title }) => {
+const CpmPaymentApplicationMaterials = ({ mainId, businessVersion, title }) => {
   const columns = [{ title: '项目评审资料', dataIndex: 'name' }]
 
   const params = {
@@ -46,4 +46,4 @@ const Index = ({ mainId, businessVersion, title }) => {
     </>
   )
 }
-export default observer(Index)
+export default observer(CpmPaymentApplicationMaterials)

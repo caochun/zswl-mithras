@@ -46,7 +46,7 @@ const TextRender = ({ text, record, style = {} }) => {
   )
 }
 
-const Index = ({ paymentId, style, taskActivityId, canEditFlag, taskStatus, buttonProps }, ref) => {
+const CpmPaymentApplicationPublicInformation = ({ paymentId, style, taskActivityId, canEditFlag, taskStatus, buttonProps }, ref) => {
   const canEditTask = ['1'].includes(taskStatus)
 
   const isProj = isProjmanager()
@@ -343,4 +343,4 @@ const Index = ({ paymentId, style, taskActivityId, canEditFlag, taskStatus, butt
     </>
   )
 }
-export default observer(React.forwardRef(Index))
+export default observer(React.forwardRef(CpmPaymentApplicationPublicInformation))

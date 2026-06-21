@@ -9,7 +9,7 @@ import store from './store'
 import { useEffect, useState } from 'react'
 
 //新增联系人弹窗
-function Index() {
+function CpmMarginRefundRecordsModal() {
   const { addOreditRefund, ourBankInfoData } = store
   const [fileList, setFileList] = useState([])
 
@@ -213,4 +213,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CpmMarginRefundRecordsModal)

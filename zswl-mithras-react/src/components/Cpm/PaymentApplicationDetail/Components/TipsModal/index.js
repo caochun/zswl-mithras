@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Button, Modal } from '@zswl/components'
 import styles from './index.less'
 
-function Index({ store, ...rest }) {
+function CpmPaymentApplicationTipsModal({ store, ...rest }) {
   const { metricNames = [] } = store.getInitialValues() || {}
   return (
     <Modal
@@ -28,4 +28,4 @@ function Index({ store, ...rest }) {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentApplicationTipsModal)

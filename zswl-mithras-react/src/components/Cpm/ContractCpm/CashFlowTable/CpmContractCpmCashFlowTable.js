@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index({ cashArr, store }) {
+function CpmContractCpmCashFlowTable({ cashArr, store }) {
   const { keys } = store.cashFlowTable.getSelected()
   const selectColumn = keys.length !== 0
   const { rentActualCode } = getQuery()
@@ -157,4 +157,4 @@ function Index({ cashArr, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CpmContractCpmCashFlowTable)

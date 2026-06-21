@@ -4,7 +4,7 @@ import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '@/api/cpm/payment/contractPaymentFtpApi'
 
-const Index = ({ detail, taskStatus, taskActivityId, store }) => {
+const CpmPaymentWriteOffPaymentApply = ({ detail, taskStatus, taskActivityId, store }) => {
   const FtpColumns = getDescColumns(ALL_COLUMNS(), [
     'FTP基础价格',
     'FTP山区调整',
@@ -43,4 +43,4 @@ const Index = ({ detail, taskStatus, taskActivityId, store }) => {
   )
 }
 
-export default Index
+export default CpmPaymentWriteOffPaymentApply

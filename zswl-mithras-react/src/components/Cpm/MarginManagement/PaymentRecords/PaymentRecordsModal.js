@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 import store from './store'
 
 //新增联系人弹窗
-function Index() {
+function CpmMarginPaymentRecordsModal() {
   const { addOredit, currentBankInfo } = store
   useEffect(() => {
     return () => {
@@ -172,4 +172,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CpmMarginPaymentRecordsModal)

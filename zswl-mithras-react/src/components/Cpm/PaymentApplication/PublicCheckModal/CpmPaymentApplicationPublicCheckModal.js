@@ -3,7 +3,7 @@ import { InfoCircleOutlined } from '@ant-design/icons'
 import { observer } from '@zswl/admin'
 import { Button, Modal } from '@zswl/components'
 
-const Index = ({ modal, id, submit, canEdit }) => {
+const CpmPaymentApplicationPublicCheckModal = ({ modal, id, submit, canEdit }) => {
   const { customerList = [] } = modal?.getInitialValues() ?? {}
   return (
     <div>
@@ -43,4 +43,4 @@ const Index = ({ modal, id, submit, canEdit }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentApplicationPublicCheckModal)

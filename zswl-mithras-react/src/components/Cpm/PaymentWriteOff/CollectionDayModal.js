@@ -4,7 +4,7 @@ import { rules } from '@/utils'
 
 const { Item } = Form
 
-const Index = ({ store }) => {
+const CpmPaymentWriteOffCollectionDayModal = ({ store }) => {
   return (
     <Modal
       title={'结束投放'}
@@ -32,4 +32,4 @@ const Index = ({ store }) => {
     </Modal>
   )
 }
-export default Index
+export default CpmPaymentWriteOffCollectionDayModal

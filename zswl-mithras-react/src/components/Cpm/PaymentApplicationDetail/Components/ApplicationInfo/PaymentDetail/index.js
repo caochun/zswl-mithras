@@ -8,7 +8,7 @@ import { amountFormat } from '@/utils'
 import styles from '../index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const CpmPaymentApplicationPaymentDetail = ({ store }) => {
   const { applicationEditStatus, page } = store
   const detail = page.getData()
 
@@ -107,4 +107,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CpmPaymentApplicationPaymentDetail)

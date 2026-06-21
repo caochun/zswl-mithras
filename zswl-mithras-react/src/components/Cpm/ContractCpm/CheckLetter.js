@@ -11,7 +11,7 @@ import { saveServer } from '@/utils'
 const { useStore } = Table
 const { Row, Cell } = Table.Summary
 
-const Index = () => {
+const CpmContractCpmCheckLetter = () => {
   const [result, setResult] = useState({})
   const [date, setDate] = useState('')
   const $table = useStore({
@@ -120,4 +120,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(CpmContractCpmCheckLetter)

@@ -7,7 +7,7 @@ import { useMemo } from 'react'
 
 const zbj = '厂商质保金(元)'
 
-const Index = (props) => {
+const CpmPaymentApplicationInfo = (props) => {
   const { canEditFlag, store } = props
   const detail = store.page.getData()
   const { bizTypeCode } = detail
@@ -63,4 +63,4 @@ const Index = (props) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(CpmPaymentApplicationInfo)
