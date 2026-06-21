@@ -38,7 +38,7 @@ const Index = ({ group }) => {
       rowKey={'clientId'}
       editable={false}
       columnsFilter={`${columnsFilterKey}_${group}`}
-      onFilter={(key,val) => saveServer(`${columnsFilterKey}_${group}`,val)}
+      onFilter={(key, val) => saveServer(`${columnsFilterKey}_${group}`, val)}
       scroll={{ x: true }}
       store={table}
       searchbar={{

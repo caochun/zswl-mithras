@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Title from '../../Title'
-import AfterLease from './AfterLease'
+import AfterLease from './AfterLease/CustomerAfterLeasePanel'
 
 const Index = ({ title, iconType }) => {
   return (

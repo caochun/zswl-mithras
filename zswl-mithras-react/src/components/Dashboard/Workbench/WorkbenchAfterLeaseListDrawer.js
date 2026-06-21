@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
 import { cloneElement, useMemo } from 'react'
 
-const AfterLeaseListDrawer = ({ store, getNameColumns }) => {
+const WorkbenchAfterLeaseListDrawer = ({ store, getNameColumns }) => {
   const { curCardData } = store
   const { group, groupCode } = curCardData
   const drawerComponent = getNameColumns(groupCode)
@@ -25,4 +25,4 @@ const AfterLeaseListDrawer = ({ store, getNameColumns }) => {
   )
 }
 
-export default observer(AfterLeaseListDrawer)
+export default observer(WorkbenchAfterLeaseListDrawer)
