@@ -2731,10 +2731,36 @@ const componentDomains = new Set(
 const componentDomainKeys = new Set(
   [...componentDomains].map((domain) => `${domain[0].toLowerCase()}${domain.slice(1)}`)
 )
+const componentDomainPattern = /^[A-Z]/
+const semanticDomainPattern = /^[a-z]/
 const pageRouteDomains = fs
   .readdirSync(path.join(srcDir, 'pages'), { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
+
+for (const componentDomain of componentDomains) {
+  if (!componentDomainPattern.test(componentDomain)) {
+    violations.push({
+      file: `src/components/${componentDomain}`,
+      specifier: 'component domain directories must use PascalCase domain names',
+    })
+  }
+}
+
+for (const semanticDomainRoot of [path.join(srcDir, 'api'), path.join(srcDir, 'utils', 'domains')]) {
+  if (!fs.existsSync(semanticDomainRoot)) {
+    continue
+  }
+
+  for (const entry of fs.readdirSync(semanticDomainRoot, { withFileTypes: true })) {
+    if (entry.isDirectory() && !semanticDomainPattern.test(entry.name)) {
+      violations.push({
+        file: path.relative(root, path.join(semanticDomainRoot, entry.name)),
+        specifier: 'api and utility domain directories must use camelCase domain names',
+      })
+    }
+  }
+}
 
 for (const routeDomain of pageRouteDomains) {
   const aliasedDomain = routeDomainAliases.get(routeDomain)
