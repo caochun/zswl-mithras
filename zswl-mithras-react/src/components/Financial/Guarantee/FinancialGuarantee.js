@@ -59,7 +59,7 @@ const formNameColumns = [
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index() {
+function FinancialGuarantee() {
   const canDelete = store.table.selectedRowKeys.length > 0
   return (
     <Page>
@@ -102,4 +102,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialGuarantee)

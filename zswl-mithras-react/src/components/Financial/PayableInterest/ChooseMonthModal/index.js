@@ -5,7 +5,7 @@ import { rules } from '@/utils'
 import moment from 'moment'
 const { Item } = Form
 
-const Index = ({ store }) => {
+const FinancialPayableInterestChooseMonthModal = ({ store }) => {
   return (
     <Modal title="计提利息" store={store.chooseMonthModal} width={400} destroyOnClose>
       <Form preserve={false}>
@@ -17,4 +17,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPayableInterestChooseMonthModal)

@@ -10,7 +10,7 @@ import Api from '@/api/financial/orgManage'
 import { Summary as TableSummary } from '@/components/Table'
 import { saveServer } from '@/utils'
 
-const Index = ({ id }) => {
+const FinancialGuaranteeUserDetail = ({ id }) => {
   const [sumData, setSumData] = useState({})
   const table = useMemo(
     () =>
@@ -72,4 +72,4 @@ const Index = ({ id }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialGuaranteeUserDetail)

@@ -8,7 +8,7 @@ import { Space } from 'antd'
 import { useMemo } from 'react'
 import { saveServer } from '@/utils'
 
-function Index({ id: parentId }) {
+function FinancialGuaranteeInfo({ id: parentId }) {
   const store = useMemo(() => new Store({ id: parentId }), [parentId])
   const nameColumns = [
     {
@@ -76,4 +76,4 @@ function Index({ id: parentId }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialGuaranteeInfo)

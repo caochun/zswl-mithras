@@ -50,7 +50,7 @@ const InterestTable = observer(({ dataSource, isSummary, getList }) => {
   )
 })
 
-function Index({ params, query: { type } }) {
+function FinancialPayableInterestDetail({ params, query: { type } }) {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -94,4 +94,4 @@ function Index({ params, query: { type } }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPayableInterestDetail)

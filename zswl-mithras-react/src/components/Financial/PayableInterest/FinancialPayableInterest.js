@@ -10,7 +10,7 @@ import { saveServer } from '@/utils'
 const formNameColumns = ['融资编号', '融资渠道', '借款性质']
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index({ path }) {
+function FinancialPayableInterest({ path }) {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -65,4 +65,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPayableInterest)
