@@ -7,7 +7,7 @@ import store from './store'
 import styles from './index.less'
 import { rules } from '@/utils'
 
-function Index() {
+function ProcessCompleteOperation() {
   const { detailData: detail } = useFlowData()
   const {
     processInstanceId,
@@ -175,4 +175,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessCompleteOperation)

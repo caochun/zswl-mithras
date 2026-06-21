@@ -20,7 +20,7 @@ const OPERATE_WIDTH = 400
 // 已经开发了“关键信息”的流程 moduleKey
 const flowMainModuleKey = ['PROJ_REVIEW', 'PAYMENT', 'CONTRACT', 'RATING_CLIENT']
 
-function Index(props) {
+function ProcessDetail(props) {
   const {
     id,
     pathname,
@@ -267,4 +267,4 @@ function Index(props) {
     </div>
   )
 }
-export default observer(Index)
+export default observer(ProcessDetail)

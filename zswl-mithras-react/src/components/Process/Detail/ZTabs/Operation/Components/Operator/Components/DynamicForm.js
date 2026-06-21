@@ -19,7 +19,7 @@ const disabledDate = (current) => {
   return current && moment(current).isBefore(moment(), 'day')
 }
 
-const Index = ({ onAssetClassifyQualitativeAdjust, assetClassifyDisabled, store }) => {
+const ProcessDynamicForm = ({ onAssetClassifyQualitativeAdjust, assetClassifyDisabled, store }) => {
 
   const publicInfoRef = useRef()
   store.publicInfoRef = publicInfoRef
@@ -276,4 +276,4 @@ const Index = ({ onAssetClassifyQualitativeAdjust, assetClassifyDisabled, store 
   return <div>{dynamicFormKeysForRender?.length > 0 ? renderDynamicFormItem([...dynamicFormKeysForRender]) : null}</div>
 }
 
-export default observer(Index)
+export default observer(ProcessDynamicForm)

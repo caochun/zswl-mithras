@@ -8,7 +8,7 @@ import _ from 'lodash'
 import { rules } from '@/utils'
 import flowList from '@/api/process/flowTaskApi'
 
-const Index = (props, ref) => {
+const ProcessBackReason = (props, ref) => {
   const [form] = Form.useForm()
   const descRef = useRef()
   const [nodes, setNodes] = useState([])
@@ -119,4 +119,4 @@ const Index = (props, ref) => {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(ProcessBackReason))

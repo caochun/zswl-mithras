@@ -20,7 +20,7 @@ const { Item } = Form
 const btnList = ['ZL_PR_RE_VOTE', 'VOTE_BACK']
 const agreeList = ['AGREE', 'SUBMIT', 'VOTE_AGREE', 'VOTE_CONDITION_AGREE', 'VOTE_DISAGREE', 'VOTE_ABSTAIN', 'ZL_PR_RECONSIDER']
 
-const Index = ({ store, backRef, setShow, isEditing }) => {
+const ProcessDynamicButtonGroup = ({ store, backRef, setShow, isEditing }) => {
   const { detailData, isRiskManagerProj, triggerCallback } = useFlowData()
   const businessInfoCheckRef = useRef(null)
   const {
@@ -329,4 +329,4 @@ const Index = ({ store, backRef, setShow, isEditing }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessDynamicButtonGroup)

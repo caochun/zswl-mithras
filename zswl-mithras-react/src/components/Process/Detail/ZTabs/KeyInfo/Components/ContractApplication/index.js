@@ -38,7 +38,7 @@ export const bizRender = (val, record) => {
   if (bizTypeVal === 'ZR') return `${bizName}-${zrName}`
 }
 
-const Index = ({}) => {
+const ProcessContractApplicationKeyInfo = ({}) => {
   const { detailData } = useFlowData()
   const { mainModule, businessKey: id, businessVersion, modelKey } = detailData
   const [moduleData, setModuleData] = useState({})
@@ -150,4 +150,4 @@ const Index = ({}) => {
   return <EditDescription detail={{ ...moduleData }} columns={columns} title={''} canEdit={false} />
 }
 
-export default observer(Index)
+export default observer(ProcessContractApplicationKeyInfo)
