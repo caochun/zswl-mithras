@@ -6,7 +6,7 @@ import { useMemo, useRef, useState } from 'react'
 import trackingApi from '@/api/trackEvent/trackingApi'
 import { message } from 'antd'
 
-const Index = ({ projReviewMeetMinuteId, store, params, TrackModalChange }) => {
+const TrackEventAddModal = ({ projReviewMeetMinuteId, store, params, TrackModalChange }) => {
   // const { keys, rows } = store.table.getSelected()
   const isLedger = !params?.bizId
   const [modalType, setModalType] = useState('add')
@@ -95,4 +95,4 @@ const Index = ({ projReviewMeetMinuteId, store, params, TrackModalChange }) => {
   )
 }
 
-export default observer(Index)
+export default observer(TrackEventAddModal)

@@ -6,7 +6,7 @@ import { App, Select } from '@zswl/components'
 import trackingApi from '@/api/trackEvent/trackingApi'
 import { getLocalStorage } from '@zswl/admin'
 
-function Index({ dataSource, canEdit = true }, ref) {
+function TrackEventTrackingTask({ dataSource, canEdit = true }, ref) {
   const descRef = useRef()
 
   const userInfo = getLocalStorage('userInfo')
@@ -74,4 +74,4 @@ function Index({ dataSource, canEdit = true }, ref) {
   )
 }
 
-export default forwardRef(Index)
+export default forwardRef(TrackEventTrackingTask)

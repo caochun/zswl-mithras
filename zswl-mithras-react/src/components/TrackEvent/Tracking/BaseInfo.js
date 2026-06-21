@@ -8,7 +8,7 @@ import trackingApi from '@/api/trackEvent/trackingApi'
 import contractInfoApi from '@/api/trackEvent/contractInfoApi'
 import _ from 'lodash'
 
-function Index({ dataSource, canEdit = true, params }, ref) {
+function TrackEventBaseInfo({ dataSource, canEdit = true, params }, ref) {
   const disabled = !_.isEmpty(params)
   useEffect(() => {
     if (params?.contractCode) {
@@ -133,4 +133,4 @@ function Index({ dataSource, canEdit = true, params }, ref) {
   )
 }
 
-export default forwardRef(Index)
+export default forwardRef(TrackEventBaseInfo)

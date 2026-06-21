@@ -10,7 +10,7 @@ import TrackingTask from '../TrackingTask'
 import trackingApi from '@/api/trackEvent/trackingApi'
 import { saveServer } from '@/utils'
 
-function Index({ path, type, defaultData,projReviewMeetMinuteId='' }) {
+function TrackEventList({ path, type, defaultData,projReviewMeetMinuteId='' }) {
   const store = useMemo(() => new Store(), [])
   const { keys, rows } = store.table.getSelected()
   const [detail, setDetail] = useState({})
@@ -113,4 +113,4 @@ function Index({ path, type, defaultData,projReviewMeetMinuteId='' }) {
   )
 }
 
-export default observer(Index)
+export default observer(TrackEventList)

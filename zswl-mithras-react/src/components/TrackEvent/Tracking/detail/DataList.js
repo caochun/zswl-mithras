@@ -1,6 +1,6 @@
 import { NoEnumFileTable } from '@/components/Table'
 
-const Index = (props) => {
+const TrackEventDataList = (props) => {
   const { mainId, canEdit = true, businessVersion } = props
 
   const columns = [
@@ -25,4 +25,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default TrackEventDataList

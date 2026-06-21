@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import TrackList from '../Tracking/List/TrackEventList'
 import { useState } from 'react'
 
-const Index = ({ projReviewMeetMinuteId ='',params }) => {
+const TrackEventModal = ({ projReviewMeetMinuteId ='',params }) => {
   const [open, setOpen] = useState(false)
 
   const showDrawer = () => {
@@ -25,4 +25,4 @@ const Index = ({ projReviewMeetMinuteId ='',params }) => {
   )
 }
 
-export default observer(Index)
+export default observer(TrackEventModal)
