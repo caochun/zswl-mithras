@@ -24,7 +24,7 @@ const canEditFormFileExtension = (filename) => {
 const getId = (id) => {
   return id?.value ?? id
 }
-const Index = (props, ref) => {
+const FileTableMe = (props, ref) => {
   const {
     tableApi,
     uploadApi,
@@ -449,4 +449,4 @@ const Index = (props, ref) => {
     </div>
   )
 }
-export default observer(forwardRef(Index))
+export default observer(forwardRef(FileTableMe))

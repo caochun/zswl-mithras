@@ -13,7 +13,7 @@ import styles from './index.less'
 import RenameModal from './renameModal'
 import { canEditFormFileExtension, getCanDelete, getCanEdit, getDisableFolder, getDownload, getId, getRename, parts } from './utils'
 
-const Index = (props, ref) => {
+const FileTable = (props, ref) => {
   const {
     tableApi,
     uploadApi,
@@ -471,4 +471,4 @@ const Index = (props, ref) => {
     </div>
   )
 }
-export default observer(forwardRef(Index))
+export default observer(forwardRef(FileTable))

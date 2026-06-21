@@ -1,7 +1,7 @@
 import { FormAmount } from '@/components/Form'
 import { Table } from '@zswl/components'
 
-export default function Index({
+export default function TableSummary({
   columns,
   title = '总计',
   sumData = {},

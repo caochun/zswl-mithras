@@ -33,7 +33,7 @@ const Desc = ({ detail, isReconsider, ...rest }) => {
   ]
   return <EditDescription title={null} detail={detail} initEdit={false} columns={items} {...rest} />
 }
-function Index({ data = {}, hasTitle = true, showLast = false, canEdit, params }) {
+function ApprovalDetail({ data = {}, hasTitle = true, showLast = false, canEdit, params }) {
   let { remarkType, id } = data
   const defaultRemarkJsonList =
     showLast && remarkJsonList?.length > 0
@@ -92,4 +92,4 @@ function Index({ data = {}, hasTitle = true, showLast = false, canEdit, params }
   )
 }
 
-export default observer(Index)
+export default observer(ApprovalDetail)

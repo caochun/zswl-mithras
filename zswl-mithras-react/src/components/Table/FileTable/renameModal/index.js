@@ -6,7 +6,7 @@ import { http } from '@zswl/admin'
 import { saveServer } from '@/utils'
 import { observer } from '@zswl/admin'
 
-function Index({ record,form,modalStore ,handleOk}) {
+function FileRenameModal({ record,form,modalStore ,handleOk}) {
     return (
         <Modal       
             // onCancel={handleCancel}
@@ -24,4 +24,4 @@ function Index({ record,form,modalStore ,handleOk}) {
     )
 }
 
-export default observer(Index)
+export default observer(FileRenameModal)

@@ -8,7 +8,7 @@ const init_columns = [
   { title: '变更时间', dataIndex: 'gmtModify', dateFormat: 'yyyy-MM-DD HH:mm:ss' },
   { title: '变更创建人', dataIndex: 'operatorName' },
 ]
-function Index({ getListApi, params, toDifferentInfo, columns = init_columns }) {
+function VersionTable({ getListApi, params, toDifferentInfo, columns = init_columns }) {
   const tableLog = useMemo(() => {
     return new TableStore({
       request: async () => {
@@ -55,4 +55,4 @@ function Index({ getListApi, params, toDifferentInfo, columns = init_columns }) 
   )
 }
 
-export default Index
+export default VersionTable

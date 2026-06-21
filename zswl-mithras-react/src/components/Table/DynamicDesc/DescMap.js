@@ -28,7 +28,7 @@ const CheckBoxEle = ({ value, onChange, options }) => {
 }
 
 const contentStyle = { width: 230, maxWidth: 230 }
-function Index({ contentList, editable, required = false, groupName }, ref) {
+function DynamicDescMap({ contentList, editable, required = false, groupName }, ref) {
   const getItems = (list) => {
     const reduceList = list.reduce((pre, cur) => {
       // 根据templateTitle 聚合
@@ -180,4 +180,4 @@ function Index({ contentList, editable, required = false, groupName }, ref) {
   )
 }
 
-export default forwardRef(Index)
+export default forwardRef(DynamicDescMap)

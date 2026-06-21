@@ -6,7 +6,7 @@ import { isElement, isString } from 'lodash'
 import { saveServer } from '@/utils'
 
 
-function Index(
+function EditTable(
   {
     columns,
     title,
@@ -95,4 +95,4 @@ function Index(
   )
 }
 
-export default forwardRef(Index)
+export default forwardRef(EditTable)

@@ -4,7 +4,7 @@ import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'reac
 import DescMap from './DescMap'
 import { Button, message, Space } from 'antd'
 
-function Index(props, ref) {
+function DynamicDesc(props, ref) {
   const { contentData = [], title, saveApi, required, canEdit, initEdit = false } = props
   const DescRef = useRef({})
   function getRef(dom, groupName) {
@@ -79,4 +79,4 @@ function Index(props, ref) {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(DynamicDesc))

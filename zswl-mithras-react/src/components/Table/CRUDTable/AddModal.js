@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 
 //新增联系人弹窗
-function Index({ store, columns }) {
+function CRUDTableAddModal({ store, columns }) {
   return (
     <Modal title={'新增'} store={store} okText={'确定'} width={480} destroyOnClose>
       <Form
@@ -18,4 +18,4 @@ function Index({ store, columns }) {
   )
 }
 
-export default observer(Index)
+export default observer(CRUDTableAddModal)

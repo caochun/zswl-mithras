@@ -5,7 +5,7 @@ import AddModal from './AddModal'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-function Index(props, ref) {
+function CRUDTable(props, ref) {
   const {
     columns,
     title,
@@ -119,4 +119,4 @@ function Index(props, ref) {
   )
 }
 
-export default forwardRef(Index)
+export default forwardRef(CRUDTable)

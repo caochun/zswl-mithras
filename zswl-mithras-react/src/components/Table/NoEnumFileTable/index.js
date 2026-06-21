@@ -13,7 +13,7 @@ import { saveServer } from '@/utils'
 
 const OFFICE_SUFFIX = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'txt', 'wps']
 
-const Index = (props, ref) => {
+const NoEnumFileTable = (props, ref) => {
   const {
     tableApi,
     uploadApi,
@@ -341,4 +341,4 @@ export const noEnumDownloadAll = async (params) => {
   }
   return await batchDownloadFile({ ...params, fileId: res?.list?.map(({ id }) => id) })
 }
-export default observer(forwardRef(Index))
+export default observer(forwardRef(NoEnumFileTable))
