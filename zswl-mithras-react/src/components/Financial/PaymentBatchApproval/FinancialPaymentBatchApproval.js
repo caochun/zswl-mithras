@@ -9,7 +9,7 @@ import DataList from './DataList'
 import { EditDescription, Summary } from '@/components/Table'
 import { saveServer } from '@/utils'
 
-function Index({ params: { id }, query: { canEditFlags = 'true', businessVersion, repayMonth } }) {
+function FinancialPaymentBatchApproval({ params: { id }, query: { canEditFlags = 'true', businessVersion, repayMonth } }) {
   const detail = store.page.getData()
   const { sumData } = store
   const columns = useMemo(() => {
@@ -92,4 +92,4 @@ function Index({ params: { id }, query: { canEditFlags = 'true', businessVersion
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentBatchApproval)

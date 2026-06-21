@@ -10,7 +10,7 @@ import FundApi from '@/api/financial/fundApi'
 import { useEffect, useMemo, useState } from 'react'
 import { FormAmount } from '@/components/Form'
 
-function Index(props) {
+function FinancialFundFormGuarantee(props) {
   const { listName, addText = '请添加担保方', value } = props
   const [init, setInit] = useState(true)
   return (
@@ -161,7 +161,7 @@ const FormListItem = ({ fields, add, remove, addText, required, fieldKey }) => {
   )
 }
 
-Index.Detail = ({ value, isYT }) => {
+FinancialFundFormGuarantee.Detail = ({ value, isYT }) => {
   const toDetail = (id) => {
     history.push(`/financial/guarantee/detail/${id}`)
   }
@@ -197,4 +197,4 @@ Index.Detail = ({ value, isYT }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(FinancialFundFormGuarantee)

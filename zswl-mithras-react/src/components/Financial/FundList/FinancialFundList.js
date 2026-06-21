@@ -47,7 +47,7 @@ const nameColumns = [
 ]
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 
-function Index() {
+function FinancialFundList() {
   const [isClear, setClear] = useState(false)
   const store = useMemo(() => {
     return new Store()
@@ -208,4 +208,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundList)

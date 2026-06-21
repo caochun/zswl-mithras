@@ -8,7 +8,7 @@ import _ from 'lodash'
 import { FormAmount } from '@/components/Form'
 import { OrgListSelect } from '../../Select'
 
-function Index(props) {
+function FinancialFundFormOrg(props) {
   const { listName, addText = '请添加融资机构', value } = props
   return (
     <Form.List name={listName} initialValue={value}>
@@ -132,7 +132,7 @@ const FormListItem = ({ fields, add, remove, addText, required, fieldKey }) => {
   )
 }
 
-Index.Detail = ({ value }) => {
+FinancialFundFormOrg.Detail = ({ value }) => {
   const toDetail = (id) => {
     history.push(`/financial/guarantee/detail/${id}`)
   }
@@ -159,4 +159,4 @@ Index.Detail = ({ value }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(FinancialFundFormOrg)

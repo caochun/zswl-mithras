@@ -8,7 +8,7 @@ import Api from '@/api/financial/fundApi'
 
 const { Item } = Form
 
-function Index({ store }) {
+function FinancialFundListCreateModal({ store }) {
   const [form] = Form.useForm()
   const [orgId, setOrgId] = useState('')
   const [projectList, setProjectList] = useState([])
@@ -137,4 +137,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundListCreateModal)

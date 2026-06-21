@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { NoEnumFileTable } from '@/components/Table'
 
 const MODULE_TYPE = 'BATCH_FUND_RECEIPT_REPAY'
-const Index = ({ id: mainId, businessVersion, canEdit = true }) => {
+const FinancialPaymentBatchApprovalDataList = ({ id: mainId, businessVersion, canEdit = true }) => {
   const columns = [
     { title: '资料清单', dataIndex: 'name' },
     { title: '上传人', dataIndex: 'createByName' },
@@ -17,4 +17,4 @@ const Index = ({ id: mainId, businessVersion, canEdit = true }) => {
   }
   return <NoEnumFileTable title={'资料清单'} params={params} canEdit={canEdit} columns={columns} />
 }
-export default observer(Index)
+export default observer(FinancialPaymentBatchApprovalDataList)
