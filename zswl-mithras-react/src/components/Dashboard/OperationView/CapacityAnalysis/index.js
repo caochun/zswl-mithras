@@ -10,7 +10,6 @@ import ListDrawer from './ListDrawer'
 import DepartCharts from './DepartCharts'
 import PersonCharts from './PersonCharts'
 import Store from './Store'
-import styles from './index.less'
 
 const { Item } = SearchBar
 const { RangePicker } = DatePicker

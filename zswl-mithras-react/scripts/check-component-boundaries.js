@@ -1708,6 +1708,10 @@ const removedLegacyStyleFiles = new Map([
     'src/components/Risk/PublicMonitorDetail/style.less',
     'component-local styles in RiskPublicMonitorDetail when needed',
   ],
+  [
+    'src/components/Dashboard/OperationView/CapacityAnalysis/index.less',
+    'component-local styles in Dashboard CapacityAnalysis when needed',
+  ],
 ])
 const removedLegacyPublicAssetFiles = new Map([
   [
