@@ -7,7 +7,7 @@ import { Input, DatePicker, Cascader, InputNumber } from 'antd'
 const { Item } = Form
 
 //新增关联企业
-function Index({ store }) {
+function CustomerMaintainEnterprisesModal({ store }) {
   const { allIndustry } = App.getData().optionsType
   return (
     <Modal
@@ -77,4 +77,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainEnterprisesModal)

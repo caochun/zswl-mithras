@@ -9,7 +9,7 @@ const disabledDate = (current) => {
   return current && current > moment().endOf('day')
 }
 //新增发债和评级
-function Index({ store }) {
+function CustomerMaintainIssueBondsModal({ store }) {
   return (
     <Modal
       title={'发债及评级'}
@@ -60,4 +60,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainIssueBondsModal)

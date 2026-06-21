@@ -6,7 +6,7 @@ import { Input } from 'antd'
 const { Item } = Form
 
 //新增地址
-function Index({ id, store }) {
+function CustomerMaintainSpouseModal({ id, store }) {
   const { spouseList, spouseData } = store
   const [form] = Form.useForm()
   useEffect(() => {
@@ -39,4 +39,4 @@ function Index({ id, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainSpouseModal)

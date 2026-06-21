@@ -9,7 +9,7 @@ const selectData = [
   { label: '否', value: false },
 ]
 //新增联系人弹窗
-function Index({ store }) {
+function CustomerMaintainContactModal({ store }) {
   return (
     <Modal
       title={'联系人信息'}
@@ -51,4 +51,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainContactModal)

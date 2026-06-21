@@ -38,7 +38,7 @@ const diffNode = (obj, type) => {
     </Tooltip>
   )
 }
-function Index({ id, canEditFlag, businessVersion, startUserId }) {
+function CustomerMaintainSpouse({ id, canEditFlag, businessVersion, startUserId }) {
   const store = useMemo(
     () => new Store(id, businessVersion, startUserId),
     [id, businessVersion, startUserId]
@@ -110,4 +110,4 @@ function Index({ id, canEditFlag, businessVersion, startUserId }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainSpouse)
