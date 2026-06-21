@@ -9,7 +9,7 @@ import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 import { JumpContractDetail, JumpProjDetail } from '../../Shared/JumpDetail'
 
-const Index = ({
+const FinancialFundDetailProperty = ({
   financingId,
   isFormApproval,
   businessVersion,
@@ -94,4 +94,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundDetailProperty)

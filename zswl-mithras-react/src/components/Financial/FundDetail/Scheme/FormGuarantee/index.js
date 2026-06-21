@@ -9,7 +9,7 @@ import Api from '@/api/financial/orgManage'
 import { useEffect, useState } from 'react'
 import { FormAmount } from '@/components/Form'
 
-function Index(props) {
+function FinancialFundDetailFormGuarantee(props) {
   const { listName, addText = '请添加担保方', value, orgList, isYT, baseInfoDetail, rules } = props
   const [init, setInit] = useState(true)
   useEffect(() => {
@@ -210,7 +210,7 @@ const FormListItem = ({
   )
 }
 
-Index.Detail = ({ value, isYT }) => {
+FinancialFundDetailFormGuarantee.Detail = ({ value, isYT }) => {
   const toDetail = (id) => {
     history.push(`/financial/guarantee/detail/${id}`)
   }
@@ -243,4 +243,4 @@ Index.Detail = ({ value, isYT }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(FinancialFundDetailFormGuarantee)

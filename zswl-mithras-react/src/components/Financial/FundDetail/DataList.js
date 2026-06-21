@@ -53,7 +53,7 @@ const ENUM_TYPE_MAP = {
   SYNDICATIONS: 'fundFinancingMaterialsEnumOther',
   OTHER: 'fundFinancingMaterialsEnumOther',
 }
-const Index = (props) => {
+const FinancialFundDetailDataList = (props) => {
   const { financingId: mainId, canEdit = true, businessVersion, baseInfoData, processType } = props
   const isRecordFlow = processType === 'FinancingRecordFlow'
   const enumType = ENUM_TYPE_MAP[baseInfoData?.businessType]
@@ -95,4 +95,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default FinancialFundDetailDataList

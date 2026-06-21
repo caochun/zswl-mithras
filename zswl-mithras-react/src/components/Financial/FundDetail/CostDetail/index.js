@@ -9,7 +9,7 @@ import styles from './index.less'
 import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 
-const Index = ({
+const FinancialFundCostDetail = ({
   financingId,
   isFormApproval,
   businessVersion,
@@ -82,4 +82,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundCostDetail)

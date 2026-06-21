@@ -8,7 +8,7 @@ import { MatchOptionColumn } from '@/components/Format'
 import { App } from '@zswl/components'
 import FormGuarantee from '../../FundForm/FormGuarantee/FinancialFundFormGuarantee'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit, isOtherChange }) {
+function FinancialFundDetailBaseInfo({ detail, saveData, isLog, canEdit = true, initEdit, isOtherChange }) {
   const ref = useRef()
   const isYT = detail.businessType === 'SYNDICATIONS'
   const { fundFinancingBizTypeEnum } = App.getData().optionsType
@@ -77,4 +77,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, isOtherChang
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundDetailBaseInfo)

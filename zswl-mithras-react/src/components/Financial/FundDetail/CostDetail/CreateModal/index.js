@@ -6,7 +6,7 @@ import { Input, DatePicker, Checkbox } from 'antd'
 
 const { Item } = Form
 
-function Index({ store, detail }) {
+function FinancialFundCostDetailCreateModal({ store, detail }) {
   const [form] = Form.useForm()
   const isYT = detail.businessType === 'SYNDICATIONS'
   return (
@@ -60,4 +60,4 @@ function Index({ store, detail }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundCostDetailCreateModal)

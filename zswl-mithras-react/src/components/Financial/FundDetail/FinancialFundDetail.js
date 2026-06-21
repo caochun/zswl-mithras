@@ -18,7 +18,7 @@ import { ApprovalDetail } from '@/components/Table'
 import CostDetail from './CostDetail'
 import Property from './Property'
 
-const Index = (props = {}) => {
+const FinancialFundDetail = (props = {}) => {
   const { id } = props.params ?? {}
   const {
     businessVersion,
@@ -161,4 +161,4 @@ const Index = (props = {}) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundDetail)

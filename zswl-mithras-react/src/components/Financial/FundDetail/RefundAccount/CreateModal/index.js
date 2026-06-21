@@ -9,7 +9,7 @@ import Api from '@/api/financial/fundApi'
 
 const { Item } = Form
 
-function Index({ store }) {
+function FinancialFundRefundAccountCreateModal({ store }) {
   const { curItem } = store
   const [form] = Form.useForm()
   const [accountBank, setAccountBank] = useState()
@@ -123,4 +123,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundRefundAccountCreateModal)

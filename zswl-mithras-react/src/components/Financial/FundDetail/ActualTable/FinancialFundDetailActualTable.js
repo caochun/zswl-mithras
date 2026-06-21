@@ -4,7 +4,7 @@ import ActualTable from '../../FundActualTable/FinancialFundActualTable'
 import styles from './index.less'
 import { compareTableData } from '@/utils'
 
-function Index({
+function FinancialFundDetailActualTable({
   financingId,
   businessVersion,
   canEdit,
@@ -50,4 +50,4 @@ function Index({
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundDetailActualTable)

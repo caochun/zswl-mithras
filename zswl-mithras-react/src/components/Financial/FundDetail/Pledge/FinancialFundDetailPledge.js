@@ -11,7 +11,7 @@ import Store from './store'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ financingId, isFormApproval, businessVersion, canEdit = true, detail }) => {
+const FinancialFundDetailPledge = ({ financingId, isFormApproval, businessVersion, canEdit = true, detail }) => {
   const store = useMemo(() => {
     return new Store({ businessVersion, isFormApproval, financingId, detail })
   }, [businessVersion, isFormApproval, financingId, detail])
@@ -215,4 +215,4 @@ const Index = ({ financingId, isFormApproval, businessVersion, canEdit = true, d
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundDetailPledge)

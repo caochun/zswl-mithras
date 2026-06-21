@@ -13,7 +13,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = Form
 
-const Index = ({
+const FinancialFundDetailEstimateTable = ({
   financingId,
   isFormApproval,
   businessVersion,
@@ -145,4 +145,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundDetailEstimateTable)

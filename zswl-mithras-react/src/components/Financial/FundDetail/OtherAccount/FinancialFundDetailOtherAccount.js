@@ -7,7 +7,7 @@ import Api from '@/api/financial/fundApi'
 const nameColumns = ['银行名称', '银行账号', '账户性质', '账户类别']
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 
-const Index = ({ financingId, businessVersion, canEdit, detail }) => {
+const FinancialFundDetailOtherAccount = ({ financingId, businessVersion, canEdit, detail }) => {
   const isFormApproval = getQuery('typeId') == 'approval'
 
   const getList = async (params) => {
@@ -50,4 +50,4 @@ const Index = ({ financingId, businessVersion, canEdit, detail }) => {
     />
   )
 }
-export default observer(Index)
+export default observer(FinancialFundDetailOtherAccount)

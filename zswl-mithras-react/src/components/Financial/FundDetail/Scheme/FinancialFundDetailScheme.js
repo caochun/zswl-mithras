@@ -20,7 +20,7 @@ const mathjs = create(all, {
   precision: 20,
 })
 
-function Index(
+function FinancialFundDetailScheme(
   {
     financingId,
     isFormApproval,
@@ -177,4 +177,4 @@ function Index(
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(FinancialFundDetailScheme))

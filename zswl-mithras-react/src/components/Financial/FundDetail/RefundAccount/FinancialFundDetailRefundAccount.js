@@ -10,7 +10,7 @@ import styles from './index.less'
 import { MatchOptionColumn, RenderColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 
-const Index = ({ financingId, isFormApproval, businessVersion, canEdit = true, detail }) => {
+const FinancialFundDetailRefundAccount = ({ financingId, isFormApproval, businessVersion, canEdit = true, detail }) => {
   const store = useMemo(() => {
     return new Store({ businessVersion, isFormApproval, financingId, detail })
   }, [businessVersion, isFormApproval, financingId, detail])
@@ -105,4 +105,4 @@ const Index = ({ financingId, isFormApproval, businessVersion, canEdit = true, d
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundDetailRefundAccount)
