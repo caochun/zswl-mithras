@@ -1,7 +1,7 @@
 import BridgeIframe from './BridgeIframe'
 
-const Index = () => {
+const JfBulletinBoard = () => {
   return <BridgeIframe frontend="http://10.158.12.119" path="/bulletinBoard" />
 }
 
-export default Index
+export default JfBulletinBoard

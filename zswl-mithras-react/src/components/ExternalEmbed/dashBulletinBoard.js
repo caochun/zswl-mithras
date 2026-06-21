@@ -1,7 +1,7 @@
 import BridgeIframe from './BridgeIframe'
 
-const Index = () => {
+const DashBulletinBoard = () => {
   return <BridgeIframe frontend="http://gljsc.zjzsfh.com" path="dash/screen/lease" />
 }
 
-export default Index
+export default DashBulletinBoard
