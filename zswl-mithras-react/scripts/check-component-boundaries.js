@@ -1844,6 +1844,7 @@ const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const componentEntryReExportOnlyPattern =
   /^\s*(?:export\s+\{[^}]+\}\s+from\s+['"][^'"]+['"]\s*;?\s*)+$/
+const componentEntryReExportPattern = /export\s+\{[^}]+\}\s+from\s+['"][^'"]+['"]/g
 const componentEntryAbsoluteComponentImportPattern = /from\s+['"]@\/components\//
 const stabilizedComponentRootImports = new Map([
   ['BlackGrayHit', 'BlackGray/BlackGrayHitEntries'],
@@ -2761,6 +2762,14 @@ for (const filePath of componentEntryFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'component entry files must use relative re-export paths',
+    })
+  }
+
+  const reExportCount = [...source.matchAll(componentEntryReExportPattern)].length
+  if (reExportCount > 2) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component entry files must expose at most two closely related re-exports',
     })
   }
 }
