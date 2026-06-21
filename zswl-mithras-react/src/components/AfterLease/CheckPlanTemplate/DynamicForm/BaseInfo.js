@@ -27,7 +27,7 @@ const nameColumns = [
   '协查风控经理',
 ]
 
-function Index({ detail, saveData, active, canEdit = true }) {
+function AfterLeaseCheckPlanTemplateBaseInfo({ detail, saveData, active, canEdit = true }) {
   const nameColumns2 = [
     '客户名称',
     [3, 4].includes(active) && '担保人名称',
@@ -70,4 +70,4 @@ function Index({ detail, saveData, active, canEdit = true }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanTemplateBaseInfo)

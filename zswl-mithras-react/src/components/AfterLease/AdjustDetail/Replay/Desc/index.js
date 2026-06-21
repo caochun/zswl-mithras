@@ -5,7 +5,12 @@ import { observer } from '@zswl/admin'
 import { FounderSelect } from '@/components/Select'
 import styles from '../../index.less'
 
-const Index = ({ showValue, detail = {}, isLog, compareChangeList = [] }) => {
+const AfterLeaseAdjustRepaymentPlanDescription = ({
+  showValue,
+  detail = {},
+  isLog,
+  compareChangeList = [],
+}) => {
   const getDetailValue = (key) => {
     if (isLog) {
       return detail[key]?.value
@@ -172,4 +177,4 @@ const Index = ({ showValue, detail = {}, isLog, compareChangeList = [] }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseAdjustRepaymentPlanDescription)

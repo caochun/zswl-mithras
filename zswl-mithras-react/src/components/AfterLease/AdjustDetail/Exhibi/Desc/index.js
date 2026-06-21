@@ -15,7 +15,12 @@ const bizTypeMapExtTitle = {
   ZR: '新转让额度有效期(月)',
 }
 
-const Index = ({ showValue, detail = {}, isLog, compareChangeList = [] }) => {
+const AfterLeaseAdjustExhibitionPlanDescription = ({
+  showValue,
+  detail = {},
+  isLog,
+  compareChangeList = [],
+}) => {
   const getDetailValue = (key) => {
     if (isLog) {
       return detail[key]?.value
@@ -248,4 +253,4 @@ const Index = ({ showValue, detail = {}, isLog, compareChangeList = [] }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseAdjustExhibitionPlanDescription)
