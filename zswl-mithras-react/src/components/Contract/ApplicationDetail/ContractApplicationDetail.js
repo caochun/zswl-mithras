@@ -6,14 +6,14 @@ import { DetailLayout } from '@/components/Layout'
 import BaseInfo from '../BaseInfo/ContractBaseInfo'
 import GaiSuanZuJin from './GaiSuanZuJin'
 import ShiJiZuJin from './ShiJiZuJin'
-import ChengZuRen from './ChengZuRen' // 租赁、转租赁场景 - ZL、ZZ
-import HuiKuan from './HuiKuan' // 保理、债权转让场景- BL、ZR
-import ShouKuan from './ShouKuan'
+import ChengZuRen from './ChengZuRen/ContractApplicationLessee' // 租赁、转租赁场景 - ZL、ZZ
+import HuiKuan from './HuiKuan/ContractRepaymentAccount' // 保理、债权转让场景- BL、ZR
+import ShouKuan from './ShouKuan/ContractReceiptAccount'
 import BaoJia from '../Detail/BaoJia'
 import { Context } from '../Detail/Context'
 import ZuLinWu from '../Detail/LeaseItemList'
 import DanBao from './DanBao'
-import ZhiYa from './ZhiYa'
+import ZhiYa from './ZhiYa/ContractApplicationPledge'
 import DiYa from './DiYa'
 import HeTong from '../ContractText/ContractText'
 import ZiLiao from '../ContractMaterials/ContractMaterials'
