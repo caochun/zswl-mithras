@@ -1703,6 +1703,10 @@ const removedLegacyComponentFiles = new Map([
 ])
 const removedLegacyStyleFiles = new Map([
   ['src/components/commonLess/animation.less', 'src/app.less'],
+  [
+    'src/components/Risk/PublicMonitorDetail/style.less',
+    'component-local styles in RiskPublicMonitorDetail when needed',
+  ],
 ])
 const legacyRouteStringRules = [
   {
