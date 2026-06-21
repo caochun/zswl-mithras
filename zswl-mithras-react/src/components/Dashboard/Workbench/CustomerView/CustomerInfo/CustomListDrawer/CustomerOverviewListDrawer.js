@@ -3,7 +3,7 @@ import { Drawer } from '@zswl/components'
 import { useMemo, cloneElement } from 'react'
 import { getNameColumns } from '../Config'
 
-const Index = ({ store }) => {
+const CustomerOverviewListDrawer = ({ store }) => {
   const { curCardData } = store
   const { group, groupCode } = curCardData
   const drawerComponent = getNameColumns(groupCode)
@@ -26,4 +26,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerOverviewListDrawer)

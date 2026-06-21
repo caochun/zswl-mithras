@@ -2,7 +2,7 @@ import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import { RiskPublicMonitor as PublicMonitor } from '@/components/Risk/PublicMonitorListEntries'
 import styles from './index.less'
 
-const Index = () => {
+const CustomerPublicMonitorPanel = () => {
   return (
     <div className={styles.content}>
       <CardPanelFieldsFilter title={'客户舆情'}>
@@ -29,4 +29,4 @@ const Index = () => {
     </div>
   )
 }
-export default Index
+export default CustomerPublicMonitorPanel

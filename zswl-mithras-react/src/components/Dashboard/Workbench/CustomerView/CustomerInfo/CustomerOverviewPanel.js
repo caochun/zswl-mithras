@@ -3,11 +3,11 @@ import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import StagePanel from '../../../StagePanel'
 import { columnsFilterKey } from './Config'
-import CustomListDrawer from './CustomListDrawer/CustomerOverviewListDrawer'
+import CustomerOverviewListDrawer from './CustomListDrawer/CustomerOverviewListDrawer'
 import Store from './Store'
 import styles from './index.less'
 
-const Index = () => {
+const CustomerOverviewPanel = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -44,9 +44,9 @@ const Index = () => {
           )
         }}
       </CardPanelFieldsFilter>
-      <CustomListDrawer store={store} />
+      <CustomerOverviewListDrawer store={store} />
     </>
   )
 }
 
-export default observer(Index)
+export default observer(CustomerOverviewPanel)
