@@ -11,7 +11,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index({ path, ...props }) {
+function CustomerMonitoring({ path, ...props }) {
   const [directions, setDirections] = React.useState([])
   const onChange = (key) => {}
   const LightStatus = ({ level }) => {
@@ -314,4 +314,4 @@ function Index({ path, ...props }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMonitoring)

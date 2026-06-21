@@ -23,7 +23,7 @@ const diffNode = (obj, type) => {
     </Tooltip>
   )
 }
-function Index({ clientType, canEditFlag, id, businessVersion, startUserId }) {
+function CustomerBankAccount({ clientType, canEditFlag, id, businessVersion, startUserId }) {
   const store = useMemo(
     () => new Store(id, businessVersion, startUserId),
     [id, businessVersion, startUserId]
@@ -121,4 +121,4 @@ function Index({ clientType, canEditFlag, id, businessVersion, startUserId }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerBankAccount)

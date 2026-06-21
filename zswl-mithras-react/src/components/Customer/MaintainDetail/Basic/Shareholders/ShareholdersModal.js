@@ -8,7 +8,7 @@ const selectData = [
   { label: '否', value: false },
 ]
 //新增联系人弹窗
-function Index({ store }) {
+function CustomerShareholdersModal({ store }) {
   return (
     <Modal
       title={'股东信息'}
@@ -74,4 +74,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerShareholdersModal)

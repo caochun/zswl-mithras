@@ -40,7 +40,7 @@ const ALL_COLUMNS = [
   },
 ]
 
-function Index({ store, canEdit }, ref) {
+function CustomerHandoverBaseInfo({ store, canEdit }, ref) {
   const columns = getDescColumns(ALL_COLUMNS)
   const detail = store.page.getData()
   const { isFormApproval } = store.page.getParams()
@@ -65,4 +65,4 @@ function Index({ store, canEdit }, ref) {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(CustomerHandoverBaseInfo))

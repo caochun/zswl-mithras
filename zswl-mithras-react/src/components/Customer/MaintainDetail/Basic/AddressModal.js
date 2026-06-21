@@ -5,7 +5,7 @@ import { Input, Radio, Cascader } from 'antd'
 const { TextArea } = Input
 const { Item } = Form
 //新增地址
-function Index({ store }) {
+function CustomerAddressModal({ store }) {
   const { regionList, countryID } = store
   const [form] = Form.useForm()
   const [flag, setFlag] = useState(false)
@@ -108,4 +108,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerAddressModal)

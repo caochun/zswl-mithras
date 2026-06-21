@@ -53,7 +53,7 @@ const diffNode = (obj, type) => {
     </Tooltip>
   )
 }
-function Index({ canEditFlag, id, businessVersion, startUserId }) {
+function CustomerShareholders({ canEditFlag, id, businessVersion, startUserId }) {
   store.clientId = id
   store.businessVersion = businessVersion
   store.startUserId = startUserId
@@ -181,4 +181,4 @@ function Index({ canEditFlag, id, businessVersion, startUserId }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerShareholders)

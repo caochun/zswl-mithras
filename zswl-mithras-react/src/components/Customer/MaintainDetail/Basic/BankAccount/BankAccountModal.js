@@ -10,7 +10,7 @@ const selectData = [
   { label: '否', value: false },
 ]
 //新增关联企业
-function Index({ store }) {
+function CustomerBankAccountModal({ store }) {
   return (
     <Modal
       title={'银行账户'}
@@ -63,4 +63,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerBankAccountModal)

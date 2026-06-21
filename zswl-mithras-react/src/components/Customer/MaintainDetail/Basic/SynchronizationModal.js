@@ -24,7 +24,7 @@ const diffType = {
 }
 
 //新增地址
-function Index({ store }) {
+function CustomerSynchronizationModal({ store }) {
   const [industrialList, setIndustrialList] = useState([])
   const [addressList, setAddressList] = useState([])
   const [shareholdersList, setShareholdersList] = useState([])
@@ -484,4 +484,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerSynchronizationModal)
