@@ -10,7 +10,7 @@ import styles from './index.less'
 
 const { Item } = Form
 
-function Index({ detail, isLog }) {
+function ContractApplicationLogEstimatedRentDiff({ detail, isLog }) {
   const bizType = getQuery('bizType')
 
   return (
@@ -78,4 +78,4 @@ function Index({ detail, isLog }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLogEstimatedRentDiff)

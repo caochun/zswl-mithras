@@ -5,7 +5,7 @@ import { formateCard } from '@/utils'
 import { saveServer } from '@/utils'
 import styles from './index.less'
 
-function Index({ detail, isLog }) {
+function ContractApplicationLogRepaymentAccountDiff({ detail, isLog }) {
   const { bizType } = getQuery()
 
   return (
@@ -56,4 +56,4 @@ function Index({ detail, isLog }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLogRepaymentAccountDiff)

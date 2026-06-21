@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-function Index({ detail, isLog }) {
+function ContractApplicationLogPledgeDiff({ detail, isLog }) {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
@@ -70,4 +70,4 @@ function Index({ detail, isLog }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLogPledgeDiff)

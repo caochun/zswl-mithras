@@ -1,6 +1,6 @@
 import { LeaseItemListContent } from '../../../../Detail/LeaseItemList'
 
-const Index = ({ businessVersion, contractId, isChange }) => {
+const ContractApplicationLogLeaseItemDiff = ({ businessVersion, contractId, isChange }) => {
   return (
     <LeaseItemListContent
       businessVersion={businessVersion}
@@ -12,4 +12,4 @@ const Index = ({ businessVersion, contractId, isChange }) => {
   )
 }
 
-export default Index
+export default ContractApplicationLogLeaseItemDiff

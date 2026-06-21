@@ -4,7 +4,7 @@ import { observer, getQuery } from '@zswl/admin'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-function Index({ detail, isLog }) {
+function ContractApplicationLogLesseeDiff({ detail, isLog }) {
   const { bizType } = getQuery()
   const BL_ZR = bizType === 'BL' || bizType === 'ZR'
 
@@ -60,4 +60,4 @@ function Index({ detail, isLog }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLogLesseeDiff)

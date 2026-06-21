@@ -6,7 +6,7 @@ import { saveServer } from '@/utils'
 
 import styles from './index.less'
 
-function Index({ detail, isLog }) {
+function ContractApplicationLogReceivableAccountDiff({ detail, isLog }) {
   const { bizType } = getQuery()
 
   return (
@@ -68,4 +68,4 @@ function Index({ detail, isLog }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLogReceivableAccountDiff)
