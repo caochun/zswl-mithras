@@ -4,7 +4,7 @@ import store from './store'
 import Api from '@/api/financial/fundApi'
 import { VersionTable } from '@/components/Table'
 
-function Index(props) {
+function FinancialFundChangeLog(props) {
   const { id } = props.params ?? {}
 
   return (
@@ -18,4 +18,4 @@ function Index(props) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundChangeLog)

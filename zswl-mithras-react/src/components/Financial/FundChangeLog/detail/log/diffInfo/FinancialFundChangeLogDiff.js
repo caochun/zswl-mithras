@@ -10,7 +10,7 @@ import Scheme from '../../../../FundDetail/Scheme/FinancialFundDetailScheme'
 import Api from '@/api/financial/fundApi'
 import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 
-function Index(props) {
+function FinancialFundChangeLogDiff(props) {
   const { id } = props.params ?? {}
   const DETAIL_MAP = [
     { label: '基础信息', key: 'BASE_INFO', Component: BaseInfo, componentType: 'desc' },
@@ -44,4 +44,4 @@ function Index(props) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundChangeLogDiff)

@@ -3,7 +3,7 @@ import { history, observer } from '@zswl/admin'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
 import { VersionTable } from '@/components/Table'
 
-function Index({ params: { id: mainId } }) {
+function FinancialPaymentChangeLog({ params: { id: mainId } }) {
   //变更日志详情
   const toDifferentInfo = (id) => {
     history.push(`/financial/payment/detail/log/diffInfo/${id}`)
@@ -19,4 +19,4 @@ function Index({ params: { id: mainId } }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentChangeLog)

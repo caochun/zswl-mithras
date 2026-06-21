@@ -13,7 +13,7 @@ import RepaymentPlan from '../../../../PaymentDetail/RepaymentPlan'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
 import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 
-function Index({ params: { id }, query: { bizType } }) {
+function FinancialPaymentChangeLogDiff({ params: { id }, query: { bizType } }) {
   const compareData = store.page.getData()
   const DETAIL_MAP = [
     { label: '基础信息', key: 'BASE_INFO', Component: BaseInfo, componentType: 'desc' },
@@ -52,4 +52,4 @@ function Index({ params: { id }, query: { bizType } }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialPaymentChangeLogDiff)
