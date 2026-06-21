@@ -2733,6 +2733,16 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (
+    relativeFilePath.startsWith('src/components/Ocr/') &&
+    /modalType:\s*['"]singe['"]/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'single modal type typo residue',
+    })
+  }
+
   if (removedLegacyUtilityFiles.has(relativeFilePath)) {
     violations.push({
       file: relativeFilePath,

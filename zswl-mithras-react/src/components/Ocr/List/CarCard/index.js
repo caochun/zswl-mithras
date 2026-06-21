@@ -105,7 +105,7 @@ function Index({ path }) {
             // item.id && {
             //   name: '编辑',
             //   onClick: () =>
-            //     store.batchModal.open({ modalType: 'singe', vehicleIds: [item.id], ...item }),
+            //     store.batchModal.open({ modalType: 'single', vehicleIds: [item.id], ...item }),
             // },
             { name: '删除', onClick: () => store.delete(item), confirm: true },
             item.locked && { name: '解除锁定', onClick: () => store.lock(true, [item.id]) },
