@@ -17,7 +17,8 @@
     "report:api-domain-deps": "node scripts/report-api-domain-deps.js",
     "report:component-entry-deps": "node scripts/report-component-entry-deps.js",
     "report:ui-domain-deps": "node scripts/report-ui-domain-deps.js",
-    "report:unused-component-candidates": "node scripts/report-unused-component-candidates.js"
+    "report:unused-component-candidates": "node scripts/report-unused-component-candidates.js",
+    "verify:boundaries": "npm run check:boundaries && npm run report:unused-component-candidates -- --include-index --include-entries && npm run report:ui-domain-deps --silent -- --fail-on-review && npm run report:component-entry-deps -- --fail-on-unlisted && npm run report:api-domain-deps"
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
