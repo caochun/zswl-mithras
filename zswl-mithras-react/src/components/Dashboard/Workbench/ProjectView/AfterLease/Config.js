@@ -1,4 +1,4 @@
-import AfterLeaseCheck from './AfterLeaseListDrawer/AfterLeaseCheck'
+import AfterLeaseCheck from './AfterLeaseListDrawer/AfterLeaseCheck/ProjectAfterLeaseCheckTable'
 
 export const initFieldsConfig = [
   {

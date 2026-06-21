@@ -3,9 +3,8 @@ import Title from '../../Title'
 import ProjectInfo from '../../ProjectView/ProjectInfo/DashboardProjectInfo'
 import ProjectStage from '../../ProjectView/ProjectStage/DashboardProjectStage'
 import ProjectView2 from '../ProjectView2'
-import { getUserInfo } from '@/utils'
-import AfterLease from './AfterLease'
-import { isBaseinessDept } from '@/utils'
+import { getUserInfo, isBaseinessDept } from '@/utils'
+import AfterLease from './AfterLease/ProjectAfterLeasePanel'
 
 const Index = ({ title, iconType }) => {
   const is_wujie = getUserInfo().id === 49
