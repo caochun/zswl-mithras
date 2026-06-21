@@ -2563,6 +2563,10 @@ function upperFirst(value) {
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 const styleFiles = scanDirs.flatMap((dir) => walkMatchingFiles(dir, styleFilePattern))
+const sourceTreeFiles = [
+  ...walkMatchingFiles(path.join(srcDir, 'components'), allFilePattern),
+  ...walkMatchingFiles(path.join(srcDir, 'pages'), allFilePattern),
+]
 const pageFiles = walkMatchingFiles(path.join(srcDir, 'pages'), allFilePattern)
 const componentDomains = new Set(
   fs
@@ -2600,11 +2604,11 @@ for (const filePath of pageFiles) {
   }
 }
 
-for (const filePath of styleFiles) {
+for (const filePath of sourceTreeFiles) {
   if (fs.statSync(filePath).size === 0) {
     violations.push({
       file: path.relative(root, filePath),
-      specifier: 'empty style file',
+      specifier: 'empty source tree file',
     })
   }
 }
