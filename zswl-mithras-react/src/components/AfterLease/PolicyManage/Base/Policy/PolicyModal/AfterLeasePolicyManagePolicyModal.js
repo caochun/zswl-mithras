@@ -9,7 +9,7 @@ const layout = {
   labelCol: { span: 7 },
   wrapperCol: { span: 17 },
 }
-const Index = ({ store }) => {
+const AfterLeasePolicyManagePolicyModal = ({ store }) => {
   const [form] = Form.useForm()
   const initialValue = store.policyModal.getInitialValues()
   return (
@@ -104,4 +104,4 @@ const Index = ({ store }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(AfterLeasePolicyManagePolicyModal)

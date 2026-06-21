@@ -14,7 +14,7 @@ import { QuarterMap } from '@/utils/domains/afterLease/AfterLeaseUtils'
 import { AmountColumn } from '@/components/Format'
 import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 
-function Index() {
+function AfterLeaseCheckPlanCheckList() {
   const { optionsType } = App.getData()
 
   const { rows } = store.$table.getSelected()
@@ -198,4 +198,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanCheckList)

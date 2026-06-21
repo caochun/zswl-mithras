@@ -7,7 +7,7 @@ import ALL_COLUMNS from './Column'
 import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import store from './store'
 
-function Index() {
+function AfterLeaseCheckPlanStrategyPage() {
   const columns = getTableColumns(ALL_COLUMNS(), [
     // '计划名称',
     '客户名称',
@@ -92,4 +92,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanStrategyPage)

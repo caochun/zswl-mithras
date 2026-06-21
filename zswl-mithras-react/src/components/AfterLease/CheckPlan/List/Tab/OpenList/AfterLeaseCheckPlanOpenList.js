@@ -9,7 +9,7 @@ const date = new Date()
 const year = date.getFullYear()
 const mouth = date.getMonth()
 
-function Index() {
+function AfterLeaseCheckPlanOpenList() {
   const { staticInfo, $table } = store
   const { optionsType } = App.getData()
   const columns = useMemo(() => {
@@ -100,4 +100,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanOpenList)

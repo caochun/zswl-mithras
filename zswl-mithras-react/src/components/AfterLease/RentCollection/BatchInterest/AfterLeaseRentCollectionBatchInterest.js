@@ -10,7 +10,7 @@ import { message } from 'antd'
 import DataFileList from './DataFileList'
 import { saveServer } from '@/utils'
 
-const Index = ({ id: reduceBaseId, canEditFlag }) => {
+const AfterLeaseRentCollectionBatchInterest = ({ id: reduceBaseId, canEditFlag }) => {
   const canEdit = canEditFlag === 'true'
   const [form] = Form.useForm()
   const handleSubmit = async () => {
@@ -117,4 +117,4 @@ const Index = ({ id: reduceBaseId, canEditFlag }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseRentCollectionBatchInterest)

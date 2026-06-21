@@ -12,7 +12,7 @@ import styles from './index.less'
 import Store from './store'
 import { saveServer } from '@/utils'
 
-const Index = ({ canEditFlag = true, mainId, baseDetailData = {} }) => {
+const AfterLeasePolicyManagePolicy = ({ canEditFlag = true, mainId, baseDetailData = {} }) => {
   const store = useMemo(() => {
     return new Store({ mainId, baseDetailData })
   }, [mainId])
@@ -133,4 +133,4 @@ const Index = ({ canEditFlag = true, mainId, baseDetailData = {} }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeasePolicyManagePolicy)

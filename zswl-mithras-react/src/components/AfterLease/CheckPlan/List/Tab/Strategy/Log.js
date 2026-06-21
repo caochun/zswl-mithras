@@ -3,7 +3,7 @@ import { FiledFormat } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const AfterLeaseCheckPlanStrategyLog = ({ store }) => {
   return (
     <Drawer title="修改记录" store={store.$updateDrawer} width={900} extra={null}>
       <Table
@@ -41,4 +41,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanStrategyLog)

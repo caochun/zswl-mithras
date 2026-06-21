@@ -4,7 +4,7 @@ import { Form, Input, Modal, Table } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
 import { saveServer } from '@/utils'
 
-const Index = ({ modal, table }) => {
+const AfterLeaseRentCollectionInterestModal = ({ modal, table }) => {
   const columns = [
     /*
     客户名称	合同编号	借据编号	期项	合同金额	应收日期	应收金额	实收金额	罚息计算截止日期	应收罚息	申请减免罚息金额	减免后应收罚息 */
@@ -70,4 +70,4 @@ const Index = ({ modal, table }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseRentCollectionInterestModal)
