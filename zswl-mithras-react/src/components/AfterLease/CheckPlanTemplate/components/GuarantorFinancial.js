@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from 'react'
 import Financial from './Financial'
 import { userIsProjSponsor } from '@/utils'
 
-function Index({
+function AfterLeaseGuarantorFinancial({
   clientList = [],
   id,
   canEdit,
@@ -65,4 +65,4 @@ function Index({
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseGuarantorFinancial)

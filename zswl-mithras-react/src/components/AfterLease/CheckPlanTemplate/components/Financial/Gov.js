@@ -9,7 +9,7 @@ import styles from './index.less'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
-function Index({ canEdit, store }) {
+function AfterLeaseGovernmentFinancial({ canEdit, store }) {
   const content = (
     <div>
       <p>金额单位</p>
@@ -322,4 +322,4 @@ function Index({ canEdit, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseGovernmentFinancial)

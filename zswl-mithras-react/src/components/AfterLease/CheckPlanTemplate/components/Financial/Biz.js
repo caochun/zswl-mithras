@@ -10,7 +10,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index({ canEdit, store }) {
+function AfterLeaseBusinessFinancial({ canEdit, store }) {
   useEffect(() => {
     //store.getFinanceList({ subjectType: 'BIZ_INDEX' })
     store.bizSearchBar.search()
@@ -339,4 +339,4 @@ function Index({ canEdit, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseBusinessFinancial)

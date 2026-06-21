@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Table, TableStore } from '@zswl/components'
 import Api from '@/api/afterLease/rentalInspectionReport'
 import { useMemo, useState } from 'react'
-import { Button, Input, Radio, Select, Tooltip } from 'antd'
+import { Button, Input, Select, Tooltip } from 'antd'
 import { saveServer } from '@/utils'
 
 const { TextArea } = Input
@@ -62,7 +62,7 @@ const columns = [
   },
 ]
 
-function Index({ id, canEdit = true, businessVersion }) {
+function AfterLeaseNoPublicCheckTable({ id, canEdit = true, businessVersion }) {
   const table = useMemo(
     () =>
       new TableStore({
@@ -130,4 +130,4 @@ function Index({ id, canEdit = true, businessVersion }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseNoPublicCheckTable)

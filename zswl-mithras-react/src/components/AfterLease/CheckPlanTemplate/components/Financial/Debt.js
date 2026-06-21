@@ -9,7 +9,7 @@ import styles from './index.less'
 const { Item } = SearchBar
 import { saveServer } from '@/utils'
 
-function Index({ canEdit, id, store }) {
+function AfterLeaseDebtFinancial({ canEdit, id, store }) {
   useEffect(() => {
     store.debtSearchBar.search()
     //store.getFinanceList({ subjectType: 'CAPITAL_BALANCE' })
@@ -330,4 +330,4 @@ function Index({ canEdit, id, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseDebtFinancial)

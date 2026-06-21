@@ -4,7 +4,7 @@ import { FileTable } from '@/components/Table'
 
 const enumType = [{ label: '财务数据', value: 'CHECK_REPORT_PUBLIC_FINANCE' }]
 const businessType = 'NEW_AFTER_LEASE_CHECK_REPORT'
-function Index({ id, canEdit = true, businessVersion }) {
+function AfterLeaseFinancialSituation({ id, canEdit = true, businessVersion }) {
   const param = {
     mainId: id,
     moduleType: businessType,
@@ -39,4 +39,4 @@ function Index({ id, canEdit = true, businessVersion }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseFinancialSituation)

@@ -15,7 +15,7 @@ const subjectItemDisplayDimensionCash = [
   { label: '同比', value: 'OVER_YEAR' },
 ]
 
-function Index({ canEdit, store }) {
+function AfterLeaseCashFinancial({ canEdit, store }) {
   const content = (
     <div>
       <p>金额单位</p>
@@ -328,4 +328,4 @@ function Index({ canEdit, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCashFinancial)
