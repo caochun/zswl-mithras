@@ -21,8 +21,8 @@ const allFilePattern = /./
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const styleFilePattern = /\.(less|css|scss|sass)$/
 const scannableFilePattern = /\.(js|jsx|ts|tsx|less|css|scss|sass)$/
-const copiedSourceFilePattern =
-  /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
+const copiedOrBackupFilePattern =
+  /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx|less|css|scss|sass)$/i
 const sampleSourceFilePattern =
   /(?:^|[\\/])(?:mock|demo|example)[\\/]|(?:^|[\\/])(?:mock|demo|example)\.(?:js|jsx|ts|tsx)$/i
 const typoResidueFilePattern =
@@ -2622,10 +2622,10 @@ for (const dirPath of [
 for (const filePath of sourceFiles) {
   const relativeFilePath = path.relative(root, filePath)
   const source = fs.readFileSync(filePath, 'utf8')
-  if (copiedSourceFilePattern.test(relativeFilePath)) {
+  if (copiedOrBackupFilePattern.test(relativeFilePath)) {
     violations.push({
       file: relativeFilePath,
-      specifier: 'copied or backup source file',
+      specifier: 'copied or backup file',
     })
   }
 
