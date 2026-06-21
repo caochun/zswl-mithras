@@ -20,7 +20,7 @@ const nameColumns = [
   '开户行',
   '帐号',
 ]
-const Index = ({ id, processStatus, taskActivityId, taskStatus }) => {
+const ProcessRentPaymentNotice = ({ id, processStatus, taskActivityId, taskStatus }) => {
   // 新增资金经理节点，只有这个节点才能编辑 银行信息,taskStatus ，处于当前节点
   const canEdit = taskStatus === '1' && taskActivityId === 'userTask_moneymanager'
   const [current, setCurrent] = useState({})
@@ -170,4 +170,4 @@ const Index = ({ id, processStatus, taskActivityId, taskStatus }) => {
     </div>
   )
 }
-export default Index
+export default ProcessRentPaymentNotice

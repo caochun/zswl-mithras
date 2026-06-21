@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 
-const Index = () => {
+const ProcessCustomerRatingSummary = () => {
   const columns = [
     { title: '定量得分', dataIndex: 'score' },
     { title: '定性得分', dataIndex: 'score' },
@@ -26,4 +26,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessCustomerRatingSummary)

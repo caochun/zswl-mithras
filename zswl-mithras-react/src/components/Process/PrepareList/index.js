@@ -19,7 +19,7 @@ const nameColumns = [
   '当前审批人',
   '申请时间',
 ]
-const Index = () => {
+const ProcessPrepareList = () => {
   const columns = getTableColumns(ALL_COLUMNS(), nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS(), formNameColumns)
 
@@ -136,4 +136,4 @@ const Index = () => {
     />
   )
 }
-export default Index
+export default ProcessPrepareList

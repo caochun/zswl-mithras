@@ -6,7 +6,7 @@ import { message } from 'antd'
 import Api from '@/api/process/prepare/financingRepayPlanConfirmApi'
 import { saveServer } from '@/utils'
 
-const Index = ({ params: { id }, query: { processType, canEditFlag = 'true' } }) => {
+const FinancingRepayPlanConfirmFlow = ({ params: { id }, query: { processType, canEditFlag = 'true' } }) => {
   const canEdit = canEditFlag === 'true'
   // 还本付息计划确认流程
   const isFinancingRepayPlan = processType === 'FinancingRepayPlanConfirmFlow'
@@ -192,4 +192,4 @@ const Index = ({ params: { id }, query: { processType, canEditFlag = 'true' } })
     ></Table>
   )
 }
-export default Index
+export default FinancingRepayPlanConfirmFlow

@@ -1,6 +1,6 @@
 import { InputNumber, Input, Row, Col } from 'antd'
 import { numToFixed, formatPercent, hasValue } from '@/utils'
-const Index = (value) => {
+const ProcessContractIRR = (value) => {
     const lowestIrr = hasValue(value.value?.lowestIrr) ? numToFixed(formatPercent(value.value?.lowestIrr)) : ''
     const averageIrr = hasValue(value.value?.averageIrr) ? numToFixed(formatPercent(value.value?.averageIrr)) : ''
     return (
@@ -17,4 +17,4 @@ const Index = (value) => {
     )
 }
 
-export default Index
+export default ProcessContractIRR

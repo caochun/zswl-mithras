@@ -5,7 +5,7 @@ import { Modal, Button } from '@zswl/components'
 import { ProjectFinancialReportStatistics as FinancialReportStatistics } from '@/components/Project/FinancialReportStatisticsEntries'
 
 // 风控经理:评审流程提交时检验客户管理模块财务报表录入是否完整
-const Index = (props) => {
+const ProcessCheckCorpSubject = (props) => {
   const { store, id } = props
   const financialRef = useRef()
 
@@ -39,6 +39,6 @@ const Index = (props) => {
     </div>
   )
 }
-Index.methods = {}
+ProcessCheckCorpSubject.methods = {}
 
-export default observer(Index)
+export default observer(ProcessCheckCorpSubject)

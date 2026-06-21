@@ -5,7 +5,7 @@ import { observer } from '@zswl/admin'
 import { DescStore, Descriptions } from '@zswl/components'
 import { useEffect, useMemo, useState } from 'react'
 
-const Index = ({ detail }) => {
+const ProcessOperationAbstractDesc = ({ detail }) => {
   const descStore = useMemo(() => new DescStore(), [])
   const [baseInfoDetail, setBaseInfoDetail] = useState({})
   const apiFunc = {
@@ -74,4 +74,4 @@ const Index = ({ detail }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessOperationAbstractDesc)
