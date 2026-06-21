@@ -28,7 +28,7 @@ const Index = ({ store }) => {
         运营审批时效
       </div>
       <Spin spinning={approvalStatisticsLoading}>
-        <div className={styles.componyWrap} onClick={store.approvalDrawer.open}>
+        <div className={styles.companyWrap} onClick={store.approvalDrawer.open}>
           {Object.keys(sourceMap).map((key) => {
             return (
               <div className={styles.item} key={key}>

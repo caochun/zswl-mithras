@@ -5,9 +5,10 @@ import styles from './index.less'
 
 const sourceMap = {
   payContractQuantity: '投放合计数量',
-  planPayAmount: '计划投放金额(万元)',
-  payAmount: '实际投放金额(万元)',
-  finishRate: '达成率',
+  payAmount: '投放金额(万元)',
+  averageIrr: '加权IRR',
+  averageCommissionRate: '加权手续费率',
+  averageContractInterestRate: '加权合同利率',
 }
 
 const Index = ({ store }) => {
@@ -22,18 +23,18 @@ const Index = ({ store }) => {
   return (
     <div>
       <div className={styles.title}>公司合计</div>
-      <div className={styles.componyWrap} onClick={investmentDrawer.open}>
+      <div className={styles.companyWrap}>
         {Object.keys(sourceMap).map((key) => {
           return (
-            <div className={styles.item} key={key}>
-              <div className={styles.num}>
+            <div className={styles.item} key={key} onClick={() => investmentDrawer.open(key)}>
+              <span className={styles.num}>
                 {AmountFormat({
                   value: companyData[key]?.value ?? companyData[key],
-                  unit: !companyData[key]?.unit?.includes('元') ? companyData[key]?.unit : '',
+                  unit: companyData[key]?.unit?.indexOf('%') > -1 ? companyData[key]?.unit : '',
                   initFormat: 1,
                 })}
-              </div>
-              <div className={styles.label}>{sourceMap[key]}</div>
+              </span>
+              <span className={styles.label}>{sourceMap[key]}</span>
             </div>
           )
         })}

@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import DashboardRadioTabs from '../../../RadioTabs'
-import ComponyTotal from './ComponyTotal'
+import CompanyTotal from './CompanyTotal'
 import DeptTotal from './DeptTotal'
 import Store from './Store'
 import InvestmentDrawer from './InvestmentDrawer'
@@ -16,7 +16,7 @@ const Index = () => {
   const tabItem = useMemo(() => {
     return (
       <div>
-        <ComponyTotal store={store}></ComponyTotal>
+        <CompanyTotal store={store}></CompanyTotal>
         <div style={{ height: 20 }}></div>
         <DeptTotal store={store}></DeptTotal>
       </div>

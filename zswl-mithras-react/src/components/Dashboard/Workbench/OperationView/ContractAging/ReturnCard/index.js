@@ -29,7 +29,7 @@ const Index = ({ store }) => {
         合同退回统计
       </div>
       <Spin spinning={returnStatisticsLoading}>
-        <div className={styles.componyWrap} onClick={store.returnDrawer.open}>
+        <div className={styles.companyWrap} onClick={store.returnDrawer.open}>
           {Object.keys(sourceMap).map((key) => {
             return (
               <div className={styles.item} key={key}>
