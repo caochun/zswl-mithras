@@ -3,7 +3,7 @@ import { Form, Space } from 'antd'
 import { FormAmount } from '@/components/Form'
 import { ReadOnly } from '@/components/Form'
 
-function Index({ isEdit, name: listName, value, text = '限额值', ...rest }) {
+function RiskStrategyIndicatorFormWarningSet({ isEdit, name: listName, value, text = '限额值', ...rest }) {
   return (
     <Form.List name={listName} {...rest} initialValue={value}>
       {(fields, { add, remove }) => {
@@ -54,4 +54,4 @@ function Index({ isEdit, name: listName, value, text = '限额值', ...rest }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskStrategyIndicatorFormWarningSet)

@@ -6,7 +6,7 @@ import ALL_COLUMNS from '../RelateMonitorColumns'
 import Api from '@/api/risk/relatedTransaction'
 import { saveServer } from '@/utils'
 
-function Index({ pullSelect }) {
+function RiskRelateMonitorCollection({ pullSelect }) {
   const $table = useMemo(() => {
     return new TableStore({
       request: async (params) => {
@@ -56,4 +56,4 @@ function Index({ pullSelect }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskRelateMonitorCollection)

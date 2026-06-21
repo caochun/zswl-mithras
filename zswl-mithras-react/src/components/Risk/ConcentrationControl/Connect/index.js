@@ -20,7 +20,7 @@ const formNameColumns = ['客户名称', '数据时点', '预警状态']
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index() {
+function RiskConcentrationControlConnect() {
   const [detail, setDetail] = useState()
   const $table = useMemo(() => {
     return new TableStore({
@@ -73,4 +73,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(RiskConcentrationControlConnect)

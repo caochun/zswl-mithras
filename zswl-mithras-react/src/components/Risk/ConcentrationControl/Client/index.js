@@ -42,7 +42,7 @@ const formNameColumns = [
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index() {
+function RiskConcentrationControlClient() {
   const $table = useMemo(() => {
     return new TableStore({
       request: async (params) => {
@@ -74,4 +74,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(RiskConcentrationControlClient)
