@@ -8,7 +8,7 @@ import styles from './index.less'
  * @returns
  */
 
-const Index = ({ title, iconType }) => {
+const DashboardTitle = ({ title, iconType }) => {
   return (
     <div className={styles.wrap}>
       <IconFont className={styles.icon} type={iconType} />
@@ -17,4 +17,4 @@ const Index = ({ title, iconType }) => {
   )
 }
 
-export default Index
+export default DashboardTitle

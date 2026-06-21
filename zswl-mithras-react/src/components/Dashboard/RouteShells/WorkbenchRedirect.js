@@ -1,7 +1,7 @@
 import { Redirect } from 'react-router-dom'
 
-function Index() {
+function WorkbenchRedirect() {
   return <Redirect to="/dashboard/workbench" />
 }
 
-export default Index
+export default WorkbenchRedirect

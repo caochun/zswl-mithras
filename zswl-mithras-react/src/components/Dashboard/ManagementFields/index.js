@@ -13,7 +13,7 @@ import userCustomConfigApi from '@/api/dashboard/userCustomConfigApi'
  * @returns
  */
 
-const Index = ({ initFieldsConfig, onChange, columnsFilterKey }) => {
+const DashboardManagementFields = ({ initFieldsConfig, onChange, columnsFilterKey }) => {
   const [fieldsList, setFieldsList] = useState([])
   const [open, setOpen] = useState(false)
 
@@ -96,4 +96,4 @@ const Index = ({ initFieldsConfig, onChange, columnsFilterKey }) => {
   )
 }
 
-export default Index
+export default DashboardManagementFields

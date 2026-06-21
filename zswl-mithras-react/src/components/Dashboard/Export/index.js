@@ -1,7 +1,7 @@
 import { Button } from '@zswl/components'
 import Api from '@/api/dashboard/fileExportApi'
 
-const Index = ({
+const DashboardExportButton = ({
   tableStore,
   extraParams,
   businessType,
@@ -37,4 +37,4 @@ const Index = ({
   )
 }
 
-export default Index
+export default DashboardExportButton

@@ -1,6 +1,6 @@
 import styles from './index.less'
 
-const Index = ({ title, extra }) => {
+const DashboardOverviewTitle = ({ title, extra }) => {
   return (
     <div className={styles.wrap}>
       <div className={styles.wrap_title}>{title}</div>
@@ -9,4 +9,4 @@ const Index = ({ title, extra }) => {
   )
 }
 
-export default Index
+export default DashboardOverviewTitle

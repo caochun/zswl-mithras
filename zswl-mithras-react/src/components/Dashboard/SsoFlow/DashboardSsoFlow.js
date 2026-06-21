@@ -6,7 +6,7 @@ import qs from 'query-string'
 import styles from './index.less'
 import ssoApi from '@/api/dashboard/ssoApi'
 
-function Index({ query: { params = '{}', cbUrl = '/' } }) {
+function DashboardSsoFlow({ query: { params = '{}', cbUrl = '/' } }) {
   const paramsObj = JSON.parse(params)
 
   useEffect(() => {
@@ -59,4 +59,4 @@ function Index({ query: { params = '{}', cbUrl = '/' } }) {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardSsoFlow)

@@ -17,7 +17,7 @@ import styles from './index.less'
  * @returns
  */
 
-const Index = (
+const DashboardCardPanelFieldsFilter = (
   {
     title,
     extra,
@@ -118,4 +118,4 @@ const Index = (
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(DashboardCardPanelFieldsFilter))

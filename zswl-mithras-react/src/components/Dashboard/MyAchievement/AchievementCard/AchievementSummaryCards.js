@@ -4,7 +4,7 @@ import { Skeleton } from 'antd'
 import styles from './index.less'
 import { cardConfig } from '../Config'
 
-const Card = (props) => {
+const AchievementSummaryCard = (props) => {
   return (
     <div className={styles.wrap} style={{ borderColor: props.borderColor }}>
       <div className={styles.mark} style={{ borderTopColor: props.borderColor }}>
@@ -34,14 +34,14 @@ const Card = (props) => {
   )
 }
 
-const Index = ({ cardData }) => {
+const AchievementSummaryCards = ({ cardData }) => {
   return (
     <div className={styles.container}>
       {cardData.map((item) => {
         const current = cardConfig.find((itemConfig) => itemConfig.title === item.type)
         return (
           <div className={styles.cardRow}>
-            <Card {...item} {...current}></Card>
+            <AchievementSummaryCard {...item} {...current}></AchievementSummaryCard>
           </div>
         )
       })}
@@ -49,4 +49,4 @@ const Index = ({ cardData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AchievementSummaryCards)

@@ -74,7 +74,7 @@ const Fields = ({ value, unit, label, symbolIcon = false, rowStyle, onClick }) =
  * @param {* Function} onClick 卡片点击事件
  * @returns
  */
-const Index = ({ data, fieldsConfig, contentStyle, rowStyle, onClick, openDrawer }) => {
+const DashboardStagePanel = ({ data, fieldsConfig, contentStyle, rowStyle, onClick, openDrawer }) => {
   const { group, iconType, borderColor, tipContent, ...rest } = data
 
   const hasClickEvent = isFunction(onClick)
@@ -184,4 +184,4 @@ const Index = ({ data, fieldsConfig, contentStyle, rowStyle, onClick, openDrawer
   )
 }
 
-export default Index
+export default DashboardStagePanel

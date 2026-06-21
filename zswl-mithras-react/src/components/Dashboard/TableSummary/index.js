@@ -1,7 +1,7 @@
 
 import { Table } from '@zswl/components'
 
-export default function Index({
+export default function DashboardTableSummary({
   columns,
   title = '总合计',
   sumData = {},

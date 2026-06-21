@@ -1,12 +1,12 @@
 import { Table } from '@zswl/components'
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import AchievementCard from '../AchievementCard/AchievementSummaryCards'
+import AchievementSummaryCards from '../AchievementCard/AchievementSummaryCards'
 import { columns } from '../../AchievementColumns'
 import Store from './Store'
 import { saveServer } from '@/utils'
 
-const Index = () => {
+const DashboardDepartmentAchievement = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -15,7 +15,7 @@ const Index = () => {
 
   return (
     <div>
-      <AchievementCard cardData={cardList ?? []} />
+      <AchievementSummaryCards cardData={cardList ?? []} />
       <Table
         columnsFilter={'MyAchievement_Department_1'}
         onFilter={(key, val) => saveServer('MyAchievement_Department_1', val)}
@@ -29,4 +29,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardDepartmentAchievement)

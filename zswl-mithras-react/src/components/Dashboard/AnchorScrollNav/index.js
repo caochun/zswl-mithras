@@ -7,7 +7,7 @@ import styles from './index.less'
 const { Link } = Anchor
 
 // 看板页面有用到
-const Index = (props) => {
+const DashboardAnchorScrollNav = (props) => {
   const {
     align = 'left',
     anchorList = [],
@@ -85,4 +85,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardAnchorScrollNav)

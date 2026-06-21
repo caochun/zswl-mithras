@@ -6,7 +6,7 @@ import { message } from 'antd'
 import styles from './index.less'
 import ssoApi from '@/api/dashboard/ssoApi'
 
-function Index({ query: { ticket = '' } }) {
+function DashboardSso({ query: { ticket = '' } }) {
   useEffect(() => {
     if (!ticket) {
       //   window.location.href = `http://10.10.48.50:8088/ssoserver/caslogin/agentlogin?service=${window.location.href}`
@@ -32,4 +32,4 @@ function Index({ query: { ticket = '' } }) {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardSso)
