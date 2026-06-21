@@ -22,7 +22,7 @@ const colors = [
   '#A6D22A',
 ]
 
-const Index = ({ store }) => {
+const ReportOperationContractMonitorBarCharts = ({ store }) => {
   const { loading, xData, chartsData } = store
 
   return (
@@ -78,4 +78,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ReportOperationContractMonitorBarCharts)

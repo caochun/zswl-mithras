@@ -7,7 +7,7 @@ import { initQueryDate, initYearQueryDate } from '@/utils/domains/report/ReportU
 import { reportTitle } from '../ReportOperationAnalysis'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const ReportOperationAnalysisListDrawer = ({ store }) => {
   const { listDrawerTable, listDrawer } = store
 
   const columns = ALL_COLUMNS
@@ -55,4 +55,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ReportOperationAnalysisListDrawer)

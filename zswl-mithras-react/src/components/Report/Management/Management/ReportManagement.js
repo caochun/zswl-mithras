@@ -19,7 +19,7 @@ const ReportMap = {
 
 const { DirectoryTree } = Tree
 
-function Index() {
+function ReportManagement() {
   const { pageStore, currentReport, isFold, setIsFold, handleRefresh, handleSelect } = store
 
   // return <HeTongShiXiaoJianKong></HeTongShiXiaoJianKong>
@@ -91,4 +91,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ReportManagement)

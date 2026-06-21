@@ -12,7 +12,7 @@ import { saveServer } from '@/utils'
 
 export const reportTitle = '业务运行分析表'
 
-const Index = () => {
+const ReportOperationAnalysis = () => {
   const store = useMemo(() => new Store(), [])
   const { table } = store
 
@@ -77,4 +77,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(ReportOperationAnalysis)

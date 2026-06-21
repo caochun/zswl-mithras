@@ -10,7 +10,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-const Index = ({ store }) => {
+const ReportOperationPendingListDrawer = ({ store }) => {
   const { listDrawerTable, listDrawer } = store
 
   const columns = ALL_COLUMNS
@@ -65,4 +65,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ReportOperationPendingListDrawer)

@@ -12,7 +12,7 @@ import { saveServer } from '@/utils'
 
 export const reportTitle = '合同时效监控报表'
 
-const Index = () => {
+const ReportOperationContractMonitor = () => {
   const store = useMemo(() => new Store(), [])
   const { table } = store
 
@@ -65,4 +65,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(ReportOperationContractMonitor)
