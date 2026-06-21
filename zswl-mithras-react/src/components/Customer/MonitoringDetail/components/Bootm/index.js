@@ -18,7 +18,7 @@ const TimelineNode = ({ date, imgs }) => (
   </Timeline.Item>
 )
 
-const WarningIcon = () => <img src="/public/assets/risk/customerView/waring.svg" alt="warning" />
+const WarningIcon = () => <img src="/public/assets/risk/customerView/warning.svg" alt="warning" />
 
 // 预警信号灯组件
 const LightStatus = ({ level }) => {

@@ -61,7 +61,7 @@ const TopSection = ({ statistics }) => {
 
       <div className={styles.cardList}>
         <CardItem
-          icon={<img src="/public/assets/risk/monitoringAlertList/iconRedLightwarning.svg" />}
+          icon={<img src="/public/assets/risk/monitoringAlertList/iconRedLightWarning.svg" />}
           value={redCard.amount}
           label="红灯预警"
           todayNew={redCard.todayAdd}

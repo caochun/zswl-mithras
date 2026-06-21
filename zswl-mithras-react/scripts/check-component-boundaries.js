@@ -3,6 +3,7 @@ const path = require('path')
 
 const root = path.resolve(__dirname, '..')
 const srcDir = path.join(root, 'src')
+const publicDir = path.join(root, 'public')
 const readmePath = path.join(root, 'README.md')
 const { findUnusedComponentCandidates } = require('./report-unused-component-candidates')
 const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
@@ -1708,6 +1709,16 @@ const removedLegacyStyleFiles = new Map([
     'component-local styles in RiskPublicMonitorDetail when needed',
   ],
 ])
+const removedLegacyPublicAssetFiles = new Map([
+  [
+    'public/assets/risk/customerView/waring.svg',
+    'public/assets/risk/customerView/warning.svg',
+  ],
+  [
+    'public/assets/risk/monitoringAlertList/iconRedLightwarning.svg',
+    'public/assets/risk/monitoringAlertList/iconRedLightWarning.svg',
+  ],
+])
 const legacyRouteStringRules = [
   {
     pattern: /customerView\/singeView|customer\/singeView/,
@@ -2610,6 +2621,7 @@ function upperFirst(value) {
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 const styleFiles = scanDirs.flatMap((dir) => walkMatchingFiles(dir, styleFilePattern))
+const publicAssetFiles = walkMatchingFiles(publicDir, allFilePattern)
 const sourceTreeFiles = [
   ...walkMatchingFiles(path.join(srcDir, 'components'), allFilePattern),
   ...walkMatchingFiles(path.join(srcDir, 'pages'), allFilePattern),
@@ -2816,6 +2828,17 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'single modal type typo residue',
+    })
+  }
+
+  if (
+    /\/public\/assets\/risk\/(?:customerView\/waring\.svg|monitoringAlertList\/iconRedLightwarning\.svg)/.test(
+      source
+    )
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'legacy warning asset path typo residue',
     })
   }
 
@@ -3434,6 +3457,16 @@ for (const filePath of styleFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'duplicate component CSS artifact (use the sibling .less file)',
+    })
+  }
+}
+
+for (const filePath of publicAssetFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  if (removedLegacyPublicAssetFiles.has(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: `removed legacy public asset file (use ${removedLegacyPublicAssetFiles.get(relativeFilePath)})`,
     })
   }
 }
