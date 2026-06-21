@@ -64,7 +64,6 @@ class Store {
   getFileInfo = () => {
     const groupName = this.form.getFieldValue('groupName')
     if (groupName) {
-      //TODO
       const trimGroupName = groupName.trim()
       if (trimGroupName === '') {
         message.info('请删除资料类型名称中多余的空格！')
