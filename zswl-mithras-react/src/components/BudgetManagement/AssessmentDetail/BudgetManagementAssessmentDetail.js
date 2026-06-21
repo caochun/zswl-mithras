@@ -5,7 +5,7 @@ import store from './store'
 import BudgetExecutionReport from './BudgetExecutionReport'
 import BudgetImplementation from './BudgetImplementation'
 
-const Index = ({ params: { id, taskActivityId } }) => {
+const BudgetManagementAssessmentDetail = ({ params: { id, taskActivityId } }) => {
   const detail = store.page.getData()
 
   const isFormApproval = getQuery('typeId') == 'approval'
@@ -47,4 +47,4 @@ const Index = ({ params: { id, taskActivityId } }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetManagementAssessmentDetail)

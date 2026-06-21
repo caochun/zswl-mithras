@@ -6,7 +6,7 @@ import Store from './store'
 import ModalDetail from '../ParameterShared/ModalDetail'
 import ModalEditTable from './ModalDetail/ModalEditTable'
 
-function Index() {
+function BudgetManagementParameterConfiguration() {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -54,4 +54,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetManagementParameterConfiguration)

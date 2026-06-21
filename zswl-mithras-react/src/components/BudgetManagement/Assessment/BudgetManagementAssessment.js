@@ -6,7 +6,7 @@ import { Page, Table } from '@zswl/components'
 import ALL_COLUMNS from './Column'
 import EditModal from './EditModal'
 
-const Index = () => {
+const BudgetManagementAssessment = () => {
   const nameColumns = ['考核名称', '考核年份', '考核月份', '审批状态', '提交人', '提交时间']
   const columns = getTableColumns(ALL_COLUMNS, nameColumns)
   return (
@@ -36,4 +36,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetManagementAssessment)

@@ -10,7 +10,7 @@ import EditModal from '../EditModal'
  * 拨备预测计划页面组件
  * 用于展示和管理拨备预测计划列表
  */
-const Index = () => {
+const BudgetManagementProvisionForecastList = () => {
   // 定义表格显示的列名
   const nameColumns = ['计划名称', '预测时间', '创建时间']
   // 获取表格列配置
@@ -58,4 +58,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetManagementProvisionForecastList)
