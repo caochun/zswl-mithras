@@ -1,10 +1,8 @@
 import { observer } from '@zswl/admin'
 import Title from '../../Title'
-import { getUpdateDate } from '@/utils/domains/dashboard/DashboardUtils'
-import { Tabs, Spin } from 'antd'
-import { useEffect, useMemo } from 'react'
-// import DeptIn from './DeptIn'
-import DeptShip from './DeptShip'
+import { Tabs } from 'antd'
+import { useMemo } from 'react'
+import DeptShip from './DeptShip/AchievementRankDepartmentTable'
 import Store from './Store'
 import styles from './index.less'
 
@@ -20,11 +18,6 @@ const Index = ({ title, iconType }) => {
       key: 'deptShip',
       children: <DeptShip store={store} />,
     },
-    // {
-    //   label: `部门内排名`,
-    //   key: 'deptIn',
-    //   children: <DeptIn store={store} />,
-    // },
   ]
 
   return (

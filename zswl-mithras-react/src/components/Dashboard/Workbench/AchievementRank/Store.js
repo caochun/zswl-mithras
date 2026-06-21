@@ -22,12 +22,5 @@ class Store {
     },
   })
 
-  deptInTableStore = new TableStore({
-    pagination: false,
-    request: async () => {
-      const res = await Api.postDashboardPerformanceDeptInSort()
-      return res.dataList ?? []
-    },
-  })
 }
 export default Store
