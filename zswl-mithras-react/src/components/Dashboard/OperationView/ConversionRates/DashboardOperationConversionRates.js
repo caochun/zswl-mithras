@@ -5,8 +5,8 @@ import { UnorderedListOutlined } from '@ant-design/icons'
 import RadioTabs from '../../RadioTabs'
 import { DatePicker } from 'antd'
 import { Form, SearchBar, App, Button } from '@zswl/components'
-import ListDrawer from './ListDrawer'
-import BarCharts from './BarCharts'
+import ListDrawer from './ListDrawer/ConversionRatesListDrawer'
+import BarCharts from './BarCharts/ConversionRatesBarChart'
 import Store from './Store'
 
 const { Item } = SearchBar

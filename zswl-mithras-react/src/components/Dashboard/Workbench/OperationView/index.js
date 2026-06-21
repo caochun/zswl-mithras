@@ -1,9 +1,9 @@
 import ToDoStatistics from './ToDoStatistics'
 import ContractAging from './ContractAging'
-import LaunchComplete from '../../OperationView/LaunchComplete'
-import CapacityAnalysis from '../../OperationView/CapacityAnalysis'
-import ConversionRates from '../../OperationView/ConversionRates'
-import AgingStatistics from '../../OperationView/AgingStatistics'
+import LaunchComplete from '../../OperationView/LaunchComplete/DashboardOperationLaunchComplete'
+import CapacityAnalysis from '../../OperationView/CapacityAnalysis/DashboardOperationCapacityAnalysis'
+import ConversionRates from '../../OperationView/ConversionRates/DashboardOperationConversionRates'
+import AgingStatistics from '../../OperationView/AgingStatistics/DashboardOperationAgingStatistics'
 import Title from '../../Title'
 import styles from './index.less'
 
