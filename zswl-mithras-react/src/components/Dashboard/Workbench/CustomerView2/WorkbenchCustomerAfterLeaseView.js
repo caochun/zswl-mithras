@@ -1,14 +1,14 @@
 import { observer } from '@zswl/admin'
 import Title from '../../Title'
-import AfterLease from './AfterLease/CustomerAfterLeasePanel'
+import CustomerAfterLeasePanel from './AfterLease/CustomerAfterLeasePanel'
 
-const Index = ({ title, iconType }) => {
+const WorkbenchCustomerAfterLeaseView = ({ title, iconType }) => {
   return (
     <div>
       <Title title={title} iconType={iconType}></Title>
-      <AfterLease />
+      <CustomerAfterLeasePanel />
     </div>
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchCustomerAfterLeaseView)

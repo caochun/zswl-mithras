@@ -7,7 +7,7 @@ import { columnsFilterKey, getNameColumns } from './Config'
 import Store from './Store'
 import styles from './index.less'
 
-const Index = () => {
+const CustomerAfterLeasePanel = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -49,4 +49,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerAfterLeasePanel)

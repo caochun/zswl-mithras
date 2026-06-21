@@ -1,11 +1,11 @@
-import AfterLeaseCheck from './AfterLeaseListDrawer/AfterLeaseCheck/CustomerAfterLeaseCheckTable'
+import CustomerAfterLeaseCheckTable from './AfterLeaseListDrawer/AfterLeaseCheck/CustomerAfterLeaseCheckTable'
 
 export const initFieldsConfig = [
   {
     group: '租后检查',
     groupCode: 'CLIENT_AFTER_LEASE',
     iconType: 'icon-zuhoujiancha',
-    component: <AfterLeaseCheck></AfterLeaseCheck>,
+    component: <CustomerAfterLeaseCheckTable></CustomerAfterLeaseCheckTable>,
   },
 ]
 

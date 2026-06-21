@@ -8,7 +8,7 @@ import ExportBtn from '../../../../../Export'
 import { saveServer } from '@/utils'
 
 // 租后检查
-const Index = ({ group }) => {
+const CustomerAfterLeaseCheckTable = ({ group }) => {
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
     '客户名称',
@@ -49,4 +49,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerAfterLeaseCheckTable)
