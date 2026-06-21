@@ -6,7 +6,7 @@ import { useMemo, useRef } from 'react'
 import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { App, Select } from '@zswl/components'
 
-function Index({ detail, saveData, isLog, canEdit = true, newProject }) {
+function FinancialCreditBaseInfo({ detail, saveData, isLog, canEdit = true, newProject }) {
   const initEdit = newProject === 'true'
   const isUsed = detail.usedTotalCreditAmount > 0
 
@@ -88,4 +88,4 @@ function Index({ detail, saveData, isLog, canEdit = true, newProject }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialCreditBaseInfo)

@@ -18,7 +18,7 @@ import _ from 'lodash'
 import { saveServer } from '@/utils'
 
 export const columnsFilterKey = 'credit-use-detail'
-const Index = ({ id }) => {
+const FinancialCreditUserDetail = ({ id }) => {
   const [sumData, setSumData] = useState({})
   const table = useMemo(
     () =>
@@ -99,4 +99,4 @@ const Index = ({ id }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialCreditUserDetail)

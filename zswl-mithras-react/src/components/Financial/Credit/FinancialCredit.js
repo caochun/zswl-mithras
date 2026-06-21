@@ -98,7 +98,7 @@ const formNameColumns = [
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index() {
+function FinancialCredit() {
   const { rows, keys } = store.table.getSelected()
   const canDelete = keys.length > 0
   const openModal = getQuery('openModal')
@@ -173,4 +173,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialCredit)
