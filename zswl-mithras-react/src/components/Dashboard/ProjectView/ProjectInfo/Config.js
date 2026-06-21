@@ -1,6 +1,6 @@
-import SettleInThreeMonthTable from './InfoDrawer/SettleInThreeMonthTable'
-import SettledTable from './InfoDrawer/SettledTable'
-import OverdueTable from './InfoDrawer/OverdueTable'
+import SettleInThreeMonthTable from './InfoDrawer/SettleInThreeMonthTable/ProjectInfoSettleInThreeMonthTable'
+import SettledTable from './InfoDrawer/SettledTable/ProjectInfoRentThisMonthTable'
+import OverdueTable from './InfoDrawer/OverdueTable/ProjectInfoOverdueTable'
 
 export const initFieldsConfig = [
   {

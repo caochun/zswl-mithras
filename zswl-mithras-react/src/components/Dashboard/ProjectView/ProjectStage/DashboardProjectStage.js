@@ -1,20 +1,14 @@
 import { useMemo } from 'react'
-import { getQuery, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../CardPanelFieldsFilter'
 import StagePanel from '../../StagePanel'
+import StageDrawer from './StageDrawer/ProjectStageDrawer'
 import { columnsFilterKey } from './Config'
-import InfoDrawer from './InfoDrawer'
 import Store from './Store'
 import styles from './index.less'
 import SelectDataRange from '../SelectDataRange'
 
-const Index = () => {
-  const { openModal } = getQuery()
-
-  const openDrawer = (data) => {
-    store.setInfoData(data)
-    store.infoDrawer.open()
-  }
+const Index = ({ title, innerModule }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -22,16 +16,17 @@ const Index = () => {
   return (
     <>
       <CardPanelFieldsFilter
-        title={'项目信息'}
-        getFieldsApi={store.getFieldsApi}
-        columnsFilterKey={columnsFilterKey}
-        queryParams={store.queryParams}
         extra={
           <SelectDataRange
             onChange={store.setQueryParams}
             defaultValue={store.queryParams.permissionType}
           ></SelectDataRange>
         }
+        innerModule={innerModule}
+        title={title || '项目阶段'}
+        getFieldsApi={store.getFieldsApi}
+        columnsFilterKey={columnsFilterKey}
+        queryParams={store.queryParams}
       >
         {(data) => {
           return (
@@ -41,12 +36,21 @@ const Index = () => {
                   <div className={styles.row}>
                     <StagePanel
                       data={item}
-                      onClick={openDrawer}
-                      rowStyle={{ width: `calc(${100 / 3}% - 10px)` }}
-                      openDrawer={item.groupCode === openModal}
+                      onClick={(data) => {
+                        store.setStageData(data)
+                        store.stageDrawer.open()
+                      }}
+                      contentStyle={{ justifyContent: 'space-around' }}
                       fieldsConfig={[
                         { name: '合计数', dataIndex: 'quantity' },
-                        { name: '金额', dataIndex: 'amount' },
+                        {
+                          name:
+                            item.groupCode === 'PROJECT_VIEW_STAGE_REPAYMENT'
+                              ? '未收租金总额'
+                              : '金额',
+                          dataIndex: 'amount',
+                        },
+                        { name: '本月新增', dataIndex: 'incrementThisMonth', symbolIcon: true },
                       ]}
                     />
                   </div>
@@ -56,7 +60,7 @@ const Index = () => {
           )
         }}
       </CardPanelFieldsFilter>
-      <InfoDrawer store={store} extraQueryParams={store.queryParams} />
+      <StageDrawer store={store} extraQueryParams={store.queryParams}></StageDrawer>
     </>
   )
 }

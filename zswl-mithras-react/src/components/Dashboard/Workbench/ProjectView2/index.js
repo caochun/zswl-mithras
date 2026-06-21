@@ -4,7 +4,7 @@ import PlanExecute from './PlanExecute'
 import Investment from './Investment'
 import RentRecovery from './RentRecovery'
 import { isFundDept } from '@/utils'
-import ProjectInfo from '../../ProjectView/ProjectInfo'
+import ProjectInfo from '../../ProjectView/ProjectInfo/DashboardProjectInfo'
 import { getUserInfo } from '@/utils'
 
 const Index = ({ title, iconType }) => {

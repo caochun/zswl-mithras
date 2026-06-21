@@ -1,6 +1,6 @@
 import Title from '../../OverviewTitle'
 import LaunchComplete from '../../OperationView/LaunchComplete/DashboardOperationLaunchComplete'
-import ProjectStage from '../../ProjectView/ProjectStage'
+import ProjectStage from '../../ProjectView/ProjectStage/DashboardProjectStage'
 import { initYearQueryDate } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 import ThrowIncomeRate from './ThrowIncomeRate/DashboardOverviewThrowIncomeRate'
 

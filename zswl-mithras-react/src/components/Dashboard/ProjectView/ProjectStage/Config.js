@@ -1,11 +1,11 @@
-import ProjEstablishTable from './StageDrawer/ProjEstablishTable'
-import ProjReviewTable from './StageDrawer/ProjReviewTable'
-import ProjReviewNoContractTable from './StageDrawer/ProjReviewNoContractTable'
-import ContractTable from './StageDrawer/ContractTable'
-import PreparePaymentTable from './StageDrawer/PreparePaymentTable'
-import PaymentTable from './StageDrawer/PaymentTable'
-import RePaymentTable from './StageDrawer/RePaymentTable'
-import LegalReportTable from './StageDrawer/LegalReportTable'
+import ProjEstablishTable from './StageDrawer/ProjEstablishTable/ProjectStageEstablishTable'
+import ProjReviewTable from './StageDrawer/ProjReviewTable/ProjectStageReviewTable'
+import ProjReviewNoContractTable from './StageDrawer/ProjReviewNoContractTable/ProjectStageReviewNoContractTable'
+import ContractTable from './StageDrawer/ContractTable/ProjectStageContractTable'
+import PreparePaymentTable from './StageDrawer/PreparePaymentTable/ProjectStagePaymentTable'
+import PaymentTable from './StageDrawer/PaymentTable/ProjectStagePreparePaymentTable'
+import RePaymentTable from './StageDrawer/RePaymentTable/ProjectStageRepaymentTable'
+import LegalReportTable from './StageDrawer/LegalReportTable/ProjectStageLegalReportTable'
 
 export const initFieldsConfig = [
   {
