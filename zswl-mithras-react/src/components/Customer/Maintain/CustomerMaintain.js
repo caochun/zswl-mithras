@@ -17,7 +17,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index() {
+function CustomerMaintain() {
   const store = useMemo(() => new DataStore(), [])
   const { btnStatus } = store
   const { optionsType } = App.getData()
@@ -208,4 +208,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintain)

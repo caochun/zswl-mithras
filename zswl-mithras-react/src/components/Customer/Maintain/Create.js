@@ -4,7 +4,7 @@ import { Input } from 'antd'
 import { rules } from '@/utils'
 
 const { Item } = Form
-function Index({ store }) {
+function CustomerMaintainCreate({ store }) {
   const codeComponent = ({ getFieldValue }) => {
     const domesticOrAbroad = getFieldValue('domesticOrAbroad')
     return domesticOrAbroad === 'DOMESTIC' ? (
@@ -74,4 +74,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainCreate)

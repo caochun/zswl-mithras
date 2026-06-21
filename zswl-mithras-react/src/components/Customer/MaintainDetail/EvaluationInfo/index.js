@@ -5,7 +5,7 @@ import { getTableColumns } from '@/utils'
 import ALL_COLUMNS from '../../CustomerRatColumns/CustomerRatingColumns'
 import { saveServer } from '@/utils'
 
-function Index({ path, store }) {
+function CustomerMaintainEvaluationInfo({ path, store }) {
   const canDelete = store.evaluationTable.selectedRowKeys.length > 0
   const columns = useMemo(() => {
     const nameColumns = [
@@ -46,4 +46,4 @@ function Index({ path, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainEvaluationInfo)

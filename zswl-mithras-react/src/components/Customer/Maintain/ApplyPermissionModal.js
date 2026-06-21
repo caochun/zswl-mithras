@@ -5,7 +5,7 @@ import Api from '@/api/customer/maintainApi'
 
 const { Item } = Form
 
-const Index = ({ store }) => {
+const CustomerMaintainApplyPermissionModal = ({ store }) => {
   const [form] = Form.useForm()
   const onClientChange = async (value) => {
     if (!value) {
@@ -58,4 +58,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainApplyPermissionModal)

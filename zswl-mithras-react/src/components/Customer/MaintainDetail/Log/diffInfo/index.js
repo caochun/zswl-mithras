@@ -18,7 +18,7 @@ import { saveServer } from '@/utils'
 
 const { Panel } = Collapse
 
-function Index({ params: { id }, query: { clientId } }) {
+function CustomerMaintainDetailDiffInfo({ params: { id }, query: { clientId } }) {
   const store = useMemo(() => new Store(), [])
   const { initListData, loading } = store
   useEffect(() => {
@@ -457,4 +457,4 @@ function Index({ params: { id }, query: { clientId } }) {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(CustomerMaintainDetailDiffInfo)

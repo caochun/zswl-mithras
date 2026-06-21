@@ -11,7 +11,7 @@ import CheckBusiness from '../CommerceCheck/CustomerCommerceCheck'
 import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 
 const { TabPane } = Tabs
-function Index({
+function CustomerMaintainDetail({
   params: { id },
   query: {
     clientType,
@@ -146,4 +146,4 @@ function Index({
     </Page>
   )
 }
-export default observer(Index)
+export default observer(CustomerMaintainDetail)

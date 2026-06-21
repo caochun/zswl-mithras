@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import Store from './store'
 import { saveServer } from '@/utils'
 
-function Index({ params: { id } }) {
+function CustomerMaintainDetailLog({ params: { id } }) {
   const store = useMemo(() => new Store(), [])
   store.tableLog.setParams({ cId: id })
 
@@ -42,4 +42,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerMaintainDetailLog)
