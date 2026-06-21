@@ -1,0 +1,1 @@
+export { getColumnsByType as BudgetProvisioningParamsConfigColumnsByType } from './ProvisioningParamsConfigColumns/BudgetProvisioningParamsConfigColumns'

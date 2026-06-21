@@ -5,10 +5,8 @@ import { Button, Empty, Input, Steps } from 'antd'
 import store from './store'
 import './index.less'
 import ParamsConfig from './ParamsConfig'
-import {
-  BudgetProvisioningDataAddModal as AddModal,
-  BudgetProvisioningImpairmentColumns as ALL_COLUMNS,
-} from '@/components/Budget/ProvisioningSharedEntries'
+import { BudgetProvisioningDataAddModal as AddModal } from '@/components/Budget/ProvisioningDataAddModalEntries'
+import { BudgetProvisioningImpairmentColumns as ALL_COLUMNS } from '@/components/Budget/ProvisioningImpairmentColumnsEntries'
 import { getTableColumns } from '@/utils'
 import { AmountColumn, DateColumn } from '@/components/Format'
 import { TableExportAction as TableExport } from '@/components/Actions'
