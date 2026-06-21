@@ -7,7 +7,7 @@ import ProjectReview from './Components/ProjectReview'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import styles from './index.less'
 
-const Index = () => {
+const ProcessRelevantFiles = () => {
   const { detailData, isNewLayout } = useFlowData()
   const { subModule, canEditFlag, mainModule } = detailData
 
@@ -33,4 +33,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessRelevantFiles)

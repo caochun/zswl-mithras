@@ -7,7 +7,7 @@ import Api from '@/api/process/detail/paymentApplicationDetailApi'
 import BlankBlock from '../../../../../BlankBlock/ProcessBlankBlock'
 import { useEffect, useState } from 'react'
 
-const Index = ({ detailData, canEdit }) => {
+const ProcessRelevantPaymentApplicationFiles = ({ detailData, canEdit }) => {
   const { businessKey, businessVersion } = detailData
   const [baseDetailData, setBaseDetailData] = useState()
 
@@ -41,4 +41,4 @@ const Index = ({ detailData, canEdit }) => {
   )
 }
 
-export default Index
+export default ProcessRelevantPaymentApplicationFiles

@@ -8,7 +8,7 @@ import Api from '@/api/process/detail/projectReviewDetailApi'
 import BlankBlock from '../../../../../BlankBlock/ProcessBlankBlock'
 import { useEffect, useState } from 'react'
 
-const Index = ({ detailData, canEdit }) => {
+const ProcessRelevantProjectReviewFiles = ({ detailData, canEdit }) => {
   const { businessKey, businessVersion, processInstanceId } = detailData
   const [baseDetailData, setBaseDetailData] = useState({})
   const { isProjSponsor, processModel } = baseDetailData
@@ -45,4 +45,4 @@ const Index = ({ detailData, canEdit }) => {
   )
 }
 
-export default Index
+export default ProcessRelevantProjectReviewFiles

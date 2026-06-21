@@ -19,7 +19,7 @@ import Api from '@/api/process/detail/contractDetailApi'
 import BlankBlock from '../../../../../BlankBlock/ProcessBlankBlock'
 import { useEffect, useMemo, useState } from 'react'
 
-const Index = ({ detailData, canEdit }) => {
+const ProcessRelevantContractApplicationFiles = ({ detailData, canEdit }) => {
   const { businessKey, businessVersion, taskActivityId, subModule, modelKey } = detailData
   const [baseDetailData, setBaseDetailData] = useState({})
 
@@ -95,4 +95,4 @@ const Index = ({ detailData, canEdit }) => {
   return <div>{Comp}</div>
 }
 
-export default Index
+export default ProcessRelevantContractApplicationFiles
