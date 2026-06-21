@@ -13,7 +13,7 @@ const nameColumns = [
   '关联项目名称',
 ]
 
-function Index({ canEdit = true, store }) {
+function CreditReportSearchBaseInfo({ canEdit = true, store }) {
   const dataSource = store.page.getData()
 
   const columns = getDescColumns(ALL_COLUMNS({ creditReportId: dataSource?.id }), nameColumns)
@@ -54,4 +54,4 @@ function Index({ canEdit = true, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditReportSearchBaseInfo)

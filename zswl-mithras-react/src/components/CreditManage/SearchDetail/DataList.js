@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { message } from 'antd'
 
 const MODULE_TYPE = 'CREDIT_REPORT_SELECT'
-const Index = ({ mainId, canEdit = true, dataSource = [] }) => {
+const CreditReportSearchEnterpriseMaterials = ({ mainId, canEdit = true, dataSource = [] }) => {
   const columns = [
     { title: '资料清单', dataIndex: 'name' },
     { title: '上传人', dataIndex: 'createByName' },
@@ -65,4 +65,4 @@ const Index = ({ mainId, canEdit = true, dataSource = [] }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CreditReportSearchEnterpriseMaterials)
