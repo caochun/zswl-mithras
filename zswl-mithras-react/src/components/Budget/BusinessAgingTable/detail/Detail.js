@@ -9,7 +9,7 @@ import { Space } from 'antd'
 import { FileExportAction as ExportBtn } from '@/components/Actions'
 import { FormAmount } from '@/components/Form'
 
-function Index({ params, path }) {
+function BudgetBusinessAgingDetail({ params, path }) {
   const { id } = params
   const { rows, keys } = store.table.getSelected()
   const detail = store.page.getData()
@@ -170,4 +170,4 @@ function Index({ params, path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetBusinessAgingDetail)

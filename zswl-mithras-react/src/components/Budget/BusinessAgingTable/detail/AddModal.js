@@ -1,14 +1,14 @@
 import { getFormItemProps } from '@/utils'
 import { observer } from '@zswl/admin'
-import { Modal, Form, Select, Input, DatePicker } from '@zswl/components'
+import { Modal, Form } from '@zswl/components'
 import { useMemo } from 'react'
 import moment from 'moment'
-import ALL_COLUMNS, { accountancyOrganizationNameOptions } from '../Column'
+import ALL_COLUMNS from '../Column'
 import styles from '../index.less'
 import { FormAmount } from '@/components/Form'
 import { DateColumn } from '@/components/Format'
 
-const Index = ({ store }) => {
+const BudgetBusinessAgingDetailEditModal = ({ store }) => {
   const [form] = Form.useForm()
   const columns = useMemo(() => {
     const nameColumns = [
@@ -70,4 +70,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetBusinessAgingDetailEditModal)

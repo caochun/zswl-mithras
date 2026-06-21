@@ -1,11 +1,11 @@
 import { observer } from '@zswl/admin'
-import { Modal, Form, Select } from '@zswl/components'
+import { Modal, Form } from '@zswl/components'
 import { DatePicker } from 'antd'
 import moment from 'moment'
 import styles from './index.less'
 const { Item } = Form
 
-const Index = ({ store }) => {
+const BudgetBusinessAgingCreateModal = ({ store }) => {
   // 只能选每个月的最后一天
   function disabledDate(current) {
     const endOfMonth = moment(current).endOf('month')
@@ -36,4 +36,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetBusinessAgingCreateModal)

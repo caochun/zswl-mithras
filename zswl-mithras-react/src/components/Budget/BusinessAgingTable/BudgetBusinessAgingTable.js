@@ -6,7 +6,7 @@ import ALL_COLUMNS from './Column'
 import { useMemo } from 'react'
 import AddModal from './AddModal'
 
-function Index({ path }) {
+function BudgetBusinessAgingTable({ path }) {
   const { rows } = store.table.getSelected()
   const hasSelected = rows.length === 1
   const canClose = hasSelected && rows.every((item) => ['NEW'].includes(item.status))
@@ -53,4 +53,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetBusinessAgingTable)
