@@ -13,7 +13,7 @@ export const toDetail = (id, clientType) => {
     history.push(`/customer/maintain/detail/${id}?clientType=${clientType}&flag=info&typeId=create`)
   }
 }
-function Index(props) {
+function FinancialOrgEditFormAccount(props) {
   const { name, onlyRead } = props
   return (
     <Form.List name={name}>
@@ -94,4 +94,4 @@ const FormListItem = ({ fields, remove, required, onlyRead }) => {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialOrgEditFormAccount)

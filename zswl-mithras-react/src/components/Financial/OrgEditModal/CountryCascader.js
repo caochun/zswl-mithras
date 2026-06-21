@@ -7,7 +7,7 @@ import { RegionCascader } from '@/components/Select'
 
 const { Item } = Form
 
-function Index({ form, onlyRead = true }) {
+function FinancialOrgEditCountryCascader({ form, onlyRead = true }) {
   const handleCascadeChange = (value, selectedOptions) => {
     form?.setFieldValue(
       'areaName',
@@ -82,4 +82,4 @@ function Index({ form, onlyRead = true }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialOrgEditCountryCascader)
