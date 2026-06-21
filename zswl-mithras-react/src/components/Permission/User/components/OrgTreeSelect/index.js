@@ -5,7 +5,7 @@ import Api from '@/api/permission/user'
 function filterTreeNode(value, node) {
   return node.name.toLowerCase().includes(value.toLowerCase())
 }
-function Index(props) {
+function PermissionOrgTreeSelect(props) {
   const [options, setOptions] = useState([])
   useEffect(() => {
     Api.getOrg().then((res) => {
@@ -26,4 +26,4 @@ function Index(props) {
   )
 }
 
-export default Index
+export default PermissionOrgTreeSelect

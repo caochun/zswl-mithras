@@ -6,7 +6,7 @@ import Api from '@/api/permission/user'
 function filterTreeNode(value, node) {
   return node.name.toLowerCase().includes(value.toLowerCase())
 }
-function Index({ orgList = [], value = {}, extra, onChange }) {
+function PermissionOrgRole({ orgList = [], value = {}, extra, onChange }) {
   const [roleOptions, setRoleOptions] = useState([])
   const getRoleList = async (val) => {
     const roleList = await Api.getRoleList({ orgId: val })
@@ -56,4 +56,4 @@ function Index({ orgList = [], value = {}, extra, onChange }) {
   )
 }
 
-export default observer(Index)
+export default observer(PermissionOrgRole)

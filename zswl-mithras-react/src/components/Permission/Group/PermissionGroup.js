@@ -6,7 +6,7 @@ import GroupModal from './GroupModal'
 import style from './index.less'
 import store from './store'
 
-function Index() {
+function PermissionGroup() {
   const detail = store.page.getData()
   const { groupList } = store
   useEffect(() => {
@@ -64,4 +64,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(PermissionGroup)

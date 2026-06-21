@@ -6,7 +6,7 @@ import { FounderSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
-function Index({ path }) {
+function PermissionLog({ path }) {
   const columns = [
     { title: '接口路径', dataIndex: 'url' },
     { title: '操作人', dataIndex: 'userName' },
@@ -38,4 +38,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(PermissionLog)

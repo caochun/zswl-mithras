@@ -3,7 +3,7 @@ import { Modal, Table } from '@zswl/components'
 import { Card, Checkbox, Collapse, Popover, Tag } from 'antd'
 import { saveServer } from '@/utils'
 
-function Index({ store }) {
+function PermissionUserModal({ store }) {
   const columns = [
     {
       title: '菜单', // 菜单
@@ -123,4 +123,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(PermissionUserModal)

@@ -5,7 +5,7 @@ import { getQjtAc, getSalt } from '@/utils'
 import { Alert } from 'antd'
 // import { localIp } from '@zswl/admin'
 
-function Index({ path }) {
+function PermissionBifrost({ path }) {
   const ref = useRef()
   let src = `/bifrost${path}`
   if (process.env.NODE_ENV === 'development') {
@@ -44,4 +44,4 @@ function Index({ path }) {
   return <iframe className={styles.iframe} ref={ref} src={src} />
 }
 
-export default Index
+export default PermissionBifrost

@@ -10,7 +10,7 @@ import PermissionModal from './PermissionModal'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
-function Index() {
+function PermissionUser() {
   useEffect(() => {
     store.getOrgList()
   }, [])
@@ -207,4 +207,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(PermissionUser)

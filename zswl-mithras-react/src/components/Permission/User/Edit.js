@@ -6,7 +6,7 @@ import { OrgRole } from './components'
 import OrgJob from './components/OrgJob'
 
 const { Item } = Form
-function Index() {
+function PermissionUserEdit() {
   const { orgList, editModal } = store
   const initValues = editModal.getInitialValues()
   return (
@@ -157,4 +157,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(PermissionUserEdit)

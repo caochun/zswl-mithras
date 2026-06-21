@@ -5,7 +5,7 @@ import Api from '@/api/permission/user'
 function filterTreeNode(value, node) {
   return node.name.toLowerCase().includes(value.toLowerCase())
 }
-function Index({ orgList = [], value = {}, extra, onChange }) {
+function PermissionOrgJob({ orgList = [], value = {}, extra, onChange }) {
   const [jobOptions, setJobOptions] = useState([])
 
   const getJobList = async (val) => {
@@ -56,4 +56,4 @@ function Index({ orgList = [], value = {}, extra, onChange }) {
   )
 }
 
-export default observer(Index)
+export default observer(PermissionOrgJob)
