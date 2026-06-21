@@ -10,7 +10,7 @@ import { ProjectReviewMeetingMinute as MinutesOfReviewMeeting } from '@/componen
 import FlowChart from './ZTabs/FlowChart'
 import RelevantFiles from './ZTabs/RelevantFiles'
 import { FlowDataProvider } from '@/utils/domains/process/ProcessFlowContext'
-import ToSnapShoot from '../ToSnapShoot/ProcessToSnapShoot'
+import ToSnapshot from '../ToSnapshot/ProcessToSnapshot'
 import Store from './store'
 import styles from './index.less'
 import { isRiskManager } from '@/utils/auth'
@@ -107,7 +107,7 @@ function Index(props) {
         }}
       >
         <Tabs
-          tabBarExtraContent={<ToSnapShoot />}
+          tabBarExtraContent={<ToSnapshot />}
           destroyInactiveTabPane={false}
           defaultActiveKey="1"
           items={[
@@ -124,7 +124,7 @@ function Index(props) {
 
   // tab 右侧操作
   const tabBarExtra = useMemo(() => {
-    if (noOperate || !isNewLayout) return <ToSnapShoot />
+    if (noOperate || !isNewLayout) return <ToSnapshot />
     return (
       <div>
         {showOperate ? (

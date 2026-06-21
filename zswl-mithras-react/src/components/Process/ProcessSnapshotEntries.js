@@ -1,2 +1,2 @@
-export { default as ProcessSnapshoot } from './Snapshoot/ProcessSnapshot'
-export { default as ProcessToSnapShoot } from './ToSnapShoot/ProcessToSnapShoot'
+export { default as ProcessSnapshoot } from './Snapshot/ProcessSnapshot'
+export { default as ProcessToSnapShoot } from './ToSnapshot/ProcessToSnapshot'

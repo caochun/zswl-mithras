@@ -1516,15 +1516,15 @@ const removedLegacyComponentFiles = new Map([
   ],
   [
     'src/components/Process/RouteSnapshoot/index.js',
-    'src/components/Process/RouteSnapshoot/ProcessRouteSnapshoot.js',
+    'src/components/Process/RouteSnapshot/ProcessRouteSnapshot.js',
   ],
   [
     'src/components/Process/Snapshoot/index.js',
-    'src/components/Process/Snapshoot/ProcessSnapshot.js',
+    'src/components/Process/Snapshot/ProcessSnapshot.js',
   ],
   [
     'src/components/Process/ToSnapShoot/index.js',
-    'src/components/Process/ToSnapShoot/ProcessToSnapShoot.js',
+    'src/components/Process/ToSnapshot/ProcessToSnapshot.js',
   ],
   [
     'src/components/Process/Query/index.js',
