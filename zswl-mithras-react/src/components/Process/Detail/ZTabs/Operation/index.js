@@ -6,7 +6,7 @@ import { observer, ErrorBoundary } from '@zswl/admin'
 import Operator from './Components/Operator'
 import CompleteOperation from './Components/CompleteOperation'
 import ApprovalHistory from '../../../ApprovalHistory/ProcessApprovalHistory'
-import FlowChart from '../FlowChart'
+import FlowChart from '../FlowChart/ProcessFlowChart'
 import { DetailLayout } from '@/components/Layout'
 import {
   useFlowData,
