@@ -20,7 +20,7 @@ const selectOptions = [
   { label: '收款', value: 'COLLECT' },
 ]
 export { getFinancialUrl }
-const Index = ({ getCount }) => {
+const BudgetFlowCenterFundamentals = ({ getCount }) => {
   const store = useMemo(() => new Store({ getCount }), [])
   const writeOffStatusColumn = MatchOptionColumn({
     title: '核销状态',
@@ -126,4 +126,4 @@ const Index = ({ getCount }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(BudgetFlowCenterFundamentals)

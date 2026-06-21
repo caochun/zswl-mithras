@@ -8,7 +8,7 @@ import businessFundApi from '@/api/budget/flowCenter/businessFundApi'
 import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
 import InterfaceManagementJs from './InterfaceManagement'
 
-const Index = () => {
+const BudgetFlowCenter = () => {
   const [count, setCount] = useState(0)
   const [fundCount, setFuncCount] = useState(0)
   const getData = useCallback(async () => {
@@ -65,4 +65,4 @@ const Index = () => {
     </Page>
   )
 }
-export default Index
+export default BudgetFlowCenter

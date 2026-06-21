@@ -10,7 +10,7 @@ import { saveServer } from '@/utils'
 
 const { useStore } = Table
 
-const Index = ({ store }) => {
+const BudgetFlowCenterProjectSideCheckLetter = ({ store }) => {
   const [planCollectionDate, setPlanCollectionDate] = useState('')
   const $table = useStore({
     pagination: false,
@@ -88,4 +88,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterProjectSideCheckLetter)

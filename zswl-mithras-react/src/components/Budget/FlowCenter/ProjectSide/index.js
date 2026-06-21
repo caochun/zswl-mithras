@@ -15,7 +15,7 @@ import { saveServer } from '@/utils'
 
 const { collectionWriteOffStatusLocalEnum, paymentWriteOffStatusEnum } = options
 
-const Index = ({ getCount }) => {
+const BudgetFlowCenterProjectSide = ({ getCount }) => {
   const store = useMemo(() => new Store({ getCount }), [])
   const selectOptions = [
     { label: '付款', value: 'payment' },
@@ -144,4 +144,4 @@ const Index = ({ getCount }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(BudgetFlowCenterProjectSide)

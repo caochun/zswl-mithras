@@ -5,7 +5,7 @@ import { Checkbox } from 'antd'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const BudgetFlowCenterFundamentalsDetailModal = ({ store }) => {
   const [isHide, setIsHide] = useState(false)
   const isPayment = store.flowType === 'PAY'
   const columns = [
@@ -54,4 +54,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterFundamentalsDetailModal)

@@ -6,7 +6,7 @@ import ALL_COLUMNS from '../Columns'
 import { Checkbox } from 'antd'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const BudgetFlowCenterProjectSideDetailModal = ({ store }) => {
   const [isHide, setIsHide] = useState(false)
   const isPayment = store.radioValue === 'payment'
   const columns = useMemo(() => {
@@ -59,4 +59,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterProjectSideDetailModal)
