@@ -760,7 +760,7 @@
 - `npm run page`：生成页面脚手架。
 - `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`、`@/pages/**` 页面私有代码复用、未登记真实业务语义的顶层页面路由目录、`src/api` 内部跨业务域引用、未使用或未记录的领域级入口、未登记的跨域组件入口依赖边。
 - `npm run report:component-entry-deps`：输出 `src` 内页面、组件、工具等对组件领域稳定入口形成的依赖关系，并对已确认的历史路由壳目录做领域归一化，用于判断后续边界整理优先级；`--write-baseline` 可在人工确认后刷新跨域入口依赖基线，`--fail-on-unlisted` 会同时检查新增未登记边和已过期基线边。
-- `node scripts/report-api-domain-deps.js`：输出页面、组件、工具等业务使用方对跨域 API 的依赖关系；`src/api/**` 内的语义兼容入口作为实现细节跳过，用于识别需要收敛到领域组件、领域入口或 `src/api/<domain>` 的候选点。
+- `npm run report:api-domain-deps`：输出页面、组件、工具等业务使用方对跨域 API 的依赖关系；`src/api/**` 内的语义兼容入口作为实现细节跳过，用于识别需要收敛到领域组件、领域入口或 `src/api/<domain>` 的候选点。
 
 ## 项目约定
 

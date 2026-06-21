@@ -14,6 +14,7 @@
     "page": "admin page",
     "clearBranch": "node clearInvalidBranch",
     "check:boundaries": "node scripts/check-component-boundaries.js",
+    "report:api-domain-deps": "node scripts/report-api-domain-deps.js",
     "report:component-entry-deps": "node scripts/report-component-entry-deps.js",
     "report:ui-domain-deps": "node scripts/report-ui-domain-deps.js",
     "report:unused-component-candidates": "node scripts/report-unused-component-candidates.js"
