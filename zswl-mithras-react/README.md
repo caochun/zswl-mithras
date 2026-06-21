@@ -550,7 +550,7 @@
 - 客户外部公开信息通过 `src/components/Customer/ExternalPublicInfoEntries.js` 暴露，真实实现命名为 `src/components/Customer/ExternalPublicInfo/CustomerExternalPublicInfo.js`。
 - 客户债项评级列表和详情通过 `src/components/Customer/DebtRating*Entries.js` 暴露，真实实现命名为 `src/components/Customer/DebtRat/CustomerDebtRat.js` 和 `src/components/Customer/DebtRatDetail/CustomerDebtRatDetail.js`。
 - 客户移交详情通过 `src/components/Customer/HandoverEntries.js` 暴露，真实实现命名为 `src/components/Customer/HandoverDetail/CustomerHandoverDetail.js`。
-- 客户评级列表、详情和列配置通过 `src/components/Customer/CustomerRating*Entries.js` 暴露，真实实现命名为 `src/components/Customer/CustomerRat/CustomerRatingList.js`、`CustomerRatDetail/CustomerRatingDetail.js` 和 `CustomerRatColumns/CustomerRatingColumns.js`。
+- 客户评级列表、详情和上传能力通过 `src/components/Customer/CustomerRating*Entries.js` 暴露，真实实现命名为 `src/components/Customer/CustomerRat/CustomerRatingList.js`、`CustomerRatDetail/CustomerRatingDetail.js` 和 `CustomerRatUpload/CustomerRatingUpload.js`；列配置保留为客户域内部实现。
 - 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
 - 授信建立列表和详情通过 `src/components/Credit/Establish*Entries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js` 和 `src/components/Credit/EstablishDetail/CreditEstablishDetail.js`。
 - 授信评审列表、详情、授信建立日志、授信评审日志及其差异页通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
@@ -639,7 +639,7 @@
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`，真实实现命名为 `RiskMonitorEarly.js`。
 - `login`：登录和初次登录改密历史路由壳，页面实现分别通过 `src/components/Permission/LoginEntries.js`、`NewPasswordEntries.js` 暴露，登录真实实现命名为 `PermissionLogin.js`，API 语义归属权限认证。
-- `customer/customerRat`：客户评级列表历史路由壳，列表实现和列配置已收敛到 `src/components/Customer/CustomerRatingListEntries.js`。
+- `customer/customerRat`：客户评级列表历史路由壳，列表实现已收敛到 `src/components/Customer/CustomerRatingListEntries.js`，列配置保留在客户域内部。
 - `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露，真实实现命名为 `CustomerMaintain.js`、`CustomerMaintainDetail.js` 和 `CustomerMaintainDetailLog.js`。
 - `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。
 - `preview`：PDF、报表预览。

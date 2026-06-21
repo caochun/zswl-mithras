@@ -1,4 +1,3 @@
-export { default as RzyIframe } from './RzyIframe/RzyIframe'
 export {
   RzyApplicationManage,
   RzyApplicationRecord,
