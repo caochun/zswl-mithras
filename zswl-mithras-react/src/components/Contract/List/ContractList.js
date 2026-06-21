@@ -14,7 +14,7 @@ import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 
 const { Item } = SearchBar
 
-function Index() {
+function ContractList() {
   const [show, setShow] = useState(false)
   const { optionsType } = App.getData()
   const userInfo = getUserInfo()
@@ -262,4 +262,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ContractList)

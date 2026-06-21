@@ -20,7 +20,7 @@ import { checkIrr } from '../StartRentDetail/ContractStartRentDetail'
 
 const { Item } = Form
 
-function Index ({
+function ContractCreateReceiptDetail ({
   params: { id },
   query: {
     canEditFlags = 'true',
@@ -233,4 +233,4 @@ function Index ({
   )
 }
 
-export default observer(Index)
+export default observer(ContractCreateReceiptDetail)

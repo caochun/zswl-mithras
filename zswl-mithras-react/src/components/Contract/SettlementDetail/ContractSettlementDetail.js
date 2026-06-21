@@ -14,7 +14,7 @@ import Certificate from './certificate'
 import styles from './index.less'
 import Store from './store'
 
-function Index({
+function ContractSettlementDetail({
   params: { id },
   query: { planType, canEditFlags = 'true', businessVersion, first },
 }) {
@@ -157,4 +157,4 @@ function Index({
   )
 }
 
-export default observer(Index)
+export default observer(ContractSettlementDetail)

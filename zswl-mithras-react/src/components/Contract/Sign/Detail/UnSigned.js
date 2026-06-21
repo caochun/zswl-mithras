@@ -5,7 +5,7 @@ import { Radio, Tooltip } from 'antd'
 import { MatchOptionColumn, InputColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const ContractSignDetailUnSigned = ({ store }) => {
   const { signingWayEnum } = App.getData().optionsType
   return (
     <div className={styles.fileWrap}>
@@ -184,4 +184,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractSignDetailUnSigned)

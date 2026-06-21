@@ -2,7 +2,7 @@ import { Tooltip } from 'antd'
 import { history } from '@zswl/admin'
 import styles from './index.less'
 
-const Index = ({ value, isChange }) => {
+const ContractJumpClient = ({ value, isChange }) => {
   if (value?.length > 0) {
     return value.map((item, index) => {
       if (!item.clientName) {
@@ -34,4 +34,4 @@ const Index = ({ value, isChange }) => {
   }
 }
 
-export default Index
+export default ContractJumpClient

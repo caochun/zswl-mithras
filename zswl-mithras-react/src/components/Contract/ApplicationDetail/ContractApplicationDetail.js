@@ -32,7 +32,7 @@ import { AppraisalAgency } from '@/components/EvaluationAgency/AppraisalAgencyEn
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectReviewMeetingModalEntries'
 import { jumpZhongDeng } from '@/utils'
 
-const Index = ({
+const ContractApplicationDetail = ({
   params: { id },
   query: {
     businessVersion,
@@ -328,4 +328,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationDetail)

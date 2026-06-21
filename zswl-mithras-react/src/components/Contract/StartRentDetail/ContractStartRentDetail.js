@@ -27,7 +27,7 @@ export const checkIrr = async (params, needDoubleConfirm = true) => {
   return res
 }
 
-function Index ({
+function ContractStartRentDetail ({
   params: { id },
   query: { canEditFlags = 'true', businessVersion, taskActivityId, taskStatus, modelKey },
 }) {
@@ -207,4 +207,4 @@ function Index ({
   )
 }
 
-export default observer(Index)
+export default observer(ContractStartRentDetail)

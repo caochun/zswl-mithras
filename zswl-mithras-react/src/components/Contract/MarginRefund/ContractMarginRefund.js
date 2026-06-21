@@ -12,7 +12,7 @@ import Store from './store'
 
 export const Context = React.createContext()
 
-const Index = ({
+const ContractMarginRefund = ({
   params: { id },
   query: { businessKey, planType, bizType, clientName },
   processInstanceId,
@@ -121,4 +121,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(ContractMarginRefund)

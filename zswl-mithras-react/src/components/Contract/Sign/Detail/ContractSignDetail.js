@@ -9,7 +9,7 @@ import { ALL_COLUMNS } from './Column'
 import Signed from './Signed'
 import UnSigned from './UnSigned'
 
-const Index = ({ params: { id }, query: { contractId, contractSignStatus } }) => {
+const ContractSignDetail = ({ params: { id }, query: { contractId, contractSignStatus } }) => {
   const store = useMemo(() => new Store(), [])
   const pageData = store.page.getData()
   const { bizType } = pageData
@@ -51,4 +51,4 @@ const Index = ({ params: { id }, query: { contractId, contractSignStatus } }) =>
   )
 }
 
-export default observer(Index)
+export default observer(ContractSignDetail)

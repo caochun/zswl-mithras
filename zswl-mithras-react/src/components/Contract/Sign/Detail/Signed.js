@@ -5,7 +5,7 @@ import Api from '@/api/contract/material'
 import { Access } from '@zswl/components'
 import { InputColumn } from '@/components/Format'
 
-const Index = ({ store }) => {
+const ContractSignDetailSigned = ({ store }) => {
   const { id, contractId } = store.signedInfo
   return (
     <div className={styles.fileWrap}>
@@ -44,4 +44,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractSignDetailSigned)

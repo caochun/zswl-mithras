@@ -20,7 +20,7 @@ import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEven
 
 const { Item } = Form
 
-function Index({
+function ContractChangeDetail({
   params: { id },
   query: {
     changeType,
@@ -262,4 +262,4 @@ function Index({
   )
 }
 
-export default observer(Index)
+export default observer(ContractChangeDetail)

@@ -72,7 +72,7 @@ const SignedTable = ({ store, pathname }) => {
   )
 }
 
-const Index = ({ pathname }) => {
+const ContractSignList = ({ pathname }) => {
   const store = useMemo(() => new Store(), [])
 
   return (
@@ -95,4 +95,4 @@ const Index = ({ pathname }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractSignList)

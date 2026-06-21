@@ -4,7 +4,7 @@ import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '@/api/contract/payment/contractPaymentFtp'
 
-const Index = ({ contractId, businessVersion, canEdit, taskStatus, taskActivityId }) => {
+const ContractPaymentApply = ({ contractId, businessVersion, canEdit, taskStatus, taskActivityId }) => {
   const [detailList, setDetailList] = useState([])
 
   const getDetailList = async () => {
@@ -101,4 +101,4 @@ const Index = ({ contractId, businessVersion, canEdit, taskStatus, taskActivityI
   )
 }
 
-export default Index
+export default ContractPaymentApply
