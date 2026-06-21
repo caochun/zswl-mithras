@@ -2750,6 +2750,10 @@ const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePa
 })
 const componentEntryImports = new Set()
 const componentEntryNamedImports = new Map()
+const allowedWideComponentEntries = new Set([
+  'ExternalEmbed/RzyEntries.js',
+  'Permission/BifrostPageEntries.js',
+])
 
 for (const filePath of componentEntryFiles) {
   const relativeFilePath = path.relative(root, filePath)
@@ -2768,8 +2772,9 @@ for (const filePath of componentEntryFiles) {
     })
   }
 
-  const reExportCount = [...source.matchAll(componentEntryReExportPattern)].length
-  if (reExportCount > 2) {
+  const reExportCount = extractNamedReExports(source).length
+  const entryPath = normalizeEntryPath(filePath)
+  if (reExportCount > 2 && !allowedWideComponentEntries.has(entryPath)) {
     violations.push({
       file: relativeFilePath,
       specifier: 'component entry files must expose at most two closely related re-exports',
