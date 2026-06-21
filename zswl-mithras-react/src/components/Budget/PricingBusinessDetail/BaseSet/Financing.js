@@ -9,7 +9,7 @@ import EditModal from '../../FinancingCostEditModal/BudgetFinancingCostEditModal
 import { saveServer } from '@/utils'
 import financingCostsApi from '@/api/budget/pricing/ftp/financingCostsApi'
 
-function Index({ path, canEdit, params }) {
+function BudgetPricingBusinessBaseSetFinancing({ path, canEdit, params }) {
   const reload = async () => {
     await financingCostsApi.postDraftPricingFlash(params)
     message.success('刷新成功')
@@ -161,4 +161,4 @@ function Index({ path, canEdit, params }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessBaseSetFinancing)

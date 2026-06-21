@@ -41,7 +41,7 @@ const EditModal = ({ store }) => {
     </Modal>
   )
 }
-function Index({ path, params, canEdit }) {
+function BudgetPricingBusinessBaseSetGuarantee({ path, params, canEdit }) {
   const reload = async () => {
     await Api.postGuaranteeCost(params)
     message.success('刷新成功')
@@ -129,4 +129,4 @@ function Index({ path, params, canEdit }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessBaseSetGuarantee)

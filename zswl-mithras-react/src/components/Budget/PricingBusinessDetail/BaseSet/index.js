@@ -9,7 +9,7 @@ import Api from '@/api/budget/pricing/ftp/pricingBusinessDetailApi'
 import newFtpTreasuryBondYieldApi from '@/api/budget/pricing/ftp/newFtpTreasuryBondYieldApi'
 import newFtpShiborInterestRateApi from '@/api/budget/pricing/ftp/newFtpShiborInterestRateApi'
 
-function Index({ path, mainId, businessVersion, canEdit = true }) {
+function BudgetPricingBusinessBaseSet({ path, mainId, businessVersion, canEdit = true }) {
   const params = {
     mainId,
     version: businessVersion,
@@ -48,4 +48,4 @@ function Index({ path, mainId, businessVersion, canEdit = true }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessBaseSet)

@@ -11,7 +11,7 @@ import { saveServer } from '@/utils'
 const leftColumns = getTableColumns(ALL_COLUMNS, ['时间', '每日值'])
 const centerColumns = getTableColumns(ALL_COLUMNS, ['时间', { title: '每日值', rename: '月均值' }])
 const rightColumns = getTableColumns(ALL_COLUMNS, ['时间', { title: '每日值', rename: '季度均值' }])
-function Index({ path, loadApi, title, canEdit, uploadApi }) {
+function BudgetPricingBusinessBaseSetTenNationalDebt({ path, loadApi, title, canEdit, uploadApi }) {
   const leftTable = useMemo(() => {
     return new TableStore({
       pagination: { showSizeChanger: false, showQuickJumper: false, simple: true, size: 'small' },
@@ -87,4 +87,4 @@ function Index({ path, loadApi, title, canEdit, uploadApi }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessBaseSetTenNationalDebt)

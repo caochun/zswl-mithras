@@ -6,7 +6,7 @@ import { InputColumn } from '@/components/Format'
 import { uniqueId } from 'lodash'
 import { saveServer } from '@/utils'
 
-function Index({ loadApi }) {
+function BudgetPricingBusinessBaseSetLprTable({ loadApi }) {
   const reload = async () => {
     table.search()
     rightTable.search()
@@ -68,4 +68,4 @@ function Index({ loadApi }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBusinessBaseSetLprTable)
