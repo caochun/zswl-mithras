@@ -1,12 +1,11 @@
-import { getQuery, observer } from '@zswl/admin'
-import { Anchor, Row, Col, Space, Divider } from 'antd'
+import { observer } from '@zswl/admin'
+import { Anchor, Row, Col } from 'antd'
 import CreditInformation from './CreditInformation'
 import ProjectContract from './Content'
 import CreditRating from './CreditRating' // 信用评价
 import styles from '../styles.less'
 import { Page } from '@zswl/components'
 import store from './store'
-// import Bootm from './bootm'
 
 const { Link } = Anchor
 const pre = 'customerView-detail-'
@@ -16,9 +15,6 @@ const anchorIds = {
   xypj: pre + 'xypj',
 }
 function Index({ path, id }) {
-  const { getRiskScore = false, getRisk } = store.detailData
-  const { cRiskType } = getRisk || {}
-  const { riskMap, riskList, dataTime } = cRiskType || {}
   const linkData = (type = 'default') => {
     const isShow = type === 'show'
     return (
@@ -44,17 +40,9 @@ function Index({ path, id }) {
           </Anchor>
         </Col>
         <Col flex={1} className={styles.info_container}>
-          {/* <Space size={8}>{linkData('show')}</Space> */}
           <CreditRating store={store} id={anchorIds.xypj} />
           <CreditInformation store={store} id={anchorIds.sxxx} />
           <ProjectContract store={store} id={anchorIds.xmht} clientId={id} />
-          {/* <Bootm
-            store={store}
-            data={riskMap || {}}
-            list={riskList || []}
-            dataTime={dataTime}
-            id={anchorIds.xypj}
-          ></Bootm> */}
         </Col>
       </Row>
     </Page>
