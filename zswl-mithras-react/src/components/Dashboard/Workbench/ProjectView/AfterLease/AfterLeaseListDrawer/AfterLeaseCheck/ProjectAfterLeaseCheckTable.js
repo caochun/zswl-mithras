@@ -8,7 +8,7 @@ import Api from '@/api/dashboard/afterLeaseCheck'
 import { saveServer } from '@/utils'
 
 // 租后检查
-const Index = ({ group }) => {
+const ProjectAfterLeaseCheckTable = ({ group }) => {
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, ['客户名称', '计划状态', '本次检查形式'])
 
@@ -54,4 +54,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectAfterLeaseCheckTable)
