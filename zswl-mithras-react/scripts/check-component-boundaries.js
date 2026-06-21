@@ -9,6 +9,8 @@ const { findUnusedComponentCandidates } = require('./report-unused-component-can
 const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
 const {
   analyzeComponentEntryDeps,
+  findDuplicateBaselineEdges,
+  findMissingBaselineTargets,
   findStaleBaselineEdges,
   findUnlistedEdges,
 } = require('./report-component-entry-deps')
@@ -3537,6 +3539,8 @@ const unlistedComponentEntryEdges = findUnlistedEdges(
   componentEntryDepsAnalysis.edges,
   componentEntryDepsBaseline
 )
+const duplicateComponentEntryBaselineEdges = findDuplicateBaselineEdges(componentEntryDepsBaseline)
+const missingComponentEntryBaselineTargets = findMissingBaselineTargets(componentEntryDepsBaseline)
 const staleComponentEntryBaselineEdges = findStaleBaselineEdges(
   componentEntryDepsAnalysis.edges,
   componentEntryDepsBaseline
@@ -3553,6 +3557,20 @@ for (const edge of unlistedComponentEntryEdges) {
   violations.push({
     file: edge.files.join(', '),
     specifier: `${edge.sourceScope} -> ${edge.target} unlisted cross-domain component entry dependency`,
+  })
+}
+
+for (const edge of duplicateComponentEntryBaselineEdges) {
+  violations.push({
+    file: path.relative(root, componentEntryDepsBaselinePath),
+    specifier: `${edge.sourceScope} -> ${edge.target} duplicate cross-domain component entry dependency baseline entry`,
+  })
+}
+
+for (const edge of missingComponentEntryBaselineTargets) {
+  violations.push({
+    file: path.relative(root, componentEntryDepsBaselinePath),
+    specifier: `${edge.sourceScope} -> ${edge.target} missing component entry dependency baseline target`,
   })
 }
 

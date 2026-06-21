@@ -204,6 +204,23 @@ function getEdgeKey(edge) {
   return `${edge.sourceScope} -> ${edge.target}`
 }
 
+function getActualComponentEntries() {
+  const entries = new Set()
+
+  for (const filePath of walk(path.join(srcDir, 'components')).filter((entryFilePath) =>
+    /(?:Entries|entries)\.js$/.test(entryFilePath)
+  )) {
+    const entryPath = path
+      .relative(path.join(srcDir, 'components'), filePath)
+      .split(path.sep)
+      .join('/')
+    entries.add(entryPath)
+    entries.add(entryPath.replace(/\.js$/, ''))
+  }
+
+  return entries
+}
+
 function findUnlistedEdges(edges, baseline) {
   const baselineEdges = new Set((baseline?.edges || []).map(getEdgeKey))
   return edges.filter((edge) => !baselineEdges.has(getEdgeKey(edge)))
@@ -212,6 +229,26 @@ function findUnlistedEdges(edges, baseline) {
 function findStaleBaselineEdges(edges, baseline) {
   const actualEdges = new Set(edges.map(getEdgeKey))
   return (baseline?.edges || []).filter((edge) => !actualEdges.has(getEdgeKey(edge)))
+}
+
+function findDuplicateBaselineEdges(baseline) {
+  const seenEdges = new Set()
+  const duplicateEdges = []
+
+  for (const edge of baseline?.edges || []) {
+    const edgeKey = getEdgeKey(edge)
+    if (seenEdges.has(edgeKey)) {
+      duplicateEdges.push(edge)
+    }
+    seenEdges.add(edgeKey)
+  }
+
+  return duplicateEdges
+}
+
+function findMissingBaselineTargets(baseline) {
+  const actualEntries = getActualComponentEntries()
+  return (baseline?.edges || []).filter((edge) => !actualEntries.has(edge.target))
 }
 
 function printReport({ edges, fanIn }) {
@@ -265,6 +302,8 @@ function main() {
     const baseline = loadBaseline()
     const unlistedEdges = findUnlistedEdges(analysis.edges, baseline)
     const staleBaselineEdges = findStaleBaselineEdges(analysis.edges, baseline)
+    const duplicateBaselineEdges = findDuplicateBaselineEdges(baseline)
+    const missingBaselineTargets = findMissingBaselineTargets(baseline)
 
     if (!baseline) {
       console.error(`Missing ${path.relative(root, baselinePath)}.`)
@@ -274,6 +313,22 @@ function main() {
     if (unlistedEdges.length > 0) {
       console.error('Unlisted cross-domain component entry dependencies found:')
       for (const edge of unlistedEdges) {
+        console.error(`- ${getEdgeKey(edge)}`)
+      }
+      process.exit(1)
+    }
+
+    if (duplicateBaselineEdges.length > 0) {
+      console.error('Duplicate cross-domain component entry dependency baseline entries found:')
+      for (const edge of duplicateBaselineEdges) {
+        console.error(`- ${getEdgeKey(edge)}`)
+      }
+      process.exit(1)
+    }
+
+    if (missingBaselineTargets.length > 0) {
+      console.error('Missing component entry targets in dependency baseline found:')
+      for (const edge of missingBaselineTargets) {
         console.error(`- ${getEdgeKey(edge)}`)
       }
       process.exit(1)
@@ -300,6 +355,8 @@ if (require.main === module) {
 
 module.exports = {
   analyzeComponentEntryDeps,
+  findDuplicateBaselineEdges,
+  findMissingBaselineTargets,
   findStaleBaselineEdges,
   findUnlistedEdges,
 }
