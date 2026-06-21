@@ -13,7 +13,7 @@ import Store from './store'
 import { useMemo, useState } from 'react'
 import moment from 'moment'
 
-function Index({ path }) {
+function FinancialLiquidityRisk({ path }) {
   const store = useMemo(() => new Store(), [])
   const { time, setTime } = store
   const newTime = useMemo(() => {
@@ -44,4 +44,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquidityRisk)

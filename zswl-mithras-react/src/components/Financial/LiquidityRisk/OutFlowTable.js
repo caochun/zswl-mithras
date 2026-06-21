@@ -16,7 +16,7 @@ const options = [
   { label: '资金端', value: '1' },
   { label: '资产端', value: '2' },
 ]
-function Index({ time = {}, store }) {
+function FinancialLiquidityRiskOutFlowTable({ time = {}, store }) {
   const [port, setPort] = useState('1')
   const portChange = (e) => {
     setPort(e.target.value)
@@ -135,4 +135,4 @@ function Index({ time = {}, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquidityRiskOutFlowTable)

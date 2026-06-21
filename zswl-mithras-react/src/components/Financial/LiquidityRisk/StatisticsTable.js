@@ -11,7 +11,7 @@ import { Checkbox } from 'antd'
 import _ from 'lodash'
 import { saveServer } from '@/utils'
 
-function Index({ time = {}, store }) {
+function FinancialLiquidityRiskStatisticsTable({ time = {}, store }) {
   const timeFrom = time.timeFrom && moment(time.timeFrom).format('YYYY-MM-DD')
   const timeTo = time.timeTo && moment(time.timeTo).format('YYYY-MM-DD')
   const [groupMap, setGroupMap] = useState({})
@@ -216,4 +216,4 @@ function Index({ time = {}, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquidityRiskStatisticsTable)

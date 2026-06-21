@@ -13,7 +13,7 @@ import { saveServer } from '@/utils'
 
 const { Text } = Typography
 
-function Index({ day, store }) {
+function FinancialLiquidityRiskShortTermLoan({ day, store }) {
   const [time, setTime] = useState([])
   const [sumData, setSumData] = useState({})
   const [pageSum, setPageSum] = useState({})
@@ -154,4 +154,4 @@ function Index({ day, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialLiquidityRiskShortTermLoan)

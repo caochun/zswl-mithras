@@ -22,7 +22,7 @@ const rangePresets = {
   T180: [moment(), moment().add(180, 'days')],
 }
 
-function Index({ path, onChange, value }) {
+function FinancialLiquidityRiskTimeSelect({ path, onChange, value }) {
   const [radioValue, setRadioValue] = useState(getTDate(5))
   const RadioChange = (e) => {
     setRadioValue(e.target.value)
@@ -59,8 +59,8 @@ function Index({ path, onChange, value }) {
     </div>
   )
 }
-Index.getTNum = (value) => {
+FinancialLiquidityRiskTimeSelect.getTNum = (value) => {
   const [start, end] = value.split('~')
   return moment(end).diff(start, 'day')
 }
-export default observer(Index)
+export default observer(FinancialLiquidityRiskTimeSelect)
