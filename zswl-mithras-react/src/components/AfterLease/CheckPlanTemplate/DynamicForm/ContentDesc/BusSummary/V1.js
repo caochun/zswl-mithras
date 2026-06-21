@@ -8,7 +8,7 @@ import RowSpan from '../RowSpan'
  * @param {boolean} props.editable - 是否可编辑
  * @param {string} props.namePrefix - 名称前缀，默认为 'BUS'
  */
-function Index({ editable, namePrefix = 'B' }) {
+function AfterLeaseBusSummaryV1({ editable, namePrefix = 'B' }) {
   return (
     <div>
       <RowSpan subTitle={'以上检查事项风险事项披露及异常说明'} name={`${namePrefix}_S_1_01`}>
@@ -24,4 +24,4 @@ function Index({ editable, namePrefix = 'B' }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseBusSummaryV1)

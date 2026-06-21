@@ -1,12 +1,12 @@
 import { observer } from '@zswl/admin'
-import { Modal, Form, Select } from '@zswl/components'
+import { Modal, Form } from '@zswl/components'
 import { TEMPLATE_LIST } from './enum'
 import { Radio, Space } from 'antd'
 import IconFont from '@/components/Icon'
 import styles from './style.less'
 
 const { Item } = Form
-function Index({ store }) {
+function AfterLeaseCheckPlanTemplateModal({ store }) {
   return (
     <Modal
       title={'请选择报告模板'}
@@ -32,4 +32,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanTemplateModal)
