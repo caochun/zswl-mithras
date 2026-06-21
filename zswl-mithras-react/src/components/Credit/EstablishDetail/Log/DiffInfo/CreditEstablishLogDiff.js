@@ -14,7 +14,7 @@ const DETAIL_MAP = {
   BASE_INFO: '基础信息',
 }
 
-function Index({ params: { id } }) {
+function CreditEstablishLogDiff({ params: { id } }) {
   const { compareData } = store
   const { moduleChanged, newData } = compareData
   useEffect(() => {
@@ -73,4 +73,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditEstablishLogDiff)

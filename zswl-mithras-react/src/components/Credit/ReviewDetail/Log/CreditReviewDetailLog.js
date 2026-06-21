@@ -4,7 +4,7 @@ import store from './store'
 import { useEffect } from 'react'
 import { saveServer } from '@/utils'
 
-function Index({ params: { id } }) {
+function CreditReviewDetailLog({ params: { id } }) {
   useEffect(() => {
     store.setProjectId(id)
   }, [id])
@@ -42,4 +42,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditReviewDetailLog)

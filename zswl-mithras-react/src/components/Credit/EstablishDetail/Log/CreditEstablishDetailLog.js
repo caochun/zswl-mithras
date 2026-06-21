@@ -4,7 +4,7 @@ import store from './store'
 import Api from '@/api/credit/groupCreditEstablishVersionApi'
 import { VersionTable } from '@/components/Table'
 
-function Index({ params: { id } }) {
+function CreditEstablishDetailLog({ params: { id } }) {
   return (
     <Page header={null}>
       <VersionTable
@@ -16,4 +16,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditEstablishDetailLog)

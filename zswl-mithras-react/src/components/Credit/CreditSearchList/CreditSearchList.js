@@ -8,7 +8,7 @@ import AddModal from './AddModal'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Menu } from 'antd'
 
-const Index = ({ params = {}, onClose }) => {
+const CreditSearchList = ({ params = {}, onClose }) => {
   const { reload } = getQuery()
   const store = useMemo(() => new Store(params), [params])
 
@@ -87,4 +87,4 @@ const Index = ({ params = {}, onClose }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CreditSearchList)

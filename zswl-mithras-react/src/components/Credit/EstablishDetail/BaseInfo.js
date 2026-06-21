@@ -32,7 +32,7 @@ const nameColumns = [
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ detail, saveData, isLog, canEdit = true, newProject, updateInfo }) {
+function CreditEstablishBaseInfo({ detail, saveData, isLog, canEdit = true, newProject, updateInfo }) {
   const initEdit = newProject === 'true'
   const items = useMemo(() => {
     const riskManager = columns.find((v) => v.title === '风控经理')
@@ -66,4 +66,4 @@ function Index({ detail, saveData, isLog, canEdit = true, newProject, updateInfo
   )
 }
 
-export default observer(Index)
+export default observer(CreditEstablishBaseInfo)

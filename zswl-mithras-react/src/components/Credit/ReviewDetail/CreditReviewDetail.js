@@ -14,7 +14,7 @@ import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/
 
 const { Link } = Anchor
 
-const Index = ({
+const CreditReviewDetail = ({
   params: { id },
   query: { canEditFlags = 'true', newProject, businessVersion },
   processInstanceId,
@@ -142,4 +142,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(CreditReviewDetail)

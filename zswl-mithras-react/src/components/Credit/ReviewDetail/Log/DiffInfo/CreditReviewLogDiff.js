@@ -9,7 +9,7 @@ import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 
 const { Panel } = Collapse
 
-function Index({ params: { id } }) {
+function CreditReviewLogDiff({ params: { id } }) {
   const { compareData } = store
   const { moduleChanged, newData } = compareData
   useEffect(() => {
@@ -79,4 +79,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditReviewLogDiff)

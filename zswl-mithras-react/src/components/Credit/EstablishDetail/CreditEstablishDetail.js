@@ -11,7 +11,7 @@ import { ApprovalDetail } from '@/components/Table'
 import { DetailLayout } from '@/components/Layout'
 import CreditModal from '../CreditSearchModal/CreditReportSearchModal'
 
-const Index = ({
+const CreditEstablishDetail = ({
   params: { id },
   query: { newProject, canEditFlags = 'true', businessVersion },
 }) => {
@@ -111,4 +111,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(CreditEstablishDetail)

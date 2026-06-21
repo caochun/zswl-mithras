@@ -27,7 +27,7 @@ const nameColumns = [
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit, updateInfo }) {
+function CreditReviewBaseInfo({ detail, saveData, isLog, canEdit = true, initEdit, updateInfo }) {
   return (
     <EditDescription
       detail={{
@@ -51,4 +51,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, updateInfo }
   )
 }
 
-export default observer(Index)
+export default observer(CreditReviewBaseInfo)

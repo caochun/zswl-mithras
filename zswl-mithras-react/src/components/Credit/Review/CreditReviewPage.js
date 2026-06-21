@@ -71,7 +71,7 @@ const formNameColumns = [
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index() {
+function CreditReviewPage() {
   return (
     <Page>
       <div>
@@ -107,4 +107,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CreditReviewPage)
