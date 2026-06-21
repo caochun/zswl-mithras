@@ -2,10 +2,10 @@ import { observer } from '@zswl/admin'
 import CollapseTable from '../CollapseTable'
 import BasicCollapseTable from '../BasicCollapseTable'
 import { REFERENCE_MATERIALS, OPERATIONAL_REVIEW, tableEnum, TEMPLATE_LIST } from '../enum'
-import { useFillingMaterialContext } from '../Context'
+import { useFilingMaterialContext } from '../Context'
 
 const Index = ({ id, data, store }) => {
-  const { activeTab } = useFillingMaterialContext()
+  const { activeTab } = useFilingMaterialContext()
   const renderBasicTable = () => {
     return (
       <BasicCollapseTable

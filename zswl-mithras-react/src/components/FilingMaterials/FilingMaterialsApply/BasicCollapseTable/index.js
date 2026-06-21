@@ -6,7 +6,7 @@ import { App } from '@zswl/components'
 import { Button, Empty } from 'antd'
 import moment from 'moment'
 import { useRef, useState } from 'react'
-import { useFillingMaterialContext } from '../Context'
+import { useFilingMaterialContext } from '../Context'
 import Api from '@/api/filingMaterials/filingMaterialsApplyApi'
 import { tableEnum } from '../enum'
 
@@ -16,7 +16,7 @@ const Index = ({ id, canEdit, dataSource, name, businessType, moduleCode, canBat
     { title: '上传人', dataIndex: 'createByName' },
     { title: '上传时间', dataIndex: 'createTime' },
   ]
-  const { activeTab, enumType, startUserName, processStatus, curTaskDefKey } = useFillingMaterialContext()
+  const { activeTab, enumType, startUserName, processStatus, curTaskDefKey } = useFilingMaterialContext()
 
   const userName = getUserInfo().userName
   const isApproval = getQuery('curTab') === 'approval'

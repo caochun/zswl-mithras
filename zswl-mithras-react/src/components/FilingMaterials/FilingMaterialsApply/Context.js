@@ -1,13 +1,13 @@
 import { createContext, useContext } from 'react'
 
-export const FillingMaterialContext = createContext({})
+export const FilingMaterialContext = createContext({})
 
-export function FillingMaterialProvider({ value, children }) {
-  return <FillingMaterialContext.Provider value={value}>{children}</FillingMaterialContext.Provider>
+export function FilingMaterialProvider({ value, children }) {
+  return <FilingMaterialContext.Provider value={value}>{children}</FilingMaterialContext.Provider>
 }
 
-export function useFillingMaterialContext() {
-  const ctxValue = useContext(FillingMaterialContext)
+export function useFilingMaterialContext() {
+  const ctxValue = useContext(FilingMaterialContext)
   return {
     ...ctxValue,
   }

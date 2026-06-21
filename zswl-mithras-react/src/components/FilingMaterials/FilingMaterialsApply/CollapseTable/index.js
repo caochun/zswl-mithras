@@ -7,7 +7,7 @@ import { Button, Modal, Space, message } from 'antd'
 import _ from 'lodash'
 import moment from 'moment'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useFillingMaterialContext } from '../Context'
+import { useFilingMaterialContext } from '../Context'
 import Api from '@/api/filingMaterials/filingMaterialsApplyApi'
 import { tableEnum } from '../enum'
 
@@ -26,7 +26,7 @@ const Index = ({
   basic,
   clientId,
 }) => {
-  const { activeTab, enumType, refreshTable, taskActivityId, curTaskActivityIds, startUserName, curTaskDefKey } = useFillingMaterialContext()
+  const { activeTab, enumType, refreshTable, taskActivityId, curTaskActivityIds, startUserName, curTaskDefKey } = useFilingMaterialContext()
   const userName = getUserInfo().userName
   const columns = [
     { title: '资料清单', dataIndex: 'name' },

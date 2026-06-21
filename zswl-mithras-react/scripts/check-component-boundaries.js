@@ -2703,6 +2703,16 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (
+    relativeFilePath.startsWith('src/components/FilingMaterials/') &&
+    /\b(?:FillingMaterial|useFillingMaterial|fillingMaterial)\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'filling material typo residue (use FilingMaterial naming)',
+    })
+  }
+
   if (removedLegacyUtilityFiles.has(relativeFilePath)) {
     violations.push({
       file: relativeFilePath,

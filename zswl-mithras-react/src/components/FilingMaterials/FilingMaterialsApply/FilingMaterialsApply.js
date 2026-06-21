@@ -5,7 +5,7 @@ import style from './index.less'
 import Store from './Store'
 import BasicInfo from './BasicInfo'
 import InternalOperationInfo from './InternalOperationInfo'
-import { FillingMaterialProvider } from './Context'
+import { FilingMaterialProvider } from './Context'
 
 const Index = ({ params }) => {
   const { id, startUserId, taskActivityId, curTaskActivityIds, startUserName, processStatus, processInstanceId } = params
@@ -47,7 +47,7 @@ const Index = ({ params }) => {
   }, [activeTab, id, currentTabData, loading])
 
   return (
-    <FillingMaterialProvider
+    <FilingMaterialProvider
       value={{
         id,
         activeTab,
@@ -78,7 +78,7 @@ const Index = ({ params }) => {
         </div>
         {Content}
       </div>
-    </FillingMaterialProvider>
+    </FilingMaterialProvider>
   )
 }
 
