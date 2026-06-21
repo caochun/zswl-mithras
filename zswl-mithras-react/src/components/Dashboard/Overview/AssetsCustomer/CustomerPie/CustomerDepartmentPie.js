@@ -1,7 +1,6 @@
 import { CyclicPie } from '@zswl/charts'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo } from 'react'
-import { AmountFormat } from '@/components/Format'
 import { amountFormat } from '@/utils'
 import styles from './index.less'
 

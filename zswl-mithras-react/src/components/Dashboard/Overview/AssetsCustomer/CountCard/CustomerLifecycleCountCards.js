@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { observer } from '@zswl/admin'
 import { amountFormat } from '@/utils'
-import { Spin, Skeleton } from 'antd'
+import { Skeleton } from 'antd'
 import styles from './index.less'
 import { canSeeDetailFn } from '@/utils/domains/dashboard/DashboardUtils'
 
