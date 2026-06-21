@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import styles from '../style.less'
 import RowSpan from '../RowSpan'
 
-function Index(props) {
+function AfterLeaseLowRiskContentV1V2(props) {
   const { editable } = props
   return (
     <div>
@@ -27,4 +27,4 @@ function Index(props) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseLowRiskContentV1V2)

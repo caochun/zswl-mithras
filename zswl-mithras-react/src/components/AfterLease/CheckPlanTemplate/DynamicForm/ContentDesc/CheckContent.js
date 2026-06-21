@@ -45,7 +45,7 @@ export const TABLE_INITIAL_VALUES3 = [
   { subject: '线路数量' },
 ]
 
-function Index(props, ref) {
+function AfterLeaseCheckContent(props, ref) {
   const { contentData = [], title, saveApi, canEdit, initEdit = false, children, active } = props
   useEffect(() => {
     form.resetFields()
@@ -154,4 +154,4 @@ function Index(props, ref) {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(AfterLeaseCheckContent))

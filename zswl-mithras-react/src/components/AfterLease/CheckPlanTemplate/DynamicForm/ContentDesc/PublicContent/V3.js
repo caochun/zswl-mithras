@@ -52,7 +52,7 @@ export const CollectAnalysis = observer(({ chiName, editable, isV1, isV2 }) => {
   )
 })
 
-function Index(props) {
+function AfterLeasePublicContentV3(props) {
   const { editable, reportTemplateType } = props
   const isV1 = reportTemplateType === 'V1'
   const isV2 = reportTemplateType === 'V2'
@@ -205,4 +205,4 @@ function Index(props) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeasePublicContentV3)

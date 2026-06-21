@@ -15,7 +15,7 @@ import LeasedProperty from './LeasedProperty'
  * @param {string} props.chiName - 企业名称
  * @param {string} props.namePrefix - 表单字段名前缀，默认为 'SOA'
  */
-function Index(props, ref) {
+function AfterLeaseStateAssetContentV1(props, ref) {
   const { editable, reportTemplateType, chiName, namePrefix = 'SOA' } = props
   const isV1 = reportTemplateType === 'V1'
   const isV2 = reportTemplateType === 'V2'
@@ -33,4 +33,4 @@ function Index(props, ref) {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(AfterLeaseStateAssetContentV1))

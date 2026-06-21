@@ -8,7 +8,7 @@ import RowSpan from '../RowSpan'
 
 const { yesOrNoString, templateStatus } = options
 
-function Index(props, ref) {
+function AfterLeaseNoPublicSummaryV1V2(props, ref) {
   const { editable, reportTemplateType } = props
   const isV2 = reportTemplateType === 'V2'
 
@@ -61,4 +61,4 @@ function Index(props, ref) {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseNoPublicSummaryV1V2)
