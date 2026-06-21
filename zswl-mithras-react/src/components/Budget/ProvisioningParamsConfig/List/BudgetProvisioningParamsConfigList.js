@@ -4,7 +4,7 @@ import History from './History'
 import store from './store'
 import { useEffect } from 'react'
 
-const Index = ({ pathname, query }) => {
+const BudgetProvisioningParamsConfigList = ({ pathname, query }) => {
   const { type } = query || {}
   useEffect(() => {
     if (type === 'reload') {
@@ -67,4 +67,4 @@ const Index = ({ pathname, query }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BudgetProvisioningParamsConfigList)

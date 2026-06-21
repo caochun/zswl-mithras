@@ -5,7 +5,7 @@ import { Space } from 'antd'
 import { useMemo } from 'react'
 import { getColumnsByType } from '../../ProvisioningParamsConfigColumns/BudgetProvisioningParamsConfigColumns'
 
-const Index = ({ params }) => {
+const BudgetProvisioningParamsConfigDetail = ({ params }) => {
   const store = useMemo(() => new Store(), [])
   const { id } = params
   const detail = store.page.getData()
@@ -75,4 +75,4 @@ const Index = ({ params }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetProvisioningParamsConfigDetail)

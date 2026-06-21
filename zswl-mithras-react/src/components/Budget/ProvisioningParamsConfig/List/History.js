@@ -1,9 +1,7 @@
 import { observer, history } from '@zswl/admin'
-import { Form, Modal, Table } from '@zswl/components'
+import { Modal, Table } from '@zswl/components'
 
-const { Item } = Form
-
-const Index = ({ store }) => {
+const BudgetProvisioningParamsConfigHistory = ({ store }) => {
   const columns = [
     {
       title: '配置名称',
@@ -52,4 +50,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetProvisioningParamsConfigHistory)
