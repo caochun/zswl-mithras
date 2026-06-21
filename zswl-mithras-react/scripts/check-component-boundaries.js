@@ -19,8 +19,8 @@ const componentEntryDepsBaselinePath = path.join(
 )
 const allFilePattern = /./
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
-const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
 const styleFilePattern = /\.(less|css|scss|sass)$/
+const scannableFilePattern = /\.(js|jsx|ts|tsx|less|css|scss|sass)$/
 const copiedSourceFilePattern =
   /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
 const sampleSourceFilePattern =
@@ -2449,7 +2449,7 @@ function findEmptyDirs(dir, emptyDirs = []) {
 
 function extractSpecifiers(source, relativeFilePath) {
   const specifiers = []
-  const pattern = /\.less$/.test(relativeFilePath) ? styleImportPattern : importPattern
+  const pattern = styleFilePattern.test(relativeFilePath) ? styleImportPattern : importPattern
   let match
 
   while ((match = pattern.exec(source))) {
