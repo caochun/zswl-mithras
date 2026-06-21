@@ -3,9 +3,9 @@ import { Page } from '@zswl/components'
 import store from './store'
 import { Tabs, Spin } from 'antd'
 import styles from './index.less'
-import Approval from './Approval'
-import Pending from './Pending'
-import SendDuplicate from './SendDuplicate'
+import Approval from './Approval/ProcessReceiveApproval'
+import Pending from './Pending/ProcessReceivePending'
+import SendDuplicate from './SendDuplicate/ProcessReceiveSendDuplicate'
 import { useEffect, useState } from 'react'
 const { TabPane } = Tabs
 function ProcessReceive() {
