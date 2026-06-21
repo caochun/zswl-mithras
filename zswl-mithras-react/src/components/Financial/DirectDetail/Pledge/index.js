@@ -8,7 +8,7 @@ import { Checkbox, Space } from 'antd'
 import { useMemo } from 'react'
 import Api from '@/api/financial/directFinancingDetail'
 import CreateModal from './CreateModal'
-import { JumpContractDetail, JumpProjDetail } from './Jump'
+import { JumpContractDetail, JumpProjDetail } from '../../Shared/JumpDetail'
 import styles from './index.less'
 import Store from './store'
 

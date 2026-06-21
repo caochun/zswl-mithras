@@ -2,26 +2,27 @@ import { history } from '@zswl/admin'
 import { Tooltip } from 'antd'
 
 const JumpDetail = ({ title, isChange, path }) => {
-  if (title) {
-    const JumpA = (
-      <a
-        style={{ color: isChange ? 'red' : '#2552e6' }}
-        onClick={() => history.push(path)}
-        target="_blank"
-      >
-        {title}
-      </a>
-    )
-    return (
-      <div>
-        <Tooltip title={title} placement="topLeft">
-          {JumpA}
-        </Tooltip>
-      </div>
-    )
-  } else {
+  if (!title) {
     return '-'
   }
+
+  const jumpLink = (
+    <a
+      style={{ color: isChange ? 'red' : '#2552e6' }}
+      onClick={() => history.push(path)}
+      target="_blank"
+    >
+      {title}
+    </a>
+  )
+
+  return (
+    <div>
+      <Tooltip title={title} placement="topLeft">
+        {jumpLink}
+      </Tooltip>
+    </div>
+  )
 }
 
 export const JumpContractDetail = ({ title, isChange, contractId }) => {

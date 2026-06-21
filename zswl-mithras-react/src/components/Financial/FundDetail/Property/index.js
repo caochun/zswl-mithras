@@ -7,7 +7,7 @@ import Store from './store'
 import styles from './index.less'
 import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
-import { JumpContractDetail, JumpProjDetail } from './Jump'
+import { JumpContractDetail, JumpProjDetail } from '../../Shared/JumpDetail'
 
 const Index = ({
   financingId,
