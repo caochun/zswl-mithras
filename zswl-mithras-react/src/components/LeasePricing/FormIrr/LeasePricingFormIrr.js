@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import styles from './index.less'
 import { hasValue } from '@/utils'
 
-const Index = ({
+const LeasePricingFormIrr = ({
   value,
   onChange,
   handleOpen,
@@ -87,7 +87,7 @@ const Index = ({
     </div>
   )
 }
-Index.Item = ({ name, label, rules, ...rest }) => {
+LeasePricingFormIrr.Item = ({ name, label, rules, ...rest }) => {
   return (
     <Form.Item
       name={name}
@@ -106,9 +106,9 @@ Index.Item = ({ name, label, rules, ...rest }) => {
         },
       ]}
     >
-      <Index {...rest}></Index>
+      <LeasePricingFormIrr {...rest}></LeasePricingFormIrr>
     </Form.Item>
   )
 }
 
-export default Index
+export default LeasePricingFormIrr

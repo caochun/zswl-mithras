@@ -13,7 +13,7 @@ const fieldMapTip = {
   ),
 }
 
-const Index = ({ children, fieldName }) => {
+const LeasePricingFeeTip = ({ children, fieldName }) => {
   const tip = fieldMapTip[fieldName]
   return (
     <Tooltip title={tip}>
@@ -24,6 +24,6 @@ const Index = ({ children, fieldName }) => {
     </Tooltip>
   )
 }
-Index.fieldMapTip = fieldMapTip
+LeasePricingFeeTip.fieldMapTip = fieldMapTip
 
-export default Index
+export default LeasePricingFeeTip

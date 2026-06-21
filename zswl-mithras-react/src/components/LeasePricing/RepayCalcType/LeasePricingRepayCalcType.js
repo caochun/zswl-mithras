@@ -3,7 +3,7 @@ import styles from './index.less'
 
 const { Item } = Form
 
-const Index = ({ fieldName }) => {
+const LeasePricingRepayCalcType = ({ fieldName }) => {
   return (
     <div className={styles.rowWrap}>
       <Item noStyle dependencies={['interestWay']}>
@@ -24,4 +24,4 @@ const Index = ({ fieldName }) => {
   )
 }
 
-export default Index
+export default LeasePricingRepayCalcType
