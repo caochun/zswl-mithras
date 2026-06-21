@@ -2786,6 +2786,16 @@ for (const filePath of sourceFiles) {
   }
 
   if (
+    relativeFilePath.startsWith('src/components/Cpm/') &&
+    /\bdesSmell\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'CPM description style typo residue (use summaryDescription naming)',
+    })
+  }
+
+  if (
     relativeFilePath.startsWith('src/components/Ocr/') &&
     /modalType:\s*['"]singe['"]/.test(source)
   ) {

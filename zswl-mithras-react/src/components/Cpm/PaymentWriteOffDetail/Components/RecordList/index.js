@@ -127,7 +127,7 @@ const PaymentTable = ({ store, isFormApproval, canEdit, pagePage, taskActivityId
         }}
         labelStyle={{ background: '#F5F6FA' }}
         size={'small'}
-        className={styles.desSmell}
+        className={styles.summaryDescription}
       >
         {descriptionColumns.map((item, index) => {
           return (

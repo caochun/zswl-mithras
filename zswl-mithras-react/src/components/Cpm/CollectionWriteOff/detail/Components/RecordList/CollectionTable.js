@@ -65,7 +65,7 @@ const CollectionTable = ({ store }) => {
         }}
         labelStyle={{ background: '#F5F6FA' }}
         size={'small'}
-        className={styles.desSmell}
+        className={styles.summaryDescription}
       >
         {descriptionColumns.map((item, index) => {
           return (

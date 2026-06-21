@@ -114,7 +114,7 @@ const BaseInfo = ({ store, id, goProcess = () => {} }) => {
         column={3}
         labelStyle={{ background: '#F5F6FA' }}
         size={'small'}
-        className={styles.desSmell}
+        className={styles.summaryDescription}
       >
         {plannedPaymentColumns.map((item, index) => {
           return (

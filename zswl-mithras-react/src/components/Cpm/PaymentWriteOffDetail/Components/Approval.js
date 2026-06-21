@@ -45,7 +45,7 @@ const Approval = ({ store }) => {
         }}
         labelStyle={{ background: '#F5F6FA' }}
         size={'small'}
-        className={styles.desSmell}
+        className={styles.summaryDescription}
       >
         {columns.map((item, index) => {
           return (

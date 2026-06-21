@@ -133,7 +133,7 @@ const CashFlowInfo = ({ store }) => {
         }}
         labelStyle={{ background: '#F5F6FA' }}
         size={'small'}
-        className={styles.desSmell}
+        className={styles.summaryDescription}
       >
         {columns.map((item, index) => {
           return (
@@ -270,7 +270,7 @@ const PenaltyInterestModal = ({ store }) => {
         }}
         labelStyle={{ background: '#F5F6FA' }}
         size={'small'}
-        className={styles.desSmell}
+        className={styles.summaryDescription}
       >
         {descriptionsColumns.map((item, index) => {
           return (
