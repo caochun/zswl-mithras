@@ -9,7 +9,7 @@ import {
   onEvaluateMainChange,
 } from './Context'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit, store }) {
+function ProjectPriceBaseInfoLeaseConfig({ detail, saveData, isLog, canEdit = true, initEdit, store }) {
   const editDescRef = useRef({})
 
   const form = editDescRef.current?.form
@@ -80,4 +80,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectPriceBaseInfoLeaseConfig)

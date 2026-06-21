@@ -10,7 +10,14 @@ import {
 } from './Context'
 import { Button } from '@zswl/components'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit, store }) {
+function ProjectReviewBaseInfoLeaseConfig({
+  detail,
+  saveData,
+  isLog,
+  canEdit = true,
+  initEdit,
+  store,
+}) {
   const editDescRef = useRef({})
 
   const form = editDescRef.current?.form
@@ -84,4 +91,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewBaseInfoLeaseConfig)
