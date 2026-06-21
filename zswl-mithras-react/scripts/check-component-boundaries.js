@@ -2659,6 +2659,12 @@ function hasDebugger(source) {
   return /\bdebugger\b/.test(source)
 }
 
+function hasEmptyUseEffect(source) {
+  return /useEffect\s*\(\s*(?:(?:\(\s*\)\s*=>\s*\{\s*\})|(?:function\s*\(\s*\)\s*\{\s*\}))\s*,\s*\[\s*\]\s*\)/.test(
+    source
+  )
+}
+
 function findUnusedStyleModuleImports(source) {
   const unusedImports = []
   const styleModuleImportPattern =
@@ -3003,6 +3009,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'debugger residue in frontend source',
+    })
+  }
+
+  if (hasEmptyUseEffect(source)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'empty useEffect hook residue in frontend source',
     })
   }
 
