@@ -10,7 +10,7 @@ import CommonSearch, { defaultParams } from './CommonSearch'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
-function Index({ store }) {
+function CustomerGovernmentFinancialReport({ store }) {
   useEffect(() => {
     //store.getFinanceList({ subjectType: 'GOV_CAPITAL_BALANCE' })
     store.govSearchBar.search()
@@ -317,4 +317,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerGovernmentFinancialReport)

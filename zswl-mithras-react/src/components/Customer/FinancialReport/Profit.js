@@ -12,7 +12,7 @@ import CommonSearch, { defaultParams } from './CommonSearch'
 
 const { Item } = SearchBar
 
-function Index({ store }) {
+function CustomerProfitFinancialReport({ store }) {
   useEffect(() => {
     //store.getFinanceList({ subjectType: 'PROFIT' })
     store.profitSearchBar.search()
@@ -319,4 +319,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerProfitFinancialReport)

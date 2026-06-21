@@ -11,7 +11,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index ({ store }) {
+function CustomerBusinessFinancialReport({ store }) {
   useEffect(() => {
     //store.getFinanceList({ subjectType: 'BIZ_INDEX' })
     store.bizSearchBar.search()
@@ -303,4 +303,4 @@ function Index ({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerBusinessFinancialReport)

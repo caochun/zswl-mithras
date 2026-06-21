@@ -22,7 +22,7 @@ const subjectItemDisplayDimensionCash = [
   { label: '同比', value: 'OVER_YEAR' },
 ]
 
-function Index({ store }) {
+function CustomerCashFinancialReport({ store }) {
   useEffect(() => {
     //store.getFinanceList({ subjectType: 'CASH_FLOW' })
     store.cashSearchBar.search()
@@ -317,4 +317,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerCashFinancialReport)

@@ -9,7 +9,7 @@ export const defaultParams = {
   latest: true,
   year: [moment().subtract(3, 'year'), moment().subtract(1, 'year')],
 }
-const Index = ({ searchStore, canEdit = true }) => {
+const CustomerFinancialReportSearch = ({ searchStore, canEdit = true }) => {
   const modeChange = (e) => {
     if (e.target.value === 'THREE_YEAR') {
       searchStore.setParams(defaultParams)
@@ -57,4 +57,4 @@ const Index = ({ searchStore, canEdit = true }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerFinancialReportSearch)

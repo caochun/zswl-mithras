@@ -11,7 +11,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index({ store }) {
+function CustomerIncomeFinancialReport({ store }) {
   useEffect(() => {
     //store.getFinanceList({ subjectType: 'INCOME_EXPEND' })
     store.incomeSearchBar.search()
@@ -317,4 +317,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerIncomeFinancialReport)
