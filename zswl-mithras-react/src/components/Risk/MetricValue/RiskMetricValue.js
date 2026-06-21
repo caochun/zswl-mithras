@@ -6,7 +6,7 @@ import JinKon from './JinKon/RiskMetricJinKon'
 import Target from './Target/RiskMetricValueTarget'
 import IconFont from '@/components/Icon'
 
-function Index() {
+function RiskMetricValue() {
   return (
     <Page>
       <Tabs
@@ -64,4 +64,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(RiskMetricValue)

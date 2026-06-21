@@ -15,7 +15,7 @@ const date = new Date()
 const year = date.getFullYear()
 const mouth = date.getMonth()
 
-const Index = () => {
+const RiskMetricValueTarget = () => {
   const { allSelect, lastReportTime, editIndex, valNeedFormatUnit } = store
   useEffect(() => {
     store.getSelect()
@@ -195,4 +195,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskMetricValueTarget)

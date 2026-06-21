@@ -29,7 +29,7 @@ const nameColumns = [
   '董事会/委员会意见',
 ]
 
-const Index = () => {
+const RiskMetricJinKon = () => {
   const columns = getTableColumns(ALL_COLUMNS, nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
@@ -96,4 +96,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskMetricJinKon)

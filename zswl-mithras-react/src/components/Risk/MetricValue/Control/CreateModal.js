@@ -12,7 +12,7 @@ const targetSubjectMap = {
   ZSZL_SXLYW_RZZL_RZZL: '租赁物',
 }
 
-const Index = ({ store }) => {
+const RiskMetricControlCreateModal = ({ store }) => {
   const onBizTypeChange = (value) => {
     const { formStore } = store.createModal
     formStore.setFieldValue('targetSubject', targetSubjectMap[value])
@@ -103,4 +103,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskMetricControlCreateModal)

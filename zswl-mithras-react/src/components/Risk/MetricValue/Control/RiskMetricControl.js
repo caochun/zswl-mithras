@@ -48,7 +48,7 @@ const reportEnum = [
   },
 ]
 
-const Index = () => {
+const RiskMetricControl = () => {
   const columns = getTableColumns(ALL_COLUMNS, nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
   const { others } = store
@@ -117,4 +117,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskMetricControl)

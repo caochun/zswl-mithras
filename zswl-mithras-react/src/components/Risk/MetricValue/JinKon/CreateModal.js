@@ -10,7 +10,7 @@ const { TextArea } = Input
 
 const { Item } = Form
 
-const Index = ({ store }) => {
+const RiskMetricJinKonCreateModal = ({ store }) => {
   const transformResult = (data) => {
     const res = []
     data.map((item) => {
@@ -122,4 +122,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskMetricJinKonCreateModal)

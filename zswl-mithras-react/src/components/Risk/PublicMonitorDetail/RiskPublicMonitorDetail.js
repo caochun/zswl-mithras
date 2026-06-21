@@ -11,7 +11,7 @@ import IconFont from '@/components/Icon'
 
 const warnLevelColor = ['', 'green', '#f7cf07', 'red']
 
-const Index = ({ params, query }) => {
+const RiskPublicMonitorDetail = ({ params, query }) => {
   const { id } = params
   const { taskActivityId, processInstanceId, canEditFlags } = query
   const canEditFlag = canEditFlags === 'true'
@@ -156,4 +156,4 @@ const Index = ({ params, query }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(RiskPublicMonitorDetail)

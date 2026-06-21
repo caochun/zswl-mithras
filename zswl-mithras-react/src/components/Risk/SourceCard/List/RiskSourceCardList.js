@@ -29,7 +29,7 @@ const nameColumns = [
 ]
 
 const columns = getTableColumns(ALL_COLUMNS, nameColumns, true)
-function Index({ path }) {
+function RiskSourceCardList({ path }) {
   const canDelete = store.table.selectedRowKeys.length > 0
   return (
     <Page>
@@ -69,4 +69,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskSourceCardList)

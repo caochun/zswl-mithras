@@ -8,7 +8,7 @@ import { Rate, Tooltip, Button, message } from 'antd'
 import IconFont from '@/components/Icon'
 import Api from '@/api/risk/publicMonitor'
 
-function Index({ query, params }) {
+function RiskPublicMonitorOpinionDetail({ query, params }) {
   const canEditFlag = true
   const approvalCanEdit = true
   const warnLevelColor = ['#ced4d9', 'green', '#f7cf07', 'red']
@@ -269,4 +269,4 @@ function Index({ query, params }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskPublicMonitorOpinionDetail)
