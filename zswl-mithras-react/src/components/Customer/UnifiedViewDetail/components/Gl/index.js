@@ -1,6 +1,6 @@
 import { getQuery, observer } from '@zswl/admin'
 import { Anchor, Row, Col, Space, Divider } from 'antd'
-import Creditinformation from './haders'
+import CreditInformation from './CreditInformation'
 import ProjectContract from './Content'
 import CreditRating from './CreditRating' // 信用评价
 import styles from '../styles.less'
@@ -46,7 +46,7 @@ function Index({ path, id }) {
         <Col flex={1} className={styles.info_container}>
           {/* <Space size={8}>{linkData('show')}</Space> */}
           <CreditRating store={store} id={anchorIds.xypj} />
-          <Creditinformation store={store} id={anchorIds.sxxx} />
+          <CreditInformation store={store} id={anchorIds.sxxx} />
           <ProjectContract store={store} id={anchorIds.xmht} clientId={id} />
           {/* <Bootm
             store={store}

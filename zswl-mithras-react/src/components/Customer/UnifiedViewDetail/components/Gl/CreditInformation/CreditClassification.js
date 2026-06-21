@@ -8,7 +8,7 @@ const formatAmount = (amount) => {
   return !isNaN(value) ? value.toLocaleString() : '0'
 }
 
-function Classifaction({ store }) {
+function CreditClassification({ store }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
@@ -92,4 +92,4 @@ function Classifaction({ store }) {
     )
 }
 
-export default observer(Classifaction)
+export default observer(CreditClassification)
