@@ -5,7 +5,7 @@ import Content from '../DetailContent/KpiPmAssessDetailContent'
 import Api from '@/api/kpi/pmAssess'
 import styles from './index.less'
 
-const Index = ({ store }) => {
+const KpiPmAssessEditModal = ({ store }) => {
   const { currentItem } = store
   const { id: businessKey, isEdit: hasAuth } = currentItem
   const submitFlow = async () => {
@@ -46,4 +46,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiPmAssessEditModal)

@@ -2,11 +2,10 @@ import { EditDescription } from '@/components/Table'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
 import ALL_COLUMNS from '../Column'
-import { Button } from '@zswl/components'
-import { compareDetail, compareTableData, getDescColumns } from '@/utils'
+import { getDescColumns } from '@/utils'
 import Api from '@/api/kpi/projectAllot'
 
-const Index = ({ projectDistributionId, source, businessVersion, listName }) => {
+const KpiProjectAllotBeforeInfo = ({ projectDistributionId, source, businessVersion, listName }) => {
   const nameColumns = [{ title: '分润比', rename: '人员分润比' }].filter(Boolean)
   const bmnameColumns = ['部门分润比', '部门投放分配比'].filter(Boolean)
   const baseInfo_columns = getDescColumns(
@@ -82,4 +81,4 @@ const Index = ({ projectDistributionId, source, businessVersion, listName }) => 
   )
 }
 
-export default observer(Index)
+export default observer(KpiProjectAllotBeforeInfo)

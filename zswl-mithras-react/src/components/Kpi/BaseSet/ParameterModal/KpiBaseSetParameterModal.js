@@ -7,7 +7,7 @@ import ProjectTypeFactor from './ProjectTypeFactor/KpiBaseSetProjectTypeFactor'
 import ProjectScaleFactor from './ProjectScaleFactor/KpiBaseSetProjectScaleFactor'
 import PutPrizeFactor from './PutPrizeFactor/KpiBaseSetPutPrizeFactor'
 
-const Index = ({ store }) => {
+const KpiBaseSetParameterModal = ({ store }) => {
   const { isEdit } = store
   const items = [
     {
@@ -62,4 +62,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetParameterModal)
