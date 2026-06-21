@@ -6,7 +6,7 @@ import Group from '../../ConcentrationControl/Group'
 import { useEffect, useState } from 'react'
 import Api from '@/api/risk/concentrationControl'
 
-function Index() {
+function RiskStrategyConcentrationControl() {
   const [friInfo, setFriInfo] = useState({})
   const getFriInfo = async () => {
     const res = await Api.postConcentrationFri()
@@ -44,4 +44,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(RiskStrategyConcentrationControl)

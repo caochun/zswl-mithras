@@ -3,7 +3,7 @@ import { Page, Table, TableStore } from '@zswl/components'
 import { amountFormat, formatPercent, hasValue, saveServer } from '@/utils'
 import Api from '@/api/risk/financeSheet'
 
-const Index = ({ query: { factorDate, factorTable } }) => {
+const RiskFinanceSheetFileDetail = ({ query: { factorDate, factorTable } }) => {
   const $table = new TableStore({
     request: async (params) => {
       const data = await Api.factorList({
@@ -53,4 +53,4 @@ const Index = ({ query: { factorDate, factorTable } }) => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskFinanceSheetFileDetail)

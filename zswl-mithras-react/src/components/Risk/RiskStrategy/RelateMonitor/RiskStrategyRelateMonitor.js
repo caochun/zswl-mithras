@@ -7,7 +7,7 @@ import Collection from '../../RelateMonitor/Collection'
 import Payment from '../../RelateMonitor/Payment'
 import Api from '@/api/risk/relatedTransaction'
 
-function Index() {
+function RiskStrategyRelateMonitor() {
   const [curTab, setCurTab] = useState('1')
   const [pullSelect, setPullSelect] = useState([])
 
@@ -68,4 +68,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(RiskStrategyRelateMonitor)

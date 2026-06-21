@@ -53,7 +53,7 @@ const tableColumns = [
     precision: 4,
   }),
 ]
-function Index({ params, query }) {
+function RiskStrategyIndicatorDetail({ params, query }) {
   const { date } = query
   const detail = store.page.getData()
   const { innovativeBizRspList, clientDetailList } = detail
@@ -115,4 +115,4 @@ function Index({ params, query }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskStrategyIndicatorDetail)

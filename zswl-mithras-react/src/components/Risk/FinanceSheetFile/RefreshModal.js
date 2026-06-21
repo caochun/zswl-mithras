@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal } from '@zswl/components'
 import { DatePicker } from 'antd'
 
-const Index = ({ store }) => {
+const RiskFinanceSheetFileRefreshModal = ({ store }) => {
   return (
     <Modal
       width={400}
@@ -28,4 +28,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskFinanceSheetFileRefreshModal)

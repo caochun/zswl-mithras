@@ -16,7 +16,7 @@ const formNameColumns = [
 ]
 const formColumns = getFormColumns(ALL_COLUMNS, formNameColumns)
 
-function Index() {
+function RiskStrategyIndicatorManage() {
   const { date } = store.table.getParams()
   const nameColumns = [
     {
@@ -66,4 +66,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(RiskStrategyIndicatorManage)
