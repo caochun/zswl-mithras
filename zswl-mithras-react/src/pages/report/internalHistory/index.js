@@ -1,1 +1,1 @@
-export { ReportInternalHistory as default } from '@/components/Report/ManagementEntries'
+export { ReportInternalHistory as default } from '@/components/Report/InternalHistoryEntries'

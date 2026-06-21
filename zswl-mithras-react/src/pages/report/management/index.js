@@ -1,1 +1,1 @@
-export { ReportManagement as default } from '@/components/Report/ManagementEntries'
+export { ReportManagement as default } from '@/components/Report/ManagementPageEntries'
