@@ -4,7 +4,7 @@ import { Button } from '@zswl/components'
 import { Tabs, message } from 'antd'
 import DataUpload from '@/components/DataUpload'
 import Collection from '../../RelateMonitor/Collection'
-import PayMent from '../../RelateMonitor/PayMent'
+import Payment from '../../RelateMonitor/Payment'
 import Api from '@/api/risk/relatedTransaction'
 
 function Index() {
@@ -56,7 +56,7 @@ function Index() {
         {
           label: `付款流水列表`,
           key: '1',
-          children: <PayMent pullSelect={pullSelect}></PayMent>,
+          children: <Payment pullSelect={pullSelect}></Payment>,
         },
         {
           label: `收款流水列表`,

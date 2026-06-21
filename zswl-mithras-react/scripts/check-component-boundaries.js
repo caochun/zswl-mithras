@@ -1649,6 +1649,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Risk/RiskStrategy/RelateMonitor/RiskStrategyRelateMonitor.js',
   ],
   [
+    'src/components/Risk/RelateMonitor/PayMent.js',
+    'src/components/Risk/RelateMonitor/Payment.js',
+  ],
+  [
     'src/components/TrackEvent/Tracking/detail/index.js',
     'src/components/TrackEvent/Tracking/detail/TrackEventDetail.js',
   ],
