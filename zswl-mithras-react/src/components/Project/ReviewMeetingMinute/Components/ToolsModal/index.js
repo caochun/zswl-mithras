@@ -10,7 +10,7 @@ import Api from '@/api/project/projReviewMeetingMinute'
 import _ from 'lodash'
 
 
-const Index = ({ form,  detail, taskActivityId,showValue,store ,projReviewType,params }, ref) => {
+const ProjectReviewMeetingToolsModal = ({ form,  detail, taskActivityId,showValue,store ,projReviewType,params }, ref) => {
   const table = useMemo(() => {
     return new TableStore({
       request: async (searchParams) => {
@@ -139,4 +139,4 @@ const Index = ({ form,  detail, taskActivityId,showValue,store ,projReviewType,p
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(ProjectReviewMeetingToolsModal))

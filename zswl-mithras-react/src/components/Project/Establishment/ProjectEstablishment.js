@@ -10,7 +10,7 @@ import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
-function Index() {
+function ProjectEstablishment() {
   const store = useMemo(() => new Store(), [])
   const openModal = getQuery('openModal')
   useEffect(() => {
@@ -206,4 +206,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectEstablishment)

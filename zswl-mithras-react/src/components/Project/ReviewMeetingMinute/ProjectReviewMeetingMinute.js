@@ -15,7 +15,7 @@ import Remark from './Components/Remark'
 import { Form, App } from '@zswl/components'
 import Store from './store'
 
-const Index = ({
+const ProjectReviewMeetingMinute = ({
   detailData,
   projReviewType = 'PROJ_REVIEW_BASE',
   contentType = 'page',
@@ -261,4 +261,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewMeetingMinute)

@@ -13,7 +13,7 @@ import { DetailLayout } from '@/components/Layout'
 import FinancialReportStatistics from '../FinancialReportStatistics/ProjectFinancialReportStatistics'
 import { ApprovalAction as Approval } from '@/components/Actions'
 
-const Index = ({
+const ProjectPriceDetail = ({
   params: { id },
   query: { newProject, canEditFlag = 'true', businessVersion },
   processInstanceId,
@@ -196,4 +196,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(ProjectPriceDetail)

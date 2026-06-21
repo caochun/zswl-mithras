@@ -6,7 +6,7 @@ import { App } from '@zswl/components'
 import styles from './index.less'
 import { isArray } from 'lodash'
 
-function Index({ form, showValue, detail, isProjModify }) {
+function ProjectReviewMeetingVotingResults({ form, showValue, detail, isProjModify }) {
   const options = App.getData().optionsType
   const getKeyOptionsLabelMap = (key) => {
     const obj = {}
@@ -198,4 +198,4 @@ function Index({ form, showValue, detail, isProjModify }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewMeetingVotingResults)

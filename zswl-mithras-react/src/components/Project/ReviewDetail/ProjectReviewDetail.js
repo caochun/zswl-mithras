@@ -18,7 +18,7 @@ import DebtDrawer from './DebtDrawer'
 import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 import MeetingModal from '../ReviewMeetingModal/ProjectReviewMeetingModal'
 
-const Index = ({
+const ProjectReviewDetail = ({
   params: { id },
   query: { bizType, newProject, canEditFlag = 'true', businessVersion },
   processInstanceId,
@@ -300,4 +300,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewDetail)
