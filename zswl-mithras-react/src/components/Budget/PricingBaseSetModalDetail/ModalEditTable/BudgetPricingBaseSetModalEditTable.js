@@ -77,7 +77,7 @@ const EditTable = ({ table: $table, editable, typeInfo, ...rest }) => {
     />
   )
 }
-const Index = (props) => {
+const BudgetPricingBaseSetModalEditTable = (props) => {
   const { baseStore, dataSource, typeInfo, ...rest } = props
   const [editable, setEditable] = useState(typeInfo.isEdit)
 
@@ -140,4 +140,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseSetModalEditTable)

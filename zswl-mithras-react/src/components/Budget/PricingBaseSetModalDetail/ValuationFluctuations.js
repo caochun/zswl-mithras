@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { InputCalcEditable, InputNumberEditable } from '@/components/Format'
+import { useEffect, useMemo, useState } from 'react'
+import { InputCalcEditable } from '@/components/Format'
 import { Button, Form, FormStore, Select } from '@zswl/components'
 import { FormTable } from '@/components/Form'
 import { myInputEditable, myInputRender } from './context'
@@ -17,7 +17,7 @@ const paramOtherNameEnum = [
   '成本趋势波动计价标准',
 ]
 const VERSIBLE = 'T'
-const Index = ({ baseStore, typeInfo }) => {
+const BudgetPricingBaseSetValuationFluctuations = ({ baseStore, typeInfo }) => {
   useEffect(() => {
     getData()
   }, [typeInfo.list])
@@ -172,4 +172,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseSetValuationFluctuations)

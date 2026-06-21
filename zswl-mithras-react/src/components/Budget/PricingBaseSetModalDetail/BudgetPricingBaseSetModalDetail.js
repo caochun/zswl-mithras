@@ -1,10 +1,9 @@
-import { Input, Modal } from '@zswl/components'
+import { Modal } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import ModalEditTable from './ModalEditTable/BudgetPricingBaseSetModalEditTable'
 import ValuationFluctuations from './ValuationFluctuations'
-import { FormTable } from '@/components/Form'
 
-const Index = ({ store }) => {
+const BudgetPricingBaseSetModalDetail = ({ store }) => {
   const { typeInfo } = store
   if (!typeInfo) return null
   const isJiJia = typeInfo.category === 'VALUATION_STANDARDS_FOR_FINANCIAL_MARKET_VOLATILITY'
@@ -35,4 +34,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseSetModalDetail)
