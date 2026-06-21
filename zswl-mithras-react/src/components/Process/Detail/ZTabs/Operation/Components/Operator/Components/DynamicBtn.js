@@ -3,8 +3,8 @@ import { LeaseApprovalConfirmAction as ApprovalConfirm } from '@/components/Leas
 import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
 import {
   checkCreditDate,
+  checkReviewMaterialComments,
   postPaymentCheckApplyAmount,
-  validateAgreen,
 } from '@/utils/domains/cpm/PaymentApplicationUtils'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import mathjs from '@/utils/math'
@@ -220,7 +220,7 @@ const Index = ({ store, backRef, setShow, isEditing }) => {
           (modelKey === 'ContractExtensionFlow' && taskActivityId === 'Activity_0w63b6g')
         const handleSubmit = async (extParams) => {
           if (isRiskManagerProj) {
-            const ret = await validateAgreen({ id: businessKey })
+            const ret = await checkReviewMaterialComments({ id: businessKey })
             if (ret.checkResult === 0) {
               Modal.error({
                 title: '提示',

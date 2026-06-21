@@ -13,8 +13,8 @@ export const checkCreditDate = async (params, functionCode = 'paymentMeetMinuteC
   )
 }
 
-export const validateAgreen = async (params) => {
-  return PaymentApplicationDetailApi.validateAgreen(params)
+export const checkReviewMaterialComments = async (params) => {
+  return PaymentApplicationDetailApi.checkReviewMaterialComments(params)
 }
 
 export const postPaymentCheckApplyAmount = async (params) => {

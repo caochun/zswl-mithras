@@ -6,8 +6,8 @@ import { all, create } from 'mathjs'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
 export {
   checkCreditDate,
+  checkReviewMaterialComments,
   postPaymentCheckApplyAmount,
-  validateAgreen,
 } from '@/utils/domains/cpm/PaymentApplicationUtils'
 
 const mathjs = create(all)

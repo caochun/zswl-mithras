@@ -78,5 +78,6 @@ export default {
       },
     }),
   postPaymentAutoRegister: (params) => http.post('/payment/auto/register', params),
-  validateAgreen: (params) => http.post('/proj/review/material/comments/check', params),
+  checkReviewMaterialComments: (params) =>
+    http.post('/proj/review/material/comments/check', params),
 }

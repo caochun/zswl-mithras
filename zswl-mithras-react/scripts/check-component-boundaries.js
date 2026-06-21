@@ -2796,6 +2796,16 @@ for (const filePath of sourceFiles) {
   }
 
   if (
+    /^(?:src[\\/]api[\\/]cpm[\\/]|src[\\/]utils[\\/]domains[\\/]cpm[\\/]|src[\\/]components[\\/](?:Cpm|Process)[\\/])/.test(relativeFilePath) &&
+    /\bvalidateAgreen\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'review material comments check typo residue (use checkReviewMaterialComments naming)',
+    })
+  }
+
+  if (
     relativeFilePath.startsWith('src/components/Ocr/') &&
     /modalType:\s*['"]singe['"]/.test(source)
   ) {
