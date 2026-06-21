@@ -6,7 +6,6 @@ import Api from '@/api/dashboard/customerOverview'
 import { columnsFilterKey } from '../../Config'
 import styles from './index.less'
 import ExportBtn from '../../../../../Export'
-import TableSummary from '../../../../../TableSummary'
 import { saveServer } from '@/utils'
 
 // 已结清客户
@@ -15,21 +14,19 @@ const Index = ({ group }) => {
     '客户名称',
     '所属部门',
     '所属主办',
-    // '项目名称',
-    // '合同编号',
   ])
 
   const table = Table.useStore({
     request: async (params) => {
-      const { records, sumData } = await Api.postDashboardClientOverviewSettledList(params)
+      const { records } = await Api.postDashboardClientOverviewSettledList(params)
       return records
     },
   })
 
   return (
     <Table
-    columnsFilter={'CustomListDrawer_SettledList_1'}
-    onFilter={(key,val) => saveServer('CustomListDrawer_SettledList_1',val)}
+      columnsFilter={'CustomListDrawer_SettledList_1'}
+      onFilter={(key, val) => saveServer('CustomListDrawer_SettledList_1', val)}
       extra={<ExportBtn tableStore={table} businessType={'DASHBOARD_CLIENT_OVERVIEW_SETTLED'} />}
       rowKey={'clientId'}
       className={styles.myTable}
@@ -44,8 +41,8 @@ const Index = ({ group }) => {
         expandedRowRender: (record) => {
           return (
             <Table
-            columnsFilter={'CustomListDrawer_SettledList_2'}
-            onFilter={(key,val) => saveServer('CustomListDrawer_SettledList_2',val)}
+              columnsFilter={'CustomListDrawer_SettledList_2'}
+              onFilter={(key, val) => saveServer('CustomListDrawer_SettledList_2', val)}
               pagination={false}
               className={styles.myTable}
               dataSource={record.projReviewList}
@@ -54,8 +51,8 @@ const Index = ({ group }) => {
                 expandedRowRender: (record) => {
                   return (
                     <Table
-                    columnsFilter={'CustomListDrawer_SettledList_3'}
-                    onFilter={(key,val) => saveServer('CustomListDrawer_SettledList_3',val)}
+                      columnsFilter={'CustomListDrawer_SettledList_3'}
+                      onFilter={(key, val) => saveServer('CustomListDrawer_SettledList_3', val)}
                       pagination={false}
                       className={styles.myTable}
                       dataSource={record.contractList}

@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import StagePanel from '../../../StagePanel'
 import { columnsFilterKey } from './Config'
-import CustomListDrawer from './CustomListDrawer'
+import CustomListDrawer from './CustomListDrawer/CustomerOverviewListDrawer'
 import Store from './Store'
 import styles from './index.less'
 

@@ -1,8 +1,8 @@
-import AllList from './CustomListDrawer/AllList'
-import SettledList from './CustomListDrawer/SettledList'
-import SettleInThreeMonthList from './CustomListDrawer/SettleInThreeMonthList'
-import OverdueList from './CustomListDrawer/OverdueList'
-import SurvivalList from './CustomListDrawer/SurvivalList'
+import AllList from './CustomListDrawer/AllList/AllCustomerListTable'
+import SettledList from './CustomListDrawer/SettledList/SettledCustomerListTable'
+import SettleInThreeMonthList from './CustomListDrawer/SettleInThreeMonthList/SettleInThreeMonthCustomerListTable'
+import OverdueList from './CustomListDrawer/OverdueList/OverdueCustomerListTable'
+import SurvivalList from './CustomListDrawer/SurvivalList/SurvivalCustomerListTable'
 
 export const initFieldsConfig = [
   {

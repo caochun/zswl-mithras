@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import Title from '../../Title'
-import CustomerInfo from './CustomerInfo'
-import CustomerPublicMonitor from './CustomerPublicMonitor'
+import CustomerInfo from './CustomerInfo/CustomerOverviewPanel'
+import CustomerPublicMonitor from './CustomerPublicMonitor/CustomerPublicMonitorPanel'
 
 const Index = ({ title, iconType }) => {
   return (

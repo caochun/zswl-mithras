@@ -32,7 +32,7 @@ const Index = ({ group }) => {
 
   return (
     <Table
-    onFilter={(key,val) => saveServer(`${columnsFilterKey}_${group}`,val)}
+      onFilter={(key, val) => saveServer(`${columnsFilterKey}_${group}`, val)}
       extra={
         <ExportBtn
           tableStore={table}
