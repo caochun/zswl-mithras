@@ -65,7 +65,7 @@ export const SummaryRender = (data = []) => {
     </Summary.Row>
   )
 }
-const Index = ({ store }) => {
+const BudgetFlowCenterBankFlowWriteOffDrawer = ({ store }) => {
   const { sideType, writeOffType, setSideType, type } = store
   const isSide = ['PROCESSED_PROJ_SIDE', 'PROCESSED_FUNDS_END'].includes(type)
   // 对方户名交易时问 收款金额（元）付款金额（元》 本次模销金额（元》摘要操作
@@ -303,4 +303,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowWriteOffDrawer)

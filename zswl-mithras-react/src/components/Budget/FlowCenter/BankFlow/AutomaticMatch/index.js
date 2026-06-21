@@ -294,7 +294,7 @@ const Content = forwardRef(({ financeFlowTabMainInfoId, plusDays }, ref) => {
   )
 })
 
-const Index = ({ baseStore }) => {
+const BudgetFlowCenterBankFlowAutomaticMatch = ({ baseStore }) => {
   const [form] = Form.useForm()
   const [items, setItems] = useState([])
   const refList = useRef([])
@@ -434,4 +434,4 @@ const Index = ({ baseStore }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowAutomaticMatch)

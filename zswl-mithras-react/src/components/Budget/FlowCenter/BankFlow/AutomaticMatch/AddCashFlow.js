@@ -12,7 +12,7 @@ const { collectionWriteOffStatusLocalEnum, paymentWriteOffStatusEnum } = options
 
 const writeOffOptions = collectionWriteOffStatusLocalEnum
 
-const Index = ({ modal, onFinish }) => {
+const BudgetFlowCenterBankFlowAutomaticMatchAddCashFlow = ({ modal, onFinish }) => {
   const [selectedRows, setSelectedRows] = useState([])
   const selectedRowKeys = selectedRows.map((item) => item?.collectionId)
   const writeOffStatusColumn = MatchOptionColumn({
@@ -140,4 +140,4 @@ const Index = ({ modal, onFinish }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowAutomaticMatchAddCashFlow)

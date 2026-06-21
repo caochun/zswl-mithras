@@ -12,7 +12,7 @@ import { saveServer } from '@/utils'
 
 const { financingFlowWriteOffStatusEnum } = options
 
-const Index = ({ store }) => {
+const BudgetFlowCenterBankFlowSpecialWriteOffResultModal = ({ store }) => {
   // 对方户名交易时问 收款金额（元）付款金额（元》 本次模销金额（元》摘要操作
   const columns = [
     InputColumn({ title: '开户银行', dataIndex: 'bankName', width: 200 }),
@@ -129,4 +129,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowSpecialWriteOffResultModal)

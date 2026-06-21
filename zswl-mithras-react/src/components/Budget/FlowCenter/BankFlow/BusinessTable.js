@@ -14,7 +14,7 @@ import { saveServer } from '@/utils'
 
 const { financingFlowWriteOffStatusEnum } = options
 
-const Index = ({ type }) => {
+const BudgetFlowCenterBankFlowBusinessTable = ({ type }) => {
   const isCenter = ['PROCESSING_CENTER_WRITE', 'PROCESSING_CENTER'].includes(type)
   const isWriteOff = type === 'PROCESSING_CENTER_WRITE'
   const isNoProcess = type === 'NO_PROCESSING_REQUIRE'
@@ -208,4 +208,4 @@ const Index = ({ type }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowBusinessTable)
