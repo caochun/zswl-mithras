@@ -2,7 +2,7 @@ import { Button, Page, Table, Tabs, SearchBar,Select,Form } from '@zswl/componen
 import { observer, history } from '@zswl/admin'
 import styles from './index.less'
 import TopSection from './components/TopSection'
-import VisualizationTowD from './components/VisualizationTowD'
+import VisualizationTwoD from './components/VisualizationTwoD'
 import { Checkbox } from 'antd'
 import store from './store'
 import ListRed from '/public/assets/risk/monitoringAlertList/vector.svg'
@@ -173,7 +173,7 @@ function Index({ path, ...props }) {
       <div className={styles.container}>
         <div className={styles.top}>
           <TopSection statistics={store?.statistics} />
-          <VisualizationTowD
+          <VisualizationTwoD
             fxsl={store?.postQuantityChange}
             warnPieData={store?.pie?.warnPieData}
             opPieData={store?.pie?.opPieData}

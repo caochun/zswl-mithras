@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import EChartsReact from 'echarts-for-react'
 import styles from './index.less'
 
-const VisualizationTowD = ({ pie, fxsl }) => {
+const VisualizationTwoD = ({ pie, fxsl }) => {
   // 处理后端数据,将数据按照类型分组
   const processLineData = () => {
     const redLight = {}
@@ -219,4 +219,4 @@ const VisualizationTowD = ({ pie, fxsl }) => {
   )
 }
 
-export default observer(VisualizationTowD)
+export default observer(VisualizationTwoD)

@@ -3,7 +3,7 @@ import EChartsReact from 'echarts-for-react'
 import styles from './index.less'
 import { useState } from 'react'
 
-const VisualizationTowD = ({ pie, fxsl, warnPieData, opPieData }) => {
+const VisualizationTwoD = ({ pie, fxsl, warnPieData, opPieData }) => {
   const [activeTab, setActiveTab] = useState('warn')
 
   // 处理后端数据,将数据按照类型分组
@@ -227,4 +227,4 @@ const VisualizationTowD = ({ pie, fxsl, warnPieData, opPieData }) => {
   )
 }
 
-export default observer(VisualizationTowD)
+export default observer(VisualizationTwoD)

@@ -4,7 +4,7 @@ import { observer, history, getQuery } from '@zswl/admin'
 import { Input, Select, Badge, Checkbox } from 'antd'
 import styles from './index.less'
 import TopSection from './components/TopSection'
-import VisualizationTowD from './components/VisualizationTowD'
+import VisualizationTwoD from './components/VisualizationTwoD'
 import ListRed from '/public/assets/risk/monitoringAlertList/vector.svg'
 import Frame from '/public/assets/risk/monitoringAlertList/Frame.svg'
 import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
@@ -202,7 +202,7 @@ function Index({ path, ...props }) {
       <div className={styles.container}>
         <div className={styles.top}>
           <TopSection statistics={store.statistics} />
-          <VisualizationTowD pie={store.pie} fxsl={store.postQuantityChange} />
+          <VisualizationTwoD pie={store.pie} fxsl={store.postQuantityChange} />
         </div>
         <div className={styles.content}>
           <Tabs
