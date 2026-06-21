@@ -7,7 +7,7 @@ import ProjectDetail from './ProjectDetail'
 import RiskAssistant from './RiskAssistant'
 import DebitDetail from './DebitDetail'
 
-const Index = ({ params: { id }, query: { dataType } }) => {
+const LifeCycleCustomerDetail = ({ params: { id }, query: { dataType } }) => {
   const detail = store.page.getData()
   return (
     <Page
@@ -30,4 +30,4 @@ const Index = ({ params: { id }, query: { dataType } }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(LifeCycleCustomerDetail)

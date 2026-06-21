@@ -10,7 +10,7 @@ import defaultStyles from './index.less'
 
 const levelColor = ['#06EAB2', '#2D66FF', '#2EC5FF', '#FFCA69', '#FF5962']
 
-const Index = ({ styles = defaultStyles, forceUpdateId, baseStore }) => {
+const LifeCycleRiskStrategyCard = ({ styles = defaultStyles, forceUpdateId, baseStore }) => {
   const $CalcModalRef = useRef(null)
 
   const { optionsType } = App.getData()
@@ -115,4 +115,4 @@ const Index = ({ styles = defaultStyles, forceUpdateId, baseStore }) => {
   )
 }
 
-export default observer(Index)
+export default observer(LifeCycleRiskStrategyCard)

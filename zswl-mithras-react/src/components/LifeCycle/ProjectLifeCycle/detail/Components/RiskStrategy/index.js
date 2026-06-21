@@ -7,7 +7,7 @@ import { RiskPublicMonitor as PublicMonitor } from '@/components/Risk/PublicMoni
 import styles from './index.less'
 import { useMemo } from 'react'
 
-const Index = ({ store }) => {
+const LifeCycleProjectRiskStrategy = ({ store }) => {
   const { clientInfo, addressList } = store
   const getAddress = useMemo(() => {
     const result = addressList?.map(({ provinceName, cityName, districtName }) => {
@@ -112,4 +112,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(LifeCycleProjectRiskStrategy)
