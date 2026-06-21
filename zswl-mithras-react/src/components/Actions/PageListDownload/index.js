@@ -47,7 +47,7 @@ const items = [
   { key: '2', name: '下载全量数据' },
 ]
 
-const Index = ({ table, module, api, extraParams, children, access }) => {
+const PageListDownloadAction = ({ table, module, api, extraParams, children, access }) => {
   const [loading, setLoading] = useState(false)
   const functionCode = IndexType[module] ? toHump(IndexType[module]) + 'IndexDownload' : ''
 
@@ -143,4 +143,4 @@ const Index = ({ table, module, api, extraParams, children, access }) => {
   )
 }
 
-export default Index
+export default PageListDownloadAction

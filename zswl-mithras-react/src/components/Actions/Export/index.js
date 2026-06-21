@@ -10,7 +10,7 @@ import { useMemo } from 'react'
  * @param api 导出的api
  * @param fileName 导出的文件名
  */
-function Index({ icon = 'icon-icon_export', disabled, onClick, access, text = '导出' }) {
+function ExportAction({ icon = 'icon-icon_export', disabled, onClick, access, text = '导出' }) {
   const handleClick = async (e) => {
     return onClick?.(e).then((res) => {
       if (res?.code === 200) {
@@ -34,4 +34,4 @@ function Index({ icon = 'icon-icon_export', disabled, onClick, access, text = '�
   )
 }
 
-export default observer(Index)
+export default observer(ExportAction)

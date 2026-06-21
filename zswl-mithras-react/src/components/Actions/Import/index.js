@@ -13,7 +13,7 @@ const MODE_MAP = {
     icon: 'icon-icon_upload',
   },
 }
-function Index({
+function ImportAction({
   upload,
   beforeUpload,
   type = 'primary',
@@ -64,4 +64,4 @@ function Index({
   )
 }
 
-export default Index
+export default ImportAction

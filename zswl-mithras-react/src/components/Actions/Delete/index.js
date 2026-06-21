@@ -8,7 +8,7 @@ import { message, Modal } from 'antd'
  * @param store 表格的store,必传
  * @param api 接口,当是字符串时表示接口地址，函数时就会直接调用
  */
-function Index({ store, api, ...rest }) {
+function DeleteAction({ store, api, ...rest }) {
   const handleClick = () => {
     Modal.confirm({
       title: '确定删除吗？',
@@ -27,4 +27,4 @@ function Index({ store, api, ...rest }) {
   return <Button.Delete {...rest} onClick={handleClick} />
 }
 
-export default observer(Index)
+export default observer(DeleteAction)

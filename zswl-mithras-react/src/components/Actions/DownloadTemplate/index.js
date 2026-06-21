@@ -11,7 +11,7 @@ import { message } from 'antd'
  * @param api 导出的api
  * @param fileName 导出的文件名
  */
-function Index({ disabled, templateDownApi, params = {}, access, title = '模板下载', size= 'medium'}) {
+function DownloadTemplateAction({ disabled, templateDownApi, params = {}, access, title = '模板下载', size= 'medium'}) {
   const { functionCode: customFunctionCode, ...rest } = params
   const handleClick = async (e) => {
     if (isFunction(templateDownApi)) return await templateDownApi()
@@ -33,4 +33,4 @@ function Index({ disabled, templateDownApi, params = {}, access, title = '模板
   )
 }
 
-export default observer(Index)
+export default observer(DownloadTemplateAction)

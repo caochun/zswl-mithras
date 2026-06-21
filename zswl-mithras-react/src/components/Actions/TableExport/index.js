@@ -11,7 +11,7 @@ import { useMemo } from 'react'
  * @param api 导出的api
  * @param fileName 导出的文件名
  */
-function Index({ icon = 'icon-icon_export', table, disabled, access, otherExcelProps }) {
+function TableExportAction({ icon = 'icon-icon_export', table, disabled, access, otherExcelProps }) {
   const getTableData = async ({ tableStore }) => {
     const params = tableStore.getParams()
     const postParams = {
@@ -59,4 +59,4 @@ function Index({ icon = 'icon-icon_export', table, disabled, access, otherExcelP
   )
 }
 
-export default observer(Index)
+export default observer(TableExportAction)

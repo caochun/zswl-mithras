@@ -9,7 +9,7 @@ import { useMemo, forwardRef, useImperativeHandle, useState } from 'react'
  * @param api 导出的api
  * @param fileName 导出的文件名
  */
-function Index({ onClick, params, isEffect, children, beforeClick, text, ...rest }, ref) {
+function ApprovalAction({ onClick, params, isEffect, children, beforeClick, text, ...rest }, ref) {
   const [msg, setMsg] = useState('')
   const isReconsider = params?.remarkType === 'RECONSIDER'
   const modal = useMemo(
@@ -90,4 +90,4 @@ function Index({ onClick, params, isEffect, children, beforeClick, text, ...rest
   )
 }
 
-export default forwardRef(Index)
+export default forwardRef(ApprovalAction)
