@@ -9,7 +9,7 @@ import financingCostsApi from '@/api/budget/pricing/ftp/financingCostsApi'
 import { saveServer } from '@/utils'
 import EditModal from '../FinancingCostEditModal/BudgetFinancingCostEditModal'
 
-function Index({ path }) {
+function BudgetPricingBaseDataFinancing({ path }) {
   const reload = async () => {
     await financingCostsApi.postPricingFlash({
       month: moment().subtract(1, 'months').format('YYYY-MM-01'),
@@ -156,4 +156,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseDataFinancing)

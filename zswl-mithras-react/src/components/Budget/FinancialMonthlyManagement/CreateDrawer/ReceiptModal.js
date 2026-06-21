@@ -2,7 +2,7 @@ import { Modal } from '@zswl/components'
 import IncomeShareTableDetail from '../../IncomeShareTableDetail/BudgetIncomeShareTableDetail'
 import { observer } from '@zswl/admin'
 
-const Index = ({ store }) => {
+const BudgetFinancialMonthlyReceiptModal = ({ store }) => {
   const { receiptId, yearAndMonth, receiptCode } = store.getInitialValues() ?? {}
 
   return (
@@ -12,4 +12,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFinancialMonthlyReceiptModal)

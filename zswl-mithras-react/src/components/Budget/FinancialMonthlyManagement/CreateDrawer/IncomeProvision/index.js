@@ -3,7 +3,7 @@ import { Table } from '@zswl/components'
 import { getTableColumns, saveServer } from '@/utils'
 import ALL_COLUMNS from './Column'
 
-const Index = ({ store, operationColumns }) => {
+const BudgetFinancialMonthlyIncomeProvision = ({ store, operationColumns }) => {
   const columns = getTableColumns(
     ALL_COLUMNS,
     [
@@ -58,4 +58,4 @@ const Index = ({ store, operationColumns }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFinancialMonthlyIncomeProvision)

@@ -41,7 +41,7 @@ const EditModal = ({ store }) => {
     </Modal>
   )
 }
-function Index({ path }) {
+function BudgetPricingBaseDataGuarantee({ path }) {
   const reload = async () => {
     await guaranteeCostApi.postPricingFlash({
       month: moment().subtract(1, 'months').format('YYYY-MM-01'),
@@ -125,4 +125,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseDataGuarantee)

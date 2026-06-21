@@ -22,7 +22,7 @@ const rightColumns = getTableColumns(ALL_COLUMNS, [
   },
   'FTP 计价值',
 ])
-function Index({ path }) {
+function BudgetPricingBaseDataOneShibor({ path }) {
   const leftTable = useMemo(() => {
     return new TableStore({
       pagination: {
@@ -97,4 +97,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseDataOneShibor)

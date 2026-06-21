@@ -7,7 +7,7 @@ import CreateDrawer from './CreateDrawer'
 import Store from './Store'
 import { AmountColumn, DateColumn, MatchOptionColumn } from '@/components/Format'
 
-const Index = () => {
+const BudgetFinancialMonthlyManagement = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -82,4 +82,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFinancialMonthlyManagement)

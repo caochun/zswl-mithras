@@ -4,7 +4,7 @@ import { DatePicker } from 'antd'
 import { rules } from '@/utils'
 const { Item } = Form
 
-const Index = ({ store }) => {
+const BudgetFinancialMonthlyChooseMonthModal = ({ store }) => {
   const disabledDate = (current) => {
     const currentDate = new Date()
     const currentMonth = currentDate.getMonth()
@@ -35,4 +35,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFinancialMonthlyChooseMonthModal)

@@ -23,7 +23,7 @@ const rightColumns = getTableColumns(ALL_COLUMNS, [
   '波动幅度(%)',
   'FTP 计价值',
 ])
-function Index({ path }) {
+function BudgetPricingBaseDataTenNationalDebt({ path }) {
   const leftTable = useMemo(() => {
     return new TableStore({
       pagination: {
@@ -82,4 +82,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseDataTenNationalDebt)

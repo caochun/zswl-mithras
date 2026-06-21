@@ -4,7 +4,7 @@ import { getTableColumns, saveServer } from '@/utils'
 import { POJ_COLUMNS, FIN_COLUMNS } from './Column'
 import { Tabs } from 'antd'
 
-const Index = ({ store, operationColumns }) => {
+const BudgetFinancialMonthlyStampDuty = ({ store, operationColumns }) => {
   return (
     <>
       <Tabs
@@ -73,4 +73,4 @@ const Index = ({ store, operationColumns }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFinancialMonthlyStampDuty)

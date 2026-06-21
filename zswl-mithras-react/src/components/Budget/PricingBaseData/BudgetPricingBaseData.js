@@ -7,7 +7,7 @@ import OneShibor from './OneShibor'
 import Financing from './Financing'
 import Guarantee from './Guarantee'
 
-function Index({ path }) {
+function BudgetPricingBaseData({ path }) {
   return (
     <Page>
       <Row gutter={12}>
@@ -25,4 +25,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseData)

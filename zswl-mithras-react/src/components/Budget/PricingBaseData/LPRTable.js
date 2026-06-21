@@ -8,7 +8,7 @@ import lprPricingApi from '@/api/budget/pricing/ftp/lprPricingApi'
 import moment from 'moment'
 import { saveServer } from '@/utils'
 
-function Index() {
+function BudgetPricingBaseDataLprTable() {
   const hasValuation = Access.validate('newFtpLprPricingModify')
   const columns = useMemo(() => {
     const nameColumns = [
@@ -52,4 +52,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseDataLprTable)

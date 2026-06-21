@@ -9,7 +9,7 @@ import StampDuty from './StampDuty'
 import moment from 'moment'
 import ReceiptModal from './ReceiptModal'
 
-const Index = ({ store }) => {
+const BudgetFinancialMonthlyCreateDrawer = ({ store }) => {
   const { currentStep, setCurrentStep } = store
   const { editType } = store.createDrawer.getInitialValues() ?? {}
 
@@ -139,4 +139,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFinancialMonthlyCreateDrawer)
