@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Table, Page, Modal, Form } from '@zswl/components'
+import { Table, Modal, Form } from '@zswl/components'
 import { KpiBaseSetModalDetail as ModalDetail } from '@/components/Kpi/BaseSetModalEntries'
 import { isAdminAccount, saveServer } from '@/utils'
 import FormListItem from './FormListItem'
@@ -8,7 +8,7 @@ import { getOrgList as getSelectOrgList } from '@/components/Select'
 import { useEffect, useState } from 'react'
 import contractInfoApi from '@/api/budget/contractInfoApi'
 
-function Index({ store }) {
+function BudgetProjectProfitSettingModal({ store }) {
   const [contractList, setContractList] = useState([])
   const getContractList = async (val) => {
     const { list } = await contractInfoApi.postContractList({ page: 1, pageSize: 9999 })
@@ -91,4 +91,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetProjectProfitSettingModal)

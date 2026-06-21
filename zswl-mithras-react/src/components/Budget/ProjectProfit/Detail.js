@@ -34,7 +34,7 @@ const nameColumns = [
   '本年累计利润总额（扣费后）',
 ]
 
-const Index = ({ params: { id } }) => {
+const BudgetProjectProfitDetail = ({ params: { id } }) => {
   const columns = getTableColumns(ALL_COLUMNS({}), nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS(), formNameColumns)
 
@@ -70,4 +70,4 @@ const Index = ({ params: { id } }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BudgetProjectProfitDetail)

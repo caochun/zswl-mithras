@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Table, TableStore, Page, Button, Modal, Form } from '@zswl/components'
+import { Table, Page, Button, Modal, Form } from '@zswl/components'
 import { getTableColumns, saveServer } from '@/utils'
 import ALL_COLUMNS from '../ProjectProfitColumns'
 import { DatePicker, Space } from 'antd'
@@ -56,7 +56,7 @@ const CalculationModal = ({ store }) => {
     </Modal>
   )
 }
-const Index = ({ pathname }) => {
+const BudgetProjectProfit = ({ pathname }) => {
   const store = useMemo(() => new Store(), [])
   const columns = getTableColumns(ALL_COLUMNS({ pathname }), nameColumns)
 
@@ -94,4 +94,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BudgetProjectProfit)
