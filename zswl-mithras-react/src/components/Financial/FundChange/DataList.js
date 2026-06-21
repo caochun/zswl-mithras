@@ -1,5 +1,5 @@
 import { FileTable } from '@/components/Table'
-const Index = (props) => {
+const FinancialFundChangeDataList = (props) => {
   const { financingId: mainId, canEdit = true, businessVersion } = props
 
   const columns = [
@@ -25,4 +25,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default FinancialFundChangeDataList

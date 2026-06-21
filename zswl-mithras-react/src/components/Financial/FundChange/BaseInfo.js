@@ -27,7 +27,7 @@ const nameColumns = [
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit }) {
+function FinancialFundChangeBaseInfo({ detail, saveData, isLog, canEdit = true, initEdit }) {
   const ref = useRef()
 
   return (
@@ -44,4 +44,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundChangeBaseInfo)

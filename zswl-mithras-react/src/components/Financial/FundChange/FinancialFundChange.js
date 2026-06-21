@@ -13,7 +13,7 @@ import styles from './index.less'
 
 // const EnumType = ['CHANGE_LPR', 'CHANGE_EARLY_SETTLE', 'CHANGE_OTHER']
 
-function Index(props) {
+function FinancialFundChange(props) {
   const { id } = props.params ?? {}
   const { canEditFlags = 'true', businessVersion, changeType = 'CHANGE_LPR' } = props.query ?? {}
   const SENCE = {
@@ -97,4 +97,4 @@ function Index(props) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialFundChange)
