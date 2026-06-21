@@ -29,7 +29,7 @@ import {
 import styles from './index.less'
 import userCustomConfigApi from '@/api/dashboard/userCustomConfigApi'
 import { initData } from './initData'
-import { handleFeikongJump } from './utils'
+import { handleFeikongJump } from '@/utils/domains/dashboard/DashboardUtils'
 
 /**
  * 部门模块配置

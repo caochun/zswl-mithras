@@ -11,7 +11,7 @@ import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import ApplyPermissionModal from './ApplyPermissionModal'
 import { MatchOptionColumn, InputColumn, AmountColumn } from '@/components/Format'
 import { FounderSelect } from '@/components/Select'
-import { transformClientStatus } from './utils'
+import { transformClientStatus } from '@/utils/domains/customer/CustomerUtils'
 import { ZInput } from '@/components/Form'
 import { saveServer } from '@/utils'
 
