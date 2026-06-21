@@ -27,6 +27,8 @@ const sampleSourceFilePattern =
   /(?:^|[\\/])(?:mock|demo|example)[\\/]|(?:^|[\\/])(?:mock|demo|example)\.(?:js|jsx|ts|tsx)$/i
 const typoResidueFilePattern =
   /(?:^|[\\/])[^\\/]*(?:indes|indx|stlye|sytle|modle|compontent|componet|conifg|colums|untils)[^\\/]*\.(?:js|jsx|ts|tsx|less|css|scss|sass)$/i
+const componentTypoResidueDirPattern =
+  /^src[\\/]components[\\/].*[\\/][^\\/]*(?:singe|filling|snapshoot|colums|untils|indes|indx|stlye|sytle|modle|compontent|componet|conifg)[^\\/]*$/i
 const componentRouteParamFilePattern =
   /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]\.(?:js|jsx|ts|tsx)$/
 const componentRouteParamDirPattern = /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]$/
@@ -2647,6 +2649,13 @@ for (const dirPath of componentDirs) {
     violations.push({
       file: relativeDirPath,
       specifier: 'route-style component directory name (use a semantic component directory name)',
+    })
+  }
+
+  if (componentTypoResidueDirPattern.test(relativeDirPath)) {
+    violations.push({
+      file: relativeDirPath,
+      specifier: 'typo residue component directory name',
     })
   }
 }
