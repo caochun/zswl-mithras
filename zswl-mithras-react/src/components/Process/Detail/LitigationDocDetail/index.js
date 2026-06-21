@@ -4,7 +4,7 @@ import { ModalStore } from '@zswl/components'
 import { OverdueLitigationDocAddModal as AddModal } from '@/components/Overdue/LitigationDocEntries'
 import sealForDocumentsApi from '@/api/process/detail/overdueSealDocumentApi'
 
-const Index = (props) => {
+const ProcessDetailLitigationDoc = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds, taskStatus } =
     props
 
@@ -50,4 +50,4 @@ const Index = (props) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(ProcessDetailLitigationDoc)

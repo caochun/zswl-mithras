@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { AfterLeaseLevel5ClassifyDetail as Leave5TypeDetail } from '@/components/AfterLease/Level5ClassifyDetailEntries'
 
-const Index = (props) => {
+const ProcessDetailLeave5TypeDetail = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds } = props
   const renderContractType = useMemo(() => {
     if (modelKey === 'AssetClassifyReview') {
@@ -24,4 +24,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailLeave5TypeDetail)

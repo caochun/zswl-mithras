@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { FinancialPaymentBatchApproval as FinancialPaymentBatch } from '@/components/Financial/PaymentBatchApprovalEntries'
 
-const Index = (props) => {
+const ProcessDetailBatchFundReceiptRepay = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds } = props
   const renderContractType = useMemo(() => {
     return (
@@ -20,4 +20,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailBatchFundReceiptRepay)

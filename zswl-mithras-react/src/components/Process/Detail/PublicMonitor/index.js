@@ -22,7 +22,7 @@ const nameColumns = [
   '处置意见',
 ]
 
-const Index = (props) => {
+const ProcessDetailPublicMonitor = (props) => {
   const { canEditFlag, id, businessVersion, taskActivityId, processInstanceId } = props
 
   const canEditFlags = canEditFlag === 'true'
@@ -83,4 +83,4 @@ const Index = (props) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(ProcessDetailPublicMonitor)

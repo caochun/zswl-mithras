@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { RiskPublicMonitorDetail as MonitorEarly } from '@/components/Risk/PublicMonitorDetailEntries'
 import PublicMonitor from '../PublicMonitor'
 
-const Index = (props) => {
+const ProcessDetailRiskOption = (props) => {
   const {
     canEditFlag,
     subModule,
@@ -37,4 +37,4 @@ const Index = (props) => {
 
   return <PublicMonitor {...props} />
 }
-export default observer(Index)
+export default observer(ProcessDetailRiskOption)

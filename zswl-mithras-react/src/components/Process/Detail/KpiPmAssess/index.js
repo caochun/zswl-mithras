@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { KpiPmAssessDetailContent as PmAssess } from '@/components/Kpi/PmAssessDetailContentEntries'
 
-const Index = (props) => {
+const ProcessDetailKpiPmAssess = (props) => {
   const { canEditFlag } = props
   const renderContractType = useMemo(() => {
     return (
@@ -14,4 +14,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailKpiPmAssess)

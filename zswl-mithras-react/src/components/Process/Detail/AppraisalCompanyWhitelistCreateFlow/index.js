@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { WhiteListDetail as WhiteList } from '@/components/WhiteList/DetailEntries'
 
-const Index = (props) => {
+const ProcessDetailAppraisalCompanyWhitelistCreateFlow = (props) => {
   const { canEditFlag, subModule, id, businessVersion, type } = props
   const renderContractType = useMemo(() => {
     return (
@@ -19,4 +19,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailAppraisalCompanyWhitelistCreateFlow)

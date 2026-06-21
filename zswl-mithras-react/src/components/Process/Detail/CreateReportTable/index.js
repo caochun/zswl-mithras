@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import CreditTable from '@/components/CreditManage/CreditTableWaitEntries'
 
-const Index = (props) => {
+const ProcessDetailCreateReportTable = (props) => {
   const { canEditFlag, businessKey, businessVersion, processInstanceId } = props
   const renderContractType = useMemo(() => {
     return (
@@ -19,4 +19,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailCreateReportTable)

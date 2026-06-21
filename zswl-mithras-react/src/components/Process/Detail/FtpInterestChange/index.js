@@ -4,7 +4,7 @@ import { BudgetFtpInterestPriceChangeModal as PriceChangeModal } from '@/compone
 import { ModalStore } from '@zswl/components'
 import ftpInterestChangeApi from '@/api/process/detail/ftpInterestChangeApi'
 
-const Index = (props) => {
+const ProcessDetailFtpInterestChange = (props) => {
   const { canEditFlag, subModule, id, businessVersion, tab } = props
   const priceChangeModal = useMemo(() => {
     return new ModalStore({
@@ -42,4 +42,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailFtpInterestChange)
