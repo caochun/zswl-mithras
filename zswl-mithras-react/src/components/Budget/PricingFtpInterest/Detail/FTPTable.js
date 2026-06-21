@@ -26,7 +26,7 @@ const nameColumns = [
   '是否逾期',
   '当年累计计息(元)',
 ]
-const Index = ({ ftpInterestId }) => {
+const BudgetPricingFtpInterestFtpTable = ({ ftpInterestId }) => {
   const table_columns = getTableColumns(ALL_COLUMNS(), nameColumns)
   const table_formColumns = getFormColumns(ALL_COLUMNS(), formNameColumns)
 
@@ -59,4 +59,4 @@ const Index = ({ ftpInterestId }) => {
   )
 }
 
-export default Index
+export default BudgetPricingFtpInterestFtpTable

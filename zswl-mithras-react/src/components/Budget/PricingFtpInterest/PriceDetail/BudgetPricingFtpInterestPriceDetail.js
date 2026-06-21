@@ -8,7 +8,7 @@ import ALL_COLUMNS from './Column'
 import EditModal from './EditModal'
 import { saveServer } from '@/utils'
 
-const Index = ({ params: { id }, query: { receiptCode } }) => {
+const BudgetPricingFtpInterestPriceDetail = ({ params: { id }, query: { receiptCode } }) => {
   const store = useMemo(() => new Store(), [])
   const table_columns = getTableColumns(ALL_COLUMNS())
   const formColumns = getFormColumns(ALL_COLUMNS(), ['日期', '成本是否已确认'])
@@ -58,4 +58,4 @@ const Index = ({ params: { id }, query: { receiptCode } }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingFtpInterestPriceDetail)

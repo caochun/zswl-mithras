@@ -2,7 +2,7 @@ import { Page } from '@zswl/components'
 import BaseInfo from './BaseInfo'
 import FTPTable from './FTPTable'
 
-const Index = ({ params: { id } }) => {
+const BudgetPricingFtpInterestDetail = ({ params: { id } }) => {
   return (
     <Page>
       <BaseInfo ftpInterestId={id}></BaseInfo>
@@ -16,4 +16,4 @@ const Index = ({ params: { id } }) => {
   )
 }
 
-export default Index
+export default BudgetPricingFtpInterestDetail

@@ -7,7 +7,7 @@ import Api from '@/api/budget/pricing/ftpInterest'
 
 const { Item } = Form
 
-const Index = ({ onFinish }, ref) => {
+const BudgetPricingFtpInterestRunModal = ({ onFinish }, ref) => {
   const [lastMonth, setLastMonth] = useState()
 
   const $editModal = new ModalStore({
@@ -59,4 +59,4 @@ const Index = ({ onFinish }, ref) => {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(BudgetPricingFtpInterestRunModal))

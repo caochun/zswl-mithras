@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 const nameColumns = ['借据编号', '合同编号', '客户名称', '项目名称', '业务部门', '项目主办']
 
-const Index = ({ ftpInterestId }) => {
+const BudgetPricingFtpInterestBaseInfo = ({ ftpInterestId }) => {
   const [detail, setDetail] = useState({})
   const baseInfo_columns = getDescColumns(ALL_COLUMNS(), nameColumns)
 
@@ -29,4 +29,4 @@ const Index = ({ ftpInterestId }) => {
   )
 }
 
-export default Index
+export default BudgetPricingFtpInterestBaseInfo

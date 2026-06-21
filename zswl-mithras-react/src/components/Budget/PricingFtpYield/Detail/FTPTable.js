@@ -35,7 +35,7 @@ const FTPTable = ({ dataSource, isAbs, summary = {} }) => {
     />
   )
 }
-const Index = ({ id: fundFinancingId, financingType }) => {
+const BudgetPricingFtpYieldFtpTable = ({ id: fundFinancingId, financingType }) => {
   const [tabs, setTabs] = useState([])
   const getList = async () => {
     const data = await Api.postRecordList({ fundFinancingId, financingType })
@@ -58,4 +58,4 @@ const Index = ({ id: fundFinancingId, financingType }) => {
   )
 }
 
-export default Index
+export default BudgetPricingFtpYieldFtpTable

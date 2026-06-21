@@ -20,7 +20,7 @@ const getInitValues = () => {
   }
 }
 
-const Index = ({ store }) => {
+const BudgetPricingFtpInterestPriceEditModal = ({ store }) => {
   const [form] = Form.useForm()
 
   const handleChange = async (value) => {
@@ -92,4 +92,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingFtpInterestPriceEditModal)

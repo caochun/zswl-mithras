@@ -27,7 +27,7 @@ const nameColumns = [
   '业务部门',
   '项目主办',
 ]
-const Index = ({ pathname }) => {
+const BudgetPricingFtpInterestList = ({ pathname }) => {
   const columns = getTableColumns(ALL_COLUMNS({ pathname }), nameColumns)
   const formColumns = getFormColumns(ALL_COLUMNS(), formNameColumns)
   const FtpRunModalRef = useRef()
@@ -88,4 +88,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default Index
+export default BudgetPricingFtpInterestList

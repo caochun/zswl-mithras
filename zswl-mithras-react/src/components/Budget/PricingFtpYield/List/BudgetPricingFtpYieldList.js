@@ -6,7 +6,7 @@ import { TableExportAction as TableExport } from '@/components/Actions'
 import ftpYieldApi from '@/api/budget/ftpYield/ftpYieldApi'
 import { Summary } from '@/components/Table'
 
-const Index = ({ pathname }) => {
+const BudgetPricingFtpYieldList = ({ pathname }) => {
   const columns = getTableColumns(
     ALL_COLUMNS,
     [
@@ -83,4 +83,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default Index
+export default BudgetPricingFtpYieldList
