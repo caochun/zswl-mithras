@@ -51,7 +51,7 @@ const columns = [
   { title: '业务部门', dataIndex: 'bizDeptName' },
 ]
 
-const Index = () => {
+const ProcessDetailZTabsKeyInfoProjectPricing = () => {
   const { detailData } = useFlowData()
   const { businessKey: id, businessVersion, processInstanceId } = detailData
   const [moduleData, setModuleData] = useState({})
@@ -75,4 +75,4 @@ const Index = () => {
   return <EditDescription columns={columns} title={''} detail={moduleData} canEdit={false} />
 }
 
-export default observer(Index)
+export default observer(ProcessDetailZTabsKeyInfoProjectPricing)

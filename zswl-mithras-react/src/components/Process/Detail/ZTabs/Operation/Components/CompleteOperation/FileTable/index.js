@@ -9,7 +9,7 @@ import Store from './store'
 import Api from '@/api/process/flowFile'
 import { saveServer } from '@/utils'
 
-function Index({ label, rules, params, materialsType, detail }) {
+function ProcessDetailZTabsCompleteOperationFileTable({ label, rules, params, materialsType, detail }) {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -99,4 +99,4 @@ function Index({ label, rules, params, materialsType, detail }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessDetailZTabsCompleteOperationFileTable)

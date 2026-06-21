@@ -50,7 +50,7 @@ import RatingClient from '../../RatingClient'
 import RatingDebt from '../../RatingDebt'
 import RiskOption from '../../RiskOption'
 import OtherFilingMaterialsApply from '../../OtherFilingMaterialsApply'
-const Index = () => {
+const ProcessDetailZTabsDetailInfo = () => {
   const { detailData, canEditFlag, id, curTab, isNewLayout, setEditing, registerCallback, isRiskManagerProj, setMaterialObj } = useFlowData()
   const {
     subModule,
@@ -214,4 +214,4 @@ const Index = () => {
   return <ErrorBoundary fallback={<Tag>渲染出错了</Tag>}>{cloneElement(CurrentModule, { isNewLayout })}</ErrorBoundary>
 }
 
-export default Index
+export default ProcessDetailZTabsDetailInfo
