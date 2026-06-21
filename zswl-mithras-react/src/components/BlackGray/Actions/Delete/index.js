@@ -12,7 +12,7 @@ import { message, Modal } from 'antd'
  * 如果不勾选，可以点击进入批量审批，
  * 审批状态均为待提交/已驳回/已撤回数据才能删除
  */
-function Index({ store, fieldNames, api, ...rest }) {
+function BlackGrayDeleteAction({ store, fieldNames, api, ...rest }) {
   const { rows, keys } = store.getSelected()
   const can = canDelete({ rows, fieldNames })
   const handleClick = () => {
@@ -62,7 +62,7 @@ function canDelete({ rows, fieldNames, ...info }) {
     })
   )
 }
-const Delete = observer(Index)
+const Delete = observer(BlackGrayDeleteAction)
 
 Delete.useBoolean = (data) => {
   if (!data) {

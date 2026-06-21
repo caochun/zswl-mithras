@@ -14,7 +14,7 @@ import { useImperativeHandle, forwardRef } from 'react'
  * @param access 按钮权限标识
  * @param title Modal的标题
  */
-function Index(
+function BlackGrayImportAction(
   {
     store,
     api,
@@ -99,4 +99,4 @@ function Index(
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(BlackGrayImportAction))

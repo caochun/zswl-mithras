@@ -31,7 +31,7 @@ const Date = () => {
   }, [])
   return date
 }
-function Index({ operation, form, style, showTitle = true, disabled }) {
+function BlackGrayApprovalOperation({ operation, form, style, showTitle = true, disabled }) {
   const { userName, orgRolesName, account } = App.useData().user
   const [tags, setTags] = useState([])
   const getTags = () => commonAuditActionApi.getComments({ account })
@@ -215,4 +215,4 @@ function Index({ operation, form, style, showTitle = true, disabled }) {
   )
 }
 
-export default Index
+export default BlackGrayApprovalOperation

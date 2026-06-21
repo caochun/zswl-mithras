@@ -10,7 +10,7 @@ import { App, Button } from '@zswl/components'
  * 如果不勾选，可以点击进入批量审批，
  * 勾选之后判断如果是审批中且当前处理人为当前登录用户才能审批
  */
-function Index({ store, fieldNames, single, ...rest }) {
+function BlackGrayAuditAction({ store, fieldNames, single, ...rest }) {
   const { rows } = store.getSelected()
   const can = canAudit({ rows, fieldNames, single })
   return (
@@ -58,7 +58,7 @@ function canAudit({ rows, fieldNames, single, ...info }) {
     })
   )
 }
-const Audit = observer(Index)
+const Audit = observer(BlackGrayAuditAction)
 
 Audit.useBoolean = (data) => {
   if (!data) {

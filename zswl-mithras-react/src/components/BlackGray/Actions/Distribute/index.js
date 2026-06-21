@@ -16,7 +16,7 @@ import taskActionApi from '@/api/blackGray/taskActionApi'
  * @param {function} props.onSuccess 用于提交成功后列表刷新
  * @returns
  */
-function Index({
+function BlackGrayDistributeAction({
   lineType,
   isShowDate = true,
   deadline: date,
@@ -195,4 +195,4 @@ function Index({
   )
 }
 
-export default Index
+export default BlackGrayDistributeAction

@@ -1,7 +1,7 @@
 import { Modal, Select, Form } from 'antd'
 
 const { Item } = Form
-function Index({ visible, onCancel, info, onFinish, loading }) {
+function BlackGraySubmitAuditNext({ visible, onCancel, info, onFinish, loading }) {
   const [form] = Form.useForm()
   const { nextActivityId, nodeInfo = {} } = info || {}
   const { selectUsers, orgName, roleName } = nodeInfo[nextActivityId] || {}
@@ -28,4 +28,4 @@ function Index({ visible, onCancel, info, onFinish, loading }) {
     </Modal>
   )
 }
-export default Index
+export default BlackGraySubmitAuditNext

@@ -11,7 +11,7 @@ import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
  * @returns
  */
 
-function Index({ taskId, onSuccess, ...rest }) {
+function BlackGrayTransmitAction({ taskId, onSuccess, ...rest }) {
   const [transmitForm] = Form.useForm()
   const [list, setList] = useState([])
   const modalStore = Modal.useStore({
@@ -99,4 +99,4 @@ function Index({ taskId, onSuccess, ...rest }) {
   )
 }
 
-export default Index
+export default BlackGrayTransmitAction

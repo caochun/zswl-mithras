@@ -9,7 +9,7 @@ import { App, Button } from '@zswl/components'
  * 如果不勾选，可以点击进入批量审批，
  * 审批状态均为待提交/已驳回/已撤回数据 并且当前处理人是当前登录用户才能编辑
  */
-function Index({ store, fieldNames, ...rest }) {
+function BlackGrayEditAction({ store, fieldNames, ...rest }) {
   const { rows } = store.getSelected()
   const can = canEdit({ rows, fieldNames })
   return (
@@ -54,7 +54,7 @@ function canEdit({ rows, fieldNames, ...info }) {
     })
   )
 }
-const Edit = observer(Index)
+const Edit = observer(BlackGrayEditAction)
 
 Edit.useBoolean = (data) => {
   if (!data) {

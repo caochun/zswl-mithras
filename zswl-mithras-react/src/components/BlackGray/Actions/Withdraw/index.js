@@ -10,7 +10,7 @@ import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
  * @param fieldNames 指定审核状态，等字段映射,只有store存在时有效
  * @param needPre 是否需要判断当前处理人为当前用户的下一位审批岗的才能撤回
  */
-function Index({ store, taskIds, fieldNames, needPre = true, access }) {
+function BlackGrayWithdrawAction({ store, taskIds, fieldNames, needPre = true, access }) {
   const filed = {
     approvalStatus: 'approvalStatus',
     preOperator: 'preOperator',
@@ -53,4 +53,4 @@ function Index({ store, taskIds, fieldNames, needPre = true, access }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWithdrawAction)

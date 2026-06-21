@@ -18,7 +18,7 @@ import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
  * time：时间
  * @param params 相关参数，bizId，bizCode，taskId
  */
-function Index({ request, params, visible }) {
+function BlackGrayApprovalRecordHistory({ request, params, visible }) {
   const [list, setList] = useState([])
   const [open, setOpen] = useState(false)
   const getList = async () => {
@@ -96,4 +96,4 @@ function Index({ request, params, visible }) {
   )
 }
 
-export default Index
+export default BlackGrayApprovalRecordHistory

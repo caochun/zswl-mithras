@@ -8,7 +8,7 @@ import { Button } from '@zswl/components'
  * @param fileName 导出的文件名
  * @param access 权限标识
  */
-function Index({ store, api, fileName, access, type = 'get' }) {
+function BlackGrayExportAction({ store, api, fileName, access, type = 'get' }) {
   const list = store.getList()
   const disabled = list.length === 0
   const handleClick = async () => {
@@ -40,4 +40,4 @@ function Index({ store, api, fileName, access, type = 'get' }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayExportAction)

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
 
 const { Item } = Form
-function Index({ visible, onCancel, getParams, info, onFinish, loading }) {
+function BlackGraySubmitAuditLast({ visible, onCancel, getParams, info, onFinish, loading }) {
   const [form] = Form.useForm()
   const [data, setData] = useState({})
   const { lastNodeSelectIds = [], currentActivityId, nodeInfo } = info || {}
@@ -91,4 +91,4 @@ function Index({ visible, onCancel, getParams, info, onFinish, loading }) {
     </Modal>
   )
 }
-export default Index
+export default BlackGraySubmitAuditLast
