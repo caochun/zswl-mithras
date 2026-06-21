@@ -10,7 +10,7 @@ const labelStyle = {
 const nameColumns = ['评分卡名称', '适用风控行业分类', '选择省内/省外', '状态', '适用年份', '说明']
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
-function Index({ store, detail }) {
+function RiskSourceCardBaseInfo({ store, detail }) {
   return (
     <EditDescription
       title={'评分卡模型基本信息'}
@@ -25,4 +25,4 @@ function Index({ store, detail }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskSourceCardBaseInfo)

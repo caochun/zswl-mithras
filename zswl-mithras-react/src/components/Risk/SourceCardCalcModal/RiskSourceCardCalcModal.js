@@ -15,7 +15,7 @@ const gradeMap = {
   moderate: '一般',
 }
 
-function Index({ modalStore, id, modalStatus, cardData, tryData, year }, ref) {
+function RiskSourceCardCalcModal({ modalStore, id, modalStatus, cardData, tryData, year }, ref) {
   const isDetail = modalStatus === 'view'
   const isTryCalc = modalStatus === 'edit'
   const [form] = Form.useForm()
@@ -198,4 +198,4 @@ function Index({ modalStore, id, modalStatus, cardData, tryData, year }, ref) {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(RiskSourceCardCalcModal))

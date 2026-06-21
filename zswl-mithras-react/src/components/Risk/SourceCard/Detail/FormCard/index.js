@@ -208,7 +208,7 @@ const AreaCard = forwardRef((props, ref) => {
     </Card>
   )
 })
-function Index({ value, store, year, ...rest }) {
+function RiskSourceCardFormCard({ value, store, year, ...rest }) {
   const listName = 'targetList'
 
   // 获取AreaCard组件的 ref
@@ -253,4 +253,4 @@ function Index({ value, store, year, ...rest }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskSourceCardFormCard)

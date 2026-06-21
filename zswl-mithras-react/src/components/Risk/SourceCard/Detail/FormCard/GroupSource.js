@@ -5,7 +5,7 @@ import { InputReadOnly } from '@/components/Form'
 import { App } from '@zswl/components'
 
 //AreaTypeEnum
-function Index({ isEdit, groupType = 'NO_PARTITION', onChange, path, ...rest }) {
+function RiskSourceCardGroupSource({ isEdit, groupType = 'NO_PARTITION', onChange, path, ...rest }) {
   const lableMap = App.getData().optionsType.areaTypeEnum.filter((v) => v.value !== 'NO_PARTITION')
   const newPath = [...path, 'areaConfig']
   const form = Form.useFormInstance()
@@ -68,4 +68,4 @@ function Index({ isEdit, groupType = 'NO_PARTITION', onChange, path, ...rest }) 
   )
 }
 
-export default observer(Index)
+export default observer(RiskSourceCardGroupSource)

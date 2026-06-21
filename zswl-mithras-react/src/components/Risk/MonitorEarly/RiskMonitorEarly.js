@@ -41,7 +41,7 @@ const StarLevel = ({ level }) => {
   return <span>{stars.join('')}</span>
 }
 
-function Index({ path, ...props }) {
+function RiskMonitorEarly({ path, ...props }) {
   const { enterpriseName, tag } = getQuery()
   const onChange = (key) => {}
 
@@ -318,4 +318,4 @@ function Index({ path, ...props }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskMonitorEarly)
