@@ -14,7 +14,7 @@ function findPanelDom(node) {
   }
   return findPanelDom(node.parentNode)
 }
-function Index({ version, moduleType, options, functionCode, functionCodeList }) {
+function ChangeLogDiff({ version, moduleType, options, functionCode, functionCodeList }) {
   const ref = useRef()
   const hasChange = useRef(false)
   const Render = ({ name, data }) => {
@@ -95,4 +95,4 @@ function Index({ version, moduleType, options, functionCode, functionCodeList })
   )
 }
 
-export default observer(Index)
+export default observer(ChangeLogDiff)

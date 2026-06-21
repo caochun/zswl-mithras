@@ -7,7 +7,7 @@ import classNames from 'classnames'
 
 const { Link } = Anchor
 
-const Index = (props) => {
+const DetailLayout = (props) => {
   const {
     children,
     anchorList = [],
@@ -101,4 +101,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(DetailLayout)

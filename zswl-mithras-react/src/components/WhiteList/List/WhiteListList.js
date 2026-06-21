@@ -49,7 +49,7 @@ const columns = getTableColumns(ALL_COLUMNS, nameColumns, true)
  * 白名单管理主组件
  * @returns {JSX.Element} 白名单管理页面
  */
-function Index() {
+function WhiteListList() {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -140,4 +140,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(WhiteListList)

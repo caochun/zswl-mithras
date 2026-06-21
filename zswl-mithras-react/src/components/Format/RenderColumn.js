@@ -26,7 +26,7 @@ function amountFormat(value) {
  * @param {* ReactNode}  children
  * @returns
  */
-const Index = ({
+const RenderColumn = ({
   isCompare,
   selectEnum,
   children,
@@ -66,4 +66,4 @@ const Index = ({
   )
 }
 
-export default Index
+export default RenderColumn

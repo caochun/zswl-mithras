@@ -303,7 +303,7 @@ const DetailModal = observer(({ store, canEdit = true }) => {
     </Modal>
   )
 })
-const Index = ({ taskActivityId, canEdit: canEditFlag, id, notLease, functionCodeList }) => {
+const AppraisalAgency = ({ taskActivityId, canEdit: canEditFlag, id, notLease, functionCodeList }) => {
   const baseStore = useMemo(
     () => new Store({ id, notLease, functionCodeList }),
     [id, notLease, functionCodeList]
@@ -445,4 +445,4 @@ const Index = ({ taskActivityId, canEdit: canEditFlag, id, notLease, functionCod
   )
 }
 
-export default observer(Index)
+export default observer(AppraisalAgency)

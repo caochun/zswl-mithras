@@ -4,7 +4,7 @@ import styles from './Collapse.less'
 
 const { Panel } = Collapse
 
-const Index = ({ header, children, extra, folded, forceRender = false, ...rest }) => {
+const LayoutCollapse = ({ header, children, extra, folded, forceRender = false, ...rest }) => {
   return (
     <div className={styles.collapse}>
       <Collapse
@@ -39,4 +39,4 @@ const Index = ({ header, children, extra, folded, forceRender = false, ...rest }
   )
 }
 
-export default Index
+export default LayoutCollapse

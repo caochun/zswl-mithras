@@ -4,7 +4,7 @@ import { Button } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { isFunction } from 'lodash'
 
-const Index = ({
+const CurrentSteps = ({
   steps = [],
   onCancel,
   canClick,
@@ -127,4 +127,4 @@ const Index = ({
     </div>
   )
 }
-export default observer(Index)
+export default observer(CurrentSteps)
