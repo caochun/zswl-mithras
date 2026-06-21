@@ -1,1 +1,1 @@
-export { CreditTableDiYa as default } from '@/components/CreditManage/CreditManageEntries'
+export { default } from '@/components/CreditManage/CreditTableMortgageEntries'

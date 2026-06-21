@@ -189,7 +189,22 @@
 - `Credit/ReviewLogEntries.js`
 - `Credit/ReviewPageEntries.js`
 - `Credit/SearchListEntries.js`
-- `CreditManage/CreditManageEntries.js`
+- `CreditManage/CreditTableAccountEntries.js`
+- `CreditManage/CreditTableClientEntries.js`
+- `CreditManage/CreditTableFinishAccountEntries.js`
+- `CreditManage/CreditTableFinishBatchEntries.js`
+- `CreditManage/CreditTableFinishEntries.js`
+- `CreditManage/CreditTableGuaranteeEntries.js`
+- `CreditManage/CreditTableLevel5CreateModalEntries.js`
+- `CreditManage/CreditTableLevel5Entries.js`
+- `CreditManage/CreditTableMortgageEntries.js`
+- `CreditManage/CreditTableOverdueEntries.js`
+- `CreditManage/CreditTablePledgeEntries.js`
+- `CreditManage/CreditTableRepaymentEntries.js`
+- `CreditManage/CreditTableTabEntries.js`
+- `CreditManage/CreditTableTransactionEntries.js`
+- `CreditManage/CreditTableWaitEntries.js`
+- `CreditManage/SearchDetailEntries.js`
 - `Customer/ApplyPermissionEntries.js`
 - `Customer/CustomerRatingDetailEntries.js`
 - `Customer/CustomerRatingListEntries.js`
@@ -528,7 +543,7 @@
 - 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
 - 授信建立列表和详情通过 `src/components/Credit/Establish*Entries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js` 和 `src/components/Credit/EstablishDetail/CreditEstablishDetail.js`。
 - 授信评审列表、详情、授信建立日志、授信评审日志及其差异页通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
-- 授信管理征信查询详情、征信报送 Tab、账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
+- 授信管理征信查询详情、征信报送 Tab、账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类、创建弹窗、待处理视图和完成视图分别通过 `src/components/CreditManage/*Entries.js` 窄入口暴露，真实实现使用授信管理域语义文件名，不再依赖总入口或目录 `index.js`。
 - 付款申请创建弹窗和公开信息提示弹窗分别通过 `src/components/Cpm/PaymentApplicationListEntries.js`、`PaymentApplicationPublicCheckEntries.js` 暴露，真实实现命名为 `src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js` 和 `src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js`。
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js` 和 `RzyIframe/RzyIframe.js`。

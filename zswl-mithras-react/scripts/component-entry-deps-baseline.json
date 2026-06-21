@@ -395,7 +395,11 @@
     },
     {
       "sourceScope": "components/Process",
-      "target": "CreditManage/CreditManageEntries"
+      "target": "CreditManage/CreditTableWaitEntries"
+    },
+    {
+      "sourceScope": "components/Process",
+      "target": "CreditManage/SearchDetailEntries"
     },
     {
       "sourceScope": "components/Process",
