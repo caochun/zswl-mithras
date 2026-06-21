@@ -1,1 +1,1 @@
-export { KpiProjectAllotExtarInfo as default } from '@/components/Kpi/ProjectAllotExtarInfoEntries'
+export { KpiProjectAllotExtraInfo as default } from '@/components/Kpi/ProjectAllotExtraInfoEntries'

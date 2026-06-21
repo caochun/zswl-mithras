@@ -4,7 +4,7 @@ import { Button, Page } from '@zswl/components'
 import { DetailLayout } from '@/components/Layout'
 import BaseInfo from '../BaseInfo/KpiProjectAllotBaseInfo'
 import AllocateInfo from '../AllocateInfo/KpiProjectAllotAllocateInfo'
-import ExtarInfo from '../ExtarInfo/KpiProjectAllotExtarInfo'
+import ExtraInfo from '../ExtraInfo/KpiProjectAllotExtraInfo'
 import BeforeAllocateInfoModal from '../BeforeAllocateInfoModal/KpiProjectAllotBeforeAllocateInfoModal'
 import allotApi from '@/api/kpi/projectAllot/allot'
 import { message } from 'antd'
@@ -64,7 +64,7 @@ const Index = ({
       >
         <BaseInfo {...commonProps} editRef={baseInfoRef} store={store}></BaseInfo>
         <AllocateInfo {...commonProps} editRef={allocateInfoRef} store={store}></AllocateInfo>
-        <ExtarInfo {...commonProps} store={store}></ExtarInfo>
+        <ExtraInfo {...commonProps} store={store}></ExtraInfo>
       </DetailLayout>
       <BeforeAllocateInfoModal store={store}></BeforeAllocateInfoModal>
     </Page>

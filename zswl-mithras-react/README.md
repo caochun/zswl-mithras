@@ -309,7 +309,7 @@
 - `Kpi/ProjectAllotBaseInfoEntries.js`
 - `Kpi/ProjectAllotBeforeAllocateInfoModalEntries.js`
 - `Kpi/ProjectAllotDetailEntries.js`
-- `Kpi/ProjectAllotExtarInfoEntries.js`
+- `Kpi/ProjectAllotExtraInfoEntries.js`
 - `Kpi/ProjectAllotHistoryEntries.js`
 - `Kpi/ProjectAllotPageEntries.js`
 - `Kpi/ProjectAllotProjectAllocateListEntries.js`

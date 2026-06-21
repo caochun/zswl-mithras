@@ -283,7 +283,7 @@ const componentEntryScopeAliases = new Map([
   ['Kpi/ProjectAllotBaseInfoEntries', 'KpiProjectAllotBaseInfo'],
   ['Kpi/ProjectAllotBeforeAllocateInfoModalEntries', 'KpiProjectAllotBeforeAllocateInfoModal'],
   ['Kpi/ProjectAllotDetailEntries', 'KpiProjectAllotDetail'],
-  ['Kpi/ProjectAllotExtarInfoEntries', 'KpiProjectAllotExtarInfo'],
+  ['Kpi/ProjectAllotExtraInfoEntries', 'KpiProjectAllotExtraInfo'],
   ['Kpi/ProjectAllotHistoryEntries', 'KpiProjectAllotHistory'],
   ['Kpi/ProjectAllotPageEntries', 'KpiProjectAllotPage'],
   ['Kpi/ProjectAllotProjectAllocateListEntries', 'KpiProjectAllotProjectAllocateList'],

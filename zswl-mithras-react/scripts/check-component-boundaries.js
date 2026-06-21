@@ -1194,7 +1194,11 @@ const removedLegacyComponentFiles = new Map([
   ],
   [
     'src/components/Kpi/ProjectAllot/ExtarInfo/index.js',
+    'src/components/Kpi/ProjectAllot/ExtraInfo/KpiProjectAllotExtraInfo.js',
+  ],
+  [
     'src/components/Kpi/ProjectAllot/ExtarInfo/KpiProjectAllotExtarInfo.js',
+    'src/components/Kpi/ProjectAllot/ExtraInfo/KpiProjectAllotExtraInfo.js',
   ],
   [
     'src/components/Kpi/ProjectAllot/List/index.js',
@@ -2961,6 +2965,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Kpi/BaseSetParameterDetailEntries.js', 'Kpi/BaseSet*Entries.js'],
   ['Kpi/KpiEstimationEntries.js', 'Kpi/Estimation*Entries.js'],
   ['Kpi/PmAssessEntries.js', 'Kpi/PmAssess*Entries.js'],
+  ['Kpi/ProjectAllotExtarInfoEntries.js', 'Kpi/ProjectAllotExtraInfoEntries.js'],
   ['Kpi/ProjectAllotFormEntries.js', 'Kpi/ProjectAllot*Entries.js'],
   ['Kpi/ProjectAllotListEntries.js', 'Kpi/ProjectAllot*Entries.js'],
   ['Lease/MaintainEntries.js', 'Lease/Maintain*Entries.js'],
