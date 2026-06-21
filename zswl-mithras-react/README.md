@@ -36,6 +36,8 @@
 
 禁止无语义地区复制出内容完全相同的 `*Entries.js`；只有页面入口和流程装配入口等消费者语义明确不同的场景，才可以保留显式登记的重复入口。
 
+禁止保留内容完全相同的普通业务组件实现；发现精确重复时应提取到当前语义域内的共享组件、通过稳定入口复用，或删除无运行路径的遗留死代码。
+
 业务域内部实现文件不要从自己的 `*Entries.js` 反向导入；域内复用应使用相对路径。`*Entries.js` 只作为外部稳定入口使用。
 
 当前已有领域入口：
@@ -505,7 +507,7 @@
 - 禁止预算应收账款页面和组件直接引用 `financial/accountsReceivable` 历史 API 前缀，应使用 `budget/accountsReceivable` 语义入口。
 - 禁止通用选择器直接引用 `groupCredit/common` 历史 API 前缀，应使用 `common/selectApi` 语义入口。
 - 禁止在 `src/components/**/api.js` 中只做 `@/api/**` 的一行转发；组件内部应直接引用语义明确的 `src/api` 入口，避免制造假本地 API 边界。
-- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和样式文件 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止相对路径显式导入 `./index`/`../index`，禁止 `src/components` 下出现 `[id]`、`[id$]` 等路由式组件文件名或目录名，禁止领域入口文件承载非 re-export 内容或使用 `@/components/**` 绝对转发，禁止领域入口文件出现在 `src/components/<Domain>` 根部以外的位置，禁止单个领域入口暴露超过两个场景，禁止入口命名导出没有实际入边，禁止业务组件目录中的组件转发壳和非公共基础入口的命名转发壳，禁止通过 `@/pages/**` 复用页面私有代码，禁止 `src/pages` 下出现非路由 JS/TS 文件并要求页面路由壳保持一行 re-export，禁止临时复制/备份文件和常见拼错残留文件名，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，校验组件/API/工具域目录命名风格，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、无引用 API 实现清零、无引用组件样式文件清零、未使用样式模块导入清零、空 `useEffect` 清零、空文件清零、空目录清零、重复领域入口受控、跨域组件入口依赖基线受控、UI 跨域依赖无待语义评审项。
+- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和样式文件 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止相对路径显式导入 `./index`/`../index`，禁止 `src/components` 下出现 `[id]`、`[id$]` 等路由式组件文件名或目录名，禁止领域入口文件承载非 re-export 内容或使用 `@/components/**` 绝对转发，禁止领域入口文件出现在 `src/components/<Domain>` 根部以外的位置，禁止单个领域入口暴露超过两个场景，禁止入口命名导出没有实际入边，禁止业务组件目录中的组件转发壳和非公共基础入口的命名转发壳，禁止通过 `@/pages/**` 复用页面私有代码，禁止 `src/pages` 下出现非路由 JS/TS 文件并要求页面路由壳保持一行 re-export，禁止临时复制/备份文件和常见拼错残留文件名，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，校验组件/API/工具域目录命名风格，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、无引用 API 实现清零、无引用组件样式文件清零、未使用样式模块导入清零、普通非入口组件精确重复清零、空 `useEffect` 清零、空文件清零、空目录清零、重复领域入口受控、跨域组件入口依赖基线受控、UI 跨域依赖无待语义评审项。
 - `ExternalEmbed/RzyEntries.js` 和 `Permission/BifrostPageEntries.js` 是历史外部嵌入/iframe 页面集合入口，属于少数已登记的多导出例外；新增页面集合不应默认复用这种模式。
 - 跨业务域复用 `@/components/<Domain>/*Entries.js` 时，新增依赖边必须先确认语义，再更新 `scripts/component-entry-deps-baseline.json`；清理掉跨域复用后也要同步删除过期基线边。不要为了通过检查直接把内部实现路径或宽入口暴露给调用方。
 - `npm run check:boundaries` 会阻止 `src` 源码中的 `console.log` 和 `debugger` 调试残留，包括运行时代码和注释掉的旧调试语句；需要用户可见反馈时使用页面/组件层的提示能力，需要排错时应在具体业务域临时处理并随调试结束移除。

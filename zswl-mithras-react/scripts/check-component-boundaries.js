@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const crypto = require('crypto')
 
 const root = path.resolve(__dirname, '..')
 const srcDir = path.join(root, 'src')
@@ -3512,6 +3513,7 @@ for (const filePath of sourceFiles) {
 const actualComponentEntries = componentEntryFiles.map(normalizeEntryPath).sort()
 const actualComponentEntrySet = new Set(actualComponentEntries)
 const componentEntryHashes = new Map()
+const nonEntryComponentHashes = new Map()
 const readme = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : ''
 const documentedComponentEntries = [...readme.matchAll(/^- `([^`]+(?:Entries|entries)\.js)`/gm)]
   .map((match) => match[1])
@@ -3556,6 +3558,37 @@ for (const entries of componentEntryHashes.values()) {
       specifier: 'duplicate component entries',
     })
   }
+}
+
+for (const filePath of sourceFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  if (
+    !/^src[\\/]components[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) ||
+    /(?:Entries|entries)\.js$/.test(relativeFilePath)
+  ) {
+    continue
+  }
+
+  const content = fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n').trim()
+  if (!content) {
+    continue
+  }
+
+  const hash = crypto.createHash('sha1').update(content).digest('hex')
+  const files = nonEntryComponentHashes.get(hash) || []
+  files.push(relativeFilePath)
+  nonEntryComponentHashes.set(hash, files)
+}
+
+for (const files of nonEntryComponentHashes.values()) {
+  if (files.length <= 1) {
+    continue
+  }
+
+  violations.push({
+    file: files.sort().join(', '),
+    specifier: 'duplicate non-entry component implementation',
+  })
 }
 
 for (const entryPath of actualComponentEntries) {
