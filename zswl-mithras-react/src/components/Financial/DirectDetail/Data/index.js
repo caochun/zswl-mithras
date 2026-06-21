@@ -1,6 +1,6 @@
 import { FileTable } from '@/components/Table'
 import Api from '@/api/financial/directFinancingDetail'
-const Index = (props) => {
+const FinancialDirectDetailData = (props) => {
   const { id: mainId, disabled, businessVersion } = props
 
   const columns = [
@@ -38,4 +38,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default FinancialDirectDetailData

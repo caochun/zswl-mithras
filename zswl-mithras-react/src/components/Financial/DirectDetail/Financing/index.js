@@ -8,7 +8,7 @@ import Cost from './Cost'
 import { AmountColumn, AmountEditable, DateColumn, MatchOptionColumn } from '@/components/Format'
 import CalcDay from './CalcDay'
 
-function Index({ id, disabled, store }) {
+function FinancialDirectDetailFinancing({ id, disabled, store }) {
   const [editable, setEditable] = useState(false)
   const dataRef = useRef({})
   const descStore = Descriptions.useStore({
@@ -150,4 +150,4 @@ function Index({ id, disabled, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetailFinancing)

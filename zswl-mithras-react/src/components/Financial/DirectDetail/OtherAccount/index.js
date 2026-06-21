@@ -14,7 +14,7 @@ const columns = [
   { title: '开户行', dataIndex: 'accountAddress', rules: [{ required: true }] },
 ]
 
-const Index = ({ id: financingId, businessVersion, canEdit, detail }) => {
+const FinancialDirectDetailOtherAccount = ({ id: financingId, businessVersion, canEdit, detail }) => {
   const isFormApproval = getQuery('typeId') == 'approval'
 
   const getList = async (params) => {
@@ -57,4 +57,4 @@ const Index = ({ id: financingId, businessVersion, canEdit, detail }) => {
     />
   )
 }
-export default observer(Index)
+export default observer(FinancialDirectDetailOtherAccount)

@@ -9,7 +9,7 @@ import { AmountEditable } from '@/components/Format'
 import { saveServer } from '@/utils'
 
 const { Summary } = Table
-function Index({ id: financingId, disabled }) {
+function FinancialDirectDetailSubscribe({ id: financingId, disabled }) {
   const [editableKey, setEditableKey] = useState(null)
   const tableStore = Table.useStore({
     pagination: false,
@@ -155,4 +155,4 @@ function Index({ id: financingId, disabled }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetailSubscribe)

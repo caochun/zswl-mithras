@@ -57,7 +57,7 @@ const SplitTable = observer(({ item }) => {
     />
   )
 })
-function Index({ id: financingId, disabled, detail, store }, ref) {
+function FinancialDirectDetailRepay({ id: financingId, disabled, detail, store }, ref) {
   const { obsolete, directFinancingType } = detail
   const isABS = ['ABS', 'ABN'].includes(directFinancingType)
   const [splitList, setSplitList] = useState([])
@@ -187,4 +187,4 @@ function Index({ id: financingId, disabled, detail, store }, ref) {
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(FinancialDirectDetailRepay))

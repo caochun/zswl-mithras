@@ -12,7 +12,7 @@ import { JumpContractDetail, JumpProjDetail } from '../../Shared/JumpDetail'
 import styles from './index.less'
 import Store from './store'
 
-const Index = ({
+const FinancialDirectDetailPledge = ({
   id: financingId,
   isFormApproval,
   businessVersion,
@@ -242,4 +242,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetailPledge)

@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 import { AmountColumn } from '@/components/Format'
 
 const { Summary } = Table
-function Index({ id: financingId, disabled, store }) {
+function FinancialDirectDetailProduct({ id: financingId, disabled, store }) {
   const tableStore = Table.useStore({
     request: async (params) => {
       const data = await Api.getProductList({ ...params, financingId })
@@ -208,4 +208,4 @@ function Index({ id: financingId, disabled, store }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetailProduct)

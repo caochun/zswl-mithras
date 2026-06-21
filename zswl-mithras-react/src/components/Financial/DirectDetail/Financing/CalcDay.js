@@ -2,7 +2,7 @@ import { FormAmount } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { Space } from 'antd'
 
-const Index = ({ value, onChange }) => {
+const FinancialDirectFinancingCalcDay = ({ value, onChange }) => {
   return (
     <Space>
       转付日 - <FormAmount value={value} onChange={onChange} initFormat={1} /> 日
@@ -10,11 +10,11 @@ const Index = ({ value, onChange }) => {
   )
 }
 
-Index.Detail = ({ value }) => {
+FinancialDirectFinancingCalcDay.Detail = ({ value }) => {
   return (
     <Space>
       转付日 - <FormAmount.Format value={value} initFormat={1} /> 日
     </Space>
   )
 }
-export default observer(Index)
+export default observer(FinancialDirectFinancingCalcDay)

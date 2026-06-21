@@ -7,7 +7,7 @@ import { amountFormat, formatPercent } from '@/utils'
 import { AmountColumn, AmountEditable, DateColumn, MatchOptionColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 
-function Index({ id: financingId, tableStore, disabled }) {
+function FinancialDirectFinancingCost({ id: financingId, tableStore, disabled }) {
   const [editableKey, setEditableKey] = useState(null)
   const remove = async (record) => {
     if (tableStore.isNewRow(record)) {
@@ -101,4 +101,4 @@ function Index({ id: financingId, tableStore, disabled }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectFinancingCost)

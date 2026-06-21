@@ -6,7 +6,7 @@ import { AmountEditable, DatePickerEditable } from '@/components/Format'
 import { amountFormat, formatPercent } from '@/utils'
 import Api from '@/api/financial/directFinancingDetail'
 
-function Index({ id, disabled }) {
+function FinancialDirectDetailAsset({ id, disabled }) {
   const [editable, setEditable] = useState(false)
   const store = Descriptions.useStore({
     request: async () => {
@@ -138,4 +138,4 @@ function Index({ id, disabled }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetailAsset)

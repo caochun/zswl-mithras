@@ -12,7 +12,7 @@ import { BankListSelect } from '../../../Select'
 
 const { Item } = Form
 
-function Index({ store, financingId }) {
+function FinancialDirectPledgeCreateModal({ store, financingId }) {
   const { curItem, contractList } = store
   const [form] = Form.useForm()
   const [accountBank, setAccountBank] = useState()
@@ -281,4 +281,4 @@ function Index({ store, financingId }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectPledgeCreateModal)

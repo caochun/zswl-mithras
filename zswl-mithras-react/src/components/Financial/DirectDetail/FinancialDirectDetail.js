@@ -16,7 +16,7 @@ import Subscribe from './Subscribe'
 import Api from '@/api/financial/directFinancingDetail'
 import Store from './store'
 
-function Index({ params: { id }, query = {} }) {
+function FinancialDirectDetail({ params: { id }, query = {} }) {
   const store = useMemo(() => new Store(), [])
   const detail = store.page.getData()
   const isFormApproval = getQuery('typeId') == 'approval'
@@ -77,4 +77,4 @@ function Index({ params: { id }, query = {} }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetail)

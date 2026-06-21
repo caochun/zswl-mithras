@@ -8,7 +8,7 @@ import Api from '@/api/financial/directFinancingDetail'
 import moment from 'moment'
 import { AmountEditable, FiledFormat } from '@/components/Format'
 
-function Index({ id, disabled }) {
+function FinancialDirectDetailBaseInfo({ id, disabled }) {
   const [editable, setEditable] = useState(false)
   const store = Descriptions.useStore({
     request: () => {
@@ -142,4 +142,4 @@ function Index({ id, disabled }) {
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetailBaseInfo)

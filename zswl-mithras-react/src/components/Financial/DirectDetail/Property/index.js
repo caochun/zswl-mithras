@@ -11,7 +11,7 @@ import styles from './index.less'
 import { saveServer } from '@/utils'
 import { InputColumn, AmountColumn, RenderColumn } from '@/components/Format'
 
-const Index = ({
+const FinancialDirectDetailProperty = ({
   id: financingId,
   isFormApproval,
   businessVersion,
@@ -97,4 +97,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(FinancialDirectDetailProperty)
