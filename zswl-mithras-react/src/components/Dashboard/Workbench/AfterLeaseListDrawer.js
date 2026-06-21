@@ -1,16 +1,15 @@
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
-import { useMemo, cloneElement } from 'react'
-import { getNameColumns } from '../Config'
+import { cloneElement, useMemo } from 'react'
 
-const Index = ({ store }) => {
+const AfterLeaseListDrawer = ({ store, getNameColumns }) => {
   const { curCardData } = store
   const { group, groupCode } = curCardData
   const drawerComponent = getNameColumns(groupCode)
 
   const tableComponent = useMemo(() => {
     return cloneElement(drawerComponent, { group })
-  }, [drawerComponent])
+  }, [drawerComponent, group])
 
   return (
     <Drawer
@@ -26,4 +25,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseListDrawer)

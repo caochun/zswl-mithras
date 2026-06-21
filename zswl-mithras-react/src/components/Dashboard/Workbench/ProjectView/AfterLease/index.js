@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import StagePanel from '../../../StagePanel'
-import { columnsFilterKey } from './Config'
-import AfterLeaseListDrawer from './AfterLeaseListDrawer'
+import AfterLeaseListDrawer from '../../AfterLeaseListDrawer'
+import { columnsFilterKey, getNameColumns } from './Config'
 import Store from './Store'
 import styles from './index.less'
 
@@ -44,7 +44,7 @@ const Index = () => {
           )
         }}
       </CardPanelFieldsFilter>
-      <AfterLeaseListDrawer store={store} />
+      <AfterLeaseListDrawer store={store} getNameColumns={getNameColumns} />
     </>
   )
 }
