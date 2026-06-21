@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { saveServer } from '@/utils'
 
 // 所有客户
-const Index = ({ group }) => {
+const AllCustomerListTable = ({ group }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
@@ -49,4 +49,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AllCustomerListTable)

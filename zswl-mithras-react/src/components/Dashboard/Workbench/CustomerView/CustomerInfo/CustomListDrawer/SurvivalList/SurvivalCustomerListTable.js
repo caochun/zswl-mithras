@@ -10,7 +10,7 @@ import TableSummary from '../../../../../TableSummary'
 import { saveServer } from '@/utils'
 
 // 存续客户
-const Index = ({ group }) => {
+const SurvivalCustomerListTable = ({ group }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
@@ -49,4 +49,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(SurvivalCustomerListTable)

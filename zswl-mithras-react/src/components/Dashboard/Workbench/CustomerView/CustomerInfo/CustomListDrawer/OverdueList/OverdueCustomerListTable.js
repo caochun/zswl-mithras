@@ -10,7 +10,7 @@ import TableSummary from '../../../../../TableSummary'
 import { saveServer } from '@/utils'
 
 // 逾期客户
-const Index = ({ group }) => {
+const OverdueCustomerListTable = ({ group }) => {
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
@@ -51,4 +51,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(OverdueCustomerListTable)

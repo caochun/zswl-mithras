@@ -9,7 +9,7 @@ import ExportBtn from '../../../../../Export'
 import { saveServer } from '@/utils'
 
 // 已结清客户
-const Index = ({ group }) => {
+const SettledCustomerListTable = ({ group }) => {
   const searchItem = getSearchColumns(ALL_COLUMNS, [
     '客户名称',
     '所属部门',
@@ -75,4 +75,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(SettledCustomerListTable)
