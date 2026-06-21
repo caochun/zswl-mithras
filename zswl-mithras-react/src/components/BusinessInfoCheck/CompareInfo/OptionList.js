@@ -6,7 +6,7 @@ import styles from '../index.less'
 
 const { Item } = Form
 
-const Index = ({ store }) => {
+const BusinessInfoCheckOptionList = ({ store }) => {
   const [form] = Form.useForm()
   const {
     optionList,
@@ -94,4 +94,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BusinessInfoCheckOptionList)

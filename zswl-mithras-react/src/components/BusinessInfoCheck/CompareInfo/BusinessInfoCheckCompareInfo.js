@@ -4,7 +4,7 @@ import CompareTable from './CompareTable'
 import OptionList from './OptionList'
 import { Space } from 'antd'
 
-const Index = ({ store, needOption = true }) => {
+const BusinessInfoCheckCompareInfo = ({ store, needOption = true }) => {
   const { canEditOpinion } = store
 
   return (
@@ -29,4 +29,4 @@ const Index = ({ store, needOption = true }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BusinessInfoCheckCompareInfo)

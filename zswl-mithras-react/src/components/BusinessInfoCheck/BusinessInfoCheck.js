@@ -5,7 +5,7 @@ import CompareInfo from './CompareInfo/BusinessInfoCheckCompareInfo'
 import TipsConfirm from './TipsConfirm/BusinessInfoCheckTipsConfirm'
 import Store from './store'
 
-const Index = (
+const BusinessInfoCheck = (
   {
     flowId,
     contractId,
@@ -56,4 +56,4 @@ const Index = (
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(BusinessInfoCheck))
