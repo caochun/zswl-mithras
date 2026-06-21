@@ -5,7 +5,7 @@ import { expenseRatioApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 import { Button, Form } from '@zswl/components'
 import FormListItem from './FormListItem'
 
-const Index = ({ typeInfo }) => {
+const KpiBaseSetExpenseAccrual = ({ typeInfo }) => {
   const { isEdit } = typeInfo
   const [form] = Form.useForm()
   const getData = async () => {
@@ -73,4 +73,4 @@ const Index = ({ typeInfo }) => {
   )
 }
 
-export default Index
+export default KpiBaseSetExpenseAccrual

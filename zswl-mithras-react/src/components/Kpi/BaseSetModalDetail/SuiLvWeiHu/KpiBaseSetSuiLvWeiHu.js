@@ -22,7 +22,7 @@ const TAX_TYPE_ENMU = {
   JYZLHT: '经营租赁合同',
 }
 
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetSuiLvWeiHu = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -106,4 +106,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetSuiLvWeiHu)

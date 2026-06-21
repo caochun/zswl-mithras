@@ -7,7 +7,7 @@ import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 import { financialMarketDeptAssessApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const VERSIBLE = 'P'
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetJinRongShiChangDept = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -74,4 +74,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetJinRongShiChangDept)

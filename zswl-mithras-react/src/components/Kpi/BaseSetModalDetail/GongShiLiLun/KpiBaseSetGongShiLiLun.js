@@ -8,7 +8,7 @@ import { profitAdjustApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const VERSIBLE = 'P'
 
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetGongShiLiLun = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -91,4 +91,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetGongShiLiLun)

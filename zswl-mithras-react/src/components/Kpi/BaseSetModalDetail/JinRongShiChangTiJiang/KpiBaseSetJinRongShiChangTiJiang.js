@@ -20,7 +20,7 @@ const columns = [
   },
 ]
 
-const Index = ({ typeInfo }) => {
+const KpiBaseSetJinRongShiChangTiJiang = ({ typeInfo }) => {
   const [detail, setDatail] = useState({})
   const { isEdit } = typeInfo
   const detailData = useRef({})
@@ -65,4 +65,4 @@ const Index = ({ typeInfo }) => {
   )
 }
 
-export default Index
+export default KpiBaseSetJinRongShiChangTiJiang

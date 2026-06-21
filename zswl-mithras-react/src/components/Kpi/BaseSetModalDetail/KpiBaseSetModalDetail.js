@@ -13,7 +13,7 @@ import YeWuDept from './YeWuDept/KpiBaseSetYeWuDept'
 import ZhiDengXiShu from './ZhiDengXiShu/KpiBaseSetZhiDengXiShu'
 import XiangMuTiJiang from './XiangMuTiJiang/KpiBaseSetXiangMuTiJiang'
 
-const Index = ({ store }) => {
+const KpiBaseSetModalDetail = ({ store }) => {
   const { typeInfo } = store
   if (!typeInfo) return null
   const { configCode } = typeInfo
@@ -100,4 +100,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetModalDetail)

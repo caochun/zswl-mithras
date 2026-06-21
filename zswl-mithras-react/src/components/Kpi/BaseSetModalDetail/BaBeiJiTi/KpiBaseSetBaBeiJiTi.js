@@ -20,7 +20,7 @@ const TYPE_ENMU = {
 
 const VERSIBLE = 'T'
 
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetBaBeiJiTi = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -101,4 +101,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetBaBeiJiTi)

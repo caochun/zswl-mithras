@@ -8,7 +8,7 @@ import { deptProfitFinishRatioApi as Api } from '@/api/kpi/baseSet/parameterConf
 
 const VERSIBLE = 'P'
 
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetBuMenLiLun = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -75,4 +75,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetBuMenLiLun)

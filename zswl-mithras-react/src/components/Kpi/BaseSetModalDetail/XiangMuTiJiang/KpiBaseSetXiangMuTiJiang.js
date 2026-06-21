@@ -18,7 +18,7 @@ const editableRender = (canEdit) => {
     : false
 }
 
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetXiangMuTiJiang = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -135,4 +135,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetXiangMuTiJiang)

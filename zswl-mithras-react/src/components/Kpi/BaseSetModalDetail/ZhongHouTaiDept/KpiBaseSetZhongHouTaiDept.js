@@ -5,7 +5,7 @@ import ModalEditTable from '../../ModalEditTable/KpiModalEditTable'
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 import { middleBackDeptAssessApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetZhongHouTaiDept = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -75,4 +75,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetZhongHouTaiDept)

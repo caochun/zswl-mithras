@@ -8,7 +8,7 @@ import { businessDeptAssessApi as Api } from '@/api/kpi/baseSet/parameterConfigA
 
 const VERSIBLE = 'P'
 
-const Index = ({ baseStore, typeInfo }) => {
+const KpiBaseSetYeWuDept = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -76,4 +76,4 @@ const Index = ({ baseStore, typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetYeWuDept)
