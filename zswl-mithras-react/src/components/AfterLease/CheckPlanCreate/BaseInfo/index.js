@@ -4,7 +4,7 @@ import ALL_COLUMNS from './Column'
 import { observer } from '@zswl/admin'
 import moment from 'moment'
 
-const Index = ({ detail, canEditFlag = true, saveData }) => {
+const AfterLeaseCheckPlanCreateBaseInfo = ({ detail, canEditFlag = true, saveData }) => {
   const columnName = [
     '计划名称',
     '计划类型',
@@ -45,4 +45,4 @@ const Index = ({ detail, canEditFlag = true, saveData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanCreateBaseInfo)

@@ -5,7 +5,12 @@ import EditModal from '../EditModal'
 import { Space } from 'antd'
 import ALL_COLUMNS from '../../../CheckPlanColumns'
 
-const Index = ({ dataSource = [], canEditFlag, toCheckCount, store }) => {
+const AfterLeaseCheckPlanCreateQuarterPlanTableList = ({
+  dataSource = [],
+  canEditFlag,
+  toCheckCount,
+  store,
+}) => {
   const { $editModal } = store
 
   const nameColumns = [
@@ -57,4 +62,4 @@ const Index = ({ dataSource = [], canEditFlag, toCheckCount, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanCreateQuarterPlanTableList)

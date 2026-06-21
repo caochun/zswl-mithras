@@ -5,7 +5,7 @@ import TableList from './TableList'
 import Store from './store'
 import styles from './index.less'
 
-const Index = ({ planId, canEditFlag, businessVersion }) => {
+const AfterLeaseCheckPlanCreateQuarterPlan = ({ planId, canEditFlag, businessVersion }) => {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -52,4 +52,4 @@ const Index = ({ planId, canEditFlag, businessVersion }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanCreateQuarterPlan)

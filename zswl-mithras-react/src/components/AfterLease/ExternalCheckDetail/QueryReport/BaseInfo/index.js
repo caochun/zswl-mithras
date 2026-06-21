@@ -4,7 +4,7 @@ import ALL_COLUMNS from './Column'
 import { observer } from '@zswl/admin'
 import moment from 'moment'
 
-const Index = ({ canEditFlag = true, store }) => {
+const AfterLeaseExternalCheckQueryReportBaseInfo = ({ canEditFlag = true, store }) => {
   const detail = store.page.getData()
 
   const columnName = [
@@ -36,4 +36,4 @@ const Index = ({ canEditFlag = true, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseExternalCheckQueryReportBaseInfo)

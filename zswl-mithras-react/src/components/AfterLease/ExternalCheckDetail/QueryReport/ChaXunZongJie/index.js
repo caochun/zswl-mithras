@@ -3,7 +3,7 @@ import { getDescColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { observer } from '@zswl/admin'
 
-const Index = ({ canEditFlag = true, store }) => {
+const AfterLeaseExternalCheckQueryReportSummary = ({ canEditFlag = true, store }) => {
   const detail = store.page.getData()
 
   const columnName = ['风险信号及重大事项、风险防范措施', '查询分析及查询结论']
@@ -24,4 +24,4 @@ const Index = ({ canEditFlag = true, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseExternalCheckQueryReportSummary)

@@ -9,7 +9,7 @@ import { useEffect, useMemo } from 'react'
 import Store from './store'
 import ALL_COLUMNS from '../../CheckPlanColumns'
 
-const Index = ({ planId, canEditFlag, businessVersion, detail }) => {
+const AfterLeaseCheckPlanCreateOtherPlan = ({ planId, canEditFlag, businessVersion, detail }) => {
   const nameColumns = [
     '客户编号',
     '客户名称',
@@ -81,4 +81,4 @@ const Index = ({ planId, canEditFlag, businessVersion, detail }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanCreateOtherPlan)

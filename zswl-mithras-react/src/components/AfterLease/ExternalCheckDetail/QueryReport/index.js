@@ -9,7 +9,7 @@ import { Tooltip } from 'antd'
 
 const { Link } = Anchor
 
-const Index = ({ canEditFlag, clientGroup, store }) => {
+const AfterLeaseExternalCheckQueryReport = ({ canEditFlag, clientGroup, store }) => {
   // const anchorList = [
   //   {
   //     label: '基本信息',
@@ -94,4 +94,4 @@ const Index = ({ canEditFlag, clientGroup, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseExternalCheckQueryReport)
