@@ -2601,6 +2601,25 @@ function hasDebugger(source) {
   return /\bdebugger\b/.test(source)
 }
 
+function findUnusedStyleModuleImports(source) {
+  const unusedImports = []
+  const styleModuleImportPattern =
+    /import\s+([A-Za-z_$][\w$]*)\s*(?:,\s*\{[^}]*\})?\s+from\s+['"]([^'"]+\.(?:less|css|scss|sass))['"];?/g
+  let match
+
+  while ((match = styleModuleImportPattern.exec(source))) {
+    const [, localName, specifier] = match
+    const sourceWithoutImport =
+      source.slice(0, match.index) + source.slice(match.index + match[0].length)
+
+    if (!new RegExp(`\\b${localName}\\b`).test(sourceWithoutImport)) {
+      unusedImports.push({ localName, specifier })
+    }
+  }
+
+  return unusedImports
+}
+
 function matchesSourcePathPrefix(relativeFilePath, pathPrefix) {
   return (
     relativeFilePath === pathPrefix ||
@@ -2894,6 +2913,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'debugger residue in frontend source',
+    })
+  }
+
+  for (const { localName, specifier } of findUnusedStyleModuleImports(source)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: `unused style module import ${localName} from ${specifier}`,
     })
   }
 

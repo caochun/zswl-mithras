@@ -1,6 +1,5 @@
 import { observer } from '@zswl/admin'
 
-import styles from '../style.less'
 import RowSpan from '../RowSpan'
 
 /**
