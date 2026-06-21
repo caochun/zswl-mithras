@@ -9,7 +9,7 @@ import styles from './index.less'
 import RefreshModal from './RefreshModal'
 
 const { Item } = SearchBar
-const Index = ({ pathname }) => {
+const RiskFinanceSheetFileList = ({ pathname }) => {
   const { allSelect, loading, $refreshModal } = store
   useEffect(() => {
     store.getSelect()
@@ -119,4 +119,4 @@ const Index = ({ pathname }) => {
   )
 }
 
-export default observer(Index)
+export default observer(RiskFinanceSheetFileList)

@@ -7,7 +7,7 @@ import RelateMonitor from './RelateMonitor/RiskStrategyRelateMonitor'
 import ConcentrationControl from './ConcentrationControl/RiskStrategyConcentrationControl'
 
 const { TabPane } = Tabs
-function Index() {
+function RiskStrategyPage() {
   const [active, setActive] = useState('1')
   const onChange = (key) => {
     setActive(key)
@@ -30,4 +30,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(RiskStrategyPage)

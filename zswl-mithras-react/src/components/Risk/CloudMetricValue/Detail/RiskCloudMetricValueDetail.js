@@ -35,7 +35,7 @@ const detailColumns = [
   AmountColumn({ title: '金额', dataIndex: 'amount' }),
 ]
 
-function Index({ params, query }) {
+function RiskCloudMetricValueDetail({ params, query }) {
   const { date } = query
   const detail = store.page.getData()
   const { contractDetailList } = detail
@@ -134,4 +134,4 @@ function Index({ params, query }) {
   )
 }
 
-export default observer(Index)
+export default observer(RiskCloudMetricValueDetail)
