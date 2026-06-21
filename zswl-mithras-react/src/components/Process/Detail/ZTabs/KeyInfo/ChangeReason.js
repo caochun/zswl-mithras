@@ -41,7 +41,7 @@ const approvalParamsConf = {
   },
 }
 
-const Index = () => {
+const ProcessChangeReason = () => {
   const { detailData } = useFlowData()
   const { modelKey, businessKey } = detailData
   const [approvalDetail, setApprovalDetail] = useState({})
@@ -93,4 +93,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessChangeReason)

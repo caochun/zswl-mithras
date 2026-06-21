@@ -36,7 +36,7 @@ const columns = [
   { title: '业务部门', dataIndex: 'bizDeptName' },
 ]
 
-const Index = ({}) => {
+const ProcessPaymentApplicationKeyInfo = () => {
   const { detailData } = useFlowData()
   const { businessKey: id } = detailData
   const [moduleData, setModuleData] = useState({})
@@ -61,4 +61,4 @@ const Index = ({}) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessPaymentApplicationKeyInfo)

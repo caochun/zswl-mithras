@@ -26,7 +26,7 @@ const IMPORTANT_TITLE_ENUM = {
   },
 }
 
-const Index = ({}) => {
+const ProcessImportantResolutions = () => {
   const { detailData } = useFlowData()
   const { mainModule, businessKey, businessVersion, modelKey } = detailData
   const params = {
@@ -97,4 +97,4 @@ const Index = ({}) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessImportantResolutions)

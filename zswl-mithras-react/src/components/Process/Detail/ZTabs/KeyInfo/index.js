@@ -26,7 +26,7 @@ const flowModelKey = {
   PAYMENT: ['PaymentCreateFlow'],
 }
 
-const Index = () => {
+const ProcessKeyInfo = () => {
   const { detailData, hasKeyInfo } = useFlowData()
   const { subModule, modelKey, mainModule, businessKey, processInstanceId } = detailData
 
@@ -63,4 +63,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessKeyInfo)
