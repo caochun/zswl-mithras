@@ -4,7 +4,7 @@ import InsideList from './InsideList'
 import OutsideList from './OutsideList'
 import Store from './store'
 
-const Index = ({ props: { sub }, path }) => {
+const BlackGrayWarehouseMainTask = ({ path }) => {
   const items = [
     { key: 'inside', label: '内部名单', children: <InsideList path={path} /> },
     {
@@ -26,4 +26,4 @@ const Index = ({ props: { sub }, path }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWarehouseMainTask)

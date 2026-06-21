@@ -13,7 +13,7 @@ class Store {
   }
 }
 const store = new Store()
-const Index = ({ props: { sub }, path }) => {
+const BlackGrayWarehouseApproval = ({ path }) => {
   const items = [
     { key: 'inside', label: '内部名单', children: <InsideList path={path} /> },
     {
@@ -35,4 +35,4 @@ const Index = ({ props: { sub }, path }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWarehouseApproval)

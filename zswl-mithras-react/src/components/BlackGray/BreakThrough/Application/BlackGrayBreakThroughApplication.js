@@ -2,8 +2,8 @@ import { observer } from '@zswl/admin'
 import store from './store'
 import List from '../../Manage/List'
 
-function Index({ path }) {
+function BlackGrayBreakThroughApplication({ path }) {
   return <List store={store} path={path} type="break" />
 }
 
-export default observer(Index)
+export default observer(BlackGrayBreakThroughApplication)

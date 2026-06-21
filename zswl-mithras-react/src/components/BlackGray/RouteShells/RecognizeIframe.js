@@ -1,6 +1,6 @@
 import BlackGrayRiskIframe from '../RiskIframe'
 
-const Index = ({ query }) => {
+const BlackGrayRecognizeIframeRouteShell = ({ query }) => {
   return <BlackGrayRiskIframe path="blackListManage/query/recognize" query={query} />
 }
-export default Index
+export default BlackGrayRecognizeIframeRouteShell

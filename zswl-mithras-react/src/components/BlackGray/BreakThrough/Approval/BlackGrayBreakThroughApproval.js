@@ -7,7 +7,7 @@ import { getTableColumns } from '@/utils/table'
 import { useGetStatus } from '@/utils/domains/blackGray/BlackGrayStatusUtils'
 import { saveServer } from '@/utils'
 
-function Index({ path }) {
+function BlackGrayBreakThroughApproval({ path }) {
   const { approval } = useGetStatus()
   const columns = useMemo(() => {
     const nameColumns = [
@@ -65,4 +65,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayBreakThroughApproval)

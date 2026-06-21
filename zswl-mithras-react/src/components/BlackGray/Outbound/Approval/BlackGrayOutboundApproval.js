@@ -7,7 +7,7 @@ import { getTableColumns } from '@/utils/table'
 import { WithdrawAction } from '../../Actions'
 import { saveServer } from '@/utils'
 
-function Index({ path }) {
+function BlackGrayOutboundApproval({ path }) {
   const { account } = App.getData().user
   const columns = useMemo(() => {
     const nameColumns = [
@@ -75,4 +75,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayOutboundApproval)
