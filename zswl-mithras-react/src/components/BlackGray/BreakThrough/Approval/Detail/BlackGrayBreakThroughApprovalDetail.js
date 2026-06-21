@@ -5,7 +5,7 @@ import {
   SubmitAuditAction,
   ApprovalRecordAction,
   ApprovalOperation,
-} from '../../../actions'
+} from '../../../Actions'
 import EnterDesc from '../../../Manage/EnterDesc'
 import { Card } from 'antd'
 

@@ -4,7 +4,7 @@ import store from './store'
 import ALL_COLUMNS from '../../Columns'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
-import { WithdrawAction } from '../../actions'
+import { WithdrawAction } from '../../Actions'
 import { saveServer } from '@/utils'
 
 function Index({ path }) {

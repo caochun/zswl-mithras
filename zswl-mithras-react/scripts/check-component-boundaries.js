@@ -43,6 +43,8 @@ const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
 const componentDefaultForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"][^'"]+['"]\s*;?\s*$/
+const componentNamedForwardingShellPattern =
+  /^export\s+\{[\s\S]*\}\s+from\s+['"][^'"]+['"]\s*;?\s*$/
 const pageRouteShellPattern =
   /^export\s+\{[\s\S]*\}\s+from\s+['"]@\/components\/[^/'"]+\/[^/'"]*(?:Entries|entries)(?:\.js)?['"]\s*;?\s*$/
 const pageRouteShellTargetPattern =
@@ -1956,6 +1958,11 @@ const publicComponentRootImports = new Set([
   'Select',
   'Table',
 ])
+const publicComponentNamedForwardingShells = new Set([
+  'src/components/Actions/index.js',
+  'src/components/Form/index.js',
+  'src/components/Layout/index.js',
+])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
 const publicStyleImports = new Set()
@@ -3139,6 +3146,18 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'component forwarding shell (import the target component directly)',
+    })
+  }
+
+  if (
+    /^src[\\/]components[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
+    !/(?:Entries|entries)\.js$/.test(relativeFilePath) &&
+    !publicComponentNamedForwardingShells.has(relativeFilePath) &&
+    componentNamedForwardingShellPattern.test(source.trim())
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component named forwarding shell (import the target component directly)',
     })
   }
 }

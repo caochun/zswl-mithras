@@ -4,7 +4,7 @@ import ALL_COLUMNS from '../Columns'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
 import { useGetStatus } from '@/utils/domains/blackGray/BlackGrayStatusUtils'
-import { DeleteAction, WithdrawAction } from '../actions'
+import { DeleteAction, WithdrawAction } from '../Actions'
 import manualOutboundFormApi from '@/api/blackGray/manualOutboundFormApi'
 import { saveServer } from '@/utils'
 

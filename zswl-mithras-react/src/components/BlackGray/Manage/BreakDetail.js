@@ -1,4 +1,4 @@
-import { SubmitAuditAction, ApprovalRecordAction } from '../actions'
+import { SubmitAuditAction, ApprovalRecordAction } from '../Actions'
 import LoginInfo from './LoginInfo'
 import EnterDesc from './EnterDesc'
 import BreakForm from './BreakForm'

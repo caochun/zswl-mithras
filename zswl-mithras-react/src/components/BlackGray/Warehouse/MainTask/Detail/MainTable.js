@@ -5,7 +5,7 @@ import { getTableColumns } from '@/utils'
 import { Card, message } from 'antd'
 import styles from './styles.less'
 import recordTableApi from '@/api/blackGray/recordTableApi'
-import { DeleteAction, ExportAction } from '../../../actions'
+import { DeleteAction, ExportAction } from '../../../Actions'
 import { saveServer } from '@/utils'
 
 const nameColumns = [

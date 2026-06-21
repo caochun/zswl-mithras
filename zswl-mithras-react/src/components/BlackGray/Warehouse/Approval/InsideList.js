@@ -5,7 +5,7 @@ import ALL_COLUMNS from '../../Columns'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
 import { useGetStatus } from '@/utils/domains/blackGray/BlackGrayStatusUtils'
-import { WithdrawAction } from '../../actions'
+import { WithdrawAction } from '../../Actions'
 import { saveServer } from '@/utils'
 
 const source = 'INTERNAL_APPROVAL'

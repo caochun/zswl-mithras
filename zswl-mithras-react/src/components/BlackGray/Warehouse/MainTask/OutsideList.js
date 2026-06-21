@@ -3,7 +3,7 @@ import { history, makeAutoObservable, observer } from '@zswl/admin'
 import { App, Button, Page, PageStore, Table, TableStore } from '@zswl/components'
 import { useMemo } from 'react'
 import ALl_COLUMNS from '../../Columns'
-import { DeleteAction, WithdrawAction } from '../../actions'
+import { DeleteAction, WithdrawAction } from '../../Actions'
 import recordTableApi from '@/api/blackGray/recordTableApi'
 import { saveServer } from '@/utils'
 

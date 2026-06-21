@@ -4,7 +4,7 @@ import ALL_COLUMNS from '../../Columns'
 import { observer } from '@zswl/admin'
 import { useMemo, useState } from 'react'
 import recordTableApi from '@/api/blackGray/recordTableApi'
-import { ImportAction } from '../../actions'
+import { ImportAction } from '../../Actions'
 import { saveServer } from '@/utils'
 
 const CustomTable = ({ params }) => {

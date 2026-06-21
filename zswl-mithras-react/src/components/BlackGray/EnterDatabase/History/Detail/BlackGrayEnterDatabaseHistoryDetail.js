@@ -1,7 +1,7 @@
 import { Page, Button } from '@zswl/components'
 import store from './store'
 import { observer } from '@zswl/admin'
-import { SubmitAuditAction, ApprovalRecordAction } from '../../../actions'
+import { SubmitAuditAction, ApprovalRecordAction } from '../../../Actions'
 import LoginInfo from '../../../Manage/LoginInfo'
 import EnterForm from '../../../Manage/EnterForm'
 import EnterDesc from '../../../Manage/EnterDesc'

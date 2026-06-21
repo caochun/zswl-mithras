@@ -1,6 +1,6 @@
 import { Page, Button, App, FormStore, PageStore, Descriptions } from '@zswl/components'
 import { history, makeAutoObservable, observer } from '@zswl/admin'
-import { SubmitAuditAction, ApprovalRecordAction } from '../actions'
+import { SubmitAuditAction, ApprovalRecordAction } from '../Actions'
 import LoginInfo from './LoginInfo'
 import EnterForm from './EnterForm'
 import { useMemo } from 'react'
