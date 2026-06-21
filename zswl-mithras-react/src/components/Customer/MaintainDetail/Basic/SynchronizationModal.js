@@ -4,7 +4,7 @@ import { Switch, Tooltip, Empty } from 'antd'
 import { useState } from 'react'
 import styles from './index.less'
 import moment from 'moment'
-import { renderSpan, changeTY } from './baseUntils.js'
+import { renderSpan, changeTY } from './baseUtils.js'
 import { preProcessData, isEmpty } from '@/utils'
 import {
   CommerceColums,
