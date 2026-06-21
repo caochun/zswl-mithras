@@ -435,6 +435,8 @@
 - `npm run report:ui-domain-deps` 默认忽略同业务域页面路由壳到本域组件入口的引用，例如 `pages/project` 到 `components/Project`；报告中的 workflow/page aggregation 部分应主要用于观察流程、工作台、跨域页面编排。
 - `pages/index` 到 `App/RootRedirectEntries.js`、`pages/workbench` 到 `Dashboard/WorkbenchRedirectEntries.js` 属于稳定页面聚合入口；它们是路由重定向/工作台入口，不代表业务域实现互相嵌入。
 - `npm run check:boundaries` 会强制 `src/pages/**/*.js|jsx|ts|tsx` 保持为从 `@/components/<Domain>/*Entries` 转发的一行轻薄路由壳，真实页面实现、样式和局部组件应放在对应 `src/components/<Domain>` 下。
+- 当前 `src/pages` 下的 JS/JSX/TSX 路由文件均应保持一行转发壳；新增或迁移页面时，不应在页面目录内恢复真实实现、局部组件、样式或资源文件。
+- `src/components` 下的真实组件实现应使用领域语义命名，例如 `BudgetPricingBusinessList`、`LifeCycleCustomerDetail`、`PdfPreview`，不要继续用匿名 `Index` 作为组件名；目录 `index.js` 只适合作为稳定入口或局部转发壳，不能遮蔽真实组件语义。
 - 菜单路由和业务语义不一致时，依赖报告可以按真实语义归一。例如 `pages/lease/tracking` 是跟踪事项路由壳，`pages/customerView` 是客户视图，租后检查计划下的单一视图风险入口归入客户能力；这类归一只影响报告，不改变路由兼容。
 - `pages/budgetManagement/provisionForecast` 是预算管理下的历史菜单路径，但页面和接口语义归入预算拨备预测；依赖报告按 `budget` 归一，路由保持兼容。
 - 项目定价列表页和发起定价弹窗通过 `src/components/Project/PriceEntries.js` 暴露，`src/pages/project/price/*` 只保留路由壳、历史兼容壳和详情子路由壳。
