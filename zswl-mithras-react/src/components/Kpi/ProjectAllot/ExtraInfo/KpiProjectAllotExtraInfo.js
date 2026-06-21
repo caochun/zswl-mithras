@@ -3,7 +3,7 @@ import { TextAreaEditable } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { NoEnumFileTable } from '@/components/Table'
 
-const Index = ({ canEdit, store }) => {
+const KpiProjectAllotExtraInfo = ({ canEdit, store }) => {
   const columns = [
     { title: '资料名称', dataIndex: 'name' },
     { title: '上传人', dataIndex: 'createByName' },
@@ -45,4 +45,4 @@ const Index = ({ canEdit, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiProjectAllotExtraInfo)

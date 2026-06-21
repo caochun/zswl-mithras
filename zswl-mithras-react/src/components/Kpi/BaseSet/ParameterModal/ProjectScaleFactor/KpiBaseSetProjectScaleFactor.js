@@ -5,7 +5,7 @@ import { InputNumberEditable } from '@/components/Format'
 import Api from '@/api/kpi/baseSet/baseSetApi'
 import { uniqueId } from 'lodash'
 
-const Index = ({ typeInfo }) => {
+const KpiBaseSetProjectScaleFactor = ({ typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
@@ -44,4 +44,4 @@ const Index = ({ typeInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSetProjectScaleFactor)

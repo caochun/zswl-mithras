@@ -12,7 +12,7 @@ import { ProcessInfoModal } from '@/components/Process/ProcessInfoModalEntries'
 import { isBusinesshead } from '@/utils'
 import Store from './Store'
 
-const Index = ({
+const KpiProjectAllotDetail = ({
   params: { id: projectDistributionId },
   query: { source, businessVersion, canEditFlags = true, modelKey, curTaskActivityIds, taskStatus },
 }) => {
@@ -71,4 +71,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(KpiProjectAllotDetail)

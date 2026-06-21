@@ -4,7 +4,7 @@ import { getTableColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const KpiBusinessGoalDepartGoal = ({ store }) => {
   const columns = getTableColumns(ALL_COLUMNS, [
     '年度',
     '部门',
@@ -45,4 +45,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBusinessGoalDepartGoal)

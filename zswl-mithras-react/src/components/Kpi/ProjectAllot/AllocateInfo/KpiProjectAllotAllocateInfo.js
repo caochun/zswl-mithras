@@ -6,7 +6,7 @@ import { Button } from '@zswl/components'
 import { getDescColumns } from '@/utils'
 import BeforeInfo from './BeforeInfo'
 
-const Index = ({
+const KpiProjectAllotAllocateInfo = ({
   canEdit,
   projectDistributionId,
   source,
@@ -85,4 +85,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(KpiProjectAllotAllocateInfo)
