@@ -12,7 +12,7 @@ const date = new Date()
 const year = date.getFullYear()
 const mouth = date.getMonth()
 
-const Index = ({ path }) => {
+const BudgetIncomeShareTable = ({ path }) => {
   const columns = getTableColumns(ALL_COLUMNS(path))
   const formColumns = getFormColumns(ALL_COLUMNS(path), [
     '项目名称',
@@ -69,4 +69,4 @@ const Index = ({ path }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetIncomeShareTable)

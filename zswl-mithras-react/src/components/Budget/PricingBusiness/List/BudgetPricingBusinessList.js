@@ -27,7 +27,7 @@ const nameColumns = [
   '生效时间',
 ]
 const columns = getTableColumns(ALL_COLUMNS, nameColumns, true)
-const Index = ({ pathname }) => {
+const BudgetPricingBusinessList = ({ pathname }) => {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -49,4 +49,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default Index
+export default BudgetPricingBusinessList

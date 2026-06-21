@@ -12,7 +12,7 @@ import { RentCollectionTermDetail as TermDetail } from '@/components/AfterLease/
 /**
  * 应收账款详情页面组件
  */
-const Index = observer(({ params, query }) => {
+const BudgetAccountsReceivableDetail = observer(({ params, query }) => {
   const { id } = params
   const { processInstanceId } = query
   const collectionActions = ({ collectionCode: name, ...record }) => [
@@ -182,4 +182,4 @@ const Index = observer(({ params, query }) => {
   )
 })
 
-export default Index
+export default BudgetAccountsReceivableDetail

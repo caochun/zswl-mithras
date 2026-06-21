@@ -5,7 +5,7 @@ import ModalDetail from '../../PricingBaseSetModalDetail/BudgetPricingBaseSetMod
 import Store from './store'
 import { saveServer } from '@/utils'
 
-function Index() {
+function BudgetPricingBaseSetList() {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -58,4 +58,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetPricingBaseSetList)

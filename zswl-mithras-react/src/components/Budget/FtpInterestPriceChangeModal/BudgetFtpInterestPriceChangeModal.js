@@ -14,7 +14,7 @@ const getDetail = async (params = {}) => {
   return res
 }
 
-const Index = ({ canEdit = true, modal, modalProps }) => {
+const BudgetFtpInterestPriceChangeModal = ({ canEdit = true, modal, modalProps }) => {
   const detail = modal?.getInitialValues()
   const ref = useRef([])
   useEffect(() => {
@@ -167,4 +167,4 @@ const Index = ({ canEdit = true, modal, modalProps }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFtpInterestPriceChangeModal)

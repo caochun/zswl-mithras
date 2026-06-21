@@ -57,7 +57,7 @@ const nameColumns = [
  * @param {Object} props - 组件属性
  * @param {string} props.pathname - 路径名
  */
-const Index = ({ pathname }) => {
+const BudgetProvisioningDataSearchList = ({ pathname }) => {
   const store = useMemo(() => new Store({}), [])
   // 获取表格列配置
   const columns = getTableColumns(ALL_COLUMNS({ pathname }), nameColumns)
@@ -249,4 +249,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BudgetProvisioningDataSearchList)
