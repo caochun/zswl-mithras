@@ -6,7 +6,7 @@ import Department from '../../MyAchievement/Department/DashboardDepartmentAchiev
 import Store from './Store'
 import styles from './index.less'
 
-const Index = ({ title, iconType }) => {
+const WorkbenchMyAchievement = ({ title, iconType }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -30,4 +30,4 @@ const Index = ({ title, iconType }) => {
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchMyAchievement)

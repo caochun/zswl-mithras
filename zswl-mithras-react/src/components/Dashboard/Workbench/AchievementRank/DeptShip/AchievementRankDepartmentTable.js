@@ -5,12 +5,12 @@ import { columns } from '../../../AchievementColumns'
 
 export { columns }
 
-const Index = ({ store }) => {
+const AchievementRankDepartmentTable = ({ store }) => {
   return (
     <div>
       <Table
-              columnsFilter={'AchievementRank_DeptShip_1'}
-              onFilter={(key,val) => saveServer('AchievementRank_DeptShip_1',val)}
+        columnsFilter={'AchievementRank_DeptShip_1'}
+        onFilter={(key, val) => saveServer('AchievementRank_DeptShip_1', val)}
         scroll={{ x: true }}
         bordered
         store={store.deptShipTableStore}
@@ -20,4 +20,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AchievementRankDepartmentTable)

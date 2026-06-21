@@ -2,11 +2,11 @@ import { observer } from '@zswl/admin'
 import Title from '../../Title'
 import { Tabs } from 'antd'
 import { useMemo } from 'react'
-import DeptShip from './DeptShip/AchievementRankDepartmentTable'
+import AchievementRankDepartmentTable from './DeptShip/AchievementRankDepartmentTable'
 import Store from './Store'
 import styles from './index.less'
 
-const Index = ({ title, iconType }) => {
+const WorkbenchAchievementRank = ({ title, iconType }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -16,7 +16,7 @@ const Index = ({ title, iconType }) => {
     {
       label: `部门间排名`,
       key: 'deptShip',
-      children: <DeptShip store={store} />,
+      children: <AchievementRankDepartmentTable store={store} />,
     },
   ]
 
@@ -38,4 +38,4 @@ const Index = ({ title, iconType }) => {
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchAchievementRank)
