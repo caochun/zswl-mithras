@@ -2757,7 +2757,7 @@ for (const filePath of sourceFiles) {
 
   if (
     /^(?:src[\\/]api[\\/]|src[\\/]utils[\\/]domains[\\/])/.test(relativeFilePath) &&
-    /\b(?:postPayMent|getPayMent)\w*/.test(source)
+    /\b(?:postPayMent|getPayMent|postPayAccountDetele)\w*/.test(source)
   ) {
     violations.push({
       file: relativeFilePath,

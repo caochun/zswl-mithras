@@ -33,7 +33,7 @@ class Store {
     Modal.confirm({
       title: '是否删除？',
       onOk: async () => {
-        await Api.postPayAccountDetele({
+        await Api.postPayAccountDelete({
           id: record.id?.value || record.id,
         })
         message.success('删除成功')

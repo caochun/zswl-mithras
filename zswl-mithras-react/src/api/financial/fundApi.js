@@ -74,7 +74,7 @@ export default {
   postPayAccountList: (params) => http.post('/fund/financing/pay/account/list', params),
   postPayAccountListCompare: (params) =>
     http.post('/fund/financing/pay/account/list/compare', params),
-  postPayAccountDetele: (params) => http.post('/fund/financing/pay/account/delete', params),
+  postPayAccountDelete: (params) => http.post('/fund/financing/pay/account/delete', params),
   postPayAccountCreate: (params) => http.post('/fund/financing/pay/account/create', params),
   postPayAccountModify: (params) => http.post('/fund/financing/pay/account/modify', params),
   postPayAccountBackList: (params) => http.post('/fund/financing/pay/account/bank', params),
