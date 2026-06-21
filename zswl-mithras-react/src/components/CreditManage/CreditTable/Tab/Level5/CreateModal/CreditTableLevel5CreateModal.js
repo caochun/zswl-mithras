@@ -8,7 +8,7 @@ import { compareTableData } from '@/utils'
 
 const { Item } = Form
 
-function Index({ store }) {
+function CreditTableLevel5CreateModal({ store }) {
   const [form] = Form.useForm()
   const [accountIdList, setAccountIdList] = useState([])
   const getCodeList = async (value) => {
@@ -60,4 +60,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableLevel5CreateModal)

@@ -12,7 +12,7 @@ import statusRender from '../../../CreditTableStatusRender'
 import DeleteModal from './DeleteModal'
 import { saveServer } from '@/utils'
 
-function Index(props = {}) {
+function CreditTableLevel5(props = {}) {
   const { canEdit, showActionColumn, componentKey, curTab, showSearch, channel } = props
   const formColumns = getFormColumns(
     COMMON_COLUMNS,
@@ -128,4 +128,4 @@ function Index(props = {}) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableLevel5)

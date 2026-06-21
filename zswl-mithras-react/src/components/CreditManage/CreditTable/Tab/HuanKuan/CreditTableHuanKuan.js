@@ -16,7 +16,7 @@ import EditButton from '../../Components/EditButton'
 import statusRender from '../../../CreditTableStatusRender'
 import { saveServer } from '@/utils'
 
-function Index(props = {}) {
+function CreditTableHuanKuan(props = {}) {
   const { canEdit, showActionColumn, componentKey, curTab, baseStore, showSearch, channel } = props
   const formColumns = getFormColumns(
     COMMON_COLUMNS,
@@ -120,4 +120,4 @@ function Index(props = {}) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableHuanKuan)

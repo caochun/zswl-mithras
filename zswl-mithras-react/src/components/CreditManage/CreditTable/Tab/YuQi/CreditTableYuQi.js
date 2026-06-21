@@ -20,7 +20,7 @@ const defaultAmount = {
   },
   editable: true,
 }
-function Index(props = {}) {
+function CreditTableYuQi(props = {}) {
   const { canEdit, showActionColumn, componentKey, curTab, showSearch, channel } = props
   const formColumns = getFormColumns(
     COMMON_COLUMNS,
@@ -159,4 +159,4 @@ function Index(props = {}) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableYuQi)

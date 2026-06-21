@@ -12,7 +12,7 @@ import _ from 'lodash'
 import statusRender from '../../../CreditTableStatusRender'
 import { saveServer } from '@/utils'
 
-function Index(props = {}) {
+function CreditTableZhangHu(props = {}) {
   const { canEdit, showActionColumn, componentKey, curTab, baseStore, showSearch } = props
   const formColumns = getFormColumns(
     COMMON_COLUMNS,
@@ -179,4 +179,4 @@ function Index(props = {}) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableZhangHu)

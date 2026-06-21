@@ -2,7 +2,7 @@ import { Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { saveServer } from '@/utils'
 
-function Index({ store }) {
+function CreditTableFinishBatch({ store }) {
   return (
     <div>
       <Table
@@ -56,4 +56,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableFinishBatch)

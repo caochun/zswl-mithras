@@ -5,7 +5,7 @@ import { CREATETABLE_PARAMS } from '../../CreditTableConfig/CreditTableConfig'
 import { isRiskManager } from '@/utils'
 import { useEffect } from 'react'
 
-const Index = ({
+const CreditTableWait = ({
   query: { businessVersion, businessKey, canEditFlags = 'true', processInstanceId },
 }) => {
   const isFormApproval = getQuery('typeId') == 'approval'
@@ -33,4 +33,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableWait)

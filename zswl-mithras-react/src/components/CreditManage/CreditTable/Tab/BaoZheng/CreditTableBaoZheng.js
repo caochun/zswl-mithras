@@ -10,7 +10,7 @@ import { Switch } from 'antd'
 import _ from 'lodash'
 import { saveServer } from '@/utils'
 
-function Index(props = {}) {
+function CreditTableBaoZheng(props = {}) {
   const { componentKey, curTab, showActionColumn, showSearch, channel, canEdit } = props
   const formColumns = getFormColumns(
     COMMON_COLUMNS,
@@ -147,4 +147,4 @@ function Index(props = {}) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableBaoZheng)

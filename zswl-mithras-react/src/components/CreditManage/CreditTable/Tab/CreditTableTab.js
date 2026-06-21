@@ -11,7 +11,7 @@ import Reason from '../Components/Reason'
 import DataFileList from '../Components/DataFileList'
 import { ExportAction as Export } from '@/components/Actions'
 
-const Index = (props) => {
+const CreditTableTab = (props) => {
   const {
     channel,
     batchId,
@@ -128,4 +128,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableTab)

@@ -3,7 +3,7 @@ import { Form, Input, Modal, Select } from '@zswl/components'
 
 const { Item } = Form
 
-function Index({ store }) {
+function CreditTableLevel5DeleteModal({ store }) {
   const [form] = Form.useForm()
 
   return (
@@ -17,4 +17,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableLevel5DeleteModal)

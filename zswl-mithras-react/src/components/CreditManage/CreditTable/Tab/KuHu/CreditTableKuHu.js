@@ -11,7 +11,7 @@ import { AmountColumn, InputColumn, MatchOptionColumn } from '@/components/Forma
 import _ from 'lodash'
 import { saveServer } from '@/utils'
 
-function Index(props = {}) {
+function CreditTableKuHu(props = {}) {
   const { componentKey, curTab, showActionColumn, showSearch, canEdit } = props
   const formColumns = getFormColumns(
     COMMON_COLUMNS,
@@ -171,4 +171,4 @@ function Index(props = {}) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableKuHu)

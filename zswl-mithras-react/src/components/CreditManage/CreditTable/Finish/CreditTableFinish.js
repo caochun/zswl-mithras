@@ -15,7 +15,7 @@ const options = [
   { label: '账户维度', value: 'EFFECT' },
 ]
 
-function Index() {
+function CreditTableFinish() {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -78,4 +78,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableFinish)

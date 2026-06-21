@@ -8,7 +8,7 @@ import { saveServer } from '@/utils'
 
 const formColumns = getFormColumns(COMMON_COLUMNS, ['编号', '客户名称'])
 
-function Index({ store }) {
+function CreditTableFinishAccount({ store }) {
   const columns = [
     InputColumn({
       title: '编号',
@@ -65,4 +65,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(CreditTableFinishAccount)
