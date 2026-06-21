@@ -29,6 +29,7 @@ const typoResidueFilePattern =
   /(?:^|[\\/])(?:indes|indx|stlye|sytle|modle|compontent|componet|conifg)\.(?:js|jsx|ts|tsx|less|css|scss|sass)$/i
 const componentRouteParamFilePattern =
   /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]\.(?:js|jsx|ts|tsx)$/
+const componentRouteParamDirPattern = /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]$/
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
@@ -2430,6 +2431,22 @@ function walkMatchingFiles(dir, pattern, files = []) {
   return files
 }
 
+function walkDirs(dir, dirs = []) {
+  if (!fs.existsSync(dir)) {
+    return dirs
+  }
+
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      const dirPath = path.join(dir, entry.name)
+      dirs.push(dirPath)
+      walkDirs(dirPath, dirs)
+    }
+  }
+
+  return dirs
+}
+
 function findEmptyDirs(dir, emptyDirs = []) {
   if (!fs.existsSync(dir)) {
     return emptyDirs
@@ -2567,6 +2584,7 @@ const sourceTreeFiles = [
   ...walkMatchingFiles(path.join(srcDir, 'components'), allFilePattern),
   ...walkMatchingFiles(path.join(srcDir, 'pages'), allFilePattern),
 ]
+const componentDirs = walkDirs(path.join(srcDir, 'components'))
 const pageFiles = walkMatchingFiles(path.join(srcDir, 'pages'), allFilePattern)
 const componentDomains = new Set(
   fs
@@ -2621,6 +2639,16 @@ for (const dirPath of [
     file: path.relative(root, dirPath),
     specifier: 'empty source directory',
   })
+}
+
+for (const dirPath of componentDirs) {
+  const relativeDirPath = path.relative(root, dirPath)
+  if (componentRouteParamDirPattern.test(relativeDirPath)) {
+    violations.push({
+      file: relativeDirPath,
+      specifier: 'route-style component directory name (use a semantic component directory name)',
+    })
+  }
 }
 
 for (const filePath of sourceFiles) {
