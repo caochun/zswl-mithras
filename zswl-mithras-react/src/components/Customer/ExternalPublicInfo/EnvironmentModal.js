@@ -7,7 +7,7 @@ import { Input, DatePicker, InputNumber } from 'antd'
 const { Item } = Form
 
 //新增地址
-function Index() {
+function CustomerExternalPublicInfoEnvironmentModal() {
   return (
     <Modal
       title={'新增环保处罚'}
@@ -48,4 +48,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerExternalPublicInfoEnvironmentModal)

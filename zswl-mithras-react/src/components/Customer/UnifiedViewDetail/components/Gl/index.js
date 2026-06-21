@@ -14,7 +14,7 @@ const anchorIds = {
   xmht: pre + 'xmht',
   xypj: pre + 'xypj',
 }
-function Index({ path, id }) {
+function CustomerUnifiedViewRelatedInfo({ path, id }) {
   const linkData = (type = 'default') => {
     const isShow = type === 'show'
     return (
@@ -49,4 +49,4 @@ function Index({ path, id }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerUnifiedViewRelatedInfo)

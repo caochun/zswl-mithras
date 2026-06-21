@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import SingleViewRisk from '../../../SingleViewRisk/CustomerSingleViewRisk'
 
-function Index({ path, id, enterpriseName }) {
+function CustomerUnifiedViewCustomerRisk({ path, id, enterpriseName }) {
     return (
         <div style={{ height: '1042px' }}>
             <SingleViewRisk query={{ customerName: enterpriseName }} />
@@ -9,4 +9,4 @@ function Index({ path, id, enterpriseName }) {
     )
 }
 
-export default observer(Index)
+export default observer(CustomerUnifiedViewCustomerRisk)

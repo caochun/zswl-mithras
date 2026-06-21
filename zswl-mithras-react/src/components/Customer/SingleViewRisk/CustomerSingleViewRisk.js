@@ -74,7 +74,7 @@ function paramsToString(params) {
 
   return search.join('&')
 }
-const Index = ({ query, pathname }) => {
+const CustomerSingleViewRisk = ({ query, pathname }) => {
   const store = useMemo(() => new Store(), [])
   const { csrfToken, _salt_, _qjt_ac_ } = store.page.getData()
   const { customerName, showBreadcrumb } = query
@@ -106,4 +106,4 @@ const Index = ({ query, pathname }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerSingleViewRisk)

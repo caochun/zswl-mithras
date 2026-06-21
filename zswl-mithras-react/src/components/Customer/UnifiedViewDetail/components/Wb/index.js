@@ -11,7 +11,7 @@ const anchorIds = {
   // zxjl: pre + 'zxjl',
   wbpj: pre + 'wbpj',
 }
-function Index({ path, id }) {
+function CustomerUnifiedViewExternalRating({ path, id }) {
   const linkData = (type = 'default') => {
     const isShow = type === 'show'
     return (
@@ -57,4 +57,4 @@ function Index({ path, id }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerUnifiedViewExternalRating)

@@ -223,7 +223,7 @@ const ContentList = ({ path, orgList, ...props }) => {
   )
 }
 
-const Index = ({ path }) => {
+const CustomerUnifiedView = ({ path }) => {
   // history.push(`${path}/detail/1`)
   const store = Page.useStore({
     request: async () => {
@@ -240,4 +240,4 @@ const Index = ({ path }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(CustomerUnifiedView)

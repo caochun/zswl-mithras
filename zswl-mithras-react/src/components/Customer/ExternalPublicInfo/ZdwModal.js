@@ -7,7 +7,7 @@ import { Input, DatePicker, InputNumber } from 'antd'
 const { Item } = Form
 
 //新增地址
-function Index() {
+function CustomerExternalPublicInfoZdwModal() {
   return (
     <Modal title={'新增中登网'} store={store.zDwModal} okText={'确定'} width={480} destroyOnClose>
       <Form labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} preserve={false}>
@@ -36,4 +36,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerExternalPublicInfoZdwModal)

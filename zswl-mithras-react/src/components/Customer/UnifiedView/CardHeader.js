@@ -45,7 +45,7 @@ const cardList = [
   },
 ]
 
-const Index = () => {
+const CustomerUnifiedViewCardHeader = () => {
   const [cardData, setCardData] = useState(cardList)
   const getCardData = async () => {
     const [statistics, trends] = await Promise.all([
@@ -130,4 +130,4 @@ const Index = () => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(CustomerUnifiedViewCardHeader)
