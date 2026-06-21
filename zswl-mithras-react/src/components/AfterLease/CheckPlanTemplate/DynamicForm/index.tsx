@@ -22,13 +22,11 @@ import LowRiskContentV3 from './ContentDesc/LowRiskContent/V3'
 import LowRiskContentV1V2 from './ContentDesc/LowRiskContent/V1V2'
 
 import LowRiskSummaryV1V2 from './ContentDesc/LowRiskSummary/V1V2'
-import LowRiskSummaryV3 from './ContentDesc/LowRiskSummary/V3'
 
-import PublicSummaryV1V2 from './ContentDesc/PublicSummary/V1V2'
-import PublicSummaryV3 from './ContentDesc/PublicSummary/V3'
+import PublicSummary from './ContentDesc/SummaryShared/PublicSummary'
 
 import NoPublicSummaryV1V2 from './ContentDesc/NoPublicSummary/V1V2'
-import NoPublicSummaryV3 from './ContentDesc/NoPublicSummary/V3'
+import EmptySummary from './ContentDesc/SummaryShared/EmptySummary'
 
 import BusContent from './ContentDesc/BusContent/V1V2'
 import BusSummary from './ContentDesc/BusSummary/V1'
@@ -69,21 +67,14 @@ const Index = (props) => {
 
   const LowRiskSummary = useMemo(() => {
     if (reportTemplateType === 'V3') {
-      return LowRiskSummaryV3
+      return EmptySummary
     }
     return LowRiskSummaryV1V2
   }, [reportTemplateType])
 
-  const PublicSummary = useMemo(() => {
-    if (reportTemplateType === 'V3') {
-      return PublicSummaryV3
-    }
-    return PublicSummaryV1V2
-  }, [reportTemplateType])
-
   const NoPublicSummary = useMemo(() => {
     if (reportTemplateType === 'V3') {
-      return NoPublicSummaryV3
+      return EmptySummary
     }
     return NoPublicSummaryV1V2
   }, [reportTemplateType])
