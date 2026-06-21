@@ -1,5 +1,5 @@
-import ToDoStatistics from './ToDoStatistics'
-import ContractAging from './ContractAging'
+import ToDoStatistics from './ToDoStatistics/WorkbenchTodoStatistics'
+import ContractAging from './ContractAging/WorkbenchContractAging'
 import LaunchComplete from '../../OperationView/LaunchComplete/DashboardOperationLaunchComplete'
 import CapacityAnalysis from '../../OperationView/CapacityAnalysis/DashboardOperationCapacityAnalysis'
 import ConversionRates from '../../OperationView/ConversionRates/DashboardOperationConversionRates'

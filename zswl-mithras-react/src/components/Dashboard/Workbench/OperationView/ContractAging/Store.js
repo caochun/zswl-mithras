@@ -38,7 +38,7 @@ class Store {
 
   returnStatisticsLoading = false
   setReturnStatisticsLoading = (flag) => {
-    this.approvalStatisticsLoading = flag
+    this.returnStatisticsLoading = flag
   }
   returnStatistics = {}
   setReturnStatistics = (data) => {

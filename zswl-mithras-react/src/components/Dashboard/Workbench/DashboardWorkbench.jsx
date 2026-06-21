@@ -9,7 +9,7 @@ import CustomerView2 from './CustomerView2'
 import MyAchievement from './MyAchievement'
 import AchievementRank from './AchievementRank/WorkbenchAchievementRank'
 import FinancingView from './FinancingView/WorkbenchFinancingView'
-import OperationView from './OperationView'
+import OperationView from './OperationView/WorkbenchOperationView'
 import AnchorScrollNav from '../AnchorScrollNav'
 import {
   isLeader,

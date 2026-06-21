@@ -3,8 +3,8 @@ import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../../CardPanelFieldsFilter'
 import { Form } from '@zswl/components'
 import { DatePicker } from 'antd'
-import ApprovalCard from './ApprovalCard'
-import ReturnCard from './ReturnCard'
+import ApprovalCard from './ApprovalCard/ContractApprovalAgingCard'
+import ReturnCard from './ReturnCard/ContractReturnStatisticsCard'
 import Store from './Store'
 
 const { RangePicker } = DatePicker

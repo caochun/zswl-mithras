@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { chunk } from 'lodash'
 import { Carousel } from 'antd'
 import cls from 'classnames'
-import CardItem from '../CardItem'
+import CardItem from '../CardItem/TodoStatisticsCardItem'
 import IconFont from '@/components/Icon'
 import styles from './index.less'
 

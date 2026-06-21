@@ -1,4 +1,4 @@
-import { makeAutoObservable, history } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import Api from '@/api/dashboard/operationTodo'
 
 class Store {
@@ -21,11 +21,6 @@ class Store {
     this.setArrivedForProcessingLoading(false)
   }
 
-  arrivedForProcessingLoading = false
-  setArrivedForProcessingLoading = (flag) => {
-    this.arrivedForProcessingLoading = flag
-  }
-
   willArrivedProcessingLoading = false
   setWillArrivedProcessingLoading = (flag) => {
     this.willArrivedProcessingLoading = flag
@@ -44,7 +39,6 @@ class Store {
   goProcess = (data) => {
     const search = { processInstanceIdList: data.processInstanceIdList }
     window.open(`/process/query?search=${JSON.stringify(search)}`)
-    // history.push(`/process/query?search=${JSON.stringify(search)}`)
   }
 }
 export default Store

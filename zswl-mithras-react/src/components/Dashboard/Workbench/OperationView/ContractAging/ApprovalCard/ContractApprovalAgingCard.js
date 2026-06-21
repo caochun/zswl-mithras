@@ -1,43 +1,41 @@
 import { observer } from '@zswl/admin'
 import { AmountFormat } from '@/components/Format'
 import { useEffect } from 'react'
-import IconFont from '@/components/Icon'
 import { Spin } from 'antd'
-import { hasValue } from '@/utils'
-import ReturnDrawer from '../ReturnDrawer'
+import IconFont from '@/components/Icon'
+import ApprovalDrawer from '../ApprovalDrawer/ContractApprovalAgingDrawer'
 import styles from './index.less'
 
 const sourceMap = {
   contractApprovedNumber: '合同审批通过数量',
-  contractReturnNumber: '存在流程退回数量',
-  returnRate: '退回率',
-  returnCount: '总退回次数',
-  returnAverage: '平均退回次数',
+  operationHandAverage: '运营经办平均时效(工作日)',
+  operationReviewAverage: '运营复核平均时效(工作日)',
+  operationAverage: '运营部平均时效(工作日)',
+  processAverage: '全流程平均时效(工作日)',
 }
 
 const Index = ({ store }) => {
-  const { returnStatistics, returnStatisticsLoading } = store
+  const { approvalStatistics, approvalStatisticsLoading } = store
 
   useEffect(() => {
-    store.getReturnStatistics()
+    store.getApprovalStatistics()
   }, [])
 
   return (
     <div>
       <div className={styles.title}>
-        <IconFont type="icon-jieqing" className={styles.icon}></IconFont>
-        合同退回统计
+        <IconFont type="icon-yuqixiangmu" className={styles.icon}></IconFont>
+        运营审批时效
       </div>
-      <Spin spinning={returnStatisticsLoading}>
-        <div className={styles.companyWrap} onClick={store.returnDrawer.open}>
+      <Spin spinning={approvalStatisticsLoading}>
+        <div className={styles.companyWrap} onClick={store.approvalDrawer.open}>
           {Object.keys(sourceMap).map((key) => {
             return (
               <div className={styles.item} key={key}>
                 <div className={styles.num}>
                   {AmountFormat({
-                    value: returnStatistics[key],
+                    value: approvalStatistics[key],
                     initFormat: 1,
-                    unit: hasValue(returnStatistics[key]) ? (key === 'returnRate' ? '%' : '') : '',
                   })}
                 </div>
                 <div className={styles.label}>{sourceMap[key]}</div>
@@ -46,7 +44,7 @@ const Index = ({ store }) => {
           })}
         </div>
       </Spin>
-      <ReturnDrawer store={store}></ReturnDrawer>
+      <ApprovalDrawer store={store}></ApprovalDrawer>
     </div>
   )
 }
