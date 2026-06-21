@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import { Empty } from 'antd'
 import { observer } from '@zswl/admin'
-import ContractApplication from './Components/ContractApplication'
-import PaymentApplication from './Components/PaymentApplication'
-import ProjectReview from './Components/ProjectReview'
+import ContractApplication from './Components/ContractApplication/ProcessRelevantContractApplicationFiles'
+import PaymentApplication from './Components/PaymentApplication/ProcessRelevantPaymentApplicationFiles'
+import ProjectReview from './Components/ProjectReview/ProcessRelevantProjectReviewFiles'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import styles from './index.less'
 
