@@ -1846,6 +1846,8 @@ const componentEntryReExportOnlyPattern =
   /^\s*(?:export\s+\{[^}]+\}\s+from\s+['"][^'"]+['"]\s*;?\s*)+$/
 const componentEntryReExportPattern = /export\s+\{[^}]+\}\s+from\s+['"][^'"]+['"]/g
 const componentEntryAbsoluteComponentImportPattern = /from\s+['"]@\/components\//
+const componentEntryNamedReExportPattern =
+  /export\s+\{([\s\S]*?)\}\s+from\s+['"][^'"]+['"]/g
 const stabilizedComponentRootImports = new Map([
   ['BlackGrayHit', 'BlackGray/BlackGrayHitEntries'],
   ['BusinessInfoCheck', 'BusinessInfoCheck/BusinessInfoCheckEntries'],
@@ -2747,6 +2749,7 @@ const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePa
   return /(?:Entries|entries)\.js$/.test(filePath) && entryPath.split('/').length === 2
 })
 const componentEntryImports = new Set()
+const componentEntryNamedImports = new Map()
 
 for (const filePath of componentEntryFiles) {
   const relativeFilePath = path.relative(root, filePath)
@@ -2881,6 +2884,31 @@ const removedCompatibilityComponentEntries = new Map([
   ['WhiteList/WhiteListEntries.js', 'WhiteList/*Entries.js'],
 ])
 
+function addComponentEntryNamedImport(entryPath, importName) {
+  const imports = componentEntryNamedImports.get(entryPath) || new Set()
+  imports.add(importName)
+  componentEntryNamedImports.set(entryPath, imports)
+}
+
+function extractNamedReExports(source) {
+  const exports = []
+  let match
+
+  while ((match = componentEntryNamedReExportPattern.exec(source))) {
+    for (const rawName of match[1].split(',')) {
+      const name = rawName.trim()
+      if (!name || name === 'default') {
+        continue
+      }
+
+      const aliasMatch = name.match(/\s+as\s+([A-Za-z_$][\w$]*)$/)
+      exports.push(aliasMatch ? aliasMatch[1] : name)
+    }
+  }
+
+  return exports
+}
+
 for (const filePath of sourceFiles) {
   const source = fs.readFileSync(filePath, 'utf8')
   const relativeFilePath = path.relative(root, filePath)
@@ -2923,6 +2951,9 @@ for (const filePath of sourceFiles) {
     const documentedEntryPath = toDocumentedEntryPath(specifier)
     if (documentedEntryPath) {
       componentEntryImports.add(documentedEntryPath)
+      for (const namedImport of extractNamedImports(importText)) {
+        addComponentEntryNamedImport(documentedEntryPath, namedImport)
+      }
     }
     const removedCompatibilityReplacement = removedCompatibilityComponentEntries.get(
       documentedEntryPath
@@ -3077,6 +3108,19 @@ for (const entryPath of actualComponentEntries) {
       file: 'README.md',
       specifier: `missing component entry ${entryPath}`,
     })
+  }
+
+  const exportedNames = extractNamedReExports(
+    fs.readFileSync(path.join(srcDir, 'components', entryPath), 'utf8')
+  )
+  const importedNames = componentEntryNamedImports.get(entryPath) || new Set()
+  for (const exportedName of exportedNames) {
+    if (!importedNames.has(exportedName)) {
+      violations.push({
+        file: `src/components/${entryPath}`,
+        specifier: `unused component entry export ${exportedName}`,
+      })
+    }
   }
 }
 

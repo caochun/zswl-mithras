@@ -1,4 +1,1 @@
-export {
-  CollectionModal as OverdueCollectionModal,
-  getContractList as getOverdueCollectionContractList,
-} from './CollectionModal/OverdueCollectionModal'
+export { CollectionModal as OverdueCollectionModal } from './CollectionModal/OverdueCollectionModal'
