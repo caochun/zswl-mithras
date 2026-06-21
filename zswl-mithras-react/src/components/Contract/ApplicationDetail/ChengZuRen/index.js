@@ -8,7 +8,7 @@ import { MatchOptionColumn, RenderColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 import JumpClient from '../../JumpClient'
 
-const Index = ({ canEditFlag, baseStore }) => {
+const ContractApplicationLessee = ({ canEditFlag, baseStore }) => {
   const { bizType } = baseStore
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()
   const { detail, newDetail } = baseStore.page.getData()
@@ -158,4 +158,4 @@ const Index = ({ canEditFlag, baseStore }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLessee)

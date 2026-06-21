@@ -12,7 +12,7 @@ import { MatchOptionColumn, RenderColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
 import JumpClient from '../../JumpClient'
 
-const Index = ({ canEditFlag, baseStore, yuYingJingBanCanEdit }) => {
+const ContractApplicationGuarantee = ({ canEditFlag, baseStore, yuYingJingBanCanEdit }) => {
   const canEdit = canEditFlag || yuYingJingBanCanEdit
   const { bizType } = baseStore
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()
@@ -290,4 +290,4 @@ const Index = ({ canEditFlag, baseStore, yuYingJingBanCanEdit }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationGuarantee)

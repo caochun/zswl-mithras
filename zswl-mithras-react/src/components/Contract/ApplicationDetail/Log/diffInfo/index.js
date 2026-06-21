@@ -39,7 +39,7 @@ const SKUseEnum = {
   ZZ: 'BANK_ACCOUNT_ZZSK',
 }
 
-function Index({ params: { id }, query: { bizType, contractId, leaseLog } }) {
+function ContractApplicationDiffInfo({ params: { id }, query: { bizType, contractId, leaseLog } }) {
   const BL_ZR = bizType === 'BL' || bizType === 'ZR'
 
   const { compareData, getBaseInfoData, getBoajiaData } = store
@@ -426,4 +426,4 @@ function Index({ params: { id }, query: { bizType, contractId, leaseLog } }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationDiffInfo)

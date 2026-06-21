@@ -7,7 +7,7 @@ import moment from 'moment'
 import ContractIRR from '../../ContractIRR'
 import styles from './index.less'
 
-function Index({ canEditFlag = true, baseStore, isFormChangeType: _isFormChangeType }) {
+function ContractApplicationActualRent({ canEditFlag = true, baseStore, isFormChangeType: _isFormChangeType }) {
   const { bizType, contractStatus, leaseType } = baseStore
   const { contractId, businessVersion } = baseStore.page.getParams()
 
@@ -83,4 +83,4 @@ function Index({ canEditFlag = true, baseStore, isFormChangeType: _isFormChangeT
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationActualRent)

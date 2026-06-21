@@ -11,7 +11,7 @@ import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions
 import { saveServer } from '@/utils'
 import JumpClient from '../../JumpClient'
 
-const Index = ({ baseStore, canEditFlag }) => {
+const ContractApplicationMortgage = ({ baseStore, canEditFlag }) => {
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()
 
   const store = useMemo(() => {
@@ -255,4 +255,4 @@ const Index = ({ baseStore, canEditFlag }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationMortgage)

@@ -5,7 +5,7 @@ import { observer, history } from '@zswl/admin'
 import Api from '@/api/contract/component/ApplicationDetail/LeaseLog/api'
 import { saveServer } from '@/utils'
 
-function Index({ params: { id }, query: { bizType } }) {
+function ContractApplicationLeaseLog({ params: { id }, query: { bizType } }) {
   const table = Table.useStore({
     request: async () => {
       return await Api.getVersionList({ contractId: id })
@@ -53,4 +53,4 @@ function Index({ params: { id }, query: { bizType } }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLeaseLog)

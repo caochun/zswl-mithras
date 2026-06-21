@@ -6,7 +6,7 @@ import {
   TurnLeaseBaseInfo,
 } from '../../../../BaseInfo/ContractBaseInfo'
 
-const Index = ({ bizType, detail, isLog }) => {
+const ContractApplicationDiffBaseInfo = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {
     if (!bizType) {
       return <div style={{ height: '200px' }}></div>
@@ -27,4 +27,4 @@ const Index = ({ bizType, detail, isLog }) => {
 
   return <div>{CurrentDom}</div>
 }
-export default Index
+export default ContractApplicationDiffBaseInfo

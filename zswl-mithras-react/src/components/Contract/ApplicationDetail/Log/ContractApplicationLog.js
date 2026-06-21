@@ -5,7 +5,7 @@ import { observer, history } from '@zswl/admin'
 import store from './store'
 import { saveServer } from '@/utils'
 
-function Index({ params: { id }, query: { bizType, leaseLog } }) {
+function ContractApplicationLog({ params: { id }, query: { bizType, leaseLog } }) {
   useEffect(() => {
     if (id) {
       store.id = id
@@ -57,4 +57,4 @@ function Index({ params: { id }, query: { bizType, leaseLog } }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLog)
