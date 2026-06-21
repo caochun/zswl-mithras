@@ -16,7 +16,7 @@ const renderIcon = (value) => {
   return iconConf[value]
 }
 
-const Index = (props, ref) => {
+const ProjectFinancialReportStatistics = (props, ref) => {
   const { id, canEdit = true } = props
   const [detail, setDetail] = useState({})
   // 变更原因
@@ -168,4 +168,4 @@ const Index = (props, ref) => {
   )
 }
 
-export default forwardRef(Index)
+export default forwardRef(ProjectFinancialReportStatistics)

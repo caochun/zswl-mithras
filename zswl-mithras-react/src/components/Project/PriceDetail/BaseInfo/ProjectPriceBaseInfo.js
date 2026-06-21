@@ -15,7 +15,7 @@ export {
   Factoring as PriceFactoringBaseInfo,
 }
 
-const Index = ({ id, detail, canEdit = true, rootStore: store, isFormAdjust }, ref) => {
+const ProjectPriceBaseInfo = ({ id, detail, canEdit = true, rootStore: store, isFormAdjust }, ref) => {
   const { bizType, postProjectBaseInfoModify, page } = store || {}
 
   const [pageDetail, setPageDetail] = useState({})
@@ -119,4 +119,4 @@ const Index = ({ id, detail, canEdit = true, rootStore: store, isFormAdjust }, r
   return <div className={styles.desc}>{CurrentDom()}</div>
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(ProjectPriceBaseInfo))

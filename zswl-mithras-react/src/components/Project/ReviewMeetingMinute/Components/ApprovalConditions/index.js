@@ -6,7 +6,14 @@ import IconFont from '@/components/Icon'
 import { TrackEventAddModal as AddModal } from '@/components/TrackEvent/TrackEventTaskEntries'
 import FormList from '../FormList'
 
-function Index({ showValue, detail, businessKey, store, detailData, projName }) {
+function ProjectReviewMeetingMinuteApprovalConditions({
+  showValue,
+  detail,
+  businessKey,
+  store,
+  detailData,
+  projName,
+}) {
   const { onTrackEventList, trackEventText, onTrackEventClose } = store
   const getDetailChange = (key) => {
     return false
@@ -150,4 +157,4 @@ function Index({ showValue, detail, businessKey, store, detailData, projName }) 
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewMeetingMinuteApprovalConditions)

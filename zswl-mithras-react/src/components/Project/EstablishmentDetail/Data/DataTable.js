@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { FileTable } from '@/components/Table'
 import { App, Button } from '@zswl/components'
 
-const Index = (props) => {
+const ProjectEstablishmentDataTable = (props) => {
   const { mainId, name, businessType, businessMaterialList, clientTypeName, canEdit = true } = props
 
   const isProjectReview = businessType === 'PROJ_REVIEW'
@@ -65,4 +65,4 @@ const Index = (props) => {
   )
 }
 
-export default Index
+export default ProjectEstablishmentDataTable
