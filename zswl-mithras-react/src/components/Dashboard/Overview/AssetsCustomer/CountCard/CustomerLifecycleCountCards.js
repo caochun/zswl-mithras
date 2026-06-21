@@ -20,7 +20,7 @@ const getPlusMinusConfig = (num) => {
     color: '#00B87A',
   }
 }
-const Index = ({ store }) => {
+const CustomerLifecycleCountCards = ({ store }) => {
   const { customerLifeCycleData, getCustomerLifeCycleData, customerDrawer } = store
 
   useEffect(() => {
@@ -73,4 +73,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerLifecycleCountCards)

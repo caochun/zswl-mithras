@@ -7,7 +7,7 @@ import styles from './index.less'
 // 字段块组件
 // 历史平均(天)
 // 12.4%⬇️
-const Index = ({ title, value, pureValue }) => {
+const ProjectOperationMetricField = ({ title, value, pureValue }) => {
   const symbolIcon = useMemo(() => {
     if (pureValue > 0) return <ArrowUp2 />
     else if (pureValue < 0) return <ArrowDown2 />
@@ -23,4 +23,4 @@ const Index = ({ title, value, pureValue }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectOperationMetricField)

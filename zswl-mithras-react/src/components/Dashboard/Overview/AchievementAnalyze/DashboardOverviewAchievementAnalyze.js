@@ -4,7 +4,7 @@ import ProjectStage from '../../ProjectView/ProjectStage/DashboardProjectStage'
 import { initYearQueryDate } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 import ThrowIncomeRate from './ThrowIncomeRate/DashboardOverviewThrowIncomeRate'
 
-const Index = ({ title }) => {
+const DashboardOverviewAchievementAnalyze = ({ title }) => {
   return (
     <>
       <Title title={title}></Title>
@@ -17,4 +17,4 @@ const Index = ({ title }) => {
     </>
   )
 }
-export default Index
+export default DashboardOverviewAchievementAnalyze

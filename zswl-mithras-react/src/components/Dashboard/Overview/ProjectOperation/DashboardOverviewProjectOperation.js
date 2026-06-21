@@ -47,7 +47,7 @@ const TabContent = observer(({ store }) => {
   )
 })
 
-const Index = ({ title, dataDate }) => {
+const DashboardOverviewProjectOperation = ({ title, dataDate }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -103,4 +103,4 @@ const Index = ({ title, dataDate }) => {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOverviewProjectOperation)

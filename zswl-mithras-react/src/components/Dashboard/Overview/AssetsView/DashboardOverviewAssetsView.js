@@ -7,7 +7,7 @@ import Store from './Store'
 import styles from './index.less'
 import { useMemo } from 'react'
 
-const Index = ({ title, dataDate }) => {
+const DashboardOverviewAssetsView = ({ title, dataDate }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -31,4 +31,4 @@ const Index = ({ title, dataDate }) => {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOverviewAssetsView)

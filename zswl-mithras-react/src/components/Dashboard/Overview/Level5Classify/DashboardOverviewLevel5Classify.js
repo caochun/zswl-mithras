@@ -23,7 +23,7 @@ const levelColor = {
 // charts组件库0.0.6 ，需要改成colors
 const pieColors = Object.values(levelColor)
 
-const Index = ({ title, dataDate }) => {
+const DashboardOverviewLevel5Classify = ({ title, dataDate }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -170,4 +170,4 @@ const Index = ({ title, dataDate }) => {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOverviewLevel5Classify)

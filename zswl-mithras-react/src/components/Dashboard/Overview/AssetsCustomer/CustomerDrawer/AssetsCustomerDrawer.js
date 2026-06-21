@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
 import { LifeCycleCustomerList as CustomLifeCycle } from '@/components/LifeCycle/CustomerEntries'
 
-const Index = ({ store }) => {
+const AssetsCustomerDrawer = ({ store }) => {
   return (
     <Drawer
       store={store.customerDrawer}
@@ -17,4 +17,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AssetsCustomerDrawer)

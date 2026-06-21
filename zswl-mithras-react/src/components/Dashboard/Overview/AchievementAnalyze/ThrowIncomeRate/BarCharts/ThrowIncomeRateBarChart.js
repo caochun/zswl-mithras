@@ -10,7 +10,7 @@ import {
 
 const colors = ['#4575f5', '#b3c8fb', '#AFEDDA']
 
-const Index = ({ store }) => {
+const ThrowIncomeRateBarChart = ({ store }) => {
   const { loading, xData, chartsLineData } = store
   const { max, min, interval } = getInterval([...chartsLineData], 10)
 
@@ -107,4 +107,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ThrowIncomeRateBarChart)

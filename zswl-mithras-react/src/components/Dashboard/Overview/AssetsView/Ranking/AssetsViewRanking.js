@@ -5,7 +5,7 @@ import DashboardRadioTabs from '../../../RadioTabs'
 import RankingDrawer from './RankingDrawer/AssetsRankingDrawer'
 import RankingTable from './RankingTable/AssetsRankingTable'
 
-const Index = ({ store }) => {
+const AssetsViewRanking = ({ store }) => {
   const { currentTab, allRankingDrawer } = store
 
   return (
@@ -42,4 +42,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AssetsViewRanking)

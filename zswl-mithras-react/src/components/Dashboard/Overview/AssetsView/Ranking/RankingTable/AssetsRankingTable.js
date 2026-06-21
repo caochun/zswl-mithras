@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ store, extra, type }) => {
+const AssetsRankingTable = ({ store, extra, type }) => {
   const getRowClassName = (record, index) => {
     return index % 2 === 0 ? styles['even-row'] : styles['odd-row']
   }
@@ -65,4 +65,4 @@ const Index = ({ store, extra, type }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AssetsRankingTable)

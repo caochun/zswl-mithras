@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
 import RankingTable from '../RankingTable/AssetsRankingTable'
 
-const Index = ({ store }) => {
+const AssetsRankingDrawer = ({ store }) => {
   return (
     <Drawer
       store={store.allRankingDrawer}
@@ -27,4 +27,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AssetsRankingDrawer)

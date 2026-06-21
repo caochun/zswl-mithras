@@ -7,7 +7,7 @@ import styles from './index.less'
 import { useMemo } from 'react'
 import Store from './Store'
 
-const Index = ({ title, dataDate }) => {
+const DashboardOverviewAssetsCustomer = ({ title, dataDate }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -27,4 +27,4 @@ const Index = ({ title, dataDate }) => {
   )
 }
 
-export default Index
+export default DashboardOverviewAssetsCustomer

@@ -1,7 +1,7 @@
 import ConversionRates from '../../OperationView/ConversionRates/DashboardOperationConversionRates'
 import { initYearQueryDate } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 
-const Index = ({ title }) => {
+const DashboardOverviewConversionRates = ({ title }) => {
   return (
     <>
       <ConversionRates
@@ -11,4 +11,4 @@ const Index = ({ title }) => {
     </>
   )
 }
-export default Index
+export default DashboardOverviewConversionRates

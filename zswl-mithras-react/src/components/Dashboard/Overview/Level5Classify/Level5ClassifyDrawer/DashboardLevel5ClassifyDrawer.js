@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
 import { AfterLeaseLevel5Classify as Level5Classify } from '@/components/AfterLease/Level5ClassifyListEntries'
 
-const Index = ({ store }) => {
+const DashboardLevel5ClassifyDrawer = ({ store }) => {
   return (
     <Drawer
       store={store.level5ClassifyDrawerDrawer}
@@ -19,4 +19,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardLevel5ClassifyDrawer)

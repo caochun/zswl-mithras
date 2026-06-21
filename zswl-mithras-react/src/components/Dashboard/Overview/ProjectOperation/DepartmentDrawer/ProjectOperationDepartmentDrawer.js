@@ -3,7 +3,7 @@ import { Drawer, Table } from '@zswl/components'
 import MultipleFieldBlock from '../MultipleFieldBlock/ProjectOperationMetricGroup'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const ProjectOperationDepartmentDrawer = ({ store }) => {
   const tableDate = store.departmentTable?.getList()
 
   const column = [{ title: ' ', dataIndex: 'deptName', width: 160, fixed: 'left' }]
@@ -37,4 +37,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectOperationDepartmentDrawer)

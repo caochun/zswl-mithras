@@ -6,7 +6,7 @@ import styles from './index.less'
 import { AmountFormat } from '@/components/Format'
 import { amountFormat } from '@/utils'
 
-const Index = ({ store }) => {
+const AssetsProvinceMap = ({ store }) => {
   const { provinceRankingTableData } = store
   const rankData = provinceRankingTableData?.map((item) => {
     return {
@@ -120,4 +120,4 @@ const Index = ({ store }) => {
     />
   )
 }
-export default observer(Index)
+export default observer(AssetsProvinceMap)

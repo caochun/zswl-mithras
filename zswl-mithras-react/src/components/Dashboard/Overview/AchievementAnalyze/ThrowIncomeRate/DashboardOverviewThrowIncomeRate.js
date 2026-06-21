@@ -8,7 +8,7 @@ import ListDrawer from './ListDrawer/ThrowIncomeRateListDrawer'
 import { useMemo, useEffect } from 'react'
 import { canSeeDetailFn } from '@/utils/domains/dashboard/DashboardUtils'
 
-const Index = () => {
+const DashboardOverviewThrowIncomeRate = () => {
   const store = useMemo(() => new Store(), [])
   const { getChartsData } = store
 
@@ -36,4 +36,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(DashboardOverviewThrowIncomeRate)

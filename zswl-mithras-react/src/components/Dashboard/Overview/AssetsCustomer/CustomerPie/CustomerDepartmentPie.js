@@ -18,7 +18,7 @@ const pieColors = [
   '#FF9845',
 ]
 
-const Index = ({ store }) => {
+const CustomerDepartmentPie = ({ store }) => {
   const { customerDepartment, getCustomerDepartmentData } = store
 
   useEffect(() => {
@@ -117,4 +117,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDepartmentPie)

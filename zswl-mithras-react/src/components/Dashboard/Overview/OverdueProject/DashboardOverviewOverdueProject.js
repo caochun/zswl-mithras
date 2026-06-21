@@ -5,7 +5,7 @@ import Api from '@/api/dashboard/overview'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
-const Index = ({ title, dataDate }) => {
+const DashboardOverviewOverdueProject = ({ title, dataDate }) => {
   const table = Table.useStore({
     request: async () => {
       return await Api.postDashboardOverdueprojectList()
@@ -58,4 +58,4 @@ const Index = ({ title, dataDate }) => {
   )
 }
 
-export default Index
+export default DashboardOverviewOverdueProject

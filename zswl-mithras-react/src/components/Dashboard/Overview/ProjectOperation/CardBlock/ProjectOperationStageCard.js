@@ -5,7 +5,7 @@ import styles from './index.less'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
 
-const Index = ({ itemData }) => {
+const ProjectOperationStageCard = ({ itemData }) => {
   const titleIcon = useMemo(() => {
     const iconType = stepConfig.find((item) => item.stageName === itemData.stageName)?.iconType
     return <IconFont type={iconType} style={{ fontSize: 24, marginRight: 5 }}></IconFont>
@@ -45,4 +45,4 @@ const Index = ({ itemData }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectOperationStageCard)

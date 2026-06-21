@@ -6,7 +6,7 @@ import ExportBtn from '../../../../Export'
 import TableSummary from '../../../../TableSummary'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const ThrowIncomeRateListDrawer = ({ store }) => {
   const { activityKey, listTableStore: table } = store
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, ['客户名称', '合同编号', '投放日期'])
@@ -51,4 +51,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ThrowIncomeRateListDrawer)

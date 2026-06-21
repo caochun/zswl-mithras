@@ -17,7 +17,7 @@ const pieColors = [
   '#FF9845',
 ]
 
-const Index = ({ store }) => {
+const AssetsIndustryPie = ({ store }) => {
   const { assetIndustryDistribution, getAssetIndustryDistribution } = store
 
   useEffect(() => {
@@ -102,4 +102,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AssetsIndustryPie)

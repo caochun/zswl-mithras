@@ -13,7 +13,7 @@ const render = ({ value, initFormat = 1 }) => {
   return <AmountFormat value={newValue} unit={value?.unit} initFormat={initFormat} />
 }
 
-const Index = ({ title, dataDate }) => {
+const DashboardOverviewBusinessTransformation = ({ title, dataDate }) => {
   const table = Table.useStore({
     request: async () => {
       return await Api.postDashboardConversionStatistics()
@@ -75,4 +75,4 @@ const Index = ({ title, dataDate }) => {
   )
 }
 
-export default Index
+export default DashboardOverviewBusinessTransformation

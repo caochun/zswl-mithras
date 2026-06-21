@@ -16,7 +16,7 @@ const Value = ({ data, initFormat = 1, unit = '' }) => {
 const getUnit = (data) => {
   return data?.unit ? `(${data?.unit})` : ''
 }
-const Index = ({ data = {} }) => {
+const ProjectOperationMetricGroup = ({ data = {} }) => {
   return (
     <>
       <div className={styles.row}>
@@ -54,4 +54,4 @@ const Index = ({ data = {} }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectOperationMetricGroup)

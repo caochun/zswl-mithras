@@ -1,7 +1,7 @@
 import Title from '../../OverviewTitle'
 import ProjectStage from '../../MyAchievement/Department/DashboardDepartmentAchievement'
 
-const Index = ({ title }) => {
+const DashboardOverviewDeptPerformanceSort = ({ title }) => {
   return (
     <>
       <Title title={title}></Title>
@@ -11,4 +11,4 @@ const Index = ({ title }) => {
     </>
   )
 }
-export default Index
+export default DashboardOverviewDeptPerformanceSort
