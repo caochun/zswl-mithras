@@ -1,34 +1,15 @@
 
-import { InputNumber, message } from 'antd'
-import classnames from 'classnames'
-import { hasValue } from '@/utils'
-import { useEffect, useState, useRef } from 'react'
+import { message } from 'antd'
+import { useEffect } from 'react'
 import { expenseRatioApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
-import styles from './index.less'
 import { Button, Form } from '@zswl/components'
 import FormListItem from './FormListItem'
 
-const columns = [
-  {
-    title: '费用计提比例',
-    dataIndex: 'expenseRadio',
-    editable: {
-      element: <InputNumber addonAfter="%" precision={3} />,
-      required: true,
-    },
-    render: (value) => {
-      return hasValue(value) && value + '%'
-    },
-  },
-]
-
 const Index = ({ typeInfo }) => {
   const { isEdit } = typeInfo
-  const detailData = useRef({})
   const [form] = Form.useForm()
   const getData = async () => {
     const res = await Api.getList()
-    detailData.current = res
     form.setFieldValue(
       'configValue',
       res.configValue.map((v) => ({
