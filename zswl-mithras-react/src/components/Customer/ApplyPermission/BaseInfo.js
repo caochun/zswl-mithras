@@ -4,7 +4,7 @@ import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useEffect, useRef } from 'react'
 
-function Index({ store, canEdit, isFormApproval }) {
+function CustomerApplyPermissionBaseInfo({ store, canEdit, isFormApproval }) {
   const editRef = useRef()
   const columns = getDescColumns(ALL_COLUMNS)
   const detail = store.page.getData()
@@ -25,4 +25,4 @@ function Index({ store, canEdit, isFormApproval }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerApplyPermissionBaseInfo)

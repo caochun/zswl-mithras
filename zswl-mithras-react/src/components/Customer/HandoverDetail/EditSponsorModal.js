@@ -4,7 +4,7 @@ import { EditDescription } from '@/components/Table'
 import { childColumns } from './RelateProject'
 import { useMemo } from 'react'
 
-const Index = ({ store }) => {
+const CustomerHandoverEditSponsorModal = ({ store }) => {
   const { editStatus, editSponsorModal } = store
   const initialValues = editSponsorModal.getInitialValues() || {}
   const { projCode, contractCode } = initialValues
@@ -41,4 +41,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerHandoverEditSponsorModal)

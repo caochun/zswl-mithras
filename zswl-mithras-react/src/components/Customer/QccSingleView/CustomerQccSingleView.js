@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import CustomerViewApi from '@/api/customerView/customerDetailApi'
 import BreadcrumbList from '@/layout/BreadcrumbList'
 
-const Index = ({ query }) => {
+const CustomerQccSingleView = ({ query }) => {
   const { customerName } = query
   const [url, setUrl] = useState('')
 
@@ -42,4 +42,4 @@ const Index = ({ query }) => {
   )
 }
 
-export default Index
+export default CustomerQccSingleView

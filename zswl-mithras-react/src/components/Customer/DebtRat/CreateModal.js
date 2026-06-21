@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { getUserInfo, rules } from '@/utils'
 import styles from './index.less'
 
-const Index = ({ store, tableParams }) => {
+const CustomerDebtRatCreateModal = ({ store, tableParams }) => {
   const form = store.createModal.getFormStore()
   const initial = store.createModal.getInitialValues() ?? {}
   const isEdit = initial?.editType === 'edit'
@@ -147,4 +147,4 @@ const Index = ({ store, tableParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRatCreateModal)

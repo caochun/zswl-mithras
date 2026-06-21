@@ -7,7 +7,7 @@ import { Col, Input, Row } from 'antd'
 import { useEffect, useState } from 'react'
 import SearchInput from './SelectInput'
 
-const Index = ({ store }) => {
+const CustomerRatingCreateModal = ({ store }) => {
   const initial = store.createModal.getInitialValues() ?? {}
   const isEdit = initial?.editType === 'edit'
   const form = store.createModal.getFormStore()
@@ -169,4 +169,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatingCreateModal)

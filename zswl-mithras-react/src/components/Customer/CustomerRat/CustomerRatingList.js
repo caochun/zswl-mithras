@@ -8,7 +8,7 @@ import CreateModal from './CreateModal'
 import useSearch from '@/utils/hooks/useSearch'
 import { saveServer } from '@/utils'
 
-function Index({ path, query }) {
+function CustomerRatingList({ path, query }) {
   const canDelete = store.table.selectedRowKeys.length > 0
   const columns = useMemo(() => {
     const nameColumns = [
@@ -104,4 +104,4 @@ function Index({ path, query }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatingList)

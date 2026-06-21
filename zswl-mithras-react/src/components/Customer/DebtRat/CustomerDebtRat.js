@@ -6,7 +6,7 @@ import { DateColumn, MatchOptionColumn } from '@/components/Format'
 import CreateModal from './CreateModal'
 import { saveServer } from '@/utils'
 
-function Index({ path, tableParams, detail, afterClose }) {
+function CustomerDebtRat({ path, tableParams, detail, afterClose }) {
   const store = useMemo(() => new Store({ afterClose }), [afterClose])
   const canDelete = store.table.selectedRowKeys.length > 0
   const columns = [
@@ -72,4 +72,4 @@ function Index({ path, tableParams, detail, afterClose }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRat)

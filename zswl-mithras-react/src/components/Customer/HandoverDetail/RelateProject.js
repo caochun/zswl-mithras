@@ -222,7 +222,7 @@ const ChildTable = observer(({ record, store, canEdit }) => {
   )
 })
 
-const Index = ({ store, canEdit }) => {
+const CustomerHandoverRelateProject = ({ store, canEdit }) => {
   const { isFormApproval } = store.page.getParams()
   const { expandKeys, setExpandKeys } = store
   const selectedCount = store.selectedProjectKeys.length
@@ -314,4 +314,4 @@ const Index = ({ store, canEdit }) => {
     />
   )
 }
-export default observer(Index)
+export default observer(CustomerHandoverRelateProject)

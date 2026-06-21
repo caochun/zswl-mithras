@@ -6,7 +6,7 @@ import DataFileList from './DataFileList'
 import Store from './Store'
 import { useMemo } from 'react'
 
-const Index = ({ params: { id }, query: { processInstanceId, canEditFlag = true, batchNo } }) => {
+const CustomerApplyPermission = ({ params: { id }, query: { processInstanceId, canEditFlag = true, batchNo } }) => {
   const canEdit = canEditFlag
   const store = useMemo(() => {
     return new Store()
@@ -32,4 +32,4 @@ const Index = ({ params: { id }, query: { processInstanceId, canEditFlag = true,
   )
 }
 
-export default observer(Index)
+export default observer(CustomerApplyPermission)
