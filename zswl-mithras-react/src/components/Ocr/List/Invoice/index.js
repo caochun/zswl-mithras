@@ -39,7 +39,7 @@ export const InvoiceTable = ({ dataSource, ...rest }) => {
     ></Table>
   )
 }
-function Index({ path }) {
+function OcrInvoiceList({ path }) {
   const { id } = getQuery()
   const { keys, rows } = store.table.getSelected()
   const canEdit = store.table.selectedRowKeys.length > 0
@@ -267,4 +267,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(OcrInvoiceList)

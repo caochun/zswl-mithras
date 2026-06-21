@@ -3,7 +3,7 @@ import { Button, Form, Modal, ModalStore, Page, Tabs } from '@zswl/components'
 import { useEffect, useMemo, useState } from 'react'
 import FileUploadModal from '../FileUploadModal'
 
-const Index = () => {
+const OcrRecognition = () => {
   const query = getQuery()
   const { businessType } = query
   const [activeTab, setActiveTab] = useState(businessType)
@@ -35,4 +35,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(OcrRecognition)

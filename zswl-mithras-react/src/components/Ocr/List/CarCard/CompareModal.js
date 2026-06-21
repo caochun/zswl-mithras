@@ -168,7 +168,7 @@ const formatList = (list) => {
     }
   })
 }
-const Index = ({ store, type = 'invoice', mainId }) => {
+const OcrCarCardCompareModal = ({ store, type = 'invoice', mainId }) => {
   let initialValues = store?.compareModal?.getInitialValues() ?? []
   const [listData, setListData] = useState([])
   useEffect(() => {
@@ -342,4 +342,4 @@ const Index = ({ store, type = 'invoice', mainId }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(OcrCarCardCompareModal)

@@ -73,7 +73,7 @@ const VoiceTableData = [
   // { dataIndex: 'verifyResult', title: '验真结果', matchOption: 'leaseFileOCRStatus' },
 ]
 
-const Index = ({ store, type = 'invoice', mainId }) => {
+const OcrInvoiceCompareModal = ({ store, type = 'invoice', mainId }) => {
   let listData = store?.getInitialValues() ?? []
   listData = listData.map(({ url, id, ...rest }) => {
     const data = type === 'invoice' ? VoiceTableData : CarTableData
@@ -150,4 +150,4 @@ const Index = ({ store, type = 'invoice', mainId }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(OcrInvoiceCompareModal)

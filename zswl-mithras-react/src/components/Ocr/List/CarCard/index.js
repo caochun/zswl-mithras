@@ -14,7 +14,7 @@ import FileUploadModal from '../../FileUploadModal'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { saveServer } from '@/utils'
 
-function Index({ path }) {
+function OcrCarCardList({ path }) {
   const { id } = getQuery()
   const { keys, rows } = store.table.getSelected()
   const canEdit = store.table.selectedRowKeys.length > 0
@@ -220,4 +220,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(OcrCarCardList)

@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { DatePicker, Form, Input, Modal } from '@zswl/components'
 
-const Index = ({ store }) => {
+const OcrCarCardBatchModal = ({ store }) => {
   const { modalType } = store?.getInitialValues() ?? {}
   const isBatch = modalType === 'batch'
   return (
@@ -25,4 +25,4 @@ const Index = ({ store }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(OcrCarCardBatchModal)

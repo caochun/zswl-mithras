@@ -3,7 +3,7 @@ import { Page, Tabs } from '@zswl/components'
 import Invoice from './Invoice'
 import CarCard from './CarCard'
 
-const Index = () => {
+const OcrList = () => {
   const items = [
     { label: '发票识别', key: 'invoice', children: <Invoice /> },
     { label: '车证识别', key: 'carCard', children: <CarCard /> },
@@ -15,4 +15,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(OcrList)
