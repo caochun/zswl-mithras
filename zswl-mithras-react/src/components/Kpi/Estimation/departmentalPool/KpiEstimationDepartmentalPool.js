@@ -6,7 +6,7 @@ import moment from 'moment'
 import store from './store'
 import { saveServer } from '@/utils'
 
-const Index = ({ pathname }) => {
+const KpiEstimationDepartmentalPool = ({ pathname }) => {
   const nameColumns = [
     {
       title: '最新核算月份',
@@ -52,4 +52,4 @@ const Index = ({ pathname }) => {
     />
   )
 }
-export default observer(Index)
+export default observer(KpiEstimationDepartmentalPool)

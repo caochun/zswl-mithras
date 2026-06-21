@@ -1,13 +1,13 @@
 import { observer } from '@zswl/admin'
 import { Table, Button, Page } from '@zswl/components'
-import { getTableColumns, getFormColumns } from '@/utils'
+import { getTableColumns } from '@/utils'
 import moduleColumns from '../Column'
-import { PersonItem, DepartMentalItem } from '../../../EstimationFields'
+import { DepartMentalItem } from '../../../EstimationFields'
 import moment from 'moment'
 import store from '../store'
 import { saveServer } from '@/utils'
 
-const Index = ({ params: { id } }) => {
+const KpiEstimationProjectManagerPrizeDetail = ({ params: { id } }) => {
   const { detailTable } = store
 
   const nameColumns = [
@@ -60,4 +60,4 @@ const Index = ({ params: { id } }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(KpiEstimationProjectManagerPrizeDetail)
