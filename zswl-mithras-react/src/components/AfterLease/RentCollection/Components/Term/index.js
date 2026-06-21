@@ -1,7 +1,7 @@
 import IconFont from '@/components/Icon'
 import { amountFormat } from '@/utils'
 import classNames from 'classnames'
-import styles from './indes.less'
+import styles from './index.less'
 
 const Term = ({ data, onClick, style }) => {
   const { phase, planCollectionAmount, planCollectionDate, state, tagList, noticeFinancialFlag } =

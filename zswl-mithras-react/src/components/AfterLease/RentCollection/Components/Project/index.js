@@ -3,7 +3,7 @@ import { App } from '@zswl/components'
 import { Tooltip } from 'antd'
 import classNames from 'classnames'
 import { useMemo } from 'react'
-import styles from './indes.less'
+import styles from './index.less'
 const Project = ({ data, onClick }) => {
   const {
     receiptCode,
