@@ -2526,6 +2526,25 @@ function extractSpecifiers(source, relativeFilePath) {
   return specifiers
 }
 
+function extractStyleSpecifiers(source) {
+  const specifiers = []
+  const sideEffectStyleImportPattern =
+    /import\s+['"]([^'"]+\.(?:less|css|scss|sass))['"];?/g
+  const fromStyleImportPattern =
+    /import\s+[\s\S]*?\s+from\s+['"]([^'"]+\.(?:less|css|scss|sass))['"];?/g
+  let match
+
+  while ((match = sideEffectStyleImportPattern.exec(source))) {
+    specifiers.push(match[1])
+  }
+
+  while ((match = fromStyleImportPattern.exec(source))) {
+    specifiers.push(match[1])
+  }
+
+  return specifiers
+}
+
 function resolveSourceImport(filePath, specifier) {
   let basePath
 
@@ -2545,6 +2564,32 @@ function resolveSourceImport(filePath, specifier) {
       candidates.push(`${basePath}${extension}`)
     }
     for (const extension of sourceExtensions) {
+      candidates.push(path.join(basePath, `index${extension}`))
+    }
+  }
+
+  return candidates.find((candidate) => fs.existsSync(candidate)) || null
+}
+
+function resolveStyleImport(filePath, specifier) {
+  let basePath
+
+  if (specifier.startsWith('@/')) {
+    basePath = path.join(srcDir, specifier.slice(2))
+  } else if (specifier.startsWith('.')) {
+    basePath = path.resolve(path.dirname(filePath), specifier)
+  } else {
+    return null
+  }
+
+  const candidates = []
+  if (path.extname(basePath)) {
+    candidates.push(basePath)
+  } else {
+    for (const extension of ['.less', '.css', '.scss', '.sass']) {
+      candidates.push(`${basePath}${extension}`)
+    }
+    for (const extension of ['.less', '.css', '.scss', '.sass']) {
       candidates.push(path.join(basePath, `index${extension}`))
     }
   }
@@ -3427,6 +3472,7 @@ for (const edge of staleComponentEntryBaselineEdges) {
 
 const localSupportFileIncomingImports = new Map(sourceFiles.map((filePath) => [filePath, new Set()]))
 const sourceIncomingImports = new Map(sourceFiles.map((filePath) => [filePath, new Set()]))
+const styleIncomingImports = new Map(styleFiles.map((filePath) => [filePath, new Set()]))
 for (const filePath of sourceFiles) {
   const source = fs.readFileSync(filePath, 'utf8')
   const relativeFilePath = path.relative(root, filePath)
@@ -3435,6 +3481,13 @@ for (const filePath of sourceFiles) {
     if (resolvedImport && localSupportFileIncomingImports.has(resolvedImport)) {
       localSupportFileIncomingImports.get(resolvedImport).add(filePath)
       sourceIncomingImports.get(resolvedImport).add(filePath)
+    }
+  }
+
+  for (const specifier of extractStyleSpecifiers(source)) {
+    const resolvedStyleImport = resolveStyleImport(filePath, specifier)
+    if (resolvedStyleImport && styleIncomingImports.has(resolvedStyleImport)) {
+      styleIncomingImports.get(resolvedStyleImport).add(filePath)
     }
   }
 }
@@ -3487,6 +3540,16 @@ for (const filePath of styleFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'duplicate component CSS artifact (use the sibling .less file)',
+    })
+  }
+
+  if (
+    /^src[\\/]components[\\/].*\.(?:less|css|scss|sass)$/.test(relativeFilePath) &&
+    styleIncomingImports.get(filePath)?.size === 0
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'unused component style file',
     })
   }
 }
