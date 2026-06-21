@@ -2665,6 +2665,13 @@ function hasEmptyUseEffect(source) {
   )
 }
 
+function isSingleLineSource(source) {
+  return source
+    .split(/\r?\n/)
+    .filter((line) => line.trim())
+    .length === 1
+}
+
 function findUnusedStyleModuleImports(source) {
   const unusedImports = []
   const styleModuleImportPattern =
@@ -3033,6 +3040,16 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'page route files must be thin shells that re-export from @/components/<Domain>/*Entries',
+    })
+  }
+
+  if (
+    /^src[\\/]pages[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
+    !isSingleLineSource(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'page route shells must stay one-line re-exports',
     })
   }
 
