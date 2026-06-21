@@ -3,7 +3,7 @@ import { Button } from '@zswl/components'
 import { history } from '@zswl/admin'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 
-const Index = () => {
+const ProcessToSnapshot = () => {
   const { detailData } = useFlowData()
   const { processInstanceId } = detailData
 
@@ -21,4 +21,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default ProcessToSnapshot

@@ -5,7 +5,7 @@ import { Modal } from 'antd'
 import { App } from '@zswl/components'
 import { useState, useEffect } from 'react'
 
-function Index({ visible, processInstanceId, callBack }) {
+function ProcessApprovalHistoryModal({ visible, processInstanceId, callBack }) {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -37,4 +37,4 @@ function Index({ visible, processInstanceId, callBack }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessApprovalHistoryModal)

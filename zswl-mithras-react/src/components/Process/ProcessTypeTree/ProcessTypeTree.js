@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { TreeSelect } from 'antd'
 import { App } from '@zswl/components'
 
-const Index = ({ value, onChange }) => {
+const ProcessTypeTree = ({ value, onChange }) => {
   const options = App.getData().optionsType
   const processModelType = options.processModelType
   const [treeData, setTreeData] = useState([])
@@ -50,4 +50,4 @@ const Index = ({ value, onChange }) => {
     />
   )
 }
-export default Index
+export default ProcessTypeTree

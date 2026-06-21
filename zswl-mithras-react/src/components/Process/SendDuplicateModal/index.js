@@ -5,7 +5,7 @@ import { Modal, Form, message } from 'antd'
 import { useState, useEffect } from 'react'
 import Api from '@/api/process/detail/flowDetailApi'
 
-function Index({ processInstanceId, visible, taskId, flag, externalForm, callBack, detailData, onCollaborate }) {
+function ProcessSendDuplicateModal({ processInstanceId, visible, taskId, flag, externalForm, callBack, detailData, onCollaborate }) {
   //flag="collaborate"
   const { founderList } = store
   const { ccTabReadOnlyFlag, ccUerList} = detailData
@@ -68,4 +68,4 @@ function Index({ processInstanceId, visible, taskId, flag, externalForm, callBac
   )
 }
 
-export default observer(Index)
+export default observer(ProcessSendDuplicateModal)

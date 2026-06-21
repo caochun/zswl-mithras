@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { BudgetExchangeRate as ExchangeRate } from '@/components/Budget/ExchangeRateEntries'
 import moment from 'moment'
 
-const Index = ({ params }) => {
+const ProcessExchangeRateFlow = ({ params }) => {
   const { id, detail = {} } = params
   const { applyTime } = detail
   const year = moment(applyTime).year()
@@ -10,4 +10,4 @@ const Index = ({ params }) => {
 
   return <ExchangeRate params={{ id }} query={{ year, month }} />
 }
-export default observer(Index)
+export default observer(ProcessExchangeRateFlow)

@@ -17,7 +17,7 @@ const ProcessInfoModal = ({ store, processInstanceId }) => {
   )
 }
 
-const Index = ({ processInstanceId, ...rest }) => {
+const ProcessInfoModalTrigger = ({ processInstanceId, ...rest }) => {
   const modalStore = new ModalStore({})
   return (
     <>
@@ -29,4 +29,4 @@ const Index = ({ processInstanceId, ...rest }) => {
   )
 }
 
-export default Index
+export default ProcessInfoModalTrigger
