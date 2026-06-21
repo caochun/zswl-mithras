@@ -4,7 +4,7 @@ import { UnorderedListOutlined } from '@ant-design/icons'
 import { Button } from '@zswl/components'
 import BarCharts from './BarCharts'
 import Store from './Store'
-import ListDrawer from './ListDrawer'
+import ListDrawer from './ListDrawer/ThrowIncomeRateListDrawer'
 import { useMemo, useEffect } from 'react'
 import { canSeeDetailFn } from '@/utils/domains/dashboard/DashboardUtils'
 

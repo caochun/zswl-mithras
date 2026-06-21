@@ -2,7 +2,7 @@ import Title from '../../OverviewTitle'
 import LaunchComplete from '../../OperationView/LaunchComplete'
 import ProjectStage from '../../ProjectView/ProjectStage'
 import { initYearQueryDate } from '@/utils/domains/dashboard/DashboardUtilsOperation'
-import ThrowIncomeRate from './ThrowIncomeRate'
+import ThrowIncomeRate from './ThrowIncomeRate/DashboardOverviewThrowIncomeRate'
 
 const Index = ({ title }) => {
   return (
