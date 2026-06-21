@@ -100,7 +100,7 @@ class Store {
   }
 
   getCollectionDetailData = async ({ id, status, isConfirmed }) => {
-    const res = await Api.postPayMentWriteoffDetail({ id, isConfirmed: isConfirmed ? 1 : 0 })
+    const res = await Api.postPaymentWriteoffDetail({ id, isConfirmed: isConfirmed ? 1 : 0 })
     const data = {
       ...res,
       paidInDate: res.paidInDate ? moment(res.paidInDate) : undefined,

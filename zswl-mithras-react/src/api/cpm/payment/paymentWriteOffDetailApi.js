@@ -19,13 +19,13 @@ export default {
     http.post('/payment/remove/actualdetail', params, {}),
   postPaymentReviewinadvancedSubmit: (params) =>
     http.post('/payment/reviewinadvanced/submit', params, {}),
-  postPayMentWriteoffModify: (params) => http.post('/payment/writeoff/actualdetail', params, {}),
-  postPayMentWriteoffDetail: (params) => http.post('/payment/detail/actualdetail', params),
-  postPayMentWriteoff: (params) => http.post('/payment/writeoff', params, {}),
-  postPayMentWriteoffUnDo: (params) => http.post('/payment/undowriteoff', params, {}),
-  postPayMentWriteoffHistory: (params) => http.post('/payment/write/off/history/list', params),
-  postPayMentCollectionAdd: (params) => http.post('/payment/collection/add', params),
-  getPayMentCollectionDetail: (params) => http.get('/payment/collection/detail', { params }),
+  postPaymentWriteoffModify: (params) => http.post('/payment/writeoff/actualdetail', params, {}),
+  postPaymentWriteoffDetail: (params) => http.post('/payment/detail/actualdetail', params),
+  postPaymentWriteoff: (params) => http.post('/payment/writeoff', params, {}),
+  postPaymentWriteoffUndo: (params) => http.post('/payment/undowriteoff', params, {}),
+  postPaymentWriteoffHistory: (params) => http.post('/payment/write/off/history/list', params),
+  postPaymentCollectionAdd: (params) => http.post('/payment/collection/add', params),
+  getPaymentCollectionDetail: (params) => http.get('/payment/collection/detail', { params }),
   postSendAdvanceApplication: (params) =>
     http.post('/payment/send/advance/application', params, {
       transformResult: (res) => res.data,

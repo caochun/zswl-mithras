@@ -31,7 +31,7 @@ class Store {
       title: '确认取消吗？',
       onOk: async () => {
         if (modelKey === 'PaymentActualDetailFlow') {
-          const res = await Api.postPayMentCloseBeforeCheck({ id: businessKey })
+          const res = await Api.postPaymentCloseBeforeCheck({ id: businessKey })
           res.msg && message.info(res.msg)
         }
         this.clearCsr(ccTabReadOnlyFlag, ccUerList)
@@ -152,7 +152,7 @@ class Store {
     }
     if (dynamicFormKeyList.includes('payment_checkApproveAmount')) {
       //付款申请-运营经办/复核提交流程时
-      const result = await Api.postPayMentCheckApplyAmount({
+      const result = await Api.postPaymentCheckApplyAmount({
         paymentId: businessKey,
       })
       if (result.isOverApprovedAmount || result.isOverContractAmount) {

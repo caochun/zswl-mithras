@@ -64,7 +64,7 @@ export default {
       type: 'download',
     }),
 
-  postPayMentCheckApplyAmount: (params) => http.post('/payment/check/apply/amount', params),
+  postPaymentCheckApplyAmount: (params) => http.post('/payment/check/apply/amount', params),
   postAppContractPaySign: (params) => http.post('/app/contract/pay/sign', params),
   postAppContractPaySignUpdate: (params) => http.post('/app/contract/sign/update', params),
   postPaymentCheckClientOpinion: (params) => http.post('/payment/check/client/opinion', params),

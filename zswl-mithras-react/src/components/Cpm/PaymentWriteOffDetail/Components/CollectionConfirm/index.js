@@ -23,7 +23,7 @@ function Index({ detail, canEdit = true, paymentId }) {
         title: `系统提示`,
         content: '您所填写收款的信息将影响起租时实际IRR与折现率的计算，请准确填写！',
         onOk: async () => {
-          await Api.postPayMentCollectionAdd({
+          await Api.postPaymentCollectionAdd({
             ...values,
             warrantyReturnDate:date ? date.format('YYYY-MM-DD') : paymentDetail.warrantyReturnDate,
             warrantyPayWay:paymentDetail.warrantyPayWay,
@@ -41,7 +41,7 @@ function Index({ detail, canEdit = true, paymentId }) {
   const [paymentDetail, setPaymentDetail] = useState({})
   const [columns, setColumns] = useState([])
   const getDetail = async (id, ) => {
-    const res = await Api.getPayMentCollectionDetail({ paymentId: id })
+    const res = await Api.getPaymentCollectionDetail({ paymentId: id })
     setPaymentDetail(res)
     setColumns(getDescColumns(ALL_COLUMNS({ isZhiZu, retentionMoney:res.retentionMoney }, false)))
   }

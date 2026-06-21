@@ -38,7 +38,7 @@ class Store {
       title: '确认取消吗？',
       onOk: async () => {
         if (modelKey === 'PaymentActualDetailFlow') {
-          const res = await Api.postPayMentCloseBeforeCheck({ id: businessKey })
+          const res = await Api.postPaymentCloseBeforeCheck({ id: businessKey })
           res.msg && message.info(res.msg)
         }
         await Api.cancelProcess({ processInstanceId })

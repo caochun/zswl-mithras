@@ -143,7 +143,7 @@ class Store {
     let params = {
       paymentId,
     }
-    const result = await Api.postPayMentCheckApplyAmount({
+    const result = await Api.postPaymentCheckApplyAmount({
       ...params,
     })
     if (result.isOverApprovedAmount || result.isOverContractAmount) {

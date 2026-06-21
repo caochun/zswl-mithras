@@ -2723,6 +2723,16 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (
+    /^(?:src[\\/]api[\\/]|src[\\/]utils[\\/]domains[\\/])/.test(relativeFilePath) &&
+    /\b(?:postPayMent|getPayMent)\w*/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'payment api method typo residue (use Payment naming)',
+    })
+  }
+
   if (removedLegacyUtilityFiles.has(relativeFilePath)) {
     violations.push({
       file: relativeFilePath,

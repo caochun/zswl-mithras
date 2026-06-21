@@ -22,11 +22,11 @@ export default {
     }),
 
   // 付款核销校验
-  postPayMentCloseBeforeCheck: (params) =>
+  postPaymentCloseBeforeCheck: (params) =>
     http.post('/payment/close/before/check', params, { transformResult: (res) => res.data }),
 
   // 校验申请金额
-  postPayMentCheckApplyAmount: (params) => http.post('/payment/check/apply/amount', params),
+  postPaymentCheckApplyAmount: (params) => http.post('/payment/check/apply/amount', params),
   // 公开信息-检查是否存在客户没有维护公开信息(返回空数组即校验通过)
   publicCheck: (params) => http.post('/public/info/check', params),
 }

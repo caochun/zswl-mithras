@@ -71,7 +71,7 @@ const BaseInfo = ({ store, id, goProcess = () => {} }) => {
     ]
   }, [data, riskCount])
 
-  const plannedPayMentColumns = useMemo(() => {
+  const plannedPaymentColumns = useMemo(() => {
     const {
       payables,
       planedPaidDate,
@@ -116,7 +116,7 @@ const BaseInfo = ({ store, id, goProcess = () => {} }) => {
         size={'small'}
         className={styles.desSmell}
       >
-        {plannedPayMentColumns.map((item, index) => {
+        {plannedPaymentColumns.map((item, index) => {
           return (
             <Descriptions.Item key={index} {...item}>
               {item.value}

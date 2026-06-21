@@ -22,6 +22,6 @@ export default {
   noticeDepositCommit: (prepareId) =>
     http.post(`/contract/depost/noticeCommit?prepareId=${prepareId}`),
 
-  postPayMentCloseBeforeCheck: (params) =>
+  postPaymentCloseBeforeCheck: (params) =>
     http.post('/payment/close/before/check', params, { transformResult: (res) => res.data }),
 }

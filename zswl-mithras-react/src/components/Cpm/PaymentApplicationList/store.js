@@ -96,7 +96,7 @@ class Store {
   }
 
   // add = async (values) => {
-  //   const res = await Api.postPayMent(values)
+  //   const res = await Api.postPayment(values)
   //   if (res) {
   //     message.info('创建成功！')
   //     history.push(`/cpm/paymentApplication/detail/${res.id}?isNew=true`)
@@ -105,7 +105,7 @@ class Store {
   // }
   createModal = new ModalStore({
     onFinish: async (values) => {
-      const res = await Api.postPayMent({
+      const res = await Api.postPayment({
         ...values,
         clientId: values.clientId.value,
         contractCode: values.contractCode.label,

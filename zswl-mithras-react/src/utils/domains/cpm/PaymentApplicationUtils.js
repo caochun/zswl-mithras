@@ -18,7 +18,7 @@ export const validateAgreen = async (params) => {
 }
 
 export const postPaymentCheckApplyAmount = async (params) => {
-  const result = await PaymentApplicationDetailApi.postPayMentCheckApplyAmount(params)
+  const result = await PaymentApplicationDetailApi.postPaymentCheckApplyAmount(params)
   if ('暂未纳入资金计划，请联系资金经理确认！' === result.tipMessage) {
     return new Promise(async (resolve, reject) => {
       if (result.needConfirmTips) {
@@ -45,5 +45,3 @@ export const postPaymentCheckApplyAmount = async (params) => {
     result.needConfirmTips
   )
 }
-
-export const postPayMentCheckApplyAmount = postPaymentCheckApplyAmount
