@@ -13,7 +13,7 @@ import {
   getInputNumberValueFromEvent,
   hasValue,
 } from '@/utils'
-import { validatorAmount } from './utils'
+import { validatorAmount } from '../../../QuotationSchemeShared/utils'
 import moment from 'moment'
 import useGetMap from '@/utils/hooks/useGetMap'
 import CommonTips from '@/components/LeasePricing/FeeTipEntries'

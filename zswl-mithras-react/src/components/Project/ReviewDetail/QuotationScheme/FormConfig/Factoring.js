@@ -15,7 +15,7 @@ import {
   formatPercent,
 } from '@/utils'
 import { AmountAndCapitalization } from '@/components/Format'
-import { validatorAmount } from './utils'
+import { validatorAmount } from '../../../QuotationSchemeShared/utils'
 import useGetMap from '@/utils/hooks/useGetMap'
 import CommonTips from '@/components/LeasePricing/FeeTipEntries'
 import { saveServer } from '@/utils'

@@ -15,7 +15,7 @@ import {
   hasValue,
   rules,
 } from '@/utils'
-import { validatorAmount, creditAmountLoopOptions } from './utils'
+import { validatorAmount, creditAmountLoopOptions } from '../../../QuotationSchemeShared/utils'
 import useGetMap from '@/utils/hooks/useGetMap'
 import { AmountAndCapitalization } from '@/components/Format'
 import CommonTips from '@/components/LeasePricing/FeeTipEntries'
