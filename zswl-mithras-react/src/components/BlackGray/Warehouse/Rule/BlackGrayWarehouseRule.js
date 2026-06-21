@@ -104,7 +104,7 @@ const RuleTable = observer(({ path, source }) => {
   )
 })
 
-const Index = ({ props: { sub }, path }) => {
+const BlackGrayWarehouseRule = ({ path }) => {
   const items = [
     {
       key: 'inside',
@@ -129,4 +129,4 @@ const Index = ({ props: { sub }, path }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWarehouseRule)

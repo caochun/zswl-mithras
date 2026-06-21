@@ -78,7 +78,7 @@ class Store {
 }
 const store = new Store()
 
-const Index = ({ path }) => {
+const BlackGrayAllQueryEnterpriseSearch = ({ path }) => {
   useEffect(() => {
     store.init()
   }, [])
@@ -197,4 +197,4 @@ const Card = observer(() => {
     </Space>
   )
 })
-export default observer(Index)
+export default observer(BlackGrayAllQueryEnterpriseSearch)

@@ -26,7 +26,7 @@ export const getEnterpriseName = async (searchValue) => {
   )
   return cache
 }
-const Index = () => {
+const BlackGrayAllQueryRecordSearch = () => {
   const columns = useMemo(() => {
     const nameColumns = [
       { title: '企业名称', search: false },
@@ -112,4 +112,4 @@ const Index = () => {
     ></Table>
   )
 }
-export default observer(Index)
+export default observer(BlackGrayAllQueryRecordSearch)

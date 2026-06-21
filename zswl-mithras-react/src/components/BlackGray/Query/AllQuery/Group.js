@@ -34,7 +34,7 @@ class Store {
 }
 const store = new Store()
 
-const Index = ({ path }) => {
+const BlackGrayAllQueryGroup = ({ path }) => {
   const { typeList } = store
   const columns = useMemo(() => {
     const nameColumns = [
@@ -110,4 +110,4 @@ const Index = ({ path }) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(BlackGrayAllQueryGroup)

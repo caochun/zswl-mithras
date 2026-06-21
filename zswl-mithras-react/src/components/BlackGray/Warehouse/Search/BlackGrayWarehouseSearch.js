@@ -93,7 +93,7 @@ const TaskList = ({ path }) => {
     ></Table>
   )
 }
-const Index = ({ props: { sub }, path }) => {
+const BlackGrayWarehouseSearch = ({ path }) => {
   const items = [
     { key: 'inside', label: '报送查询', children: <ReportList path={path} /> },
     { key: 'outside', label: '任务查询', children: <TaskList path={path} /> },
@@ -111,4 +111,4 @@ const Index = ({ props: { sub }, path }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BlackGrayWarehouseSearch)
