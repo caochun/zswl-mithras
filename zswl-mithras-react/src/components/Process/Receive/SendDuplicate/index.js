@@ -10,7 +10,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index({ curTab }) {
+function ProcessReceiveSendDuplicate({ curTab }) {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
   useEffect(() => {
@@ -189,4 +189,4 @@ function Index({ curTab }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessReceiveSendDuplicate)

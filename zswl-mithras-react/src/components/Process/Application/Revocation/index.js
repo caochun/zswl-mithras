@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index() {
+function ProcessApplicationRevocation() {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
   useEffect(() => {
@@ -159,4 +159,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessApplicationRevocation)

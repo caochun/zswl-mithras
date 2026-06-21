@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
-function Index() {
+function ProcessApplicationFinish() {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
   const approvalHistory = ({ processInstanceId }) => {
@@ -171,4 +171,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessApplicationFinish)

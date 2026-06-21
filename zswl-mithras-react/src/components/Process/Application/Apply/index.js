@@ -10,7 +10,7 @@ import customeApi from '@/api/process/application/customerMaintainApi'
 
 const { Item } = SearchBar
 
-function Index() {
+function ProcessApplicationApply() {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
   useEffect(() => {
@@ -192,4 +192,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessApplicationApply)

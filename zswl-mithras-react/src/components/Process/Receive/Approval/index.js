@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 const { Item } = SearchBar
 
-function Index({ curTab }) {
+function ProcessReceiveApproval({ curTab }) {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
   useEffect(() => {
@@ -193,4 +193,4 @@ function Index({ curTab }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessReceiveApproval)

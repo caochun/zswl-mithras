@@ -12,7 +12,7 @@ import store from './store'
 
 const { Item } = SearchBar
 
-function Index({ curTab, enterpriseName }) {
+function ProcessReceivePending({ curTab, enterpriseName }) {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
 
@@ -209,4 +209,4 @@ function Index({ curTab, enterpriseName }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessReceivePending)
