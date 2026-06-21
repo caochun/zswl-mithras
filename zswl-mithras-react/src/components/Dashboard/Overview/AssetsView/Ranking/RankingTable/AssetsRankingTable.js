@@ -1,5 +1,5 @@
 import { Table } from '@zswl/components'
-import { AmountFormat, AmountAndCapitalization } from '@/components/Format'
+import { AmountFormat } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import styles from './index.less'
 import { saveServer } from '@/utils'

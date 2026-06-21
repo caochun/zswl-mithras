@@ -2,8 +2,8 @@ import { observer } from '@zswl/admin'
 import { Button } from '@zswl/components'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import DashboardRadioTabs from '../../../RadioTabs'
-import RankingDrawer from './RankingDrawer'
-import RankingTable from './RankingTable'
+import RankingDrawer from './RankingDrawer/AssetsRankingDrawer'
+import RankingTable from './RankingTable/AssetsRankingTable'
 
 const Index = ({ store }) => {
   const { currentTab, allRankingDrawer } = store

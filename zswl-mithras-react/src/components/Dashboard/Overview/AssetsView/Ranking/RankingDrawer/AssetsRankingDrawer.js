@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
-import RankingTable from '../RankingTable'
+import RankingTable from '../RankingTable/AssetsRankingTable'
 
 const Index = ({ store }) => {
   return (
