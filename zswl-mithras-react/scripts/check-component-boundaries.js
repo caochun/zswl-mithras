@@ -25,6 +25,8 @@ const copiedSourceFilePattern =
   /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
 const sampleSourceFilePattern =
   /(?:^|[\\/])(?:mock|demo|example)[\\/]|(?:^|[\\/])(?:mock|demo|example)\.(?:js|jsx|ts|tsx)$/i
+const typoResidueFilePattern =
+  /(?:^|[\\/])(?:indes|indx|stlye|sytle|modle|compontent|componet|conifg)\.(?:js|jsx|ts|tsx|less|css|scss|sass)$/i
 const componentRouteParamFilePattern =
   /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]\.(?:js|jsx|ts|tsx)$/
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
@@ -2631,6 +2633,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'mock/demo/example source file',
+    })
+  }
+
+  if (typoResidueFilePattern.test(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'typo residue file name',
     })
   }
 
