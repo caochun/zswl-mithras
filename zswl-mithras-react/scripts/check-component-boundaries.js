@@ -3122,6 +3122,17 @@ for (const filePath of sourceFiles) {
 
   if (
     /^src[\\/]components[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
+    /(?:Entries|entries)\.js$/.test(relativeFilePath) &&
+    normalizeEntryPath(filePath).split('/').length !== 2
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component entry files must live at src/components/<Domain> root',
+    })
+  }
+
+  if (
+    /^src[\\/]components[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
     !/(?:Entries|entries)\.js$/.test(relativeFilePath) &&
     componentDefaultForwardingShellPattern.test(source.trim())
   ) {
