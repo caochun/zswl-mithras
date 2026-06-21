@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { Descriptions,Input,Form } from 'antd'
 import styles from './index.less'
 
-function Index({ showValue, form, detail, businessKey }) {
+function ProjectReviewMeetingMinuteRemark({ showValue, form, detail, businessKey }) {
     const getDetailValue = (key) => {
         return detail[key]
     }
@@ -36,4 +36,4 @@ function Index({ showValue, form, detail, businessKey }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewMeetingMinuteRemark)

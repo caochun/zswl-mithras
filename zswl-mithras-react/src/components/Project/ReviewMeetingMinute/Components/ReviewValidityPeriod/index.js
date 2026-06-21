@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import styles from './index.less'
 import { App } from '@zswl/components'
 
-function Index({ showValue,detail }) {
+function ProjectReviewMeetingMinuteReviewValidityPeriod({ showValue,detail }) {
     const options = App.getData().optionsType
     // const creditTimeInit = (val) =>{
     //     // 判断加几个月
@@ -59,7 +59,4 @@ function Index({ showValue,detail }) {
   )
 }
 
-export default observer(Index)
-
-
-    
+export default observer(ProjectReviewMeetingMinuteReviewValidityPeriod)

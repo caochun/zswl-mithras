@@ -2,7 +2,13 @@ import { observer } from '@zswl/admin'
 import { NoEnumFileTable } from '@/components/Table'
 import { getUserInfo } from '@/utils'
 
-function Index({ id, canEdit = true, taskActivityId, businessVersion, bizType = 'PROJ_REVIEW_MEET_MINUTE' }) {
+function ProjectReviewMeetingMinuteMaterialList({
+  id,
+  canEdit = true,
+  taskActivityId,
+  businessVersion,
+  bizType = 'PROJ_REVIEW_MEET_MINUTE',
+}) {
   const columns = [
     {
       title: '资料名称',
@@ -44,4 +50,4 @@ function Index({ id, canEdit = true, taskActivityId, businessVersion, bizType = 
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewMeetingMinuteMaterialList)

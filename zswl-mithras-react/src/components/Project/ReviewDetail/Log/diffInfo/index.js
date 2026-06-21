@@ -17,7 +17,7 @@ const bizTypePriceDetail = {
   ZR: 'ZR_PRICE',
 }
 
-function Index({ params: { id }, query: { bizType } }) {
+function ProjectReviewDetailLogDiff({ params: { id }, query: { bizType } }) {
   const { compareData, getBaseInfoData, getBoajiaData } = store
   const [baseInfoDetail, setBaseInfoDetail] = useState(null)
   const [baojiaDetail, setBaojiaDetail] = useState(null)
@@ -119,4 +119,4 @@ function Index({ params: { id }, query: { bizType } }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewDetailLogDiff)

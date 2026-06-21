@@ -4,7 +4,7 @@ import store from './store'
 import { useEffect } from 'react'
 import { saveServer } from '@/utils'
 
-function Index({ params: { id } }) {
+function ProjectReviewDetailLog({ params: { id } }) {
   const bizType = getQuery('bizType')
   useEffect(() => {
     store.setProjectId(id)
@@ -43,4 +43,4 @@ function Index({ params: { id } }) {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectReviewDetailLog)
