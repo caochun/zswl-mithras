@@ -7,7 +7,7 @@ import ProjectOperation from './ProjectOperation/DashboardOverviewProjectOperati
 import AssetsCustomer from './AssetsCustomer/DashboardOverviewAssetsCustomer'
 import BusinessTransformation from './BusinessTransformation'
 import Level5Classify from './Level5Classify'
-import OverdueProject from './OverdueProject'
+import OverdueProject from './OverdueProject/DashboardOverviewOverdueProject'
 import AchievementAnalyze from './AchievementAnalyze/DashboardOverviewAchievementAnalyze'
 import DeptPerformanceSort from './DeptPerformanceSort/DashboardOverviewDeptPerformanceSort'
 import ConversionRates from './ConversionRates/DashboardOverviewConversionRates'
