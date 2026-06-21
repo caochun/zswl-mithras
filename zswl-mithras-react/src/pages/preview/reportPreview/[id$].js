@@ -1,1 +1,1 @@
-export { ReportPreview as default } from '@/components/Preview/PreviewEntries'
+export { ReportPreview as default } from '@/components/Preview/ReportPreviewEntries'

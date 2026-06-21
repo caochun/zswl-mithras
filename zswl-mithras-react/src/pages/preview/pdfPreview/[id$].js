@@ -1,1 +1,1 @@
-export { PdfPreview as default } from '@/components/Preview/PreviewEntries'
+export { PdfPreview as default } from '@/components/Preview/PdfPreviewEntries'

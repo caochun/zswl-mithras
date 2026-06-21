@@ -328,7 +328,8 @@
 - `Permission/GroupEntries.js`
 - `Permission/LogEntries.js`
 - `Permission/UserEntries.js`
-- `Preview/PreviewEntries.js`
+- `Preview/PdfPreviewEntries.js`
+- `Preview/ReportPreviewEntries.js`
 - `Process/ApprovalHistoryEntries.js`
 - `Process/ApplicationEntries.js`
 - `Process/BlankBlockEntries.js`
@@ -566,7 +567,7 @@
 - 逾期催收流程弹窗通过 `src/components/Overdue/CollectionModalEntries.js` 暴露，真实实现命名为 `src/components/Overdue/CollectionModal/OverdueCollectionModal.js`。
 - 逾期文书用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js`。
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
-- PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
+- PDF 预览页和报告预览页分别通过 `src/components/Preview/PdfPreviewEntries.js`、`ReportPreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js` 和 `src/components/Preview/ReportPreview/PreviewReportPreview.js`。
 - 权限用户、权限分组和权限日志通过 `src/components/Permission/*Entries.js` 暴露，真实实现命名为 `PermissionUser.js`、`PermissionGroup.js` 和 `PermissionLog.js`，不再依赖目录 `index.js`。
 - 管理报表主页、内部历史页、运营分析、合同时效监控和运营待办报表通过 `src/components/Report/*Entries.js` 窄入口暴露，真实实现命名为 `src/components/Report/Management/Management/ReportManagement.js`、`src/components/Report/Management/InternalHistory/ReportInternalHistory.js`、`src/components/Report/Operation/YeWuYunYingFenXi/ReportOperationAnalysis.js`、`src/components/Report/Operation/HeTongShiXiaoJianKong/ReportOperationContractMonitor.js` 和 `src/components/Report/Operation/YunYingDaiBan/ReportOperationPending.js`。
 - 财务报表待办/完成列表通过 `src/components/Report/FinancialReportWaitEntries.js` 和 `FinancialReportFinishedEntries.js` 暴露，真实列表实现命名为 `src/components/Report/FinancialReportList/ReportFinancialReportList.js`。
