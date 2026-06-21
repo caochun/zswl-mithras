@@ -1,1 +1,1 @@
-export { PermissionLogin as default } from '@/components/Permission/AuthEntries'
+export { PermissionLogin as default } from '@/components/Permission/LoginEntries'

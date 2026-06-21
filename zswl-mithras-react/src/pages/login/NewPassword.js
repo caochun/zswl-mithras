@@ -1,1 +1,1 @@
-export { PermissionNewPasswordInput as default } from '@/components/Permission/AuthEntries'
+export { PermissionNewPasswordInput as default } from '@/components/Permission/NewPasswordEntries'
