@@ -8,7 +8,7 @@ import CustomerView from './CustomerView'
 import CustomerView2 from './CustomerView2'
 import MyAchievement from './MyAchievement'
 import AchievementRank from './AchievementRank/WorkbenchAchievementRank'
-import FinancingView from './FinancingView'
+import FinancingView from './FinancingView/WorkbenchFinancingView'
 import OperationView from './OperationView'
 import AnchorScrollNav from '../AnchorScrollNav'
 import {

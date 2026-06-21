@@ -60,11 +60,6 @@ const Index = ({ groupCode, curCardData }) => {
 
     return columns
   }
-  // const columns = ['FUND_FINANCE_LOAN_THIS_MONTH', 'FUND_FINANCE_LOAN_THIS_YEAR'].includes(
-  //   curCardData?.groupCode
-  // )
-  //   ? getTableColumns(ALL_COLUMNS, curCardData?.groupCode)
-  //   : getTableColumns(ALL_COLUMNS)
   const columns = getTableColumns(groupCode)
   const searchItem = getSearchColumns(ALL_COLUMNS, ['融资类别', '融资机构/产品名称'])
 

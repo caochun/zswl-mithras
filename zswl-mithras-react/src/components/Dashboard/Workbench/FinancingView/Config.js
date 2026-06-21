@@ -1,9 +1,9 @@
 import BellRed from '../../assets/icon_bell_red.svg'
 import BellYellow from '../../assets/icon_bell_yellow.svg'
-import RepayInterest from './ListDrawer/RepayInterest'
-import FundCase from './ListDrawer/FundCase'
-import CreditCase from './ListDrawer/CreditCase'
-import FundCost from './ListDrawer/FundCost'
+import RepayInterest from './ListDrawer/RepayInterest/FinancingRepayInterestTable'
+import FundCase from './ListDrawer/FundCase/FinancingLoanTable'
+import CreditCase from './ListDrawer/CreditCase/FinancingCreditTable'
+import FundCost from './ListDrawer/FundCost/FinancingFundCostTable'
 
 export const initFieldsConfig = [
   {
