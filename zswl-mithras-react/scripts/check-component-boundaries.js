@@ -1541,6 +1541,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Process/ToSnapshot/ProcessToSnapshot.js',
   ],
   [
+    'src/components/Process/Detail/KpiPorjectAllocation/index.js',
+    'src/components/Process/Detail/KpiProjectAllocation/index.js',
+  ],
+  [
     'src/components/Process/Query/index.js',
     'src/components/Process/Query/ProcessQuery.js',
   ],
@@ -2724,6 +2728,16 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'snapshoot export typo residue (use Snapshot naming)',
+    })
+  }
+
+  if (
+    relativeFilePath.startsWith('src/components/Process/') &&
+    /\bKpiPorjectAllocation\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'project allocation typo residue (use KpiProjectAllocation naming)',
     })
   }
 

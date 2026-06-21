@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { KpiProjectAllotDetail as KpiPorjectAllocation } from '@/components/Kpi/ProjectAllotDetailEntries'
+import { KpiProjectAllotDetail as KpiProjectAllocation } from '@/components/Kpi/ProjectAllotDetailEntries'
 
 const Index = (props) => {
   const { id, businessVersion, canEditFlag, modelKey, curTaskActivityIds, taskStatus } = props
@@ -14,7 +14,7 @@ const Index = (props) => {
   const Content = useMemo(() => {
     return (
       <div>
-        <KpiPorjectAllocation
+        <KpiProjectAllocation
           params={{
             id,
           }}
@@ -29,7 +29,7 @@ const Index = (props) => {
         />
       </div>
     )
-  }, [canEditFlag, businessVersion, canEditFlag, curTaskActivityIds, taskStatus])
+  }, [id, modelKey, source, businessVersion, canEditFlag, curTaskActivityIds, taskStatus])
 
   return Content
 }

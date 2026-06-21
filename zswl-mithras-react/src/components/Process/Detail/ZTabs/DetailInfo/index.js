@@ -22,7 +22,7 @@ import FundReceiptRepay from '../../FundReceiptRepay'
 import GroupCreditEstablish from '../../GroupCreditEstablish'
 import GroupCreditReview from '../../GroupCreditReview'
 import KpiPmAssess from '../../KpiPmAssess'
-import KpiPorjectAllocation from '../../KpiPorjectAllocation'
+import KpiProjectAllocation from '../../KpiProjectAllocation'
 import LeaseMaintain from '../../LeaseMaintain'
 import Leave5Type from '../../Leave5Type'
 import Leave5TypeDetail from '../../Leave5TypeDetail'
@@ -155,8 +155,8 @@ const Index = () => {
         ASSET_CLASSIFY: <Leave5Type modelKey={modelKey} curTaskActivityIds={taskActivityId} taskStatus={taskStatus} {...commonProps}></Leave5Type>,
         ASSET_CLASSIFY_REVIEW: <Leave5TypeDetail modelKey={modelKey} curTaskActivityIds={taskActivityId} {...commonProps}></Leave5TypeDetail>,
         CREDIT_REPORT: <CreateReportTable businessKey={businessKey} {...commonProps} />,
-        KPI_PROJECT_DISTRIBUTION: <KpiPorjectAllocation modelKey={modelKey} curTaskActivityIds={taskActivityId} taskStatus={taskStatus} {...commonProps} />,
-        KPI_PROJECT_DISTRIBUTION_NEW: <KpiPorjectAllocation modelKey={modelKey} curTaskActivityIds={taskActivityId} taskStatus={taskStatus} {...commonProps} />,
+        KPI_PROJECT_DISTRIBUTION: <KpiProjectAllocation modelKey={modelKey} curTaskActivityIds={taskActivityId} taskStatus={taskStatus} {...commonProps} />,
+        KPI_PROJECT_DISTRIBUTION_NEW: <KpiProjectAllocation modelKey={modelKey} curTaskActivityIds={taskActivityId} taskStatus={taskStatus} {...commonProps} />,
         KPI_PROJECT_MANAGER_ASSESSMENT: <KpiPmAssess businessKey={businessKey} {...commonProps} />,
         FUND_RECEIPT_REPAY: <FundReceiptRepay {...commonProps} />,
         BATCH_FUND_RECEIPT_REPAY: <BatchFundReceiptRepay {...commonProps} />,
