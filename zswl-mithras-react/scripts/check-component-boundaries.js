@@ -2766,6 +2766,16 @@ for (const filePath of sourceFiles) {
   }
 
   if (
+    /^(?:src[\\/]api[\\/]project[\\/]|src[\\/]components[\\/]Project[\\/])/.test(relativeFilePath) &&
+    /\bgetRemianCreditAmount\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'remain credit amount typo residue (use getRemainCreditAmount naming)',
+    })
+  }
+
+  if (
     relativeFilePath.startsWith('src/components/Ocr/') &&
     /modalType:\s*['"]singe['"]/.test(source)
   ) {

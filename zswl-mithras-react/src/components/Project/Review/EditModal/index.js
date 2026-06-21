@@ -39,7 +39,7 @@ function EditModal({ store }) {
     }
     const curProj = projectList.filter((item) => item.id === record.key)[0]
     const { clientNames, id } = curProj
-    const data = await Api.getRemianCreditAmount({
+    const data = await Api.getRemainCreditAmount({
       groupCreditReviewId: id,
     })
     form.setFieldsValue({

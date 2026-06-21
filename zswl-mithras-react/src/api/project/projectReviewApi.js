@@ -20,5 +20,5 @@ export default {
         functionCode: 'projReviewGroupCreditReviewQuery',
       },
     }),
-  getRemianCreditAmount: (params) => http.post('/group/credit/review/remainCreditAmount', params),
+  getRemainCreditAmount: (params) => http.post('/group/credit/review/remainCreditAmount', params),
 }
