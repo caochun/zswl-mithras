@@ -15,7 +15,6 @@ const PaymentRecords = ({ id, contractId, callback }) => {
       App.resetStore(store)
     }
   }, [])
-  useEffect(() => {}, [])
   const menu = (t) => {
     return (
       <Menu

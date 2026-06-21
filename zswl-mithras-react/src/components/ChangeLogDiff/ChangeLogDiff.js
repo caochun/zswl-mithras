@@ -2,7 +2,7 @@ import fileApi from '@/utils/api/fileApi'
 import { observer } from '@zswl/admin'
 import { FileTable } from '../Table'
 import { Tooltip } from 'antd'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import styles from './style.less'
 
 function findPanelDom(node) {
@@ -17,7 +17,6 @@ function findPanelDom(node) {
 function Index({ version, moduleType, options, functionCode, functionCodeList }) {
   const ref = useRef()
   const hasChange = useRef(false)
-  useEffect(() => {}, [])
   const Render = ({ name, data }) => {
     const val = data[name]
     const { isChange } = data
