@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Table, Button, Page, SearchBar } from '@zswl/components'
+import { Table, Button, Page } from '@zswl/components'
 import { getTableColumns } from '@/utils'
 import { Card } from 'antd'
 import moduleColumns from '../Column'
@@ -8,9 +8,7 @@ import store from '../store'
 import { useEffect, useState } from 'react'
 import { saveServer } from '@/utils'
 
-const { Item } = SearchBar
-
-const Index = ({ params: { id } }) => {
+const KpiEstimationContractDetail = ({ params: { id } }) => {
   const { expandKeys, setExpandKeys, detailTable } = store
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -114,4 +112,4 @@ const Index = ({ params: { id } }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(KpiEstimationContractDetail)

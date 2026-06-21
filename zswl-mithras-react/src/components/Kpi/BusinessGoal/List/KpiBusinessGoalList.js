@@ -1,4 +1,4 @@
-import { observer, history } from '@zswl/admin'
+import { history } from '@zswl/admin'
 import { useMemo } from 'react'
 import { Table, Page } from '@zswl/components'
 import CreateModal from './CreateModal'
@@ -6,7 +6,7 @@ import { MatchOptionColumn } from '@/components/Format'
 import Store from './Store'
 import { saveServer } from '@/utils'
 
-const Index = ({ path }) => {
+const KpiBusinessGoalList = ({ path }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -74,4 +74,4 @@ const Index = ({ path }) => {
   )
 }
 
-export default Index
+export default KpiBusinessGoalList

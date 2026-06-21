@@ -12,7 +12,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-function Index() {
+function KpiBaseSet() {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -92,4 +92,4 @@ function Index() {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBaseSet)

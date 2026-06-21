@@ -11,7 +11,7 @@ import DepartGoal from './DepartGoal'
 import PersonGoal from './PersonGoal'
 import Store from './Store'
 
-const Index = ({ params: { id } }) => {
+const KpiBusinessGoalDetail = ({ params: { id } }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -92,4 +92,4 @@ const Index = ({ params: { id } }) => {
   )
 }
 
-export default observer(Index)
+export default observer(KpiBusinessGoalDetail)

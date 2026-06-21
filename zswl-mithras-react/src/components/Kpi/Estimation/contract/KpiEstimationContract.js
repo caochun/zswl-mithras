@@ -13,7 +13,7 @@ import moment from 'moment'
 import store from './store'
 import { saveServer } from '@/utils'
 
-const Index = ({ pathname }) => {
+const KpiEstimationContract = ({ pathname }) => {
   const nameColumns = [
     {
       title: '合同编号',
@@ -86,4 +86,4 @@ const Index = ({ pathname }) => {
     </>
   )
 }
-export default observer(Index)
+export default observer(KpiEstimationContract)

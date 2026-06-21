@@ -7,7 +7,7 @@ import ProjectManagerProfit from './projectManagerProfit/KpiEstimationProjectMan
 import DepartmentalPool from './departmentalPool/KpiEstimationDepartmentalPool'
 import { Tabs } from 'antd'
 
-const Index = ({ pathname }) => {
+const KpiEstimation = ({ pathname }) => {
   const items = [
     {
       label: '合同维度',
@@ -41,4 +41,4 @@ const Index = ({ pathname }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(KpiEstimation)
