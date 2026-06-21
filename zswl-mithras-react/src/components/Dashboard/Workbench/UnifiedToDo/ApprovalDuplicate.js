@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 // 抄送
 const { Item } = SearchBar
-const Index = () => {
+const UnifiedTodoApprovalCopiedTable = () => {
   const columns = getTableColumns(PRECESS_COLUMNS, [
     {
       title: '流程ID',
@@ -77,4 +77,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoApprovalCopiedTable)

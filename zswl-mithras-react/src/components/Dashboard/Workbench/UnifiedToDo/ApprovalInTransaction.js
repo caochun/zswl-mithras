@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 // 在办理
 const { Item } = SearchBar
-const Index = () => {
+const UnifiedTodoApprovalProcessingTable = () => {
   const columns = getTableColumns(PRECESS_COLUMNS, [
     {
       title: '流程ID',
@@ -72,9 +72,8 @@ const Index = () => {
           </Item>
         ]
       }}
-
     ></Table>
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoApprovalProcessingTable)

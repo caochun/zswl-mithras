@@ -17,7 +17,7 @@ import { saveServer } from '@/utils'
 //   FINISH(3, "我发起的-审批结束");
 // 我发起的
 const { Item } = SearchBar
-const Index = () => {
+const UnifiedTodoApprovalInitiatedTable = () => {
   const columns = getTableColumns(PRECESS_COLUMNS, [
     {
       title: '流程ID',
@@ -72,7 +72,7 @@ const Index = () => {
       store={tableStore}
       editable={false}
       columnsFilter={'工作台_统一视图_我发起的'}
-      onFilter={(key,val) => saveServer('工作台_统一视图_我发起的',val)}
+      onFilter={(key, val) => saveServer('工作台_统一视图_我发起的', val)}
       searchbar={{
         labelCol: { span: 6 },
         items: [
@@ -89,9 +89,8 @@ const Index = () => {
           // </Item>
         ]
       }}
-
     ></Table>
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoApprovalInitiatedTable)

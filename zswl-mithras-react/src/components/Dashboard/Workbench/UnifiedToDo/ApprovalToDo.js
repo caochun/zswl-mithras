@@ -12,7 +12,7 @@ import { PRECESS_COLUMNS } from './Column'
 //   WAIT_INITIATE(3, "我发起的-待发起");
 const { Item } = SearchBar
 // 待办
-const Index = () => {
+const UnifiedTodoApprovalTodoTable = () => {
   const columns = getTableColumns(PRECESS_COLUMNS, [
     {
       title: '流程ID',
@@ -98,4 +98,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoApprovalTodoTable)

@@ -3,7 +3,7 @@ import { Drawer, Button } from '@zswl/components'
 import { InsurancePolicy } from '@/components/InsurancePolicy/InsurancePolicyEntries'
 import { Space } from 'antd'
 
-const Index = ({ store }) => {
+const UnifiedTodoPolicyCreateDrawer = ({ store }) => {
   const { handleDrawerConfirm, handleDrawerClose, policyRecord } = store
 
   return (
@@ -32,4 +32,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoPolicyCreateDrawer)

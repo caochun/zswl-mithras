@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 // 已办理
 const { Item } = SearchBar
-const Index = () => {
+const UnifiedTodoApprovalDoneTable = () => {
   const columns = getTableColumns(PRECESS_COLUMNS, [
     {
       title: '流程ID',
@@ -55,7 +55,7 @@ const Index = () => {
       store={tableStore}
       editable={false}
       columnsFilter={'工作台_统一视图_已办理'}
-            onFilter={(key, val) => saveServer('工作台_统一视图_已办理', val)}
+      onFilter={(key, val) => saveServer('工作台_统一视图_已办理', val)}
       searchbar={{
         labelCol: { span: 6 },
         items: [
@@ -72,9 +72,8 @@ const Index = () => {
           </Item>
         ]
       }}
-
     ></Table>
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoApprovalDoneTable)
