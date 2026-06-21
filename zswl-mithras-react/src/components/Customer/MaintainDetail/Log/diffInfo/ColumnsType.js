@@ -77,7 +77,7 @@ const diffNode = (obj, type) => {
   return <span style={{ color: obj?.isChange ? 'red' : '#333' }}>{obj.value}</span>
 }
 
-const addressColums = [
+const addressColumns = [
   {
     title: '地址类型',
     dataIndex: 'addressType',
@@ -129,7 +129,7 @@ const addressColums = [
   },
 ]
 
-const linkManInfoColums = [
+const linkManInfoColumns = [
   {
     title: '是否主联系人',
     dataIndex: 'main',
@@ -187,7 +187,7 @@ const linkManInfoColums = [
     },
   },
 ]
-const bondRatingColums = [
+const bondRatingColumns = [
   {
     title: '评级时间',
     dataIndex: 'rateDate',
@@ -260,7 +260,7 @@ const bondRatingColums = [
   },
 ]
 
-const shareholderColums = [
+const shareholderColumns = [
   {
     title: '股东类型',
     dataIndex: 'shareholderType',
@@ -304,7 +304,7 @@ const shareholderColums = [
     },
   },
 ]
-const affiliatedColums = [
+const affiliatedColumns = [
   {
     title: '关联企业名称',
     dataIndex: 'enterpriseName',
@@ -349,7 +349,7 @@ const affiliatedColums = [
   },
 ]
 
-const bankAccountColums = [
+const bankAccountColumns = [
   {
     title: '是否主账号',
     dataIndex: 'mainAccount',
@@ -380,10 +380,10 @@ const bankAccountColums = [
   },
 ]
 export default {
-  addressColums,
-  linkManInfoColums,
-  shareholderColums,
-  bondRatingColums,
-  affiliatedColums,
-  bankAccountColums,
+  addressColumns,
+  linkManInfoColumns,
+  shareholderColumns,
+  bondRatingColumns,
+  affiliatedColumns,
+  bankAccountColumns,
 }

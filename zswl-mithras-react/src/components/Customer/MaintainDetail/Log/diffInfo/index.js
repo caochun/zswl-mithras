@@ -3,7 +3,7 @@ import { Collapse, Divider, Spin, Badge } from 'antd'
 import { observer } from '@zswl/admin'
 import Store from './store'
 import { useEffect, useMemo } from 'react'
-import ColumsObj from './ColumsType'
+import ColumnsObj from './ColumnsType'
 import IndustrialLog from './IndustrialLog'
 import {
   genderTypeList,
@@ -115,7 +115,7 @@ function Index({ params: { id }, query: { clientId } }) {
                                     onFilter={(key,val) => saveServer('detail_log_diffInfo_idjs_2',val)}
                 store={store.addressInfoAfter}
                 autoRequest={false}
-                columns={ColumsObj.addressColums}
+                columns={ColumnsObj.addressColumns}
               />
             </Panel>
             <Panel
@@ -181,7 +181,7 @@ function Index({ params: { id }, query: { clientId } }) {
                                     onFilter={(key,val) => saveServer('detail_log_diffInfo_idjs_4',val)}
                 store={store.linkManInfoAfter}
                 autoRequest={false}
-                columns={ColumsObj.linkManInfoColums}
+                columns={ColumnsObj.linkManInfoColumns}
               />
             </Panel>
             <Panel
@@ -237,7 +237,7 @@ function Index({ params: { id }, query: { clientId } }) {
                                     onFilter={(key,val) => saveServer('detail_log_diffInfo_idjs_6',val)}
                 store={store.bondRatingAfter}
                 autoRequest={false}
-                columns={ColumsObj.bondRatingColums}
+                columns={ColumnsObj.bondRatingColumns}
               />
             </Panel>
             <Panel
@@ -308,7 +308,7 @@ function Index({ params: { id }, query: { clientId } }) {
                                     onFilter={(key,val) => saveServer('detail_log_diffInfo_idjs_8',val)}
                 store={store.shareholderAfter}
                 autoRequest={false}
-                columns={ColumsObj.shareholderColums}
+                columns={ColumnsObj.shareholderColumns}
               />
             </Panel>
             <Panel
@@ -378,7 +378,7 @@ function Index({ params: { id }, query: { clientId } }) {
                                     onFilter={(key,val) => saveServer('detail_log_diffInfo_idjs_10',val)}
                 store={store.affiliatedAfter}
                 autoRequest={false}
-                columns={ColumsObj.affiliatedColums}
+                columns={ColumnsObj.affiliatedColumns}
               />
             </Panel>
             <Panel
@@ -428,7 +428,7 @@ function Index({ params: { id }, query: { clientId } }) {
                                     onFilter={(key,val) => saveServer('detail_log_diffInfo_idjs_12',val)}
                 store={store.bankAccountAfter}
                 autoRequest={false}
-                columns={ColumsObj.bankAccountColums}
+                columns={ColumnsObj.bankAccountColumns}
               />
             </Panel>
             <Panel header="文件变更日志" key="file" forceRender>
