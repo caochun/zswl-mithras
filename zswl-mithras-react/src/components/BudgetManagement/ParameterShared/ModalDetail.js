@@ -1,10 +1,10 @@
-import { Modal } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import ModalEditTable from './ModalEditTable'
+import { Modal } from '@zswl/components'
 
-const Index = ({ store }) => {
+const ModalDetail = ({ store, ModalEditTable }) => {
   const { typeInfo } = store
   if (!typeInfo) return null
+
   return (
     <Modal
       propsBy={(data) => {
@@ -27,4 +27,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ModalDetail)

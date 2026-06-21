@@ -6,7 +6,7 @@ import { create, all } from 'mathjs'
 import { hasValue } from '@/utils'
 import styles from './index.less'
 import Api from '@/api/budgetManagement/parameterConfigApi'
-import { IS_FU_XIANG_BO_DONG, myInputEditable } from '../context'
+import { IS_FU_XIANG_BO_DONG, myInputEditable } from '../../../ParameterShared/context'
 
 const mathjs = create(all)
 

@@ -10,6 +10,7 @@ const ALL_COLUMNS = [
   {
     title: '更新人',
     dataIndex: 'createByName',
-  }
+  },
 ]
+
 export default ALL_COLUMNS

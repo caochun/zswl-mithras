@@ -6,7 +6,7 @@ import { all, create } from 'mathjs'
 import { numToFixed } from '@/utils'
 import styles from './index.less'
 import Api from '@/api/budgetManagement/parameterConfigApi'
-import { myInputEditable } from '../context'
+import { myInputEditable } from '../../../ParameterShared/context'
 
 const mathjs = create(all)
 

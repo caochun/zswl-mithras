@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react'
 import { Access, Page, Table } from '@zswl/components'
-import ALL_COLUMNS from './Column'
+import ALL_COLUMNS from '../ParameterShared/Column'
 import Store from './store'
-import ModalDetail from './ModalDetail'
+import ModalDetail from '../ParameterShared/ModalDetail'
+import ModalEditTable from './ModalDetail/ModalEditTable'
 
 const BudgetManagementParameterConfig: React.FC = () => {
   const store = useMemo(() => {
@@ -47,7 +48,7 @@ const BudgetManagementParameterConfig: React.FC = () => {
           },
         ]}
       />
-      <ModalDetail store={store}></ModalDetail>
+      <ModalDetail store={store} ModalEditTable={ModalEditTable}></ModalDetail>
     </Page>
   )
 }

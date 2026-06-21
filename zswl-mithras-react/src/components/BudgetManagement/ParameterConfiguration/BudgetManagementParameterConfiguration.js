@@ -1,9 +1,10 @@
 import { Access, Page, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import ALL_COLUMNS from './Column'
+import ALL_COLUMNS from '../ParameterShared/Column'
 import { useMemo } from 'react'
 import Store from './store'
-import ModalDetail from './ModalDetail'
+import ModalDetail from '../ParameterShared/ModalDetail'
+import ModalEditTable from './ModalDetail/ModalEditTable'
 
 function Index() {
   const store = useMemo(() => {
@@ -48,7 +49,7 @@ function Index() {
           },
         ]}
       />
-      <ModalDetail store={store}></ModalDetail>
+      <ModalDetail store={store} ModalEditTable={ModalEditTable}></ModalDetail>
     </Page>
   )
 }

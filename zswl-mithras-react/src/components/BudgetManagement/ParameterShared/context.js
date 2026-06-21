@@ -1,6 +1,6 @@
 import { AmountEditable } from '@/components/Format'
-import { rules, hasValue, formatPercent, amountFormat } from '@/utils'
-import { create, all } from 'mathjs'
+import { amountFormat, formatPercent, hasValue, rules } from '@/utils'
+import { all, create } from 'mathjs'
 
 const mathjs = create(all)
 const NUM = 10000
