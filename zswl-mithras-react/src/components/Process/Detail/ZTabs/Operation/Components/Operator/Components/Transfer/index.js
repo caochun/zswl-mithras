@@ -7,7 +7,7 @@ import Api from '@/api/process/detail/flowDetailApi'
 import { rules } from '@/utils'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 
-const Index = ({ store }) => {
+const ProcessTransferModal = ({ store }) => {
   const { detailData } = useFlowData()
 
   return (
@@ -38,4 +38,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessTransferModal)

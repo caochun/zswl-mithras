@@ -4,7 +4,7 @@ import { Modal, Button, Form } from '@zswl/components'
 import { rules } from '@/utils'
 
 // 放款审核:付款申请距离最新评审流程（如有变更取评审变更）审批通过日期超 6 个月
-const Index = (props) => {
+const ProcessCheckPaymentTimeoutModal = (props) => {
   const [form] = Form.useForm()
   const { store } = props
 
@@ -48,6 +48,6 @@ const Index = (props) => {
     </div>
   )
 }
-Index.methods = {}
+ProcessCheckPaymentTimeoutModal.methods = {}
 
-export default observer(Index)
+export default observer(ProcessCheckPaymentTimeoutModal)

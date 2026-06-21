@@ -4,7 +4,7 @@ import { Button, Form, Input, Modal, Select } from '@zswl/components'
 import Api from '@/api/process/flowFile'
 
 const moduleType = 'RATING_CLIENT'
-const Index = ({ store, disabled }) => {
+const ProcessRatingOverturnButton = ({ store, disabled }) => {
   const { businessKey: mainId, processInstanceId, taskId } = store.detailData
   const userInfo = getLocalStorage('userInfo')
   return (
@@ -63,4 +63,4 @@ const Index = ({ store, disabled }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProcessRatingOverturnButton)
