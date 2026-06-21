@@ -5,7 +5,7 @@ import { useEffect, useMemo } from 'react'
 import { Space, Empty, Alert } from 'antd'
 import { saveServer } from '@/utils'
 
-const Index = ({ store }) => {
+const ContractProcessLeaseSelector = ({ store }) => {
   const { chooseHeader, processLeaseTable, cacheChooseId } = store
   const columns = useMemo(() => {
     return chooseHeader?.map((item) => {
@@ -97,4 +97,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractProcessLeaseSelector)

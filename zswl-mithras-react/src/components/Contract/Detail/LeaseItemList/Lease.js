@@ -10,7 +10,7 @@ import { hasPermission, amountFormat } from '@/utils'
 import { saveServer } from '@/utils'
 import Api from '@/api/contract/component/Detail/LeaseItemList/api'
 
-const Index = ({
+const ContractLeaseItemListContent = ({
   baseStore = {},
   isFormApproval,
   contractId,
@@ -224,4 +224,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(ContractLeaseItemListContent)

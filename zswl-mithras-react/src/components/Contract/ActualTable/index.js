@@ -14,7 +14,7 @@ import styles from './index.less'
 import Store from './store'
 import { useColumn } from './useColumn'
 
-function Index (
+function ContractActualTable (
   {
     headerTitle,
     contractId,
@@ -225,4 +225,4 @@ function Index (
   )
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(ContractActualTable))
