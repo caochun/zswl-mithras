@@ -4,7 +4,7 @@ import { SHEET_TABLE_NAME, subjectReportType } from './columns'
 import Api from '@/api/customer/financialReportApi'
 import { message } from 'antd'
 
-const Index = ({ dataSource, index, store, handleRemove = () => {} }) => {
+const CustomerFinancialReportDeleteIcon = ({ dataSource, index, store, handleRemove = () => {} }) => {
   const { canEditFlag } = store
   const deleteTable = (data, key) => {
     const item = data[key]
@@ -41,4 +41,4 @@ const Index = ({ dataSource, index, store, handleRemove = () => {} }) => {
   ) : null
 }
 
-export default Index
+export default CustomerFinancialReportDeleteIcon

@@ -18,7 +18,7 @@ const render = (value) => {
   )
 }
 
-const Index = ({ store }) => {
+const CustomerCommerceCheckCompareTable = ({ store }) => {
   return (
     <div>
       <h4>工商信息</h4>
@@ -54,4 +54,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerCommerceCheckCompareTable)

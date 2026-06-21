@@ -2,7 +2,7 @@ import { Modal, Button } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { Space } from 'antd'
 
-const Index = ({ store }) => {
+const CustomerCommerceCheckTipsConfirm = ({ store }) => {
   return (
     <Modal
       store={store.tipsConfirmModal}
@@ -28,4 +28,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerCommerceCheckTipsConfirm)
