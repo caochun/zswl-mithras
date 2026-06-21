@@ -596,6 +596,10 @@
     {
       "sourceScope": "pages/index.js",
       "target": "App/RootRedirectEntries"
+    },
+    {
+      "sourceScope": "pages/kpi",
+      "target": "FormulaValueTip/FormulaValueTipEntries"
     }
   ]
 }

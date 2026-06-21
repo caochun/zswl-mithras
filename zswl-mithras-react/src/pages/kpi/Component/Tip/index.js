@@ -1,1 +1,1 @@
-export { KpiFormulaValueTip as default } from '@/components/Kpi/FormulaValueTipEntries'
+export { FormulaValueTip as default } from '@/components/FormulaValueTip/FormulaValueTipEntries'

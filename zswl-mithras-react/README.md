@@ -292,7 +292,6 @@
 - `Kpi/BaseSetPutPrizeFactorEntries.js`
 - `Kpi/BaseSetSuiLvWeiHuEntries.js`
 - `Kpi/BaseSetTableEntries.js`
-- `Kpi/FormulaValueTipEntries.js`
 - `Kpi/BaseSetYeWuDeptEntries.js`
 - `Kpi/BaseSetZhiDengXiShuEntries.js`
 - `Kpi/BaseSetZhongHouTaiDeptEntries.js`

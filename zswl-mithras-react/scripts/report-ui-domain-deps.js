@@ -272,7 +272,6 @@ const componentEntryScopeAliases = new Map([
   ['Kpi/BaseSetPutPrizeFactorEntries', 'KpiBaseSetPutPrizeFactor'],
   ['Kpi/BaseSetSuiLvWeiHuEntries', 'KpiBaseSetSuiLvWeiHu'],
   ['Kpi/BaseSetTableEntries', 'KpiBaseSetTable'],
-  ['Kpi/FormulaValueTipEntries', 'FormulaValueTip'],
   ['Kpi/BaseSetYeWuDeptEntries', 'KpiBaseSetYeWuDept'],
   ['Kpi/BaseSetZhiDengXiShuEntries', 'KpiBaseSetZhiDengXiShu'],
   ['Kpi/BaseSetZhongHouTaiDeptEntries', 'KpiBaseSetZhongHouTaiDept'],
