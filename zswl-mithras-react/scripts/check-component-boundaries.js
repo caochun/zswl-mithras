@@ -2713,6 +2713,16 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (
+    relativeFilePath.startsWith('src/components/Process/') &&
+    /\b(?:ProcessSnapshoot|ProcessToSnapShoot|ProcessRouteSnapshoot)\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'snapshoot export typo residue (use Snapshot naming)',
+    })
+  }
+
   if (removedLegacyUtilityFiles.has(relativeFilePath)) {
     violations.push({
       file: relativeFilePath,
