@@ -26,9 +26,9 @@ const copiedOrBackupFilePattern =
 const sampleSourceFilePattern =
   /(?:^|[\\/])(?:mock|demo|example)[\\/]|(?:^|[\\/])(?:mock|demo|example)\.(?:js|jsx|ts|tsx)$/i
 const typoResidueFilePattern =
-  /(?:^|[\\/])[^\\/]*(?:indes|indx|stlye|sytle|modle|compontent|componet|conifg|colums|untils|classifaction|towd|compony)[^\\/]*\.(?:js|jsx|ts|tsx|less|css|scss|sass)$/i
+  /(?:^|[\\/])[^\\/]*(?:indes|indx|stlye|sytle|modle|compontent|componet|conifg|colums|untils|classifaction|towd|compony|applicat(?!ion))[^\\/]*\.(?:js|jsx|ts|tsx|less|css|scss|sass)$/i
 const componentTypoResidueDirPattern =
-  /^src[\\/]components[\\/].*[\\/][^\\/]*(?:singe|filling|snapshoot|colums|untils|indes|indx|stlye|sytle|modle|compontent|componet|conifg|haders|towd|compony)[^\\/]*$/i
+  /^src[\\/]components[\\/].*[\\/][^\\/]*(?:singe|filling|snapshoot|colums|untils|indes|indx|stlye|sytle|modle|compontent|componet|conifg|haders|towd|compony|applicat(?!ion))[^\\/]*$/i
 const componentRouteParamFilePattern =
   /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]\.(?:js|jsx|ts|tsx)$/
 const componentRouteParamDirPattern = /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]$/

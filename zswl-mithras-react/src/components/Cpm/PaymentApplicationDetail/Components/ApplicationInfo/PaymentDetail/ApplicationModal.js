@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { formateCard, getInputNumberAmountProps, validatorMax } from '@/utils'
 import { BankAccount } from '@/components/Form'
 
-const PayMentDetailsModal = observer(({ activeData, store }) => {
+const PaymentDetailsModal = observer(({ activeData, store }) => {
   const [form] = Form.useForm()
 
   const layout = {
@@ -87,4 +87,4 @@ const PayMentDetailsModal = observer(({ activeData, store }) => {
   )
 })
 
-export default PayMentDetailsModal
+export default PaymentDetailsModal

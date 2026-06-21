@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import PayMentDetailsModal from './ApplicationModal'
+import PaymentDetailsModal from './ApplicationModal'
 import { Table, Button, App } from '@zswl/components'
 import { Space } from 'antd'
 import { useMemo } from 'react'
@@ -102,7 +102,7 @@ const Index = ({ store }) => {
         columns={columns}
         scroll={{ x: 1200 }}
       />
-      <PayMentDetailsModal store={store} />
+      <PaymentDetailsModal store={store} />
     </>
   )
 }
