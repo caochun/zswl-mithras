@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { Table, App } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import CreateModal from './CreateModal'
+import CreateModal from './CreateModal/ContractLesseeCreateModal'
 import Store from './store'
 import styles from './index.less'
 import { MatchOptionColumn, RenderColumn } from '@/components/Format'
