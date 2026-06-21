@@ -4,7 +4,7 @@ import { OverdueCollectionModal as CollectionModal } from '@/components/Overdue/
 import { ModalStore } from '@zswl/components'
 import collectionManagementApi from '@/api/process/detail/overdueCollectionApi'
 
-const Index = (props) => {
+const ProcessDetailOverdue = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds, taskStatus } =
     props
 
@@ -64,4 +64,4 @@ const Index = (props) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(ProcessDetailOverdue)

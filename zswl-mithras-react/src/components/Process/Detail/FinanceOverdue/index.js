@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { BudgetAccountsReceivableDetail as FinanceOverdue } from '@/components/Budget/AccountsReceivableEntries'
 
-const Index = (props) => {
+const ProcessDetailFinanceOverdue = (props) => {
   const { canEditFlag, subModule, id, businessVersion, tab, processInstanceId } = props
   const renderContractType = useMemo(() => {
     return (
@@ -21,4 +21,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailFinanceOverdue)

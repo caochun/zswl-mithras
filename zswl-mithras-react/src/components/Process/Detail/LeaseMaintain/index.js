@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { LeaseMaintainDetail as LeaseMaintain } from '@/components/Lease/MaintainDetailEntries'
 
-const Index = (props) => {
+const ProcessDetailLeaseMaintain = (props) => {
   const { id, businessVersion, modelKey, curTab, taskActivityId, startUserId, taskStatus } = props
 
   const renderContractType = useMemo(() => {
@@ -29,4 +29,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailLeaseMaintain)

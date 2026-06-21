@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { FinancialReportApproval as FinancialReport } from '@/components/Report/FinancialReportApprovalEntries'
 
-const Index = (props) => {
+const ProcessDetailFinancialReport = (props) => {
   const { canEditFlag, subModule, id, businessVersion, tab } = props
   const renderContractType = useMemo(() => {
     return (
@@ -20,4 +20,4 @@ const Index = (props) => {
 
   return renderContractType
 }
-export default observer(Index)
+export default observer(ProcessDetailFinancialReport)

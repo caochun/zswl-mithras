@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { KpiProjectAllotDetail as KpiProjectAllocation } from '@/components/Kpi/ProjectAllotDetailEntries'
 
-const Index = (props) => {
+const ProcessDetailKpiProjectAllocation = (props) => {
   const { id, businessVersion, canEditFlag, modelKey, curTaskActivityIds, taskStatus } = props
 
   const source = {
@@ -33,4 +33,4 @@ const Index = (props) => {
 
   return Content
 }
-export default observer(Index)
+export default observer(ProcessDetailKpiProjectAllocation)

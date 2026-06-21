@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { TrackEventDetail as LeaseTrack } from '@/components/TrackEvent/TrackEventDetailEntries'
 
-const Index = (props) => {
+const ProcessDetailTrackEvent = (props) => {
   const { id, businessVersion, modelKey, taskActivityId, taskStatus } = props
 
   return (
@@ -19,4 +19,4 @@ const Index = (props) => {
     </div>
   )
 }
-export default observer(Index)
+export default observer(ProcessDetailTrackEvent)
