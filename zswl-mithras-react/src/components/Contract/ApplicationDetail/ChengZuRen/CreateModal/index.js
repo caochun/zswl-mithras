@@ -8,7 +8,7 @@ import { ApiSelect } from '@/components/Select'
 import Api from '@/api/contract/component/ApplicationDetail/ChengZuRen/api'
 const { Item } = Form
 
-function Index({ bizType, store, isChangYe }) {
+function ContractLesseeCreateModal({ bizType, store, isChangYe }) {
   const [form] = Form.useForm()
   const { contractList, getContactList, contractId } = store
   const BL_ZR = bizType === 'BL' || bizType === 'ZR'
@@ -146,4 +146,4 @@ function Index({ bizType, store, isChangYe }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractLesseeCreateModal)

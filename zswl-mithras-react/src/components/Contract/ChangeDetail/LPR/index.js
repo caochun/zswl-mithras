@@ -7,7 +7,7 @@ import mathjs from '@/utils/math'
 import { bizTypeMap } from './bizTypeConfig'
 import styles from './index.less'
 
-function Index({ store = {}, detail = {}, oldDetail = {} }) {
+function ContractLprChangePlan({ store = {}, detail = {}, oldDetail = {} }) {
   const { bizType } = store.page.getParams()
   const { form } = store
   const { showVal: showValue } = store
@@ -167,4 +167,4 @@ function Index({ store = {}, detail = {}, oldDetail = {} }) {
   )
 }
 
-export default Index
+export default ContractLprChangePlan

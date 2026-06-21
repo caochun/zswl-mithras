@@ -7,7 +7,7 @@ import Api from '@/api/contract/contractAccount'
 
 const { Item } = Form
 
-function Index({ store, leaseTypes, projCode }) {
+function ContractReceivableAccountModal({ store, leaseTypes, projCode }) {
   const [form] = Form.useForm()
   const { isCreate } = store
   const [backList, setBankList] = useState([])
@@ -178,4 +178,4 @@ function Index({ store, leaseTypes, projCode }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractReceivableAccountModal)

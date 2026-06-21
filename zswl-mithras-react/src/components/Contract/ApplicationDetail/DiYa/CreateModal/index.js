@@ -7,7 +7,7 @@ import { Input, DatePicker } from 'antd'
 const { Item } = Form
 const { TextArea } = Input
 
-function Index({ store }) {
+function ContractMortgageCreateModal({ store }) {
   const [form] = Form.useForm()
   const { isDetail, isCreate, contractList, clientList } = store
 
@@ -205,4 +205,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractMortgageCreateModal)

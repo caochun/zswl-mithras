@@ -6,7 +6,7 @@ import { Button, Input } from 'antd'
 const { Item } = Form
 const { TextArea } = Input
 
-function Index({ store }) {
+function ContractPledgeCreateModal({ store }) {
   const [form] = Form.useForm()
   const { isDetail, isCreate, clientList, contractList } = store
 
@@ -162,4 +162,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractPledgeCreateModal)

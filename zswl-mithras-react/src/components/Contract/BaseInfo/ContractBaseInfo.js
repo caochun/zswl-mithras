@@ -14,7 +14,7 @@ export {
   Factoring as FactoringBaseInfo,
 }
 
-const Index = (
+const ContractBaseInfo = (
   {
     contractId,
     detail,
@@ -85,4 +85,4 @@ const Index = (
   return <div>{CurrentDom()}</div>
 }
 
-export default observer(forwardRef(Index))
+export default observer(forwardRef(ContractBaseInfo))

@@ -8,7 +8,7 @@ import mathjs from '@/utils/math'
 
 const { Item } = Form
 
-function Index({ store, bizType }) {
+function ContractGuaranteeCreateModal({ store, bizType }) {
   const [form] = Form.useForm()
   const {
     isDetail,
@@ -311,4 +311,4 @@ function Index({ store, bizType }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractGuaranteeCreateModal)

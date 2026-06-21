@@ -8,7 +8,7 @@ import mathjs from '@/utils/math'
 import { bizTypeMap } from './bizTypeConfig'
 import styles from './index.less'
 
-function Index({ detail = {}, oldDetail = {}, store = {} }) {
+function ContractExtensionChangePlan({ detail = {}, oldDetail = {}, store = {} }) {
   const { bizType } = store.page.getParams()
   const { showVal: showValue } = store
   const { form } = store
@@ -149,4 +149,4 @@ function Index({ detail = {}, oldDetail = {}, store = {} }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractExtensionChangePlan)
