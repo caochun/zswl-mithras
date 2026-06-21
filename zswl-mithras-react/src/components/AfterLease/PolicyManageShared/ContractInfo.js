@@ -16,7 +16,7 @@ const nameColumns = [
   '项目协办',
 ]
 
-function Index({ id, dataSource }) {
+function ContractInfo({ id, dataSource }) {
   const [detail, setDetail] = useState({})
   const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
@@ -32,4 +32,4 @@ function Index({ id, dataSource }) {
   return <EditDescription detail={detail} canEdit={false} columns={columns} title="合同信息" />
 }
 
-export default observer(Index)
+export default observer(ContractInfo)

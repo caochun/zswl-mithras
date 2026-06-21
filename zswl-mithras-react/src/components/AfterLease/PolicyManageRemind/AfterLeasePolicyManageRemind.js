@@ -2,7 +2,7 @@ import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { DetailLayout } from '@/components/Layout'
 import PolicyInfo from './PolicyInfo'
-import ContractInfo from './ContractInfo'
+import ContractInfo from '../PolicyManageShared/ContractInfo'
 import { InsurancePolicy } from '@/components/InsurancePolicy/InsurancePolicyEntries'
 import Api from '@/api/afterLease/policyLedgerApi'
 
