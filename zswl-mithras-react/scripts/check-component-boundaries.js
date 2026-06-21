@@ -1657,6 +1657,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Risk/RiskStrategy/IndicatorManage/RiskStrategyIndicatorManage.js',
   ],
   [
+    'src/components/Risk/RiskStrategy/IndicatorManage/FormWaringSet/index.js',
+    'src/components/Risk/RiskStrategy/IndicatorManage/FormWarningSet/index.js',
+  ],
+  [
     'src/components/Risk/RiskStrategy/ConcentrationControl/index.js',
     'src/components/Risk/RiskStrategy/ConcentrationControl/RiskStrategyConcentrationControl.js',
   ],
@@ -2738,6 +2742,16 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'project allocation typo residue (use KpiProjectAllocation naming)',
+    })
+  }
+
+  if (
+    relativeFilePath.startsWith('src/components/Risk/RiskStrategy/IndicatorManage/') &&
+    /\bFormWaringSet\b/.test(source)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'warning form typo residue (use FormWarningSet naming)',
     })
   }
 

@@ -22,7 +22,7 @@ const items = [
 const columns = getDescColumns(ALL_COLUMNS, items)
 
 const descColumns = getDescColumns(ALL_COLUMNS, ['限额值设定'])
-const waringColumns = getDescColumns(ALL_COLUMNS, ['预警监测状态', '预警值'])
+const warningColumns = getDescColumns(ALL_COLUMNS, ['预警监测状态', '预警值'])
 
 const detailColumns = [
   {
@@ -99,7 +99,7 @@ function Index({ params, query }) {
         title={'预警值设定'}
         detail={detail}
         canEdit={!date}
-        columns={waringColumns}
+        columns={warningColumns}
         saveData={(data) => store.save(data, 'earlyWarningValue')}
         access="riskcontrolstrategymodify"
         style={{ marginTop: 12 }}

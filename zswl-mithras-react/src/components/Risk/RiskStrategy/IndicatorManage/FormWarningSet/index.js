@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Form, Input, InputNumber, Space } from 'antd'
+import { Form, Space } from 'antd'
 import { FormAmount } from '@/components/Form'
 import { ReadOnly } from '@/components/Form'
 

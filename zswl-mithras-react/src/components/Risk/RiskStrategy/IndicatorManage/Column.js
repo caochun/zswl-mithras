@@ -3,7 +3,7 @@ import math from '@/utils/math'
 import { App } from '@zswl/components'
 import { Radio, Tooltip } from 'antd'
 import _ from 'lodash'
-import FormWaringSet from './FormWaringSet'
+import FormWarningSet from './FormWarningSet'
 import moment from 'moment'
 
 const valueFormat = ({ value, unit }) => {
@@ -75,20 +75,20 @@ const ALL_COLUMNS = [
         {
           value: currentValueOne,
           symbol: comparisonMethodOne,
-          waringValue: limitValueOne,
+          warningValue: limitValueOne,
           unit: valueUnitOne,
         },
         {
           value: currentValueTwo,
           symbol: comparisonMethodTwo,
-          waringValue: limitValueTwo,
+          warningValue: limitValueTwo,
           unit: valueUnitTwo,
         },
       ]
         .filter((v) => _.isNumber(v.value))
-        .map(({ value, unit, waringValue, symbol }, i) => {
+        .map(({ value, unit, warningValue, symbol }, i) => {
           const title = valueFormat({ value, unit })
-          const isChange = !compareNumber(value, waringValue, symbol)
+          const isChange = !compareNumber(value, warningValue, symbol)
           return (
             <span key={title}>
               <span> {i !== 0 && '、'}</span>
@@ -133,7 +133,7 @@ const ALL_COLUMNS = [
       return <FiledFormat title={newValue} />
     },
     width: 160,
-    editable: ({ limitValue }) => <FormWaringSet name="limitValue" value={limitValue} />,
+    editable: ({ limitValue }) => <FormWarningSet name="limitValue" value={limitValue} />,
   },
   {
     title: '预警值',
@@ -151,7 +151,7 @@ const ALL_COLUMNS = [
     },
     width: 160,
     editable: ({ earlyWarningValue }) => (
-      <FormWaringSet name="earlyWarningValue" text="预警值" value={earlyWarningValue} />
+      <FormWarningSet name="earlyWarningValue" text="预警值" value={earlyWarningValue} />
     ),
   },
   {
