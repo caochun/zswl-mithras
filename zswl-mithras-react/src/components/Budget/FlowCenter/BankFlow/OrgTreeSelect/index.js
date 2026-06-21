@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 function filterTreeNode(value, node) {
   return node.name.toLowerCase().includes(value.toLowerCase())
 }
-function Index(props) {
+function BudgetFlowCenterBankFlowOrgTreeSelect(props) {
   const [options, setOptions] = useState([])
   useEffect(() => {
     Api.getOrgTree().then((res) => {
@@ -26,4 +26,4 @@ function Index(props) {
   )
 }
 
-export default Index
+export default BudgetFlowCenterBankFlowOrgTreeSelect

@@ -12,7 +12,7 @@ import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcess
 const { Item } = Form
 const { Option } = Select
 
-function Index({ store }) {
+function BudgetFlowCenterBankFlowConfirmIncomeModal({ store }) {
   const [contractList, setContractList] = useState([])
   const [receiptCodeList, setReceiptCodeList] = useState([])
 
@@ -115,4 +115,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowConfirmIncomeModal)

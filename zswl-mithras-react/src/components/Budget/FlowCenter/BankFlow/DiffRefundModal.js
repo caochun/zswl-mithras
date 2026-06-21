@@ -3,7 +3,7 @@ import { Button, Form, Modal, Select } from '@zswl/components'
 import { FormAmount } from '@/components/Form'
 
 const { Item } = Form
-function Index({ store }) {
+function BudgetFlowCenterBankFlowDiffRefundModal({ store }) {
   return (
     <Modal
       title={`软差退款`}
@@ -24,4 +24,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowDiffRefundModal)

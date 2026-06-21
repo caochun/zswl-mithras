@@ -16,7 +16,7 @@ const ISDONE_OPTIONS = [
   { value: 0, label: '推送失败' },
 ]
 export { JSONRender }
-function Index({ path }) {
+function BudgetFlowCenterInterfaceManagement({ path }) {
   const columns = [
     MatchOptionColumn({
       title: '苍穹单据类型',
@@ -109,4 +109,4 @@ function Index({ path }) {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterInterfaceManagement)

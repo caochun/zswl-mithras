@@ -6,7 +6,7 @@ import BaoRon from './BaoRon'
 import guaranteedFinancialFlow from '@/api/budget/flowCenter/guaranteedFinancialFlow'
 import styles from './index.less'
 
-const Index = () => {
+const BudgetFlowCenterBankFlow = () => {
   const [type, setType] = useState('PROCESSING_CENTER_WRITE')
   const [count, setCount] = useState(0)
   const getCount = async () => {
@@ -49,4 +49,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlow)

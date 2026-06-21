@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import { FormAmount } from '@/components/Form'
 import { saveServer } from '@/utils'
 
-const Index = ({ getCount }) => {
+const BudgetFlowCenterBankFlowBaoRon = ({ getCount }) => {
   const store = useMemo(() => new Store({ getCount }), [])
   const { rows, keys } = store.table.getSelected()
   const columns = [
@@ -80,4 +80,4 @@ const Index = ({ getCount }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetFlowCenterBankFlowBaoRon)
