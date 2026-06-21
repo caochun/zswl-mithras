@@ -3,7 +3,7 @@ import { Form, Modal, Select } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { DatePicker, Input, InputNumber, Row, Col } from 'antd'
 import { rules } from '@/utils'
-import { disabledDate } from './util'
+import { disabledQuarterEndMonth } from '../../MetricValueShared/dateUtils'
 
 const { Item } = Form
 
@@ -32,7 +32,7 @@ const Index = ({ store }) => {
     >
       <Form labelAlign="right" layout={'horizontal'} labelCol={{ span: 7 }} preserve={false}>
         <Item name="dataMonth" label="数据时点" rules={[rules.required()]}>
-          <DatePicker picker={'month'} disabledDate={disabledDate} />
+          <DatePicker picker={'month'} disabledDate={disabledQuarterEndMonth} />
         </Item>
         <Item name="bizType" label="业务类型" rules={[rules.required()]}>
           <Select options="jzdReportBizType" onChange={onBizTypeChange} />

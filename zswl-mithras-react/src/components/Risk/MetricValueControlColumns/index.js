@@ -3,7 +3,7 @@ import { Input, DatePicker } from 'antd'
 import { hasValue } from '@/utils'
 import { Select } from '@zswl/components'
 import moment from 'moment'
-import { disabledDate } from './util'
+import { disabledQuarterEndMonth } from '../MetricValueShared/dateUtils'
 
 const ALL_COLUMNS = [
   {
@@ -11,7 +11,9 @@ const ALL_COLUMNS = [
     dataIndex: 'dataMonth',
     editable: (record) => {
       return {
-        element: <DatePicker picker={'month'} allowClear={false} disabledDate={disabledDate} />,
+        element: (
+          <DatePicker picker={'month'} allowClear={false} disabledDate={disabledQuarterEndMonth} />
+        ),
       }
     },
     itemProps: {
