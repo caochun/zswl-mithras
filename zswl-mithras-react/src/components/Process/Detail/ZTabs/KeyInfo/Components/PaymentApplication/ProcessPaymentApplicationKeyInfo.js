@@ -4,7 +4,7 @@ import { AmountColumn, AmountFormatter, InputColumn } from '@/components/Format'
 import { EditDescription } from '@/components/Table'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import Api from '@/api/process/detail/keyInfoSnapshotApi'
-import { bizRender } from '../ContractApplication'
+import { bizRender } from '../ContractApplication/ProcessContractApplicationKeyInfo'
 
 const columns = [
   { title: '客户名称', dataIndex: 'clientName' },

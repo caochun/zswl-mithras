@@ -6,7 +6,7 @@ import { compareDetail } from '@/utils'
 import { ProjectFormListItem as FormListItem } from '@/components/Project/FormListItemEntries'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import Api from '@/api/process/detail/keyInfoSnapshotApi'
-import { bizRender } from '../ContractApplication'
+import { bizRender } from '../ContractApplication/ProcessContractApplicationKeyInfo'
 
 const detailMap = {
   ZL: 'leasePriceDetailRSP',

@@ -2,18 +2,18 @@ import { useMemo } from 'react'
 import { observer, ErrorBoundary } from '@zswl/admin'
 import { Collapse } from '@/components/Layout'
 import { Tag } from 'antd'
-import ContractApplication from './Components/ContractApplication'
+import ContractApplication from './Components/ContractApplication/ProcessContractApplicationKeyInfo'
 import ImportantResolutions from './ImportantResolutions'
-import PaymentApplication from './Components/PaymentApplication'
-import ProjectReview from './Components/ProjectReview'
-import ProjectPricing from './Components/ProjectPricing'
+import PaymentApplication from './Components/PaymentApplication/ProcessPaymentApplicationKeyInfo'
+import ProjectReview from './Components/ProjectReview/ProcessProjectReviewKeyInfo'
+import ProjectPricing from './Components/ProjectPricing/ProcessProjectPricingKeyInfo'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import ChangeReason from './ChangeReason'
 import styles from './index.less'
 import ApprovalHistory from '../../../ApprovalHistory/ProcessApprovalHistory'
 import BlankBlock from '../../../BlankBlock/ProcessBlankBlock'
 
-import CustomerRat from './Components/CustomerRat'
+import CustomerRat from './Components/CustomerRat/ProcessCustomerRatingSummary'
 
 // 已经开发了“关键信息”的流程且有“重要文件”模块的流程 modelKey
 const flowModelKey = {
