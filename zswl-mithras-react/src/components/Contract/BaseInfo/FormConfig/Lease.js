@@ -4,7 +4,7 @@ import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useRef } from 'react'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit, isDetail }) {
+function ContractBaseInfoLeaseConfig({ detail, saveData, isLog, canEdit = true, initEdit, isDetail }) {
   const nameColumns = [
     '合同编号',
     isDetail ? '客户名称' : '剩余可用额度(元)',
@@ -41,4 +41,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, isDetail }) 
   )
 }
 
-export default observer(Index)
+export default observer(ContractBaseInfoLeaseConfig)

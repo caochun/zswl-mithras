@@ -10,7 +10,7 @@ import styles from './index.less'
 
 const { Item } = Form
 
-function Index({ detail, isLog }) {
+function ContractApplicationLogActualRentDiff({ detail, isLog }) {
   const bizType = getQuery('bizType')
 
   const columnsRender = (val, format = (v) => (hasValue(v) ? v : '-')) => {
@@ -151,4 +151,4 @@ function Index({ detail, isLog }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractApplicationLogActualRentDiff)

@@ -5,7 +5,7 @@ import { Input } from 'antd'
 
 const { Item } = Form
 
-function Index({ store }) {
+function ContractRepaymentAccountCreateModal({ store }) {
   const [form] = Form.useForm()
   const { isCreate } = store
 
@@ -49,4 +49,4 @@ function Index({ store }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractRepaymentAccountCreateModal)
