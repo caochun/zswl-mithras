@@ -9,7 +9,7 @@ import styles from './index.less'
 import { formateCard } from '@/utils'
 import { saveServer } from '@/utils'
 
-const Index = ({ canEditFlag, baseStore }) => {
+const ContractRepaymentAccount = ({ canEditFlag, baseStore }) => {
   const { bizType } = baseStore
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()
   const store = useMemo(() => {
@@ -109,4 +109,4 @@ const Index = ({ canEditFlag, baseStore }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractRepaymentAccount)

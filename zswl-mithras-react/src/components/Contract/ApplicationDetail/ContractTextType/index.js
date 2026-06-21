@@ -9,7 +9,7 @@ import { hasPermission } from '@/utils'
 
 // 项目经理节点(发起人)和【运营管理（经办）】审批节点可编辑
 
-function Index({ id, taskActivityId, canEditFlag }) {
+function ContractTextType({ id, taskActivityId, canEditFlag }) {
   const { contractTextStandard, contractTextNonstandard } = App.getData().optionsType
 
   const canEdit = taskActivityId
@@ -124,4 +124,4 @@ function Index({ id, taskActivityId, canEditFlag }) {
   )
 }
 
-export default observer(Index)
+export default observer(ContractTextType)

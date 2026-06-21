@@ -15,7 +15,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = Form
 
-function Index({ canEditFlag = true, formChangeOther, contractStatus, baseStore }) {
+function ContractEstimatedRentItems({ canEditFlag = true, formChangeOther, contractStatus, baseStore }) {
   const { bizType, baoJiaShowValue } = baseStore
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()
   const store = useMemo(() => {
@@ -186,4 +186,4 @@ function Index({ canEditFlag = true, formChangeOther, contractStatus, baseStore 
   )
 }
 
-export default observer(Index)
+export default observer(ContractEstimatedRentItems)

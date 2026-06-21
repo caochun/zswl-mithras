@@ -10,7 +10,7 @@ import { getKeyOptionsLabelMapPlus } from '@/utils'
 
 import { saveServer } from '@/utils'
 
-const Index = ({ canEditFlag, baseStore }) => {
+const ContractReceiptAccount = ({ canEditFlag, baseStore }) => {
   const { bizType, leaseTypes } = baseStore
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()
   const baseData = baseStore.page.getData()
@@ -115,4 +115,4 @@ const Index = ({ canEditFlag, baseStore }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ContractReceiptAccount)

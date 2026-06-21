@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import WarnTip from '../WarnTip'
 import { Context } from '../../Context'
 
-function Index({
+function ContractLeaseQuoteForm({
   detail,
   saveData,
   isLog,
@@ -131,4 +131,4 @@ function Index({
   )
 }
 
-export default observer(Index)
+export default observer(ContractLeaseQuoteForm)

@@ -16,7 +16,7 @@ const YEARRETE = {
   lprAddPercent: { name: 'lprAddPercent', disabled: false },
 }
 
-const Index = ({ data, config = YEARRETE, needUpdate = true }) => {
+const ContractYearRate = ({ data, config = YEARRETE, needUpdate = true }) => {
   const rateType = config.rateType
   const lprType = config.lprType
   const lprPercent = config.lprPercent
@@ -141,7 +141,7 @@ const Index = ({ data, config = YEARRETE, needUpdate = true }) => {
   )
 }
 
-Index.Detail = ({ data, config = YEARRETE, isLog }) => {
+ContractYearRate.Detail = ({ data, config = YEARRETE, isLog }) => {
   const getChangeStyle = (dataIndex) => {
     if (isLog && Object.keys(isLog).includes(dataIndex)) {
       return { color: 'red' }
@@ -182,4 +182,4 @@ Index.Detail = ({ data, config = YEARRETE, isLog }) => {
   )
 }
 
-export default Index
+export default ContractYearRate

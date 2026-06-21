@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import WarnTip from '../WarnTip'
 import { Context } from '../../Context'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit, store, remainAvailableQuota }) {
+function ContractAssignmentOfClaimsQuoteForm({ detail, saveData, isLog, canEdit = true, initEdit, store, remainAvailableQuota }) {
   const nameColumns = useMemo(() => {
     return [
       {
@@ -93,4 +93,4 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, store, remai
   )
 }
 
-export default observer(Index)
+export default observer(ContractAssignmentOfClaimsQuoteForm)
