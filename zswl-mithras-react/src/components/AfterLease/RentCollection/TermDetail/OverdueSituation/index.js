@@ -98,7 +98,7 @@ const OverdueCollection = ({ store }) => {
         }}
         labelStyle={{ background: '#F5F6FA' }}
         size={'small'}
-        className={styles.desSmell}
+        className={styles.summaryDescription}
       >
         {descriptionsColumns.map((item, index) => {
           return (
