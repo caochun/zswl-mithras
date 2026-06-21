@@ -2,7 +2,7 @@ import styles from './index.less'
 import { observer } from '@zswl/admin'
 import { hasValue } from '@/utils'
 
-const Index = ({ data, style, store }) => {
+const TodoStatisticsCardItem = ({ data, style, store }) => {
   return (
     <div className={styles.wrap} style={{ ...style }}>
       <div className={styles.title}>{data.modelName}</div>
@@ -28,4 +28,4 @@ const Index = ({ data, style, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(TodoStatisticsCardItem)

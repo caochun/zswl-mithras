@@ -1,22 +1,22 @@
-import ToDoStatistics from './ToDoStatistics/WorkbenchTodoStatistics'
-import ContractAging from './ContractAging/WorkbenchContractAging'
-import LaunchComplete from '../../OperationView/LaunchComplete/DashboardOperationLaunchComplete'
-import CapacityAnalysis from '../../OperationView/CapacityAnalysis/DashboardOperationCapacityAnalysis'
-import ConversionRates from '../../OperationView/ConversionRates/DashboardOperationConversionRates'
-import AgingStatistics from '../../OperationView/AgingStatistics/DashboardOperationAgingStatistics'
+import WorkbenchTodoStatistics from './ToDoStatistics/WorkbenchTodoStatistics'
+import WorkbenchContractAging from './ContractAging/WorkbenchContractAging'
+import DashboardOperationLaunchComplete from '../../OperationView/LaunchComplete/DashboardOperationLaunchComplete'
+import DashboardOperationCapacityAnalysis from '../../OperationView/CapacityAnalysis/DashboardOperationCapacityAnalysis'
+import DashboardOperationConversionRates from '../../OperationView/ConversionRates/DashboardOperationConversionRates'
+import DashboardOperationAgingStatistics from '../../OperationView/AgingStatistics/DashboardOperationAgingStatistics'
 import Title from '../../Title'
 import styles from './index.less'
 
 const compList = [
-  <ToDoStatistics />, // 待办统计
-  <ContractAging />, // 合同审批时效及退回情况
-  <LaunchComplete />, // 投放完成情况
-  <CapacityAnalysis />, // 产能分析
-  <ConversionRates />, // 转化率情况
-  <AgingStatistics />, // 时效统计
+  <WorkbenchTodoStatistics />, // 待办统计
+  <WorkbenchContractAging />, // 合同审批时效及退回情况
+  <DashboardOperationLaunchComplete />, // 投放完成情况
+  <DashboardOperationCapacityAnalysis />, // 产能分析
+  <DashboardOperationConversionRates />, // 转化率情况
+  <DashboardOperationAgingStatistics />, // 时效统计
 ]
 
-const Index = ({ title, iconType }) => {
+const WorkbenchOperationView = ({ title, iconType }) => {
   return (
     <>
       <Title title={title} iconType={iconType}></Title>
@@ -33,4 +33,4 @@ const Index = ({ title, iconType }) => {
   )
 }
 
-export default Index
+export default WorkbenchOperationView

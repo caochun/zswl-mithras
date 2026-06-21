@@ -3,11 +3,11 @@ import { observer } from '@zswl/admin'
 import { chunk } from 'lodash'
 import { Carousel } from 'antd'
 import cls from 'classnames'
-import CardItem from '../CardItem/TodoStatisticsCardItem'
+import TodoStatisticsCardItem from '../CardItem/TodoStatisticsCardItem'
 import IconFont from '@/components/Icon'
 import styles from './index.less'
 
-const Index = ({ list = [], cardItemStyle = {}, store }) => {
+const TodoStatisticsCarousel = ({ list = [], cardItemStyle = {}, store }) => {
   const carouselRef = useRef(null)
   const [currentSlide, setCurrentSlide] = useState(1)
   const chunks = chunk(list, 3)
@@ -37,7 +37,11 @@ const Index = ({ list = [], cardItemStyle = {}, store }) => {
               {chunksItem.map((item, index) => {
                 return (
                   <div key={index}>
-                    <CardItem data={item} style={cardItemStyle} store={store}></CardItem>
+                    <TodoStatisticsCardItem
+                      data={item}
+                      style={cardItemStyle}
+                      store={store}
+                    ></TodoStatisticsCardItem>
                   </div>
                 )
               })}
@@ -67,4 +71,4 @@ const Index = ({ list = [], cardItemStyle = {}, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(TodoStatisticsCarousel)
