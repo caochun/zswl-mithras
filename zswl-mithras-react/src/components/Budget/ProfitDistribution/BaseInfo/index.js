@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import ALL_COLUMNS from '../Column'
 import { getDescColumns } from '@/utils'
 
-const Index = ({ canEdit = false, editRef, store }) => {
+const BudgetProfitDistributionBaseInfo = ({ canEdit = false, editRef, store }) => {
   const nameColumns = [
     '合同编号',
     '剩余可用额度(元)',
@@ -39,4 +39,4 @@ const Index = ({ canEdit = false, editRef, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetProfitDistributionBaseInfo)

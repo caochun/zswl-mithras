@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import ALL_COLUMNS from '../Column'
 import { getDescColumns } from '@/utils'
 
-const Index = ({
+const BudgetProfitDistributionAllocateInfo = ({
   projectDistributionId,
   source,
   editRef,
@@ -42,4 +42,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(BudgetProfitDistributionAllocateInfo)

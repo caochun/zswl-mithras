@@ -4,7 +4,7 @@ import { Page } from '@zswl/components'
 import Store from './store'
 import BaseInfo from './BaseInfo'
 import AllocateInfo from './AllocateInfo'
-const Index = ({ params }) => {
+const BudgetProfitDistribution = ({ params }) => {
   const { id, detail, taskActivityId } = params
   const prepare = getQuery('tab') == 'prepare'
   const revocation = getQuery('tab') == 'revocation'
@@ -38,4 +38,4 @@ const Index = ({ params }) => {
   )
 }
 
-export default observer(Index)
+export default observer(BudgetProfitDistribution)

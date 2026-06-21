@@ -12,7 +12,7 @@ import { AllocateTypeInfo, TagColor } from '../Context'
 
 const { Item } = Form
 
-function Index(props) {
+function BudgetProfitDistributionProjectAllocateList(props) {
   const isFormApproval = getQuery('typeId') == 'approval'
 
   // source: unDeal 未分配| deal 已分配 | adjust 调整
@@ -236,10 +236,10 @@ const Content = ({ data, listName }) => {
     </Space>
   )
 }
-Index.Detail = ({ value, listName }) => {
+BudgetProfitDistributionProjectAllocateList.Detail = ({ value, listName }) => {
   if (!value || value?.length === 0) {
     return '-'
   }
   return <div className={styles.detail}>{<Content listName={listName} data={value}></Content>}</div>
 }
-export default observer(Index)
+export default observer(BudgetProfitDistributionProjectAllocateList)
