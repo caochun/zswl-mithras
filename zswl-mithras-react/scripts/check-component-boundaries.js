@@ -39,8 +39,8 @@ const importPattern =
 const styleImportPattern = /@import\s+(?:\([^)]*\)\s*)?['"]~?([^'"]+)['"]/g
 const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
-const componentForwardingShellPattern =
-  /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/components\/[^'"]+['"]\s*;?\s*$/
+const componentDefaultForwardingShellPattern =
+  /^export\s+\{\s*default\s*\}\s+from\s+['"][^'"]+['"]\s*;?\s*$/
 const pageRouteShellPattern =
   /^export\s+\{[\s\S]*\}\s+from\s+['"]@\/components\/[^/'"]+\/[^/'"]*(?:Entries|entries)(?:\.js)?['"]\s*;?\s*$/
 const uiLocalApiFilePattern =
@@ -3044,7 +3044,7 @@ for (const filePath of sourceFiles) {
   if (
     /^src[\\/]components[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
     !/(?:Entries|entries)\.js$/.test(relativeFilePath) &&
-    componentForwardingShellPattern.test(source.trim())
+    componentDefaultForwardingShellPattern.test(source.trim())
   ) {
     violations.push({
       file: relativeFilePath,
