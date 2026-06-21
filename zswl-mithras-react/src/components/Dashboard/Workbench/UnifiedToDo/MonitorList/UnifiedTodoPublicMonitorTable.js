@@ -5,7 +5,7 @@ import { RiskPublicMonitorColumns as ALL_COLUMNS } from '@/components/Risk/Publi
 import Api from '@/api/dashboard/unifiedTodo'
 import { saveServer } from '@/utils'
 
-const Index = () => {
+const UnifiedTodoPublicMonitorTable = () => {
   const $monitorTable = Table.useStore({
     pagination: {
       pageSize: 5,
@@ -59,4 +59,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoPublicMonitorTable)

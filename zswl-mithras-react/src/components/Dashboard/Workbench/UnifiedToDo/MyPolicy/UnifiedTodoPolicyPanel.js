@@ -2,12 +2,12 @@ import { Tabs } from 'antd'
 import { observer } from '@zswl/admin'
 import { Button } from '@zswl/components'
 import { useEffect, useMemo, useState } from 'react'
-import Overdue from './Overdue'
+import UnifiedTodoPolicyTable from './Overdue/UnifiedTodoPolicyTable'
 import Store from './Store'
 import styles from './index.less'
 import CreateDraw from './CreateDraw'
 
-const Index = () => {
+const UnifiedTodoPolicyPanel = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -17,12 +17,12 @@ const Index = () => {
     {
       label: `即将到期保单`,
       key: 'NOT_OVERDUE',
-      children: <Overdue store={store} />,
+      children: <UnifiedTodoPolicyTable store={store} />,
     },
     {
       label: `逾期保单`,
       key: 'OVERDUE',
-      children: <Overdue store={store} />,
+      children: <UnifiedTodoPolicyTable store={store} />,
     },
   ]
 
@@ -51,4 +51,4 @@ const Index = () => {
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoPolicyPanel)

@@ -1,7 +1,7 @@
 import { Access, Button, Page } from '@zswl/components'
 import { history, observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
-import UnifiedToDo from './UnifiedToDo'
+import WorkbenchUnifiedTodoPanel from './UnifiedToDo/WorkbenchUnifiedTodoPanel'
 import ProjectView from './ProjectView/WorkbenchProjectView'
 import WorkbenchProjectOperationsView from './ProjectView2/WorkbenchProjectOperationsView'
 import CustomerView from './CustomerView/WorkbenchCustomerView'
@@ -96,7 +96,7 @@ const DashboardWorkbench = () => {
   const allAnchorList = [
     {
       label: '统一待办',
-      component: <UnifiedToDo />,
+      component: <WorkbenchUnifiedTodoPanel />,
       key: 'UnifiedToDo',
       iconType: 'icon-tongyidaiban',
     },

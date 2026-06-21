@@ -6,9 +6,9 @@ import ApprovalFormMe from './ApprovalFormMe'
 import ApprovalInTransaction from './ApprovalInTransaction'
 import ApprovalOutTransaction from './ApprovalOutTransaction'
 import ApprovalDuplicate from './ApprovalDuplicate'
-import News from './News'
-import MonitorList from './MonitorList'
-import MyPolicy from './MyPolicy'
+import UnifiedTodoMessagePanel from './News/UnifiedTodoMessagePanel'
+import UnifiedTodoPublicMonitorTable from './MonitorList/UnifiedTodoPublicMonitorTable'
+import UnifiedTodoPolicyPanel from './MyPolicy/UnifiedTodoPolicyPanel'
 import styles from './index.less'
 import { useEffect, useMemo } from 'react'
 import { isRiskManager, isAssetJon, isOperationDept, hasValue, hasPermission } from '@/utils'
@@ -18,7 +18,7 @@ const CountRender = ({ count, label }) => {
   return hasValue(count) ? `${label}(${count})` : `${label}`
 }
 
-const Index = ({ title, iconType }) => {
+const WorkbenchUnifiedTodoPanel = ({ title, iconType }) => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -54,19 +54,19 @@ const Index = ({ title, iconType }) => {
     {
       label: <CountRender label={'消息'} count={countObj.msgCount} />,
       key: '6',
-      children: <News store={store} />,
+      children: <UnifiedTodoMessagePanel store={store} />,
     },
     // 仅风控经理/资产管理岗位展示该模块
     hasPermission('riskcontrolopinionmonitorunresolved-dashboard') && {
       label: <CountRender label={'待处理舆情'} count={publicMonitorCount} />,
       key: '7',
-      children: <MonitorList />,
+      children: <UnifiedTodoPublicMonitorTable />,
     },
     // 运营部能查看
     isOperationDept() && {
       label: `待维护保单`,
       key: '8',
-      children: <MyPolicy />,
+      children: <UnifiedTodoPolicyPanel />,
     },
   ]
 
@@ -84,4 +84,4 @@ const Index = ({ title, iconType }) => {
   )
 }
 
-export default observer(Index)
+export default observer(WorkbenchUnifiedTodoPanel)

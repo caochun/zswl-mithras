@@ -57,7 +57,7 @@ const MsgList = ({ data, init }) => {
   )
 }
 
-const Index = ({ store }) => {
+const UnifiedTodoMessagePanel = ({ store }) => {
   const [activeKey, setActiveKey] = useState(2)
   const [msgCount, setMsgCount] = useState([])
   const [msgData, setMsgData] = useState([])
@@ -141,4 +141,4 @@ const Index = ({ store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoMessagePanel)

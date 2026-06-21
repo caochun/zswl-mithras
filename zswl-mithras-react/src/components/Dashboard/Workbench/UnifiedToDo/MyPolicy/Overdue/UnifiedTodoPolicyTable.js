@@ -9,7 +9,7 @@ import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
 
-const Index = ({ store }) => {
+const UnifiedTodoPolicyTable = ({ store }) => {
   const columns = getTableColumns(ALL_COLUMNS, [
     '合同编号',
     '剩余未还本金(元）',
@@ -85,9 +85,8 @@ const Index = ({ store }) => {
       editable={false}
       columnsFilter={'工作台_统一视图_待维护保单'}
       onFilter={(key, val) => saveServer('工作台_统一视图_待维护保单', val)}
-
     ></Table>
   )
 }
 
-export default observer(Index)
+export default observer(UnifiedTodoPolicyTable)
