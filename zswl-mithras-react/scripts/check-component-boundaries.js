@@ -3386,6 +3386,24 @@ const documentedComponentEntries = [...readme.matchAll(/^- `([^`]+(?:Entries|ent
   .map((match) => match[1])
   .sort()
 const documentedComponentEntrySet = new Set(documentedComponentEntries)
+const duplicateDocumentedComponentEntries = new Set()
+
+for (const entryPath of documentedComponentEntries) {
+  if (duplicateDocumentedComponentEntries.has(entryPath)) {
+    violations.push({
+      file: 'README.md',
+      specifier: `duplicate documented component entry ${entryPath}`,
+    })
+    continue
+  }
+
+  if (
+    documentedComponentEntries.indexOf(entryPath) !==
+    documentedComponentEntries.lastIndexOf(entryPath)
+  ) {
+    duplicateDocumentedComponentEntries.add(entryPath)
+  }
+}
 
 for (const filePath of componentEntryFiles) {
   const entryPath = normalizeEntryPath(filePath)

@@ -232,7 +232,6 @@
 - `EvaluationAgency/AppraisalAgencyEntries.js`
 - `ExternalEmbed/DashBulletinBoardEntries.js`
 - `ExternalEmbed/JfBulletinBoardEntries.js`
-- `ExternalEmbed/RzyEntries.js`
 - `FilingMaterials/AfterApplyEntries.js`
 - `FilingMaterials/ApplyEntries.js`
 - `FilingMaterials/FundApplyEntries.js`
