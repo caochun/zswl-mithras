@@ -12,7 +12,7 @@ import styles from './index.less'
 import Store from './store'
 import { saveServer } from '@/utils'
 
-const Index = ({
+const InsurancePolicy = ({
   canEditFlag = true,
   paramsAsPolicy = {},
   businessVersion,
@@ -189,4 +189,4 @@ const Index = ({
   )
 }
 
-export default observer(Index)
+export default observer(InsurancePolicy)

@@ -9,7 +9,7 @@ const layout = {
   labelCol: { span: 7 },
   wrapperCol: { span: 17 },
 }
-const Index = ({ store }) => {
+const InsurancePolicyModal = ({ store }) => {
   const [form] = Form.useForm()
   const { isPolicyPage, paramsAsPolicy } = store
   const isRequired = !isPolicyPage || paramsAsPolicy.type === 'policyRemind'
@@ -140,4 +140,4 @@ const Index = ({ store }) => {
     </Modal>
   )
 }
-export default observer(Index)
+export default observer(InsurancePolicyModal)
