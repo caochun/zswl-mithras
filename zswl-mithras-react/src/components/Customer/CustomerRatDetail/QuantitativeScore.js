@@ -40,7 +40,7 @@ const FiledEditable = (record, id, isZX) => {
     inputConfig: { addonAfter },
   }
 }
-const Index = ({ auth, id, store, isZX, paramInfo }) => {
+const CustomerRatDetailQuantitativeScore = ({ auth, id, store, isZX, paramInfo }) => {
   const { info = {}, ratingParam } = paramInfo ?? {}
   const tableRef = useRef(null)
   const { hasApprovalOption, setHasApprovalOption } = store
@@ -185,4 +185,4 @@ const Index = ({ auth, id, store, isZX, paramInfo }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailQuantitativeScore)

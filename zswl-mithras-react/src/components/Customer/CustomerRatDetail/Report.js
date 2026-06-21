@@ -32,7 +32,7 @@ const RatResult = observer(({ ratingScoreRSP }) => {
     </div>
   )
 })
-const Index = ({ store, canApproval, isZX, auth, model }) => {
+const CustomerRatDetailReport = ({ store, canApproval, isZX, auth, model }) => {
   const { customerDetail, baseInfoDetail } = store.page.getData() ?? {}
   const { id: mainId } = store.page.getParams()
   const { reportData, renderCount } = store
@@ -117,4 +117,4 @@ const Index = ({ store, canApproval, isZX, auth, model }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailReport)

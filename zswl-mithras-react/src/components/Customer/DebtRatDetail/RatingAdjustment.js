@@ -3,7 +3,7 @@ import { Button } from '@zswl/components'
 import { Space } from 'antd'
 import styles from './styles.less'
 
-const Index = ({ store, auth }) => {
+const CustomerDebtRatDetailRatingAdjustment = ({ store, auth }) => {
   const { executeData } = store
 
   return (
@@ -29,4 +29,4 @@ const Index = ({ store, auth }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRatDetailRatingAdjustment)

@@ -5,7 +5,7 @@ import { App, Form } from '@zswl/components'
 const { approvalStatus } = options
 import styles from './styles.less'
 
-const Index = ({ list = [], store, canApproval }) => {
+const CustomerRatDetailAdjustmentReport = ({ list = [], store, canApproval }) => {
   const isApproval = getQuery('typeId') == 'approval'
   const disabled = !(isApproval && canApproval)
   const fieldName = list?.[0]?.fieldName
@@ -62,4 +62,4 @@ const Index = ({ list = [], store, canApproval }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailAdjustmentReport)

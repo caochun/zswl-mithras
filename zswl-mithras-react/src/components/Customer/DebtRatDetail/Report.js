@@ -58,7 +58,7 @@ const RatResult = ({ quota = {} }) => {
     </div>
   )
 }
-const Index = ({ store, baseInfoDetail }) => {
+const CustomerDebtRatDetailReport = ({ store, baseInfoDetail }) => {
   const { customerDetail } = store.page.getData() ?? {}
   const isApproval = getQuery('typeId') == 'approval'
   const canApprovalStatus = ['UNDER_APPROVAL'].includes(baseInfoDetail?.processStatus)
@@ -100,4 +100,4 @@ const Index = ({ store, baseInfoDetail }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRatDetailReport)

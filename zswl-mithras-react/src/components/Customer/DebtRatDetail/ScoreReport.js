@@ -11,7 +11,7 @@ const { approvalStatus } = options
 
 const { Panel } = Collapse
 
-const Index = ({ info, isFormApproval, title, auth }) => {
+const CustomerDebtRatDetailScoreReport = ({ info, isFormApproval, title, auth }) => {
   const columns = [
     { title: `${title}名称`, dataIndex: 'fieldComment' },
     {
@@ -73,4 +73,4 @@ const Index = ({ info, isFormApproval, title, auth }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRatDetailScoreReport)

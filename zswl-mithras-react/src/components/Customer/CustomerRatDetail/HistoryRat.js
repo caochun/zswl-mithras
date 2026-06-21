@@ -12,7 +12,7 @@ const historyColumns = getDescColumns(ALL_COLUMNS, [
   '历史评级模型编号',
   '历史评级发起人',
 ])
-function Index({ detail }) {
+function CustomerRatDetailHistoryRat({ detail }) {
   return (
     <>
       <EditDescription
@@ -25,4 +25,4 @@ function Index({ detail }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailHistoryRat)

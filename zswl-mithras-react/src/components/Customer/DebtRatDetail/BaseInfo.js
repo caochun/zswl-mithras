@@ -18,8 +18,8 @@ const nameColumns = [
 
 const columns = getDescColumns(ALL_COLUMNS, nameColumns)
 
-function Index({ detail, isLog, canEdit = true, initEdit }) {
+function CustomerDebtRatDetailBaseInfo({ detail, isLog, canEdit = true, initEdit }) {
   return <EditDescription detail={detail} canEdit={false} columns={columns} />
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRatDetailBaseInfo)

@@ -11,7 +11,7 @@ const historyColumns = getDescColumns(ALL_COLUMNS, [
   '历史评级失效日期',
   '历史评级发起人',
 ])
-function Index({ detail, isLog, canEdit = true, initEdit }) {
+function CustomerDebtRatDetailHistoryRat({ detail, isLog, canEdit = true, initEdit }) {
   return (
     <>
       <EditDescription
@@ -24,4 +24,4 @@ function Index({ detail, isLog, canEdit = true, initEdit }) {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRatDetailHistoryRat)

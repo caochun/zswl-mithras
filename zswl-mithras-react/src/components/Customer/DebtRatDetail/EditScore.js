@@ -6,7 +6,7 @@ import { Form } from '@zswl/components'
 
 const { Panel } = Collapse
 
-const Index = ({ paramInfo, auth, title, handleAdjust }) => {
+const CustomerDebtRatDetailEditScore = ({ paramInfo, auth, title, handleAdjust }) => {
   const { info = {} } = paramInfo ?? {}
   const [infoList, setInfoList] = useState([])
   const [isNeedAdjust, setIsNeedAdjust] = useState({})
@@ -83,4 +83,4 @@ const Index = ({ paramInfo, auth, title, handleAdjust }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerDebtRatDetailEditScore)

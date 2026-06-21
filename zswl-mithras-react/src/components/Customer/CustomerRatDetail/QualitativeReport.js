@@ -10,7 +10,7 @@ import { saveServer } from '@/utils'
 
 const { approvalStatus } = options
 
-const Index = ({ list = [], canApproval, ratingScoreRSP = {}, store, isZX, hymx }) => {
+const CustomerRatDetailQualitativeReport = ({ list = [], canApproval, ratingScoreRSP = {}, store, isZX, hymx }) => {
   const isApproval = getQuery('typeId') == 'approval'
   const reportTable = useMemo(() => new TableStore({ request: () => list }), [list])
   const hasApprovalOption = list.some((item) => item?.approvalStatus)
@@ -141,4 +141,4 @@ const Index = ({ list = [], canApproval, ratingScoreRSP = {}, store, isZX, hymx 
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailQualitativeReport)

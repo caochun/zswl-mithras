@@ -25,9 +25,9 @@ const nameColumns2 = [
   '所属部门',
 ]
 
-function Index({ detail, isLog, canEdit = true, initEdit }) {
+function CustomerRatDetailBaseInfo({ detail, isLog, canEdit = true, initEdit }) {
   const columns = getDescColumns(ALL_COLUMNS, detail.hymxFlag ? nameColumns2 : nameColumns)
   return <EditDescription detail={detail} canEdit={false} columns={columns} />
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailBaseInfo)

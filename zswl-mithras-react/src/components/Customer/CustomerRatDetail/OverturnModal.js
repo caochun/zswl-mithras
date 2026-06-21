@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { Button, Form, Input, Modal, ModalStore, Select } from '@zswl/components'
 import { useMemo } from 'react'
 import uploadFile from '../RatingUpload/uploadFile'
-const Index = ({ uploadParams, afterSubmit }) => {
+const CustomerRatDetailOverturnModal = ({ uploadParams, afterSubmit }) => {
   const modal = useMemo(
     () =>
       new ModalStore({
@@ -51,4 +51,4 @@ const Index = ({ uploadParams, afterSubmit }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailOverturnModal)

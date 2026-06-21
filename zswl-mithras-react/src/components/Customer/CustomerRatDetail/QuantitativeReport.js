@@ -10,7 +10,7 @@ import { saveServer } from '@/utils'
 
 const { approvalStatus } = options
 
-const Index = ({ list = [], ratingScoreRSP = {}, canApproval, store, isZX, hymx }) => {
+const CustomerRatDetailQuantitativeReport = ({ list = [], ratingScoreRSP = {}, canApproval, store, isZX, hymx }) => {
   const isApproval = getQuery('typeId') == 'approval'
   const hasApprovalOption = list.some((item) => item?.approvalStatus)
   const isShow = isApproval && (canApproval ? true : hasApprovalOption)
@@ -224,4 +224,4 @@ const Index = ({ list = [], ratingScoreRSP = {}, canApproval, store, isZX, hymx 
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailQuantitativeReport)

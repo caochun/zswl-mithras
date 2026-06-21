@@ -8,7 +8,7 @@ import { approvalInfoRender, DynamicFormItem } from '../RatingForm'
 import { isEmpty } from '@/utils'
 
 const { Panel } = Collapse
-const Index = ({ store, paramInfo, auth }) => {
+const CustomerRatDetailRatingAdjustment = ({ store, paramInfo, auth }) => {
   const { executeData } = store
   const item = paramInfo?.info?.评级调整事项
 
@@ -92,4 +92,4 @@ const Index = ({ store, paramInfo, auth }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailRatingAdjustment)

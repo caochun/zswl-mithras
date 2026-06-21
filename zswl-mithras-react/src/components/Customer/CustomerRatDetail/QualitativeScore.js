@@ -6,7 +6,7 @@ import { DynamicFormItem, approvalInfoRender } from '../RatingForm'
 
 const { Panel } = Collapse
 export { DynamicFormItem, approvalInfoRender }
-const Index = ({ initialValues, paramInfo, auth, isFirst, store }) => {
+const CustomerRatDetailQualitativeScore = ({ initialValues, paramInfo, auth, isFirst, store }) => {
   const { info = {} } = paramInfo ?? {}
   const [infoList, setInfoList] = useState([])
   const [activeKey, setActiveKey] = useState([])
@@ -60,4 +60,4 @@ const Index = ({ initialValues, paramInfo, auth, isFirst, store }) => {
   )
 }
 
-export default observer(Index)
+export default observer(CustomerRatDetailQualitativeScore)
