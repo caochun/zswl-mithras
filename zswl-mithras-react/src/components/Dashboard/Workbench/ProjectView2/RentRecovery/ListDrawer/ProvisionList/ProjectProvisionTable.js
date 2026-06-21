@@ -9,23 +9,16 @@ import TableSummary from '../../../../../TableSummary'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 
-// 已投放未结清项目
-const Index = ({ group }) => {
+// 剩余本金与拨备
+const ProjectProvisionTable = ({ group }) => {
   const [sumData, setSumData] = useState({})
 
   const columns = getTableColumns(ALL_COLUMNS)
-  const searchItem = getSearchColumns(ALL_COLUMNS, [
-    '项目名称',
-    '合同编号',
-    '客户名称',
-    '业务部门',
-    '项目主办',
-    '地区分类',
-  ])
+  const searchItem = getSearchColumns(ALL_COLUMNS, ['客户名称', '合同编号'])
 
   const table = Table.useStore({
     request: async (params) => {
-      const { records, sumData } = await Api.postProjectInfoPaynosettleList(params)
+      const { records, sumData } = await Api.postProjectInfoStatisticsProvisionList(params)
       setSumData(sumData)
       return records
     },
@@ -36,7 +29,7 @@ const Index = ({ group }) => {
       extra={
         <ExportBtn
           tableStore={table}
-          businessType={'DASHBOARD_PROJECT_PROJECT_PAY_NO_SETTLE'}
+          businessType={'DASHBOARD_PROJECT_PROVISION'}
           extraParams={{}}
         />
       }
@@ -44,8 +37,8 @@ const Index = ({ group }) => {
         return <TableSummary columns={table.getOptimizedColumns()} sumData={sumData}></TableSummary>
       }}
       editable={false}
-      columnsFilter={`${columnsFilterKey}_PayNoSettleList_1`}
-            onFilter={(key,val) => saveServer(`${columnsFilterKey}_PayNoSettleList_1`,val)}
+      columnsFilter={`${columnsFilterKey}_ProvisionList_1`}
+      onFilter={(key, val) => saveServer(`${columnsFilterKey}_ProvisionList_1`, val)}
 
       scroll={{ x: true }}
       store={table}
@@ -57,4 +50,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectProvisionTable)

@@ -3,7 +3,7 @@ import { Drawer } from '@zswl/components'
 import { useMemo, cloneElement } from 'react'
 import { getItemConfigByGroupCode } from '../Config'
 
-const Index = ({ store, extraQueryParams }) => {
+const ProjectRentRecoveryListDrawer = ({ store, extraQueryParams }) => {
   const { curCardData } = store
   const { group, groupCode } = curCardData
   const drawerComponent = getItemConfigByGroupCode(groupCode)?.component ?? <div></div>
@@ -26,4 +26,4 @@ const Index = ({ store, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectRentRecoveryListDrawer)

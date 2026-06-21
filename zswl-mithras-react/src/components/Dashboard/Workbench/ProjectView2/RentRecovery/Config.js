@@ -1,15 +1,15 @@
-import ThisMonthRent from './ListDrawer/ThisMonthRent'
-import PledgeList from './ListDrawer/PledgeList'
-import PayNoSettleList from './ListDrawer/PayNoSettleList'
-import ProvisionList from './ListDrawer/ProvisionList'
-import OverdueList from './ListDrawer/OverdueList'
+import ProjectThisMonthRentTable from './ListDrawer/ThisMonthRent/ProjectThisMonthRentTable'
+import ProjectPledgeTable from './ListDrawer/PledgeList/ProjectPledgeTable'
+import ProjectPayNoSettleTable from './ListDrawer/PayNoSettleList/ProjectPayNoSettleTable'
+import ProjectProvisionTable from './ListDrawer/ProvisionList/ProjectProvisionTable'
+import ProjectOverdueTable from './ListDrawer/OverdueList/ProjectOverdueTable'
 
 export const initFieldsConfig = [
   {
     group: '本月应收租金',
     groupCode: 'PROJECT_VIEW_FINANCE_RENT_IN_MONTH',
     iconType: 'icon-yingshoushishou',
-    component: <ThisMonthRent />,
+    component: <ProjectThisMonthRentTable />,
     tipContent: '统计应收日期在本月的数据',
     fields: [
       { name: '合计数', dataIndex: 'quantity' },
@@ -21,7 +21,7 @@ export const initFieldsConfig = [
     group: '项目质押/监管情况',
     groupCode: 'PROJECT_VIEW_FINANCE_PLEDGE',
     iconType: 'icon-yingshoushishou',
-    component: <PledgeList />,
+    component: <ProjectPledgeTable />,
     tipContent: '统计尚未结清合同的质押/监管情况',
     fields: [
       { name: '未结清合同数', dataIndex: 'quantity' },
@@ -33,7 +33,7 @@ export const initFieldsConfig = [
     group: '存在逾期项目',
     groupCode: 'PROJECT_VIEW_FINANCE_OVERDUE',
     iconType: 'icon-yuqixiangmu',
-    component: <OverdueList />,
+    component: <ProjectOverdueTable />,
     tipContent: '展示存在逾期的合同情况',
     fields: [
       { name: '合计数', dataIndex: 'quantity' },
@@ -44,7 +44,7 @@ export const initFieldsConfig = [
     group: '剩余本金与拨备',
     groupCode: 'PROJECT_VIEW_FINANCE_PROVISION',
     iconType: 'icon-shengyubenjinbobei',
-    component: <ProvisionList />,
+    component: <ProjectProvisionTable />,
     tipContent: '统计最新生效的拨备计提数据',
     fields: [
       { name: '剩余敞口', dataIndex: 'totalExposure' },
@@ -55,7 +55,7 @@ export const initFieldsConfig = [
     group: '已投放未结清项目',
     groupCode: 'PROJECT_VIEW_FINANCE_NO_SETTLE',
     iconType: 'icon-shengyubenjinbobei',
-    component: <PayNoSettleList />,
+    component: <ProjectPayNoSettleTable />,
     tipContent: '有付款核销且合同状态为「生效」和「起租」的数据',
     fields: [
       { name: '未结清合同数', dataIndex: 'quantity' },

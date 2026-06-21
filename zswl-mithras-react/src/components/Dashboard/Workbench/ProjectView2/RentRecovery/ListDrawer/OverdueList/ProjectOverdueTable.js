@@ -9,27 +9,39 @@ import TableSummary from '../../../../../TableSummary'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 
-// 剩余本金与拨备
-const Index = ({ group }) => {
+// 存在逾期项目明细
+const ProjectOverdueTable = ({ group, extraQueryParams = {} }) => {
   const [sumData, setSumData] = useState({})
 
   const columns = getTableColumns(ALL_COLUMNS)
-  const searchItem = getSearchColumns(ALL_COLUMNS, ['客户名称', '合同编号'])
+  const searchItem = getSearchColumns(ALL_COLUMNS, [
+    '客户名称',
+    '项目名称',
+    '合同编号',
+    '业务部门',
+    '项目主办',
+  ])
 
-  const table = Table.useStore({
-    request: async (params) => {
-      const { records, sumData } = await Api.postProjectInfoStatisticsProvisionList(params)
-      setSumData(sumData)
-      return records
+  const table = Table.useStore(
+    {
+      request: async (params) => {
+        const { list, sumData } = await Api.postProjectInfoOverdueList({
+          ...params,
+          ...extraQueryParams,
+        })
+        setSumData(sumData)
+        return list
+      },
     },
-  })
+    [extraQueryParams]
+  )
 
   return (
     <Table
       extra={
         <ExportBtn
           tableStore={table}
-          businessType={'DASHBOARD_PROJECT_PROVISION'}
+          businessType={'DASHBOARD_PROJECT_OVERDUE_LIST'}
           extraParams={{}}
         />
       }
@@ -37,8 +49,8 @@ const Index = ({ group }) => {
         return <TableSummary columns={table.getOptimizedColumns()} sumData={sumData}></TableSummary>
       }}
       editable={false}
-      columnsFilter={`${columnsFilterKey}_ProvisionList_1`}
-      onFilter={(key,val) => saveServer(`${columnsFilterKey}_ProvisionList_1`,val)}
+      columnsFilter={`${columnsFilterKey}_OverdueList_1`}
+      onFilter={(key, val) => saveServer(`${columnsFilterKey}_${group}`, val)}
 
       scroll={{ x: true }}
       store={table}
@@ -50,4 +62,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectOverdueTable)

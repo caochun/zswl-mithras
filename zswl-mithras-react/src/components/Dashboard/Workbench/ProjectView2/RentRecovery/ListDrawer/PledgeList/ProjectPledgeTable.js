@@ -9,48 +9,39 @@ import TableSummary from '../../../../../TableSummary'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 
-// 存在逾期项目明细
-const Index = ({ group, extraQueryParams = {} }) => {
+// 项目质押/监管情况
+const ProjectPledgeTable = ({ group }) => {
   const [sumData, setSumData] = useState({})
 
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
-    '客户名称',
-    '项目名称',
     '合同编号',
-    '业务部门',
-    '项目主办',
+    '项目名称',
+    '质押/监管情况',
+    '融资状态',
+    '融资编号',
   ])
 
-  const table = Table.useStore(
-    {
-      request: async (params) => {
-        const { list, sumData } = await Api.postProjectInfoOverdueList({
-          ...params,
-          ...extraQueryParams,
-        })
-        setSumData(sumData)
-        return list
-      },
+  const table = Table.useStore({
+    request: async (params) => {
+      const { records, sumData } = await Api.postProjectInfoStatisticsPledgeList(params)
+      setSumData(sumData)
+      return records
     },
-    [extraQueryParams]
-  )
+  })
 
   return (
     <Table
       extra={
-        <ExportBtn
-          tableStore={table}
-          businessType={'DASHBOARD_PROJECT_OVERDUE_LIST'}
-          extraParams={{}}
-        />
+        <ExportBtn tableStore={table} businessType={'DASHBOARD_PROJECT_PLEDGE'} extraParams={{}} />
       }
       summary={() => {
         return <TableSummary columns={table.getOptimizedColumns()} sumData={sumData}></TableSummary>
       }}
+      rowKey={(record, index) => index.toString()}
       editable={false}
-      columnsFilter={`${columnsFilterKey}_OverdueList_1`}
-      onFilter={(key,val) => saveServer(`${columnsFilterKey}_${group}`,val)}
+      columnsFilter={`${columnsFilterKey}_${group}`}
+      onFilter={(key, val) => saveServer(`${columnsFilterKey}_${group}`, val)}
 
       scroll={{ x: true }}
       store={table}
@@ -62,4 +53,4 @@ const Index = ({ group, extraQueryParams = {} }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectPledgeTable)

@@ -9,34 +9,46 @@ import TableSummary from '../../../../../TableSummary'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 
-// 项目质押/监管情况
-const Index = ({ group }) => {
+// 本月应收/实收租金明细
+const ProjectThisMonthRentTable = ({ group, extraQueryParams }) => {
   const [sumData, setSumData] = useState({})
 
   const columns = getTableColumns(ALL_COLUMNS)
-  const searchItem = getSearchColumns(ALL_COLUMNS, ['合同编号', '项目名称', '质押/监管情况','融资状态','融资编号'])
+  const searchItem = getSearchColumns(ALL_COLUMNS, [
+    '项目名称',
+    '合同编号',
+    '本期应收日期',
+    '业务部门',
+    '项目主办',
+  ])
 
   const table = Table.useStore({
     request: async (params) => {
-      const { records, sumData } = await Api.postProjectInfoStatisticsPledgeList(params)
+      const { list, sumData } = await Api.postProjectInfoRentthismonthList({
+        ...params,
+        ...extraQueryParams,
+      })
       setSumData(sumData)
-      return records
+      return list
     },
   })
 
   return (
     <Table
       extra={
-        <ExportBtn tableStore={table} businessType={'DASHBOARD_PROJECT_PLEDGE'} extraParams={{}} />
+        <ExportBtn
+          tableStore={table}
+          businessType={'DASHBOARD_PROJECT_RENT_THIS_MONTH'}
+          extraParams={{}}
+        />
       }
       summary={() => {
         return <TableSummary columns={table.getOptimizedColumns()} sumData={sumData}></TableSummary>
       }}
       rowKey={(record, index) => index.toString()}
       editable={false}
-      columnsFilter={`${columnsFilterKey}_${group}`}
-                  onFilter={(key,val) => saveServer(`${columnsFilterKey}_${group}`,val)}
-
+      columnsFilter={`${columnsFilterKey}_ThisMonthRent_1`}
+      onFilter={(key, val) => saveServer(`${columnsFilterKey}_ThisMonthRent_1`, val)}
       scroll={{ x: true }}
       store={table}
       searchbar={{
@@ -47,4 +59,4 @@ const Index = ({ group }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectThisMonthRentTable)

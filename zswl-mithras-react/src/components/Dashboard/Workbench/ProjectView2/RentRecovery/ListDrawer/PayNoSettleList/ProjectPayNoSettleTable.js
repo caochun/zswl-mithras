@@ -9,27 +9,25 @@ import TableSummary from '../../../../../TableSummary'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 
-// 本月应收/实收租金明细
-const Index = ({ group, extraQueryParams }) => {
+// 已投放未结清项目
+const ProjectPayNoSettleTable = ({ group }) => {
   const [sumData, setSumData] = useState({})
 
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, [
     '项目名称',
     '合同编号',
-    '本期应收日期',
+    '客户名称',
     '业务部门',
     '项目主办',
+    '地区分类',
   ])
 
   const table = Table.useStore({
     request: async (params) => {
-      const { list, sumData } = await Api.postProjectInfoRentthismonthList({
-        ...params,
-        ...extraQueryParams,
-      })
+      const { records, sumData } = await Api.postProjectInfoPaynosettleList(params)
       setSumData(sumData)
-      return list
+      return records
     },
   })
 
@@ -38,17 +36,17 @@ const Index = ({ group, extraQueryParams }) => {
       extra={
         <ExportBtn
           tableStore={table}
-          businessType={'DASHBOARD_PROJECT_RENT_THIS_MONTH'}
+          businessType={'DASHBOARD_PROJECT_PROJECT_PAY_NO_SETTLE'}
           extraParams={{}}
         />
       }
       summary={() => {
         return <TableSummary columns={table.getOptimizedColumns()} sumData={sumData}></TableSummary>
       }}
-      rowKey={(record, index) => index.toString()}
       editable={false}
-      columnsFilter={`${columnsFilterKey}_ThisMonthRent_1`}
-      onFilter={(key, val) => saveServer(`${columnsFilterKey}_ThisMonthRent_1`, val)}
+      columnsFilter={`${columnsFilterKey}_PayNoSettleList_1`}
+      onFilter={(key, val) => saveServer(`${columnsFilterKey}_PayNoSettleList_1`, val)}
+
       scroll={{ x: true }}
       store={table}
       searchbar={{
@@ -59,4 +57,4 @@ const Index = ({ group, extraQueryParams }) => {
   )
 }
 
-export default observer(Index)
+export default observer(ProjectPayNoSettleTable)
